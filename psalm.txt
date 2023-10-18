@@ -1,0 +1,986 @@
+
+INFO: PossiblyUndefinedVariable
+/kursi/app/Exceptions/Handler.php:39:13
+Possibly undefined variable $details, first seen on line 39 (see https://psalm.dev/018)
+            [30;47m$details[0m['message'] = $e->getMessage();
+
+
+INFO: InvalidNullableReturnType
+/kursi/app/Helpers/helpers.php:5:52
+The declared return type 'array<array-key, mixed>|string' for emptyDataToNull is not nullable, but 'array<array-key, mixed|null>|null|string' contains null (see https://psalm.dev/144)
+    function emptyDataToNull(string|array $data) : [30;47mstring|array[0m
+
+
+INFO: RedundantCondition
+/kursi/app/Helpers/helpers.php:14:19
+Type string for $data is always string (see https://psalm.dev/122)
+        } elseif ([30;47mgettype($data) == 'string'[0m) {
+
+
+INFO: NullableReturnStatement
+/kursi/app/Helpers/helpers.php:20:16
+The declared return type 'array<array-key, mixed>|string' for emptyDataToNull is not nullable, but the function returns 'array<array-key, mixed|null>|non-empty-string|null' (see https://psalm.dev/139)
+        return [30;47m$data[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:47:56
+Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::store end in a return statement, return type Illuminate\Http\RedirectResponse expected (see https://psalm.dev/011)
+    public function store(CourseTagRequest $request) : [30;47mRedirectResponse[0m
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:56:40
+Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::edit end in a return statement, return type Illuminate\Contracts\View\View expected (see https://psalm.dev/011)
+    public function edit(string $id) : [30;47mView[0m
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:64:69
+Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::update end in a return statement, return type Illuminate\Http\RedirectResponse expected (see https://psalm.dev/011)
+    public function update(CourseTagRequest $request, string $id) : [30;47mRedirectResponse[0m
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:72:43
+Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::destroy end in a return statement, return type Illuminate\Http\RedirectResponse expected (see https://psalm.dev/011)
+    public function destroy(string $id) : [30;47mRedirectResponse[0m
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:13:21
+Method App\Http\Controllers\Admin\Users\UsersController::index does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47mindex[0m()
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:21:21
+Method App\Http\Controllers\Admin\Users\UsersController::create does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47mcreate[0m()
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:29:21
+Method App\Http\Controllers\Admin\Users\UsersController::store does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47mstore[0m(Request $request)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:37:21
+Method App\Http\Controllers\Admin\Users\UsersController::show does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47mshow[0m(string $id)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:45:21
+Method App\Http\Controllers\Admin\Users\UsersController::edit does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47medit[0m(string $id)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:53:21
+Method App\Http\Controllers\Admin\Users\UsersController::update does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47mupdate[0m(Request $request, string $id)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Admin/Users/UsersController.php:61:21
+Method App\Http\Controllers\Admin\Users\UsersController::destroy does not have a return type, expecting void (see https://psalm.dev/050)
+    public function [30;47mdestroy[0m(string $id)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/About/AboutPageIndexController.php:15:21
+Method App\Http\Controllers\Site\V3\About\AboutPageIndexController::index does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mindex[0m()
+
+
+INFO: TooManyArguments
+/kursi/app/Http/Controllers/Site/V3/About/AboutPageIndexController.php:44:15
+Too many arguments for method Illuminate\Database\Query\Builder::select - saw 2 (see https://psalm.dev/026)
+            ->[30;47mselect[0m('employees.*', 'urls.url')
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/BlogIndexPage/BlogIndexPageController.php:9:21
+Method App\Http\Controllers\Site\V3\BlogIndexPage\BlogIndexPageController::index does not have a return type, expecting never (see https://psalm.dev/050)
+    public function [30;47mindex[0m()
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/CompanyReviews/CompanyReviewController.php:16:21
+Method App\Http\Controllers\Site\V3\CompanyReviews\CompanyReviewController::index does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mindex[0m(
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/CompanyReviews/CompanyReviewController.php:25:21
+Method App\Http\Controllers\Site\V3\CompanyReviews\CompanyReviewController::create does not have a return type, expecting Illuminate\Http\JsonResponse (see https://psalm.dev/050)
+    public function [30;47mcreate[0m(
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/Courses/CoursesController.php:12:21
+Method App\Http\Controllers\Site\V3\Courses\CoursesController::index does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mindex[0m(
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:21
+Method App\Http\Controllers\Site\V3\DynamicPages\CompanyController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:21
+Method App\Http\Controllers\Site\V3\DynamicPages\DynamicPagesInterface::render does not have a return type (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1);
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1);
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1);
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1);
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:21
+Method App\Http\Controllers\Site\V3\DynamicPages\EmployeeController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
+
+
+INFO: InvalidArgument
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:20:19
+Argument 1 of abort expects Illuminate\Contracts\Support\Responsable|Symfony\Component\HttpFoundation\Response|int, but '404' provided (see https://psalm.dev/004)
+            abort([30;47m'404'[0m);
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:21
+Method App\Http\Controllers\Site\V3\DynamicPages\ListingController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:21
+Method App\Http\Controllers\Site\V3\DynamicPages\PagesController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:21
+Method App\Http\Controllers\Site\V3\DynamicPages\PostCategoriesController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
+
+
+INFO: TooManyArguments
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:27:15
+Too many arguments for method Illuminate\Database\Query\Builder::select - saw 2 (see https://psalm.dev/026)
+            ->[30;47mselect[0m('posts.*', 'urls.url') // todo тут скорее всего вместо posts.* можно несколько полей взять
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:21
+Method App\Http\Controllers\Site\V3\DynamicPages\PostsController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:28
+Parameter $sectionID has no provided type (see https://psalm.dev/154)
+    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:40
+Parameter $isAmp has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:56
+Parameter $paginatePage has no provided type (see https://psalm.dev/154)
+    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
+
+
+INFO: MissingClosureParamType
+/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:16:44
+Parameter $query has no provided type (see https://psalm.dev/153)
+            ->with(['comments' => function([30;47m$query[0m) {
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:9:21
+Method App\Http\Controllers\Site\V3\DynamicSiteController::render does not have a return type (see https://psalm.dev/050)
+    public function [30;47mrender[0m()
+
+
+INFO: InvalidStringClass
+/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:19:21
+String cannot be used as a class (see https://psalm.dev/160)
+            return ([30;47mnew $class()[0m)->render($resource->section_id);
+
+
+INFO: InvalidStringClass
+/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:36:29
+String cannot be used as a class (see https://psalm.dev/160)
+                    return ([30;47mnew $class()[0m)->render($resource->section_id, true, $page);
+
+
+INFO: InvalidStringClass
+/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:52:29
+String cannot be used as a class (see https://psalm.dev/160)
+                    return ([30;47mnew $class()[0m)->render($resource->section_id, false);
+
+
+INFO: InvalidStringClass
+/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:66:29
+String cannot be used as a class (see https://psalm.dev/160)
+                    return ([30;47mnew $class()[0m)->render($resource->section_id, false, $page);
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/IndexPage/IndexPageController.php:10:21
+Method App\Http\Controllers\Site\V3\IndexPage\IndexPageController::index does not have a return type, expecting never (see https://psalm.dev/050)
+    public function [30;47mindex[0m()
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/ListingRating/ListingRatingController.php:12:21
+Method App\Http\Controllers\Site\V3\ListingRating\ListingRatingController::create does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
+    public function [30;47mcreate[0m(
+
+
+[0;31mERROR[0m: UndefinedClass
+/kursi/app/Http/Controllers/Site/V3/SItemap/HTML/HTMLSitemapController.php:15:27
+Class, interface or enum named App\Http\Controllers\Site\V3\SItemap\HTML\DB does not exist (see https://psalm.dev/019)
+        $postCategories = [97;41mDB[0m::table('post_categories')
+
+
+INFO: MissingReturnType
+/kursi/app/Http/Controllers/Site/V3/SItemap/HTML/HTMLSitemapController.php:25:21
+Method App\Http\Controllers\Site\V3\SItemap\HTML\HTMLSitemapController::coursesCategories does not have a return type, expecting never (see https://psalm.dev/050)
+    public function [30;47mcoursesCategories[0m($alias)
+
+
+INFO: MissingParamType
+/kursi/app/Http/Controllers/Site/V3/SItemap/HTML/HTMLSitemapController.php:25:39
+Parameter $alias has no provided type (see https://psalm.dev/154)
+    public function coursesCategories([30;47m$alias[0m)
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Requests/Admin/Companies/CompanyReviewRequest.php:24:16
+The declared return type 'array<string, Illuminate\Contracts\Validation\ValidationRule|array<array-key, mixed>|string>' for App\Http\Requests\Admin\Companies\CompanyReviewRequest::rules is incorrect, got 'array{0: 'character_code', 1: 'sort', 2: 'code', author_name: list{'nullable'}, content: list{'required'}, minuses: list{'nullable'}, pluses: list{'nullable'}, rating: list{'required', 'numeric'}, school_id: list{'required'}, status: list{'required', 'numeric'}, title: list{'required'}}' (see https://psalm.dev/011)
+     * @return [30;47marray<string, ValidationRule|array|string>[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Http/Requests/Admin/Companies/CompanyReviewRequest.php:28:16
+The inferred type 'array{0: 'character_code', 1: 'sort', 2: 'code', author_name: list{'nullable'}, content: list{'required'}, minuses: list{'nullable'}, pluses: list{'nullable'}, rating: list{'required', 'numeric'}, school_id: list{'required'}, status: list{'required', 'numeric'}, title: list{'required'}}' does not match the declared return type 'array<string, Illuminate\Contracts\Validation\ValidationRule|array<array-key, mixed>|string>' for App\Http\Requests\Admin\Companies\CompanyReviewRequest::rules (see https://psalm.dev/128)
+        return [30;47m[
+            "school_id" => ["required"],
+            "title" => ["required"],
+            "pluses" => ["nullable"],
+            "minuses" => ["nullable"],
+            "content" => ["required"],
+            "rating" => ["required", "numeric"],
+            "author_name" => ["nullable"],
+            "status" => ["required", "numeric"],
+
+            "character_code", // todo наверно эти поля не надо
+            "sort",
+            "code"
+        ][0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:44:34
+The declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
+    public function getPostId(): [30;47mint[0m
+
+
+INFO: InvalidNullableReturnType
+/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:44:34
+The declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
+    public function getPostId(): [30;47mint[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:46:16
+The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId (see https://psalm.dev/128)
+        return [30;47m$this->route(self::POST_ID)[0m;
+
+
+INFO: NullableReturnStatement
+/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:46:16
+The declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
+        return [30;47m$this->route(self::POST_ID)[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:37:37
+The declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
+    public function getCompanyId(): [30;47mint[0m
+
+
+INFO: InvalidNullableReturnType
+/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:37:37
+The declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
+    public function getCompanyId(): [30;47mint[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:39:16
+The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId (see https://psalm.dev/128)
+        return [30;47m$this->route(self::COMPANY_ID)[0m;
+
+
+INFO: NullableReturnStatement
+/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:39:16
+The declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
+        return [30;47m$this->route(self::COMPANY_ID)[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:43:37
+The declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
+    public function getCompanyId(): [30;47mint[0m
+
+
+INFO: InvalidNullableReturnType
+/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:43:37
+The declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
+    public function getCompanyId(): [30;47mint[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:45:16
+The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId (see https://psalm.dev/128)
+        return [30;47m$this->route(self::COMPANY_ID)[0m;
+
+
+INFO: NullableReturnStatement
+/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:45:16
+The declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
+        return [30;47m$this->route(self::COMPANY_ID)[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:42:37
+The declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
+    public function getListingId(): [30;47mint[0m
+
+
+INFO: InvalidNullableReturnType
+/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:42:37
+The declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
+    public function getListingId(): [30;47mint[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:44:16
+The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId (see https://psalm.dev/128)
+        return [30;47m$this->route(self::LISTING_ID)[0m;
+
+
+INFO: NullableReturnStatement
+/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:44:16
+The declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
+        return [30;47m$this->route(self::LISTING_ID)[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:23:37
+The declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
+    public function getListingId(): [30;47mint[0m
+
+
+INFO: InvalidNullableReturnType
+/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:23:37
+The declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
+    public function getListingId(): [30;47mint[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:25:16
+The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId (see https://psalm.dev/128)
+        return [30;47m$this->route(self::LISTING_ID)[0m;
+
+
+INFO: NullableReturnStatement
+/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:25:16
+The declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
+        return [30;47m$this->route(self::LISTING_ID)[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Models/Companies/Company.php:40:28
+The declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Companies\Company::url is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
+    public function url(): [30;47mHasOne[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Models/Companies/Company.php:42:16
+The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Companies\Company::url (see https://psalm.dev/128)
+        return [30;47m$this->hasOne(Url::class, 'section_id')->where('section_type', self::SECTION_TYPE)[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Models/Companies/Company.php:46:21
+Method App\Models\Companies\Company::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
+    public function [30;47murls[0m()
+
+
+INFO: UnsafeInstantiation
+/kursi/app/Models/Companies/SchoolReview.php:49:16
+Cannot safely instantiate class App\Models\Companies\SchoolReview with "new static" as its constructor might change in child classes (see https://psalm.dev/229)
+        $new = [30;47mnew static()[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Models/Listing/Listing.php:67:31
+The declared return type 'Illuminate\Database\Eloquent\Relations\BelongsTo' for App\Models\Listing\Listing::parent is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\BelongsTo as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
+    public function parent(): [30;47mBelongsTo[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Models/Listing/Listing.php:69:16
+The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\BelongsTo as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\BelongsTo' for App\Models\Listing\Listing::parent (see https://psalm.dev/128)
+        return [30;47m$this->belongsTo(self::class, 'parent_id', 'id')->with('parent')[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Models/Listing/Listing.php:72:28
+The declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Listing\Listing::url is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
+    public function url(): [30;47mHasOne[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Models/Listing/Listing.php:74:16
+The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Listing\Listing::url (see https://psalm.dev/128)
+        return [30;47m$this->hasOne(Url::class, 'section_id', 'id')->where('section_type', self::SECTION_TYPE)[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Models/Listing/Listing.php:78:21
+Method App\Models\Listing\Listing::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
+    public function [30;47murls[0m()
+
+
+INFO: InvalidReturnType
+/kursi/app/Models/Listing/Listing.php:89:38
+The declared return type 'int' for App\Models\Listing\Listing::getRatingsSum is incorrect, got 'float' (see https://psalm.dev/011)
+    public function getRatingsSum(): [30;47mint[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Models/Listing/Listing.php:91:16
+The inferred type 'float' does not match the declared return type 'int' for App\Models\Listing\Listing::getRatingsSum (see https://psalm.dev/128)
+        return [30;47m$this->rating_sum[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Models/Pages/Page.php:27:21
+Method App\Models\Pages\Page::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
+    public function [30;47murls[0m()
+
+
+INFO: UnsafeInstantiation
+/kursi/app/Models/PostComments/PostComment.php:41:20
+Cannot safely instantiate class App\Models\PostComments\PostComment with "new static" as its constructor might change in child classes (see https://psalm.dev/229)
+        $comment = [30;47mnew static()[0m;
+
+
+INFO: InvalidReturnType
+/kursi/app/Models/PostComments/PostComment.php:88:32
+The declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\PostComments\PostComment::childes is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
+    public function childes(): [30;47mHasMany[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Models/PostComments/PostComment.php:90:16
+The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\PostComments\PostComment::childes (see https://psalm.dev/128)
+        return [30;47m$this->hasMany(self::class, 'parent_id', 'id' )->with('childes')[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Models/Posts/Post.php:40:21
+Method App\Models\Posts\Post::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
+    public function [30;47murls[0m()
+
+
+INFO: MissingReturnType
+/kursi/app/Models/Posts/PostCategory.php:27:21
+Method App\Models\Posts\PostCategory::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
+    public function [30;47murls[0m()
+
+
+INFO: InvalidReturnType
+/kursi/app/Models/Posts/PostComment.php:33:32
+The declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\Posts\PostComment::childes is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
+    public function childes(): [30;47mHasMany[0m
+
+
+INFO: InvalidReturnStatement
+/kursi/app/Models/Posts/PostComment.php:35:16
+The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\Posts\PostComment::childes (see https://psalm.dev/128)
+        return [30;47m$this->hasMany(self::class, 'parent_id', 'id' )->with('childes')[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Models/Team/Employee.php:27:21
+Method App\Models\Team\Employee::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
+    public function [30;47murls[0m()
+
+
+INFO: NonInvariantDocblockPropertyType
+/kursi/app/Models/User.php:20:15
+Property App\Models\User::$fillable has type array<int, string>, not invariant with Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$fillable of type array<array-key, string> (see https://psalm.dev/267)
+    protected [30;47m$fillable[0m = [
+
+
+INFO: NonInvariantDocblockPropertyType
+/kursi/app/Models/User.php:31:15
+Property App\Models\User::$hidden has type array<int, string>, not invariant with Illuminate\Database\Eloquent\Concerns\HidesAttributes::$hidden of type array<array-key, string> (see https://psalm.dev/267)
+    protected [30;47m$hidden[0m = [
+
+
+INFO: NonInvariantDocblockPropertyType
+/kursi/app/Models/User.php:41:15
+Property App\Models\User::$casts has type array<string, string>, not invariant with Illuminate\Database\Eloquent\Concerns\HasAttributes::$casts of type array<array-key, mixed> (see https://psalm.dev/267)
+    protected [30;47m$casts[0m = [
+
+
+INFO: NonInvariantDocblockPropertyType
+/kursi/app/Providers/EventServiceProvider.php:17:15
+Property App\Providers\EventServiceProvider::$listen has type array<class-string, array<int, class-string>>, not invariant with Illuminate\Foundation\Support\Providers\EventServiceProvider::$listen of type array<string, array<int, string>> (see https://psalm.dev/267)
+    protected [30;47m$listen[0m = [
+
+
+INFO: MoreSpecificReturnType
+/kursi/app/Repositories/Company/CompanyRepository.php:26:42
+The declared return type 'App\Models\Companies\Company' for App\Repositories\Company\CompanyRepository::getCompany is more specific than the inferred return type 'Illuminate\Database\Eloquent\Model' (see https://psalm.dev/070)
+    public function getCompany(int $id): [30;47mCompany[0m
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Company/CompanyRepository.php:34:39
+Parameter $query has no provided type (see https://psalm.dev/153)
+                'reviews' => function([30;47m$query[0m) {
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Company/CompanyRepository.php:38:39
+Parameter $query has no provided type (see https://psalm.dev/153)
+                'courses' => function([30;47m$query[0m) {
+
+
+INFO: LessSpecificReturnStatement
+/kursi/app/Repositories/Company/CompanyRepository.php:49:16
+The type 'Illuminate\Database\Eloquent\Model' is more general than the declared return type 'App\Models\Companies\Company' for App\Repositories\Company\CompanyRepository::getCompany (see https://psalm.dev/129)
+        return [30;47m$company[0m;
+
+
+INFO: PossiblyNullArgument
+/kursi/app/Repositories/Company/CompanyRepository.php:58:44
+Argument 2 of Illuminate\Database\Query\Builder::orderBy cannot be null, possibly null value provided (see https://psalm.dev/078)
+            $query->orderBy($dto->sortKey, [30;47m$dto->sortValue[0m);
+
+
+INFO: MoreSpecificReturnType
+/kursi/app/Repositories/Courses/CoursesRepository.php:17:50
+The declared return type 'Illuminate\Pagination\LengthAwarePaginator' for App\Repositories\Courses\CoursesRepository::index is more specific than the inferred return type 'Illuminate\Contracts\Pagination\LengthAwarePaginator' (see https://psalm.dev/070)
+    public function index(IndexCoursesDto $dto): [30;47mLengthAwarePaginator[0m
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Courses/CoursesRepository.php:20:46
+Parameter $query has no provided type (see https://psalm.dev/153)
+            ->whereHas('listings', function ([30;47m$query[0m) use ($dto) {
+
+
+INFO: PossiblyNullArgument
+/kursi/app/Repositories/Courses/CoursesRepository.php:31:44
+Argument 2 of Illuminate\Database\Query\Builder::orderBy cannot be null, possibly null value provided (see https://psalm.dev/078)
+            $query->orderBy($dto->sortKey, [30;47m$dto->sortValue[0m);
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Courses/CoursesRepository.php:33:50
+Parameter $q has no provided type (see https://psalm.dev/153)
+            $query->with(['listings' => function([30;47m$q[0m) use ($dto) {
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Courses/CoursesRepository.php:39:44
+Parameter $query has no provided type (see https://psalm.dev/153)
+        $query->when($dto->tags, function ([30;47m$query[0m) use ($dto) {
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Courses/CoursesRepository.php:40:48
+Parameter $q has no provided type (see https://psalm.dev/153)
+            $query->whereHas('tags', function ([30;47m$q[0m) use ($dto) {
+
+
+INFO: LessSpecificReturnStatement
+/kursi/app/Repositories/Courses/CoursesRepository.php:45:16
+The type 'Illuminate\Contracts\Pagination\LengthAwarePaginator' is more general than the declared return type 'Illuminate\Pagination\LengthAwarePaginator' for App\Repositories\Courses\CoursesRepository::index (see https://psalm.dev/129)
+        return [30;47m$query->paginate(
+            $dto->perPage,
+            ['*'],
+            'page',
+            $dto->page
+        )[0m;
+
+
+INFO: MoreSpecificReturnType
+/kursi/app/Repositories/Listing/ListingRepository.php:18:42
+The declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getListing is more specific than the inferred return type 'Illuminate\Database\Eloquent\Model' (see https://psalm.dev/070)
+    public function getListing(int $id): [30;47mListing[0m
+
+
+INFO: MissingClosureParamType
+/kursi/app/Repositories/Listing/ListingRepository.php:22:44
+Parameter $q has no provided type (see https://psalm.dev/153)
+            ->with(['courses' => function ([30;47m$q[0m) {
+
+
+INFO: LessSpecificReturnStatement
+/kursi/app/Repositories/Listing/ListingRepository.php:39:16
+The type 'Illuminate\Database\Eloquent\Model' is more general than the declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getListing (see https://psalm.dev/129)
+        return [30;47m$listing[0m;
+
+
+INFO: MoreSpecificReturnType
+/kursi/app/Repositories/Listing/ListingRepository.php:42:46
+The declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getById is more specific than the inferred return type 'Illuminate\Database\Eloquent\Model' (see https://psalm.dev/070)
+    public function getById(int $listingId): [30;47mListing[0m
+
+
+INFO: LessSpecificReturnStatement
+/kursi/app/Repositories/Listing/ListingRepository.php:52:16
+The type 'Illuminate\Database\Eloquent\Model' is more general than the declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getById (see https://psalm.dev/129)
+        return [30;47m$listing[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Comments/Dto/CreateCommentDto.php:11:19
+Property App\Services\Comments\Dto\CreateCommentDto::$name is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public string [30;47m$name[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Comments/Dto/CreateCommentDto.php:12:19
+Property App\Services\Comments\Dto\CreateCommentDto::$email is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public string [30;47m$email[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Comments/Dto/CreateCommentDto.php:13:16
+Property App\Services\Comments\Dto\CreateCommentDto::$postId is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$postId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Comments/Dto/CreateCommentDto.php:14:19
+Property App\Services\Comments\Dto\CreateCommentDto::$content is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public string [30;47m$content[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Comments/Dto/CreateCommentDto.php:15:17
+Property App\Services\Comments\Dto\CreateCommentDto::$parentId is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?int [30;47m$parentId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Comments/Dto/CreateCommentDto.php:16:17
+Property App\Services\Comments\Dto\CreateCommentDto::$userId is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?int [30;47m$userId[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Services/Company/Action/GetCompanyAction.php:13:21
+Method App\Services\Company\Action\GetCompanyAction::run does not have a return type, expecting App\Models\Companies\Company (see https://psalm.dev/050)
+    public function [30;47mrun[0m(int $sectionId)
+
+
+INFO: MissingReturnType
+/kursi/app/Services/CompanyReview/Action/IndexCompanyReviewsAction.php:13:21
+Method App\Services\CompanyReview\Action\IndexCompanyReviewsAction::run does not have a return type, expecting Illuminate\Contracts\Pagination\LengthAwarePaginator (see https://psalm.dev/050)
+    public function [30;47mrun[0m(IndexCompanyReviewsDto $dto)
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:10:18
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$rate is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public float [30;47m$rate[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:11:17
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$userId is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?int [30;47m$userId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:12:16
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$companyId is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$companyId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:13:19
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$name is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public string [30;47m$name[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:14:20
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$pluses is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$pluses[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:15:20
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$minuses is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$minuses[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:16:20
+Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$content is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$content[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:10:16
+Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$companyId is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$companyId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:11:20
+Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$sortKey is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$sortKey[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:12:20
+Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$sortValue is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$sortValue[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:13:16
+Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$page is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$page[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:14:16
+Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$perPage is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$perPage[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Services/Courses/Actions/IndexCoursesAction.php:13:21
+Method App\Services\Courses\Actions\IndexCoursesAction::run does not have a return type, expecting Illuminate\Pagination\LengthAwarePaginator (see https://psalm.dev/050)
+    public function [30;47mrun[0m(IndexCoursesDto $dto)
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:10:16
+Property App\Services\Courses\Dto\IndexCoursesDto::$listingId is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$listingId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:11:20
+Property App\Services\Courses\Dto\IndexCoursesDto::$sortKey is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$sortKey[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:12:20
+Property App\Services\Courses\Dto\IndexCoursesDto::$sortValue is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?string [30;47m$sortValue[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:13:19
+Property App\Services\Courses\Dto\IndexCoursesDto::$tags is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?array [30;47m$tags[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:14:16
+Property App\Services\Courses\Dto\IndexCoursesDto::$page is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$page[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:15:16
+Property App\Services\Courses\Dto\IndexCoursesDto::$perPage is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$perPage[0m;
+
+
+INFO: MissingReturnType
+/kursi/app/Services/Listing/Actions/GetListingAction.php:16:21
+Method App\Services\Listing\Actions\GetListingAction::run does not have a return type, expecting App\Models\Listing\Listing (see https://psalm.dev/050)
+    public function [30;47mrun[0m(int $sectionId)
+
+
+INFO: UndefinedMagicPropertyAssignment
+/kursi/app/Services/Listing/Actions/GetListingAction.php:20:8
+Magic instance property App\Models\Listing\Listing::$parent is not defined (see https://psalm.dev/217)
+       [30;47m$listing->parent[0m = $this->getParent($listing);
+
+
+INFO: UndefinedMagicPropertyAssignment
+/kursi/app/Services/Listing/Actions/GetListingAction.php:21:8
+Magic instance property App\Models\Listing\Listing::$tags is not defined (see https://psalm.dev/217)
+       [30;47m$listing->tags[0m = $this->tagRepository->getAll();
+
+
+INFO: MissingReturnType
+/kursi/app/Services/Listing/Actions/GetListingAction.php:26:22
+Method App\Services\Listing\Actions\GetListingAction::getParent does not have a return type (see https://psalm.dev/050)
+    private function [30;47mgetParent[0m(Listing $listing)
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/ListingRating/Dto/CreateListingRatingDto.php:10:16
+Property App\Services\ListingRating\Dto\CreateListingRatingDto::$listingId is not defined in constructor of App\Services\ListingRating\Dto\CreateListingRatingDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public int [30;47m$listingId[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/ListingRating/Dto/CreateListingRatingDto.php:11:18
+Property App\Services\ListingRating\Dto\CreateListingRatingDto::$rate is not defined in constructor of App\Services\ListingRating\Dto\CreateListingRatingDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public float [30;47m$rate[0m;
+
+
+INFO: PropertyNotSetInConstructor
+/kursi/app/Services/ListingRating/Dto/CreateListingRatingDto.php:12:17
+Property App\Services\ListingRating\Dto\CreateListingRatingDto::$userId is not defined in constructor of App\Services\ListingRating\Dto\CreateListingRatingDto or in any methods called in the constructor (see https://psalm.dev/074)
+    public ?int [30;47m$userId[0m;
+
+
+------------------------------
+[0;31m1 errors[0m found
+------------------------------
+158 other issues found.
+------------------------------
+Psalm can automatically fix 49 issues.
+Run Psalm again with
+[30;48;5;195m--alter --issues=MissingReturnType,InvalidReturnType,InvalidNullableReturnType --dry-run[0m
+to see what it can fix.
+------------------------------
+
+Checks took 6.41 seconds and used 511.574MB of memory
+Psalm was able to infer types for 81.5221% of the codebase

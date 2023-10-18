@@ -1,0 +1,269 @@
+.account{margin: 50px 0}
+.account-inner{margin: 80px 50px;}
+.account-menu{    padding: 5px 0;
+border-top: 1px solid #ccc;}
+.account-menu li{    display: inline;
+margin-right: 15px;}
+.account-menu li a{    color: #292929;}
+.account .panel-default i{    font-size: 4em;
+    margin: auto;
+    display: block;
+    color: #bbb;
+    text-align: center;
+}
+.account .panel-default{border: 1px solid #ccc;
+    min-height: 260px;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);}
+.account .panel-default h4{text-align: center;margin-top: 10px;}
+.account .panel-default p{min-height: 100px;}
+.account .panel-default a:hover{text-decoration: none; color:#fff;}
+
+.btn-success{background:#a5ca38;border-color:#a5ca38}
+.btn-success:hover{background:#92b527;border-color:#92b527}
+
+.offers-list .one-offer .title-top{display: none}
+.offers-list .one-offer.spec-offer{border: 10px solid #fff}
+
+.complaint_{margin-left: 20px}
+/****** manager *****/
+/*.label {display: inline;padding: .2em .6em .3em;font-size: 75%;font-weight: bold;line-height: 1
+;color: #ffffff;text-align: center;white-space: nowrap;vertical-align: baseline;border-radius: .25em;} */
+.label-warning{ background-color: #d47500; color:#fff;}
+.label-success{ background-color: #3cb521; color:#fff;}
+.complaint{color:#aaa !important;}
+.complaint:hover{color:#c71026 !important;}
+.reply a:hover{color:#0a7da5}
+.add_info{font-size: 13px; font-style: italic; color: #787878;}
+
+#blink2 {
+    -webkit-animation: blink2 1s linear infinite;
+    animation: blink2 1s linear infinite;
+}
+@-webkit-keyframes blink2 {
+    100% { color: rgba(34, 34, 34, 0); }
+}
+@keyframes blink2 {
+    100% { color: rgba(34, 34, 34, 0); }
+}
+.messages-icon{color: #38b6f7}
+.messages-icon:hover{text-decoration: none;}
+
+.messages-icon{
+    position: fixed;
+    right: 0;
+    top: 48%;
+    border: 1px solid #38b6f7;
+    padding: 5px;
+}
+
+
+
+/* chat code start */
+.create_appeal, .add_appeal{
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 1%;
+    float: right;
+    margin-bottom: 19px;
+}
+.mrg_bottom{
+    margin-bottom: 15px;
+}
+
+tr sup>i{
+    color: #8BC34A;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.table th, .status-column, .action-column{
+    text-align: center;
+}
+
+.action-column {
+    min-width: 180px;
+}
+
+.action-column > a {
+    width: 42px;
+    margin: 3px 1px;
+}
+
+.status-column {
+    min-width: 130px;
+}
+
+.post-title-column {
+    min-width: 250px;
+}
+
+
+
+
+#chat {
+    max-width: 750px;
+    margin: auto;
+    border: 15px solid #fff;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 0 21px 0 rgba(0, 0, 0, .2);
+}
+
+.appeal_theme, .appeal_messege{
+    padding: 15px;
+    max-width: 100%;
+}
+
+#chat .messages-list {
+    border: 1px solid #ddd;
+    padding: 15px;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+#chat .messages-list i {
+    font-size: 0.5em;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #eee;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    font-style: normal;
+    vertical-align: text-bottom;
+}
+
+#chat .messages-list b {
+    font-weight: normal;
+    font-size: 0.75em;
+    vertical-align: bottom;
+    color: #aaa;
+    margin: 0 0 0 10px;
+}
+
+#chat .messages-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#chat .messages-list ul li {
+    margin-bottom: 10px;
+    position: relative;
+    clear: both;
+    width: 100%;
+    padding: 5px;
+}
+
+#chat .messages-list ul li.pull-right {
+    text-align: right
+}
+
+#chat .messages-list ul li.no-open {
+    background: #e6dddd;
+}
+
+#chat .messages-list ul li span {
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    background: #a5ca38;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+#chat .messages-list ul li.pull-right span {
+    background: #00b6f7
+}
+
+#chat .messages-list ul li.pull-right b {
+    margin: 0 10px 0 0
+}
+
+#chat .chat-form {
+    margin: 15px 0 0;
+}
+
+#chat .chat-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+#chat .chat-form button {
+}
+
+#chat-btn {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 1%;
+}
+/* chat code finish */
+
+.form-vzo-group{
+    border: none
+}
+
+.btn-mob-center{
+    text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+    table {
+        border: 0;
+    }
+    table thead {
+        display: none;
+    }
+    table tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+    table td {
+        display: block;
+        text-align: center;
+        border-bottom: 1px dotted #ccc;
+        border-right: 1px solid transparent;
+    }
+    table tbody tr td:first-child{
+        text-align: left;
+    }
+    table td:last-child {
+        border-bottom: 0;
+    }
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .table th, .status-column, .action-column{
+        text-align: center;
+    }
+    .post-title-column {
+        min-width: inherit;
+    }
+    .field-mob-block{
+        display: block;
+        margin-top: 10px;
+    }
+
+    .btn-mob-center > a{
+        margin: 3px;
+    }
+    .btn-mob-center > button {
+        float: none !important;
+    }
+}

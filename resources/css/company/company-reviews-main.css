@@ -1,0 +1,69 @@
+.school_reviews {
+    position: relative;
+    margin-bottom: 80px;
+
+}
+
+.subblock_title {
+    font-weight: 600;
+    font-size: 32px;
+    margin: 60px 0;
+    margin-top: 120px;
+    color: #101820;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+span.school_reviews_title_count {
+    color: #a9aaaa;
+    font-weight: 500;
+}
+
+.product-sort-cont {
+    display: inline-flex;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    margin: 20px 0;
+    overflow-x: auto;
+    width: 100%;
+}
+.product-sort-btn {
+    background: #FFFFFF;
+    border: 1px solid #101820;
+    border-radius: 42px;
+    padding: 9px 20px;
+    margin-right: 8px;
+}
+.product-sort-btn a {
+    color: #101820;
+    font-weight: 400;
+    display: flex;
+    font-size: 18px;
+    text-decoration: none;
+}
+.product-sort-cont button {
+    color: #101820;
+    font-weight: 400;
+    display: flex;
+    font-size: 18px;
+    text-decoration: none;
+}
+.product-sort-btn img {
+    margin-left: 5px;
+}
+
+.product-sort-btn.active {
+    border: 1px solid #469ED7;
+    color: #469ED7;
+}
+
+.product-sort-btn.active a {
+    color: #469ED7;
+}

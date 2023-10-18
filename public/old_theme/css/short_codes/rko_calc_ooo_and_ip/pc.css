@@ -1,0 +1,120 @@
+.rko_block{
+    display: flex;
+    justify-content: space-around;
+}
+.rko_block .block_6 {
+   width: 380px;
+}
+.rko_block .block_4 {
+    width: 233px;
+}
+.rko_block .block_12 {
+    width: 100%;
+}
+.calc-sub-title{    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background: #38b6f7;
+    margin: -15px;
+    color: #fff;
+    margin-bottom: 15px;}
+.rko_calc{padding: 15px;border: 2px solid #38b6f7;}
+
+.calc-mb0{margin: 5px 0 5px !important;}
+
+.rko_calc b{margin: 15px 0 7.5px;display: block;}
+.rko_calc label b{display: inline-block; margin: 0}
+.rko_calc input[type='radio']{    padding: 5px;
+    width: 23px;
+    height: 23px;
+    vertical-align: bottom;
+    margin: 0 5px 0 10px;}
+
+#show-hidded-block, #rko_render, #rko_clear_result, #hide-hidded-block{
+    padding: 10px;
+    border: 1px solid #a5ca38;
+    color: #fff;
+    background: #a5ca38;
+    cursor: pointer;
+    display: block;
+}
+#hide-hidded-block{display: none; margin-top: 15px;}
+
+#show-hidded-block, #hide-hidded-block{
+    /*margin-top: 15px;*/
+    background: #ededed !important;
+    border: 1px solid #ededed !important;
+    color: #000;
+}
+
+#rko_clear_result{display: none;}
+
+#show-hidded-block:hover, #hide-hidded-block:hover{
+    background: #d8d3d3 !important;
+    border: 1px solid #d8d3d3 !important;
+}
+
+#rko_clear_result {
+    /*margin-top: 15px;*/
+    background: #ef463e !important;
+    border: 1px solid #ef463e !important;
+}
+
+#rko_clear_result:hover{
+    background: #d4332b !important;
+    border: 1px solid #d4332b !important;
+}
+
+#rko_render:hover{
+    background: #92b527;
+}
+
+#rko_render:hover{
+    text-decoration: none;
+    color:#fff;
+}
+
+.rko_calc .form-line label{
+    display: inline-flex;
+    width: 100%;
+}
+
+.docs-list li:before{
+    display: none !important;
+}
+
+.fdde4{margin-bottom: 7px; display: block;}
+
+.hidden-block{display: none;}
+
+.only-check-ekva{display: none;}
+
+.form-line .cont input{padding: 0;}
+.cont:after {
+    content: '0 <?php for($i = 1; $i<=99; $i++){if($i % 5 == 0) echo " $i";} ?> 100+';
+}
+
+.cont:after{
+    word-spacing: 22.4px;
+    left: 4px;
+}
+input[type='range'] {
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    background: -webkit-repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 24.9%) no-repeat 100% 50%;
+    background: -moz-repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 24.9%) no-repeat 100% 50%;
+    background: repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 4.95%) no-repeat 100% 50%;
+    background-size: 100% 15px;
+    font-size: 16px;
+}
+
+.res-h4-c{
+    margin: 25px 0 10px;
+    text-align: center;
+    font-size: 22px;
+}

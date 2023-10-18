@@ -1,0 +1,14 @@
+.short-code-quote {
+    background: #f6f6f6;
+    padding: 15px;
+    font-style: italic;
+}
+.short-code-quote .fa-quote-right {
+    display: block;
+    text-align: center;
+    font-size: 1.3em;
+    color: #38b6f7;
+}
+.fa-quote-right:before {
+    content: "\f10e";
+}

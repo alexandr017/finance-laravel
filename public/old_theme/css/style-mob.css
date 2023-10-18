@@ -1,0 +1,164 @@
+/*** companies ***/
+.silver-company-block{padding: 15px;-webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);box-shadow: 0 0 21px 0 rgba(0,0,0,.2);}
+.silver-company-block .pupdate {text-align: center;}
+.silver-company-block .logo-company{margin: auto;display: inherit;}
+.silver-company-block .rating-line{text-align: center}
+.silver-company-block .k5m-wrap{margin-top: 15px;text-align: center;}
+.k5m_button{cursor: pointer}
+.silver-company-block .vzo_icons_wrap {text-align: center; border: 0}
+.scales{margin-top: 10px;}
+.scb-label{ color: #7f7f7f;}
+.scb-value{font-weight: bold;margin-left: 23px;}
+.silver-company-block .line-scale{margin-bottom: 6px;}
+.silver-company-block .progress{height: 10px;}
+.line-scale-print{width: 100%;background: #eaeaea;border-radius: .25rem;display: inline-block;height: 10px;}
+.silver-company-block ul{padding-left: 20px;margin: 20px 0;}
+.lsv-1{width: 10%}
+.lsv-2{width: 20%}
+.lsv-3{width: 30%}
+.lsv-4{width: 40%}
+.lsv-5{width: 50%}
+.lsv-6{width: 60%}
+.lsv-7{width: 70%}
+.lsv-8{width: 80%}
+.lsv-9{width: 90%}
+.lsv-10{width: 100%}
+.silver-company-block .form-btn1{display: block;}
+#load_card_for_company, #load_card_for_bank{width: 100%;background: #38b6f7;border-color: #38b6f7; margin-top: 15px;}
+
+.scales .line-scale-print {
+    width: 90%;
+}
+.scales .line-scale-value {
+    width: 8%;
+    float: right;
+}
+/*** companies ***/
+
+/*** cards ***/
+.rko-card-btn{    display: block;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 0 5px;background: #ededed;}
+.rko-card-btn.active{background: #38b6f7;color: #fff;}
+.rko-card-btn>i{font-size: 0.75em; color: #38b6f7}
+.rko-card-btn.active>i{color: #fff}
+.rko-card-btn br{display: none}
+.rko-card-wrap.active{display: block !important;}
+.rko-card-wrap{display: none}
+/*** end cards ***/
+
+
+.side-title{
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+
+/*** sidebar ***/
+.side-block-dart{background: #f6f6f6;margin-top: 20px;box-shadow: 0 1px 9px 0 rgba(0,0,0,.2);}
+.side-title {
+    background: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+.side-box {
+    padding: 15px;
+    overflow: hidden;
+}
+.side-block-dart .side-title{background: #f0f0f0;cursor: pointer;}
+.links-list a{font-size: 13px;color: #292929;
+    line-height: 15px;padding: 8px 4px;background: #fff;display: inline-block;margin-right: 2px;
+    margin-top: 10px;cursor: pointer;border-radius: 12px;transition: all .2s ease;}
+/*** sidebar ***/
+
+/*** posts ***/
+.horizontal-accordeon-block .hitem .itop{
+    text-align: center;
+}
+.horizontal-accordeon-block .hitem .itop.active-itop{
+    text-decoration: underline;
+}
+.single-page .h2, .single-page .h3, .single-page .h4, .single-page .h5,
+.single-page h2, .single-page h3, .single-page h4, .single-page h5,
+.single h2, .single h3, .single h4, .single h5,
+.single .h2, .single .h3, .single .h4, .single .h5,
+.alc h2, .alc h3, .alc h4, .alc h5,
+.alc .h2, .alc .h3, .alc .h4, .alc .h5
+{
+    text-align: center;
+}
+/*** end posts ***/
+
+
+/* header */
+header ul li a{display: block;}
+header ul ul{display: none}
+
+header ul li a, footer ul li a{color: #292929;}
+header.second_header{min-height: 58px;}
+
+
+
+
+#menu-mob-button{display: inline-block;font-size: 20px;  position: absolute; left: 30px; top: 20px; cursor: pointer;}
+#menu-mob-button u{width: 27px;height: 2px;background: #000;display: block;margin-bottom: 8px;}
+
+
+.logo-head-wrap{position: absolute;left: 0;right: 0;margin: auto; display: inline-block;width: 200px;z-index: 1;text-align: center}
+.logo-head-wrap img {max-width: 40px;height: auto}
+.logo-head-wrap span {font-size: 14px;vertical-align: -7px;}
+.mob-menu-wrap {position: fixed;top: 0;background: #fff;z-index: 2;left: -200%;width: 100%; height: 130%;}
+
+
+
+.menu-line-top{height: 56px; border-bottom: 1px solid #ccc;margin-top: 20px;position: relative;}
+header {padding: 10px 0 18px;border-bottom: 1px solid #ccc;}
+#sub-menu{height: 100%;background: #fafff9;left: -200%;width: 100%;position: absolute;z-index: 2}
+ul.mobl-menu b{display:none;}
+#sub-menu-title{background: #fff}
+#sub-menu-title i{display: block;line-height: 50px;padding: 0 15px;border-bottom: 2px solid #ccc;color: #292929;cursor: pointer;}
+#sub-menu-title i span{margin-left: 15px;}
+#sub-menu-title+ul{background: #fafff9;margin: 0;display: block;width: 90%;margin-left: 5%;}
+#sub-menu-title+ul li{display: block;border-bottom: 1px solid #ccc;width: 100%;line-height: 44px;}
+#sub-menu-title+ul li a{display: block;}
+ul.mobl-menu {padding: 0;position: relative;width: 90%;margin-left: 5%;z-index: 1}
+ul.mobl-menu >li {list-style-type: none;display: block;margin: 0;position: relative;border-bottom: 1px solid #ccc}
+ul.mobl-menu li a {text-align: center;font-size: 18px;padding: 10px 10px;}
+.header-label-rating{display: none;}
+
+
+
+.mobile ul{display: none}
+.header-search {margin: 8px 8px 0 0;opacity: .8;font-size: 20px !important;}
+.go-to-favorites{display: none !important;}
+.mob-rating{margin: auto;width: 137px;position: absolute;
+    left: 0;right: 0;top: 13px;color: #fff;text-decoration: none;
+    background: #a5ca38;border-radius: 6px;padding: 3px 10px;display: inline-block;}
+.mob-rating:hover{text-decoration: none; color: #fff; background: #8dad2e;}
+.mob-close{cursor: pointer; position: absolute; margin: 13px 7px 0; }
+.mob-login, .mob-login2{ margin: 8px 8px 0 0;opacity: .8;font-size: 20px !important;position: absolute;right: 3px;color: #292929;top:5px;}
+.mob-login2{right: 45px;}
+.mob-close svg{color: #292929;display: block;stroke-width: 3;stroke: #000; pointer-events: none; width: 31px;cursor: pointer}
+/*** end header ***/
+
+
+@media (max-width: 767px) {
+    .activeLi{background: #bee840 !important;}
+    ul.mobl-menu li a:hover b {border-color: #fff;}
+    ul.mobl-menu ul{border-top: 1px solid #a5ca38}
+
+    header ul ul li{margin: 0;}
+    header ul ul li a{font-size: 17px !important;padding: 5px !important;}
+}
+
+
+@media (max-width: 310px) {
+    .header-search {
+        margin: -16px 15px 0 0;
+    }
+}

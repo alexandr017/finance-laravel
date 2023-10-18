@@ -1,0 +1,22 @@
+.horizontal-accordeon-block {
+    margin-bottom: 30px;
+}
+
+.horizontal-accordeon-block .hitem {
+    border-bottom: 2px solid #fff;
+    background: #ebebeb;
+    padding: 0 20px;
+    line-height: 26px;
+}
+
+.horizontal-accordeon-block .hitem .itop {
+    padding: 17px 0;
+}
+.horizontal-accordeon-block .hitem .imore {
+    padding-bottom: 10px;
+}
+.horizontal-accordeon-block .hitem .itop {
+    line-height: 21px;
+    padding: 10px 0;
+    font-weight: bold;
+}

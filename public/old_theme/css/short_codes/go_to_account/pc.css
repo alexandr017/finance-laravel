@@ -1,0 +1,26 @@
+.go_to_account_block{
+    display: flex;
+    align-items: center;
+}
+
+.go_to_account_block .go_to_account_img {
+    flex: 1;
+}
+.go_to_account_block .go_to_account_text {
+    flex: 2;
+}
+.link2_code_wrap {
+    border-top: 1px solid #dfdfdf;
+    padding-top: 15px;
+    margin: 0 -15px -15px;
+    background: #f6f6f6;
+    padding-bottom: 15px;
+}
+.go_to_account {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin: 15px 0;
+}
+.go_to_account a {
+    min-width: 200px;
+}

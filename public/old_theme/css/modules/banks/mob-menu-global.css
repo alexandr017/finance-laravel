@@ -1,0 +1,41 @@
+.hide-bank-menu {
+    display: none;
+}
+
+.bank-menu-btn {
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    position: relative;
+    border-radius: 5px;
+    border:2px solid #efefeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.bank-menu {
+    padding-left: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    background-color: #f5f7ee;
+}
+.bank-menu li a:before, .bank-menu li span:before {
+    width: 30px;
+}
+.bank-menu li:before {
+    display: none;
+}
+.bank-menu li a {
+    color: black;
+}
+.bank-menu .bank-active-item {
+    background-color: #a5ca38;
+}
+.bank-menu .bank-active-item a {
+    color: white;
+}
+.bank-menu li {
+    padding: 5px;
+}
+
+.bank-menu-active-item{font-family: 'Futura PT'; cursor: pointer}

@@ -1,0 +1,27 @@
+<nav class="org">
+    <ul>
+        @if(Request::path() == 'mfo/' . $company->alias)
+        <li style="padding: 15px;"><i class="fa fa-bank" style="margin-right: 10px;"></i> О компании</li>
+        @else
+        <li><a href="/mfo/{{$company->alias}}"><i class="fa fa-bank" style="margin-right: 10px;"></i> О компании</a></li>
+        @endif
+
+        @if(Request::path() == 'mfo/' . $company->alias . '/gorjachaja-linija')
+                <li style="padding: 15px;"><i class="fa fa-life-bouy" style="margin-right: 10px;"></i>Служба поддержки</li>
+        @else
+            <li><a href="/mfo/{{$company->alias}}/gorjachaja-linija"><i class="fa fa-life-bouy"></i>Служба поддержки</a></li>
+        @endif
+
+        @if(Request::path() == 'mfo/' . $company->alias . '/lichnyj-kabinet')
+            <li style="padding: 15px;"><i class="fa fa-user" style="margin-right: 10px;"></i>Личный кабинет</li>
+        @else
+            <li><a href="/mfo/{{$company->alias}}/lichnyj-kabinet"><i class="fa fa-user"></i>Личный кабинет</a></li>
+        @endif
+
+        @if(Request::path() == 'mfo/' . $company->alias . '/otzyvy')
+            <li style="padding: 15px;"><i class="fa fa-comments-o" style="margin-right: 10px;"></i>Отзывы <span class="vdde">({{count($reviews)}})</span></li>
+        @else
+            <li><a href="/mfo/{{$company->alias}}/otzyvy"><i class="fa fa-comments-o"></i>Отзывы <span class="vdde">({{count($reviews)}})</span></a></li>
+        @endif
+    </ul>
+</nav>

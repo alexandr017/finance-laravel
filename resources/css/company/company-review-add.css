@@ -1,0 +1,37 @@
+@import "../listing/rating_stars.css";
+.form_field_cont {
+    margin-bottom: 24px;
+}
+.form_field_title {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+.school_add_review {
+    margin-bottom: 80px;
+}
+.school_add_review_cont {
+    max-width: 550px;
+}
+
+.form_field_input > input, .form_field_input > textarea {
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    outline: none;
+    font-weight: 400;
+    font-size: 20px;
+    resize: vertical;
+    width: 100%;
+    padding: 13px 30px;
+}
+
+.rating__label.hovered .star-left {
+    background-image: url(https://kursy.ru/local/templates/kursi/img/rating/LeftBlue.svg);
+    background-position: right;
+}
+
+.rating__label.hovered .star-right {
+    background-image: url(https://kursy.ru/local/templates/kursi/img/rating/RightBlue.svg);
+    background-position: left;
+    margin-right: 24px;
+}
+

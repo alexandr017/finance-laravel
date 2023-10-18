@@ -1,0 +1,45 @@
+.offer_in_rating_wrap{
+    padding: 15px;
+    position: relative;
+}
+.rat_g_img{
+    position: absolute;
+    margin: auto;
+    display: inline-block;
+    left: 0;
+    right: 0;}
+.offer_in_rat_title{
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;}
+.offer_in_rating_place{
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 5px;
+    background: #00b5f4;
+    display: inline-block;
+    margin: 30px 0 0;
+}
+.offer_in_rating_place+a{
+    float: right;     margin: 30px 0 0;
+}
+.offer_in_rating_wrap .inf-p{
+    padding: 15px;
+    margin-bottom: 15px ;
+    margin-top: 30px;
+}
+
+.offer_in_rating_wrap .one-offer {
+    padding: 0;
+}
+
+.offer_in_rating_wrap .one-offer .form-btn1 {
+    margin: 15px 0 0;
+    width: 100%;
+}
+
+.offer_in_rating_img{
+    margin: 0 auto;
+    text-align: center;
+}

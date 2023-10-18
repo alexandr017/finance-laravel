@@ -1,0 +1,9 @@
+
+.go_to_account {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin: 15px 0;
+}
+.go_to_account_img{display: block; margin: auto}
+.go_to_account_title{text-align: center;font-size: 1.3em;font-weight: bold;}
+.go_to_account_link{display: block; margin: auto}

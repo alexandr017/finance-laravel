@@ -1,0 +1,72 @@
+#half-stars-example .rating-group {
+    display: inline-flex;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+#half-stars-example .rating__icon {
+    pointer-events: none;
+}
+#half-stars-example .rating__input {
+    position: absolute !important;
+    left: -9999px !important;
+}
+#half-stars-example .rating__label {
+    cursor: pointer;
+}
+#half-stars-example .rating__label--half {
+    z-index: 2;
+}
+
+#half-stars-example.hovered .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+    color: #eee;
+}
+
+#half-stars-example .rating__input--none:checked + .rating__label .rating__icon--none {
+    color: red;
+}
+
+#half-stars-example.hovered .rating__input--none:hover + .rating__label .rating__icon--none {
+    color: red;
+}
+
+.star-right, .star-left {
+    width: 18px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+.rating__label .star-left {
+    background-image: url(https://kursy.ru/local/templates/kursi/img/rating/LeftGray.svg);
+    background-position: right;
+}
+
+.rating__label .star-right {
+    background-image: url(https://kursy.ru/local/templates/kursi/img/rating/RightGray.svg);
+    background-position: left;
+    margin-right: 24px;
+}
+
+.rating__label.hovered .star-left {
+    background-image: url(https://kursy.ru/local/templates/kursi/img/rating/LeftBlue.svg);
+    background-position: right;
+}
+
+.rating__label.hovered .star-right {
+    background-image: url(https://kursy.ru/local/templates/kursi/img/rating/RightBlue.svg);
+    background-position: left;
+    margin-right: 24px;
+}
+
+.universalrating-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 46px;
+    color: #101820;
+}
+
+.universalrating-total {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #A9AAAA;
+    margin-bottom: 100px;
+}

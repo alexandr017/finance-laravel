@@ -1,0 +1,104 @@
+
+.content {
+    flex-grow: 1;
+}
+
+@media (max-width: 1200px) {
+    .max-width {
+        padding: 0 80px;
+    }
+}
+
+.max-width {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 160px;
+}
+
+.news_detail_cont {
+    position: relative;
+}
+
+.news_detail-head, .news_detail-head.html_editor_body_cont {
+    display: grid;
+    grid-template-areas:
+        "title"
+        "lid"
+        "img";
+    margin-top: 80px;
+    margin-bottom: 56px;
+}
+
+.html_editor_body_cont {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    width: 66%;
+    color: #101820;
+    margin-top: 120px;
+}
+
+.news_detail-head .news_detail-title {
+    font-weight: 700;
+    font-size: 53px;
+    line-height: 63px;
+    color: #101820;
+    word-break: break-word;
+    grid-area: title;
+    margin: 0;
+    margin-bottom: 56px;
+}
+
+.news_detail-lid_par {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    color: #101820;
+    grid-area: lid;
+    /* margin-bottom: 50px; */
+}
+
+.html_editor_body_cont .news_detail-lid_par p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 28px;
+}
+
+.html_editor_body_cont img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+img.detail_picture {
+    border-radius: 20px;
+    grid-area: img;
+    width: 100%;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.news_detail.html_editor_body_cont {
+    margin-top: 0;
+}
+
+.html_editor_body_cont {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    width: 66%;
+    color: #101820;
+    margin-top: 120px;
+}
+
+.news_detail_cont .author_card-cont_position {
+    position: unset;
+}
+
+.kursi_blog {
+    margin-bottom: 100px;
+}

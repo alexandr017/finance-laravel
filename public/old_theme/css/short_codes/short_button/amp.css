@@ -1,0 +1,14 @@
+.block {
+    display: block;
+}
+.block>.form-btn1{
+    color: #fff;
+    display: inline-block;
+    background: #ff9800;
+    border-radius: 3px;
+    padding: 10px 0;
+    font-weight: bold;
+    border-bottom: none;
+    width: 100%;
+    text-align: center;
+}

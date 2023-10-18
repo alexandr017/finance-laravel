@@ -1,0 +1,31 @@
+.jsSmoothAnimateRL {
+    left: 0px;
+    animation: animateRL .5s;
+}
+.jsSmoothAnimateLR {
+    left: -200%;
+    animation: animateLR 1s;
+}
+.dropdown-toggle-js::after {
+    position: absolute;
+    top: 11px;
+    right: -10px;
+    color: #a6a8a9;
+    width: 0;
+    height: 0;
+    margin-left: 0;
+    vertical-align: 0;
+    content: "";
+    border-top: .2em solid;
+    border-right: .2em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+@keyframes animateLR {
+    from {left: 0%;}
+    to {left: -200%;}
+}
+@keyframes animateRL {
+    from {left: -200%;}
+    to {left: 0%;}
+}

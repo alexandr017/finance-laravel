@@ -1,0 +1,147 @@
+.kursi_slider_cont.bx-blue {
+    position: relative;
+    width: 100%;
+}
+.swiper_styles-slider {
+    padding-bottom: 80px;
+}
+.swiper-horizontal {
+    touch-action: pan-y;
+}
+.swiper_styles-wraper {
+    display: flex;
+    align-items: stretch;
+}
+.swiper-wrapper {
+    transform: translate3d(0px,0,0);
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    /*transition-timing-function: var(--swiper-wrapper-transition-timing-function,initial);*/
+    box-sizing: content-box;
+}
+
+.swiper_styles-item.swiper-slide {
+    user-select: none;
+    display: flex;
+    margin: 0 !important;
+    height: auto;
+}
+.kursi_slider-cont.swiper-slide {
+    width: 380px;
+}
+.swiper-backface-hidden .swiper-slide {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
+}
+.kurse_card.card_mobile {
+    padding: 32px;
+    width: 50vw;
+    margin-right: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 260px;
+    max-width: 380px;
+    height: auto;
+    justify-content: flex-start;
+}
+
+.kurse_card.card_green {
+    background: #DCFF03;
+}
+
+.kurse_card.card_black {
+    background: #101820;
+}
+.kurse_card.card_black {
+    color: #ffffff;
+}
+
+@media (max-width: 860px) {
+    .kurse_card.card_mobile {
+        padding: 32px 24px;
+        width: 300px;
+    }
+}
+
+
+.kurse_card {
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.05);
+    white-space: normal;
+    border-radius: 30px;
+}
+
+.swiper_styles-pagination_cont {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    bottom: 5px;
+    align-items: center;
+}
+
+.swiper_styles-button-prev {
+    transform: rotateZ(179deg);
+}
+
+.swiper_styles-button-prev, .swiper_styles-button-next {
+    background-position: center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.swiper_styles-button-prev,
+.swiper_styles-button-next {
+    background-image: url(../../../public/images/system/slider_right_btn.svg);
+}
+
+.swiper_styles-button-prev:hover,
+.swiper_styles-button-next:hover {
+    background-image: url(../../../public/images/system/slider_hover_right_btn.svg);
+}
+
+.swiper-button-disabled {
+    background-image: url(../../../public/images/system/slider_disable_right_btn.svg);
+}
+
+.swiper_styles-pagination.swiper-pagination {
+    position: relative;
+    width: auto;
+    top: 0;
+    margin: 0 20px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #101820;
+
+}
+
+.swiper_styles-button-next {
+    background-position: center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,21 @@
+@media screen and (min-width: 768px) {
+    .vzo_news_block {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    .vzo_news_block .vzo_news_img{
+        width: 30%;
+    }
+    .vzo_news_block .vzo_news_text{
+        width: 65%;
+    }
+    .post-wrap .read-full-posts {
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .post-wrap .read-full-posts {
+        margin-top: 10px;
+    }
+}

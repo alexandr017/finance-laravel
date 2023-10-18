@@ -1,0 +1,145 @@
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+@media (max-width: 1200px) {
+    .max-width {
+        padding: 0 80px;
+    }
+}
+
+.max-width {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 160px;
+}
+
+.blog_head.page_head {
+    margin-bottom: 48px;
+    grid-template-columns: 8fr 2fr;
+    margin-top: 80px;
+}
+.page_head {
+    display: grid;
+    grid-template-areas:
+        "title img"
+        "desk img";
+    grid-template-columns: 7fr 3fr;
+    column-gap: 20px;
+    row-gap: 56px;
+    margin: 80px 0;
+    align-items: center;
+}
+
+.page_head-title {
+    grid-area: title;
+    font-size: 53px;
+    line-height: 63px;
+    font-weight: 700;
+    hyphens: auto;
+}
+
+.page_head-desk {
+    grid-area: desk;
+    display: inline-flex;
+    flex-direction: column-reverse;
+}
+
+.page_head-desk_text {
+    font-size: 24px;
+    position: relative;
+    overflow: hidden;
+    line-height: 34px;
+}
+
+.page_head-img {
+    grid-area: img;
+}
+
+.blog_sections-cont {
+    display: flex;
+    margin-bottom: 40px;
+    flex-flow: wrap;
+}
+
+.blog_sections-item {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background: white;
+    padding: 8px 20px;
+    border: 1px solid #101820;
+    border-radius: 45px;
+}
+
+.blog_sections-item:hover {
+    background: #469ED7;
+    border-color: #469ED7;
+    color: white;
+    cursor: pointer;
+}
+
+.blog_sections-item:hover a {
+    color: white;
+}
+
+.blog_sections-item.blog_sections-item_active {
+    border: 1px solid #469ED7;
+}
+
+.blog_sections-item.blog_sections-item_active a {
+    color: #469ED7;
+}
+
+.blog_sections-item a {
+    text-decoration: none;
+    color: #101820;
+    white-space: nowrap;
+}
+
+.news_list-cont {
+    margin-bottom: 80px;
+}
+
+.news-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.bx-pagination-container ul {
+    list-style: none;
+    display: inline-flex;
+}
+
+.bx-pagination-container ul li {
+    padding: 15px;
+}
+
+li.bx-pag-prev, li.bx-pag-prev a, li.bx-pag-next, li.bx-pag-next a {
+    display: flex;
+    align-items: center;
+}
+
+.bx-pagination-container a, .bx-pagination-container li {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #A9AAAA;
+}
+
+li.bx-pag-next img {
+    transform: rotateZ(180deg);
+}
+
+.bx-pagination-container .bx-active a, .bx-pagination-container .bx-active, .bx-pagination-container .bx-pag-prev a, .bx-pagination-container .bx-pag-next a {
+    color: #101820;
+}

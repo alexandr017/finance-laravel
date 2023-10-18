@@ -1,0 +1,373 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Inter, Montserrat, sans-serif;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.catalog-section > * {
+    width: 100%;
+}
+
+.card_pc .kurse_card-title {
+    grid-area: title;
+}
+
+.card_pc .kurse_card-length {
+    grid-area: length;
+    font-size: 14px;
+    align-self: start;
+    justify-content: flex-end;
+}
+
+.card_pc .kurse_card-school {
+    grid-area: school;
+}
+
+.school_minicard-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.school_minicard-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.kurse_card.card_pc.card_white .school_minicard-rating {
+    position: relative;
+}
+
+.school_minicard-rating img {
+    width: 12px;
+}
+.kurse_card.card_white .school_minicard-reviews {
+    color: #469ED7;
+}
+
+p.school_minicard-reviews_value {
+    margin: 0 4px 0 0;
+}
+
+p.school_minicard-reviews_text {
+    margin: 0;
+}
+
+.card_pc .kurse_card-tags {
+    grid-area: tag;
+}
+
+.card_pc .kurse_card-price {
+    grid-area: price;
+}
+
+.kurse_card.card_white .kurse_card-old_price {
+    color: #101820;
+}
+
+.kurse_card.card_white .kurse_card-price_sum {
+    color: #469ED7;
+}
+
+.kurse_card.card_white .kurse_card-link {
+    background: #469ED7;
+    color: #ffffff;
+}
+
+.card_pc .kurse_card-link {
+    grid-area: btn;
+    min-width: 210px;
+}
+
+.kurse_card.card_white .kurse_card-tag_element {
+    background: #F5F5F5;
+    color: #101820;
+}
+
+.card_pc .kurse_card-tag_element {
+    margin: 5px 0;
+    margin-right: 10px;
+    padding: 2px 7px;
+    border-radius: 100px;
+}
+
+.card_pc .kurse_card-tags {
+    grid-area: tag;
+}
+
+.content {
+    flex-grow: 1;
+}
+.max-width {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 160px;
+}
+
+.tagpage_head {
+    display: grid;
+    grid-template-areas:
+        "title img"
+        "desk img";
+    grid-template-columns: 6.5fr 3.5fr;
+    /* grid-template-rows: 1fr 1fr; */
+    row-gap: 56px;
+    column-gap: 20px;
+    margin-top: 56px;
+    margin-bottom: 48px;
+    height: auto;
+    align-items: center;
+}
+
+.product-sort-btn a {
+    color: #101820;
+    font-weight: 400;
+    display: flex;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.tagpage_head-title {
+    grid-area: title;
+    font-size: 53px;
+    line-height: 63px;
+    hyphens: auto;
+    word-break: break-word;
+}
+
+.tagpage_head-desk {
+    grid-area: desk;
+    display: inline-flex;
+    flex-direction: column-reverse;
+}
+.tagpage_head-desk_test {
+    font-size: 24px;
+    position: relative;
+    overflow: hidden;
+    /* box-shadow: 1px 1px 1px; */
+}
+
+.tagpage_head-img {
+    grid-area: img;
+    height: 100%;
+    position: relative;
+}
+
+div {
+    display: block;
+}
+
+.tagpage-filter_sort .product-sort-cont{
+    margin-top: 0;
+}
+
+.tagpage-filter_sort .product-sort-cont > div {
+    margin-bottom: 16px;
+}
+
+.short_filter-property_title > p {
+    margin: 0;
+}
+
+input {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    /*color: fieldtext;*/
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    /*background-color: field;*/
+    margin: 0em;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    /*border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));*/
+    border-image: initial;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.short_filter-property_cont > input:checked+.short_filter-property_values {
+    height: 0;
+    overflow: unset;
+}
+
+@media screen and (max-width: 860px) {
+    label.short_filter-property_title {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (min-width: 860px) {
+    .tagpage-filter_sort .product-sort-cont {
+        margin-right: 30px;
+        flex-flow: wrap;
+    }
+}
+
+@media (min-width: 861px) {
+    .tagpage_head-img {
+        min-height: 350px;
+    }
+}
+
+@media (min-width: 861px) {
+    .tagpage_head-img img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        object-fit: contain;
+    }
+
+}
+
+.product-sort-btn.active a {
+    color: #469ED7;
+}
+
+.article_body-cont {
+    position: relative;
+}
+
+.html_editor_body_cont {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    width: 66%;
+    color: #101820;
+    margin-top: 120px;
+}
+
+.article_body-author {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.article_body-author {
+}
+
+.linker_cont {
+    margin-bottom: 80px;
+    max-width: 66%;
+}
+
+.linker_list_courses {
+    padding: 0;
+}
+
+.linker_title h2 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 46px;
+    color: #101820;
+    text-decoration: none;
+    margin-bottom: 40px;
+    display: block;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#linker_show_input {
+    display: none;
+}
+
+ul.linker_list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul.linker_list > li {
+    margin-right: 10px;
+    word-break: break-word;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul.linker_list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+p.linker_item  {
+    margin: 0;
+}
+
+p.linker_item a {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    text-decoration: none;
+    color: #101820;
+}
+
+
+.stars {
+    display: inline-block;
+    font-size: 24px;
+}
+
+.star {
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star.active {
+    color: gold;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,203 @@
+ul.first_lvl > li.swiper_styles-item.swiper-slide {
+    margin-right: 20px !important;
+    display: grid;
+    grid-template-rows: 98px 1fr;
+    align-items: start;
+    background: #F5F5F5;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 322px;
+    min-height: 350px;
+}
+
+.swiper_styles-item.swiper-slide {
+    user-select: none;
+    display: flex;
+    margin: 0 !important;
+    height: auto;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul.first_lvl > li > div {
+    height: 100%;
+    background: #F5F5F5;
+}
+
+ul.first_lvl > li > div > a {
+    padding: 32px;
+    padding-top: 38px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    margin: 0;
+}
+
+ul.first_lvl > li > div > a {
+    display: flex;
+    width: 100%;
+    /* background: #F5F5F5; */
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #101820;
+}
+
+ul.first_lvl > li > div > a > img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+img.section_slider-black_img {
+    align-self: flex-start;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.section_slider-grey_img {
+    display: none;
+}
+
+img.section_slider-blue_img {
+    display: none;
+}
+
+ul.first_lvl > li > div > a > span {
+    align-self: center;
+}
+ul.second_lvl {
+    padding: 32px;
+    padding-bottom: 40px;
+    min-width: 260px;
+    background: #F5F5F5;
+    flex: 1;
+    border-top: 1px solid #D9D9D9;
+    height: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+ul.second_lvl input {
+    display: none;
+}
+
+ul.second_lvl > input:checked ~ li {
+    display: block;
+}
+ul.second_lvl div > li {
+    margin-bottom: 9px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul.first_lvl a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    /* white-space: nowrap; */
+    color: #101820;
+    text-decoration: none;
+}
+a {
+    color: #469ED7;
+    text-decoration: none;
+}
+
+
+ul.second_lvl > input:checked ~ .open_section_btn {
+    display: none;
+}
+ul.second_lvl > label {
+    position: relative;
+}
+
+ul.second_lvl > label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    color: #469ED7;
+    padding-top: 3px;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+ul.second_lvl > label {
+    margin-top: auto;
+}
+
+ul.second_lvl .close_section_btn {
+    display: none;
+}
+
+ul.second_lvl > input:checked ~ .close_section_btn {
+    display: block;
+}
+
+ul.second_lvl > label {
+    position: relative;
+}
+
+ul.second_lvl > label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    color: #469ED7;
+    padding-top: 3px;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+ul.second_lvl > label:after {
+    content: "";
+    position: absolute;
+    right: -28px;
+    top: 50%;
+    width: 24px;
+    transform: translateY(-50%);
+    height: 24px;
+}
+
+label.close_section_btn:after {
+    background: url(https://kursy.ru/local/templates/kursi/img/chevron/chevron-up.svg);
+}
+
+.swiper-slide-pasive {
+    display: none;
+}
+
+.listing-link:hover .section_slider-blue_img {
+    display: block;
+}
+
+.listing-link:hover .section_slider-grey_img,
+.listing-link:hover .section_slider-black_img {
+    display: none;
+}
+
+@media screen and (max-width: 860px) {
+    .section_slider-grey_img {
+        display: block;
+    }
+
+    .section_slider-blue_img,
+    .section_slider-black_img {
+        display: none;
+    }
+}
+

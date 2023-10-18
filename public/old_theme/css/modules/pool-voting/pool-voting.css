@@ -1,0 +1,62 @@
+#pollVotingBtn{
+    background: #00b6f7;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1rem;
+}
+
+.pollVotingBtnSpan{
+    font-size: 0.6rem;
+    background: red;
+    vertical-align: 11px;
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    border-radius: 50%;
+}
+
+.pool-voting-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.pool-voting-desc{
+    padding: 0 15px;
+    font-size: 0.8rem;
+}
+.pool-voting-desc{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.pv-label{
+    display: block;
+}
+.pool-voting-question{
+    text-align: left;
+    padding: 20px;
+    border: 1px dotted #ccc;
+    margin-bottom: 15px;
+}
+.pool-voting-question-title{
+    margin-bottom: 10px;
+}
+
+.pool-voting-prev, .pool-voting-submit{
+    display: none;
+}
+.pv-status{
+    font-size: 0.8rem;
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,6 @@
+.expert_opinion{border: 12.5px solid #f6f6f6;padding: 0 15px 15px;margin: 15px 0 30px; position: relative}
+.eo_img{max-width: 150px;border: 3px solid #f6f6f6;display: block; margin: auto}
+.ep_name{display: block; text-align: center; font-weight: bold;}
+.ep_work_place{display: block; text-align: center; font-style: italic}
+.ep_text_wrap{}
+

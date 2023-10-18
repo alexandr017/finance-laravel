@@ -1,0 +1,25 @@
+.vzo-alert{
+    line-height: 26px;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f8f8;
+    position: relative;
+}
+
+.vzo-alert-icon, .vzo-alert-icon2{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+}
+
+.vzo-alert-icon{
+    background: url(/old_theme/img/vzo_info1.png);
+    background-size: 100%;
+}
+
+.vzo-alert-icon2{
+    background: url(/old_theme/img/vzo_info2.png);
+    background-size: 100%;
+}

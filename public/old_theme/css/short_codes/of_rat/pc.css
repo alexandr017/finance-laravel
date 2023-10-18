@@ -1,0 +1,74 @@
+.of_rat_item {
+    clear: both;
+    width: 19%;
+    margin: 0.2% 1.1% 2% 0;
+    display: inline-block;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.19);
+    padding: 12px;
+    text-align: center;
+    vertical-align: top;
+    word-wrap: break-word;
+    color: #fff;
+    background: #00b5f4;
+    line-height: 17px;
+    background-blend-mode: normal , overlay , overlay , normal , normal , normal , normal;
+    background-image: linear-gradient(301deg,rgba(44,34,150,0),#38b6f7) ,linear-gradient(rgba(0,82,154,.95),rgba(0,82,154,.95)) ,linear-gradient(121deg,#3fcc6f,#3fcc6f) ,linear-gradient(238deg,rgba(173,32,142,0),#38b6f7) ,linear-gradient(42deg,rgba(0,190,213,0),rgba(0,190,213,.85) 85%,rgba(0,190,213,.87) 87%,#00bed5) ,linear-gradient(126deg,rgba(0,190,213,0),#00bed5) , linear-gradient(#594099,#594099);
+}
+.offer_in_rating_title{display: block; height: 28px;}
+
+.of_rat_item span{display: block;margin-bottom: 10px}
+.of_rat_item span i{margin: 2px; color: #f9ba48}
+.of_rat_un_wrap{
+    display: inline-block;
+    width: 49%;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.19);
+    padding: 15px 0;
+    margin: 2% 1% 0; vertical-align: top;
+}
+.of_rat_un_wrap .of_rat_un_wrap_t{
+    text-align: center;
+    font-weight: bold;
+}
+.of_rat_un_wrap+br{display: none;}
+.of_rat_un_wrap.l{margin-left: 0}
+.of_rat_un_wrap.r{margin-right: 0}
+.of_rat_un_wrap.l>ul,.of_rat_un_wrap.r>ul{padding-left: 30px;}
+.short-code-btn {
+    padding: 15px 31px;
+    width: 100%;
+    margin: 15px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.short-code-btn:hover {
+    background: #85b914;
+    color: #fff;
+    text-decoration: none;
+}
+
+.short-code-btn:active {
+    background: #7dae12;
+}
+
+.short-code-btn a{
+    font-size: 1.5em;
+    vertical-align: -2px;
+}
+.short-code-btn {
+    color: #fff;
+    display: block;
+    text-align: center;
+    background: #94cb1c;
+    border-radius: 3px;
+    padding: 12px 30px;
+    margin: 15px 0 0;
+    font-weight: bold;
+    border-bottom: none !important;
+}
+.of_rat_plus_minus {
+    display: flex;
+}
+.of_rat_item+.of_rat_item+.of_rat_item+.of_rat_item+.of_rat_item{
+    margin-right: 0;
+}

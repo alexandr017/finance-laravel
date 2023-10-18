@@ -1,0 +1,19 @@
+.nav-js {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.card-mn-details-block .nav-js .active, .card-mn-details-block .nav-js li:not(.active):hover, .card-mn-details-block .nav-js li:not(.active):focus {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #02b7f7;
+    color: #02b7f7;
+}
+.card-mn-details-block .nav-js li {
+    margin: 8px 5px;
+    cursor: pointer;
+}

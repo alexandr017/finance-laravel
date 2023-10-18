@@ -1,0 +1,23 @@
+.tarify_block{
+    display: flex;
+    justify-content: space-around;
+}
+.col_cnt_4 {
+    width: 30%;
+}
+.col_cnt_8 {
+    width: 63%;
+}
+.tarif_wrap .sub_title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: block;
+}
+.tarif_wrap {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #e5e5e5;
+}
+.goToCard {
+    width: 30%;
+}

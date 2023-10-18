@@ -1,0 +1,36 @@
+.schools-ajax_cont .product-sort-cont {
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+.product-sort-cont {
+    display: inline-flex;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    margin: 20px 0;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.companies-sort-btn {
+    background: #FFFFFF;
+    border: 1px solid #101820;
+    border-radius: 42px;
+    padding: 9px 20px;
+    margin-right: 8px;
+    color: #101820;
+    font-weight: 400;
+    display: flex;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.companies-sort-btn img {
+    margin-left: 5px;
+}
+
+.companies-sort-btn.active {
+    border: 1px solid #469ED7;
+    color: #469ED7;
+}
+

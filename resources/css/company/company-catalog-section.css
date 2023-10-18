@@ -1,0 +1,32 @@
+.catalog-section.bx-blue {
+    margin-bottom: 40px;
+}
+
+.catalog-section.bx-blue .row {
+    display: grid;
+    grid-gap: 20px;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.show_more_btn_color {
+    color: #469ED7;
+    border: 1px solid #469ED7;
+    background: #FFFFFF;
+}
+
+.product-items-more-btn {
+    color: #469ED7;
+    text-align: center;
+    background: white;
+    border: 1px solid #469ED7;
+    padding: 18px;
+    font-size: 18px;
+    border-radius: 47px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    cursor: pointer;
+    margin: 40px 0 100px 0;
+}
+
+

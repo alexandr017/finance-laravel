@@ -1,0 +1,10 @@
+.authors_code_block {
+    display: flex;
+    flex-direction: column;
+}
+.authors_code_block .author_img{
+    flex: 1;
+}
+.authors_code_block .author_text{
+    flex: 1;
+}

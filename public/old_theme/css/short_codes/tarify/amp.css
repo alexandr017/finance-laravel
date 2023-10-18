@@ -1,0 +1,31 @@
+.tarif_wrap .sub_title {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+.tarif_wrap amp-img{
+    margin: auto;
+    display: block;
+}
+
+
+
+.tarif_wrap{
+    border: 12.5px solid #f6f6f6;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.goToCard {
+    color: #fff;
+    display: inline-block;
+    background: #ff9800;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: 15px 0;
+    font-weight: bold;
+    border-bottom: none;
+    width: 100%;
+    text-align: center;
+}

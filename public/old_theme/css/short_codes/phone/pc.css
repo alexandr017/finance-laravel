@@ -1,0 +1,9 @@
+.phone_code_wrap {
+    text-align: center;
+    margin: 30px;
+}
+a.pcw {
+    font-size: 1.8em;
+    color: #1098c7;
+    vertical-align: -5px;
+}

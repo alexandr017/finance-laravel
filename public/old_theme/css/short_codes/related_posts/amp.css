@@ -1,0 +1,13 @@
+
+.related_in_post {
+    margin: 15px 0;
+    padding: 0 15px 0;
+}
+
+.related_in_post div {
+    margin: 10px auto;
+}
+.related_in_post > div > a {
+    border-bottom: none;
+    display: block;
+}

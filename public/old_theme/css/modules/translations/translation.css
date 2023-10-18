@@ -1,0 +1,35 @@
+
+.translation-posts-wrap, .add-translation-post, .sidebar-translation-comments-list, .add-translation-comment{
+    border: 1px solid #d6d6d6;
+    padding: 15px;
+    background: #ebebeb;
+    margin: 10px 0 20px;
+}
+.translation-post-item{
+    background: #fff;
+    border-bottom: 1px solid #d6d6d6;
+    padding: 15px;
+}
+.translation-post-date{
+    font-size: 0.8rem;
+    color: #a3a3a3;
+}
+.translation-post-item .fa-flash{
+    color: #f9ba48;
+}
+
+
+
+.sidebar-translation-comments-list{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.sidebar-translation-comment-item{}
+.sidebar-translation-comment-name{
+    font-weight: bold;
+    color: #0e97c7;
+    float: left;
+    margin-right: 15px;
+}
+.sidebar-translation-comment-text{word-break: break-all;}
+

@@ -1,0 +1,22 @@
+.rat_cnt_4 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.srb-line span{display: block;padding: 7.5px;text-align: center; color: #fff;}
+.srb-pros span{background: #a5ca38}
+.srb-cons span{background: #fb6363}
+
+
+.srb-pros ul li, .srb-cons ul li{font-weight: bold;}
+.srb-pros ul li div, .srb-cons ul li div{font-weight: normal;}
+
+.srb{padding: 15px;}
+.srb amp-img{width: 22px; display: inline-block;}
+
+.srb-pros ul li:before{
+    background-color: #a5ca38;
+}
+
+.srb-cons ul li:before{
+    background-color: #fb6363;
+}

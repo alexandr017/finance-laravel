@@ -1,0 +1,8 @@
+.bg_post{padding: 15px;clear: both;}
+.bg_post_gray{background:#f8f8f8}
+.bg_post_green{background:#a5ca38}
+.bg_post_blue{background:#00b6f7}
+.bg_post_default{background: #fff;}
+.bg_post > p:last-child{
+    margin-bottom: 0;
+}

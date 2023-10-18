@@ -1,0 +1,190 @@
+.ic-advantages-wrap{
+    background: #ffffff;
+    margin-top: 20px;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    text-align: center;
+}
+.ic-ad-item{}
+.ic-ad-item b{    display: block;}
+.ic-ad-item p{line-height: 20px}
+
+.ic-partners-wrap{padding: 30px}
+.ic-partners-wrap button{top: 50px;}
+
+.ic-scheme_register-wrap img{
+    max-width: 90px;}
+
+
+
+.ic-docs-wrap{    background: #ffffff;
+    margin-top: 20px;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);}
+.ic-docs-wrap .ic-docs-inner{    position: relative;min-height: 236px;}
+.ic-docs-inner > span{    font-size: 1.1em;
+    font-weight: bold;}
+.ic-docs-wrap .docs-p{    margin: 10px 0;
+    position: relative;
+    z-index: 1;}
+.ic-docs-wrap .docs-p p{    line-height: 28px;
+    max-width: 246px;
+    padding-left: 39px;}
+.ic-docs-wrap .docs-p span{    width: 30px;
+    height: 30px;
+    line-height: 11px;
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    float: left;
+    margin-left: -40px;
+    /* margin-right: 10px; */
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);}
+.ic-docs-wrap .img-docs-wrap{    position: absolute;
+    bottom: 0;
+    right: 0;}
+.ic-docs-wrap .img-docs-wrap img{    max-width: 164px;
+    max-height: 178px;
+    opacity: 1;}
+
+
+.ic-pay-item{text-align: center}
+.ic-pay-icons-wrap img{max-height: 100px;}
+.ic-title{    margin-top: 50px;
+    text-align: center;
+    margin-bottom: .5rem;
+    line-height: 1.2;
+    font-family: 'Proxima Nova Rg' !important;
+    font-size: 1.6rem;
+    font-weight: bold !important;
+}
+
+
+.insurance-post-wrap {
+    margin: 15px 0 30px;
+    border: 5px solid #f6f6f6;
+    padding: 10px;
+}
+
+.ic-off-docs-wrap{
+    background: #ffffff;
+    margin-top: 20px;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    text-align: center;
+}
+
+.sidebar{margin-top: 0}
+.sidebar > div:first-child{margin-top: 0}
+
+.ic-off-docs-wrap a{color: #292929;border-bottom: 1px solid;display: inline-block;width: 32%;
+    padding: 15px;border: 3px solid #f6f6f6;min-height: 155px;vertical-align: middle;}
+.ic-off-docs-wrap a:hover{text-decoration: none;border-bottom: 1px solid #00b6f7;color: #00b6f7;}
+.ic-off-docs-wrap .fa{font-size: 3em;}
+.ic-off-docs-wrap span{display: block;}
+
+.ic-db-wrap{border: 5px solid #f6f6f6;padding: 10px;margin-bottom: 30px;}
+.ic-db-wrap ul{list-style-type: none; padding: 0 10px;}
+.ic-db-wrap ul li{display: inline-flex;width: 32.9%;vertical-align: top; margin-bottom: 12px;}
+.ic-db-wrap ul li.d_n{display: none;}
+.ic-db-wrap a{color: #292929; text-decoration: underline;line-height: 18px;
+    display: block;padding: 15px;width: 100%;border: 2px solid #f6f6f6;}
+.ic-db-wrap a:hover{color: #00b6f7;}
+
+.show_more_db{cursor: pointer}
+
+
+
+
+.nav-tabs-wrap{border: 1px solid #dbdbdb;}
+.nav-tabs-wrap .nav-tabs {padding: 0;position: relative;width: 100%;}
+.nav-tabs-wrap .nav-tabs li{list-style-type: none;position: relative;width: 33.3%;background: #EFEFEF;border-right: 1px solid #dbdbdb;}
+.nav-tabs-wrap .nav-tabs li:last-child{border-right: none;}
+.nav-tabs-wrap .nav-tabs li a{padding: 15px;color: #292929;text-decoration: none;display: inline-block;width: 100%;text-align: center;border-bottom: none;}
+.nav-tabs-wrap .nav-tabs li a:hover, .nav-tabs-wrap .nav-tabs li a.active{background: #00B8F9;color: #fff;}
+.nav-tabs-wrap  .tab-content{padding: 15px;}
+.nav-tabs-wrap  .tab-content div{}
+
+sravni-micro-widget, sravni-widget {
+    max-height: 1040px;
+    overflow-y: auto;
+}
+
+sravni-micro-widget, sravni-widget {
+    margin-bottom: 0 !important;
+}
+
+.read-only-osago input[disabled="disabled"]{
+    background: #f7f5f5;
+}
+
+.ic-calc-wrap{
+    margin-top: 15px;
+}
+
+.ic-pay-item .single-img-wrap{
+    background: transparent!important;
+}
+
+
+/** card **/
+.insurance-card ul.insurance-list{
+    position: relative;
+    padding: 0 0 0 20px;
+    margin: 10px 0;
+    list-style-type: none;
+}
+.insurance-card ul.insurance-list li{
+    padding: 0 10px 6px 22px!important;
+    line-height: 20px;
+    position: relative;
+    vertical-align: text-top;
+    font-weight: bold;
+}
+.insurance-card ul.insurance-list li:before{
+    content: '';
+    background: #00b6f7;
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+/** **/
+
+
+.un_grited_fields .lvc{
+
+}
+
+@media (max-width: 991px) {
+    .ic-db-wrap ul li {
+        width: 49.6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .ic-db-wrap ul li {
+        width: 100%;
+    }
+    .post-wrap p {
+        float: right;
+    }
+    .ic-off-docs-wrap a{
+        width: 100%;
+    }
+
+    sravni-micro-widget, sravni-widget {
+        max-height: inherit;
+    }
+}

@@ -1,0 +1,8 @@
+.big_star_wrap {
+    padding: 15px;
+    margin: 15px 0 0;
+}
+
+.big_star_wrap b, .big_star_wrap strong {
+    display: block;
+}

@@ -1,0 +1,174 @@
+
+.companies-flex-item{
+    border: 10px solid #fff;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    margin: 30px 0;
+
+}
+.showed-line{
+    display: flex;
+    position: relative;
+}
+.showed-wrapper{
+    position: relative;
+    font-weight: bold;
+    width: 100%;
+    text-align: center
+}
+
+.line-scale:not(:first-of-type), .line-prop:not(:first-of-type) {
+    border-top: 1px solid #dcd3d3;
+    line-height: 1.8em;
+}
+
+.zajm_block .showed-wrapper-1:before{content: 'МКК/МФК';}
+.zajm_block .showed-wrapper-2:before{content: "Требуемый \0a кредитный \0a рейтинг";}
+.zajm_block .showed-wrapper-3:before{content: 'Процент \0a одобрений (%)';}
+.zajm_block .showed-wrapper-4:before{content: 'Средний \0a К5М';}
+.zajm_block .showed-wrapper-5:before{content: 'Оценка';}
+.zajm_block .showed-wrapper-6:before{content: 'Отзывов';}
+.zajm_block .showed-wrapper-7:before{content: 'Макс. \0a сумма \0a займа (руб.)';}
+.zajm_block .showed-wrapper-8 {
+    margin-top: 30px;
+}
+
+.showed-wrapper-1 div img{
+    margin-top: -9px;
+}
+.showed-wrapper:before{top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+    font-weight: normal;
+    color: #989797;
+    height: 50px;
+    font-size: 0.75em;}
+
+
+.bvc-read{
+    display: block;
+    text-align: center;
+    border-top: 1px solid #dedbdb;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px 0 0;
+}
+
+.hidden-line{
+    display: none;
+    border-top: 1px solid #dedbdb;
+    padding: 10px 0 0;
+}
+
+.hidden-line .line-scale-title {
+    width: 65%;
+}
+.hidden-line .line-scale-print{
+    width: 22%;
+}
+.hidden-line .line-scale-value{
+    width: 6%;
+}
+.category_params_1,.category_params_2 {
+    width: 50%;
+}
+.zajm_block .category_params_1,.zajm_block .category_params_2{
+    width: 50%;
+}
+
+.line-prop {
+    display: flex;
+}
+.line-prop-value .fa-check-square-o:before{
+    color: #a5ca38;
+}
+.line-prop-value .fa-times:before{
+    color: red;
+}
+.display_hidden_line {
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.display_hidden_line.block{
+    display: block;
+}
+
+.display_hidden_line.block .category_params_1{
+    width: 100%;
+}
+
+.line-scale-value{
+    padding-left: 5px;
+}
+
+
+.hdl{
+    padding: 0 5px;
+    height: 36px;
+    line-height: 36px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .company_title{
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .showed-wrapper:before {
+        display: flex;
+        white-space: unset;
+        width: 100%;
+        height: inherit;
+        font-size: 1rem;
+        line-height: 1rem;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .showed-wrapper-1:before {
+        display: none;
+    }
+    .showed-wrapper {
+        display: flex;
+    }
+    .showed-wrapper span {
+        width: 30%;
+    }
+    .showed-line{
+        flex-direction: column;
+    }
+    .showed-line .showed-wrapper-1{
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .showed-wrapper.showed-wrapper-1:before, .showed-wrapper-8,.showed-wrapper-6{
+        justify-content: center;
+    }
+    .hidden-line .line-scale-print {
+        width: 80%;
+    }
+    .hidden-line .line-scale-value {
+        width: 18%;
+        text-align: right;
+        display: inline-block;
+    }
+    .display_hidden_line {
+        display: block;
+    }
+    .category_params_1,.category_params_2 {
+        width: 100% !important;
+        margin: 15px 0
+    }
+
+    .hidden-line .line-scale-title {
+        width: 100%;
+    }
+
+}
+

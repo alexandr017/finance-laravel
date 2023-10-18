@@ -1,0 +1,218 @@
+#searchByBanks{
+    padding: 5px;
+}
+
+
+
+.bank-types-a{
+    flex: 1 0 21%;
+    color: #292929;
+}
+
+.bank-flex-item .black-uppercase-link{
+    color: #292929;
+}
+
+
+
+.bank-flex-item .column-1{width: 40%}
+.bank-flex-item .column-2{width: 10%;text-align: center;}
+.bank-flex-item .column-3{width: 25%;text-align: center}
+.bank-flex-item .column-4{width: 24%;text-align: center}
+
+
+.bank-flex-item .small-img-wrap{
+    float: left;
+    display: inline-block;
+}
+
+.bank-flex-item .company_title {
+    display: inline-block;
+    max-width: 150px;
+}
+
+.bank-flex-item .company_title .black-uppercase-link {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.bank-flex-item .bank-logo{
+    max-width: 130px;
+}
+
+.bank-flex-item .showed-wrapper:before {
+    text-align: center;
+    display: block;
+    color: #989797;
+    height: 40px;
+    font-size: 0.75em;
+    content: attr(data-label);
+}
+
+.bank-flex-item{
+    border: 10px solid #fff;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    margin: 30px 0;
+}
+
+.bvc-read {
+    display: block;
+    text-align: center;
+    border-top: 1px solid #dedbdb;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px 0 0;
+}
+
+.showed-line {
+    display: flex;
+    position: relative;
+    align-items: baseline;
+}
+
+.bank-flex-item .hidden-line {
+    border-top: 1px solid #dedbdb;
+    padding-top: 10px;
+}
+
+.bank-btn-wrap{text-align: center;margin-top: 10px;}
+.bank-btn-wrap > a{
+    display: inline-block;
+    color: #ffffff;
+    background: #a5ca38;
+    border: 1px solid #a5ca38;
+    padding: 0 10px;
+    height: 30px;
+    text-decoration: none!important;
+    text-align: center;
+    outline: 0;
+    line-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+
+
+.hide_by_search_hint, .hidden-line {
+    display: none;
+}
+.single-page .pagination li:before {
+    content: none;
+}
+.pagination li:hover:not(.active) {background-color: #ddd;}
+.banks-page {
+    display: none;
+}
+.active_page {
+    display: block;
+}
+.bank-types-wrap .fa-icon:before {
+    width: 22px;
+}
+.pagination {
+    padding-left: 0;
+    margin-bottom: 45px;
+}
+
+
+
+.bvc-read-pc{
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 5px;
+
+    margin-left: calc(50% - 52px);
+
+    -webkit-transition: margin-left 0.5s ease;
+    -moz-transition: margin-left 0.5s ease;
+    -o-transition: margin-left 0.5s ease;
+    transition: margin-left 0.5s ease;
+}
+
+.bvc-read-pc-left{
+    margin-left: 0;
+
+
+}
+
+
+.bank-types-wrap {
+    display: none;
+}
+
+.bank-types-wrap{font-size: 0.9rem}
+.bvc-read-pc-left + .bank-types-wrap{
+    display: inline-block;
+}
+.bvc-read-pc-left + .bank-types-wrap .bank-types-a{
+    margin-right: 10px;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+
+    .bank-types-wrap{
+        /*
+        display: flex;
+        flex-wrap: wrap;
+        */
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        background-color: #f3f3f3;
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .bank-types-wrap .bank-types-a{
+        flex: none;
+        color: black;
+        padding: 5px;
+        display: inline-grid;
+        flex-wrap: wrap;
+        width: 46%;
+        height: 80px;
+        justify-content: center;
+        margin: 1% 2% 1% 2%;
+        background-color: white;
+    }
+
+    .bank-types-wrap .fa-icon:before {
+        /* width: 22px; */
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: auto;
+    }
+
+    .bank-flex-item .showed-line .showed-wrapper {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+    .bank-flex-item .small-img-wrap {
+        float: none;
+        display: block;
+    }
+
+    .bank-flex-item .company_title {
+        max-width: 100%;
+    }
+
+
+
+    .bank-flex-item .showed-wrapper:before {
+        display: block;
+        white-space: unset;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 17px;
+    }
+
+}

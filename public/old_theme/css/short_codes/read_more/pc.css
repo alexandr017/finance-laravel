@@ -1,0 +1,26 @@
+.read_more_block{
+    display: flex;
+    justify-content: space-around;
+}
+.read_more_block .read_more_img{
+    width: 35%;
+}
+.read_more_block .read_more_text{
+    width: 63%;
+}
+.read_more_title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.read_more_text a{
+    min-width: 200px;
+}
+.go_to_account {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin: 15px 0;
+}
+.read_more_text {
+    font-size: 1rem;
+    line-height: 1.5;
+}

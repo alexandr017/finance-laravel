@@ -1,0 +1,151 @@
+.special-banks-offers{
+
+}
+.special-banks-offers-tabs{
+    display: flex;
+    margin-bottom: 15px;
+}
+.special-banks-offers-tabs-item {
+    margin-right: 5%;
+    padding-bottom: 5px;
+    cursor: pointer;
+    border-bottom: 2px solid #3E4046;
+}
+.special-banks-offers-tabs-item:hover:not(.active-special-offer) {
+    border-bottom:2px solid #3CB2DD;
+    padding-bottom:2px;
+}
+.active-special-offer {
+    color: #3CB2DD;
+    border-bottom:2px solid #3CB2DD !important;
+}
+.special-banks-offers-tab{
+    display: none;
+}
+.special-banks-offers-tab .companies-flex-item {
+    width: 100%;
+    border: 10px solid #fff;
+    -webkit-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 21px 0 rgba(0,0,0,.2);
+    margin-bottom: 30px;
+}
+
+
+
+.special-banks-offers-tab .support-link{
+    color: #292929;
+}
+
+
+
+.special-banks-offers-tab .column-1{width: 40%}
+.special-banks-offers-tab .column-2{width: 10%;text-align: center;}
+.special-banks-offers-tab .column-3{width: 25%;text-align: center}
+.special-banks-offers-tab .column-4{width: 24%;text-align: center}
+
+
+.special-banks-offers-tab .small-img-wrap{
+    float: left;
+    display: inline-block;
+}
+
+.special-banks-offers-tab .company_title {
+    display: inline-block;
+    color: #292929;
+}
+
+.special-banks-offers-tab .bank-logo{
+    max-width: 130px;
+}
+
+.special-banks-offers-tab .showed-wrapper:before {
+    text-align: center;
+    display: block;
+    color: #989797;
+    height: 40px;
+    font-size: 0.75em;
+    content: attr(data-label);
+}
+.special-banks-offers-tab .hidden-line {
+    border-top: 1px solid #dedbdb;
+    padding-top: 10px;
+}
+.special-banks-offers-tab .showed-wrapper {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.special-banks-offers-tab .showed-wrapper .form-btn1 {
+    margin-top: 8px;
+}
+.special-banks-offers-sub-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 45px 0 15px;
+}
+
+.mt-offer{
+    padding-top: 15px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+
+@media screen and (max-width: 992px){
+    .special-banks-offers-tabs {
+        flex-wrap: wrap;
+    }
+    .special-banks-offers-tabs .special-banks-offers-tabs-item {
+        width: 50%;
+    }
+    .special-banks-offers-tabs>.special-banks-offers-tabs-item {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .showed-line {
+        flex-direction: column;
+    }
+
+
+    .special-banks-offers-tab .small-img-wrap{
+        float: none;
+        display: block;
+    }
+
+    .special-banks-offers-tab .showed-wrapper:before{
+        height: auto;
+        font-size: 1em;
+        margin-top: 15px;
+    }
+
+    .special-banks-offers-tab .showed-wrapper br{
+        display: none;
+    }
+
+    .mt-offer{
+        padding-top: 0;
+    }
+
+
+
+    .showed-line .column-1:before {
+        display: none;
+    }
+    .bank-flex-item .company_title {
+        width: 100%;
+    }
+    .showed-line .showed-wrapper .support-link {
+        width: 35%;
+    }
+
+}
+@media screen and (max-width: 424px){
+ 
+
+    .showed-line .showed-wrapper .support-link, .banks_reviews_count {
+        width: 100%;
+    }
+}

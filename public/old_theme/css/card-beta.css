@@ -1,0 +1,470 @@
+.card-mn-logo-review-block {
+    width: 23%;
+}
+.card-mn-license {
+    /*flex: 4;*/
+    width: 20%;
+    /*margin-left: 1.5%;*/
+    text-align: center;
+    height: 110px;
+}
+.card-mn {
+    align-items: center;
+    text-align: center;
+}
+.card-mn-label {
+    margin-bottom: 35px;
+    color: #A7A6C6;
+    display: block;
+}
+.card-mn-license .card-mn-label {
+    margin-top: 3em;
+    margin-bottom: 0;
+    font-size: 12px;
+    width: 100%;
+    min-height: 25px;
+    margin-left: 8%;
+    display: block;
+}
+.card-mn .form-btn1 {
+    position: relative;
+    top: 2.5em;
+    display: inline-block;
+    color: #ffffff;
+    border: #1ad052;
+    background-image: linear-gradient(45deg,rgb(85,140,255) 0%, rgb(40, 255, 184) 100%);
+    box-shadow: 0 4px 8px rgba(73, 165, 239,0.4);
+    padding: 0 20px;
+    height: 50px;
+    font-weight: 500;
+    text-decoration: none!important;
+    font-size: 16px;
+    text-align: center;
+    outline: 0;
+    line-height: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 8px;
+    height: 40px;
+    line-height: 39px;
+    width: 100%;
+}
+.card-mn-rating-km .form-btn1,.card-mn-credit-rating .form-btn1 {
+    background: #00b6f7;
+    border: 1px solid #00b6f7;
+}
+.card-mn .form-btn1:hover {
+    box-shadow: none;
+}
+.card-mn-more-details {
+    display: flex;
+    justify-content: center;
+    color: #02b7f7;
+    cursor: pointer;
+}
+.card-mn-details-block .card-mn-tab-content .card-mn-tab-pane {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    vertical-align: top;
+}
+.card-mn-details-block .card-mn-tab-content .active {
+    display: block;
+}
+.card-mn-details-block .nav li:not(.active) {
+    color: black;
+    padding-bottom: 7px;
+}
+.card-mn-details-block .nav li {
+    cursor: pointer;
+}
+.card-mn-details-block .nav .active, .card-mn-details-block .nav li:not(.active):hover, .card-mn-details-block .nav li:not(.active):focus {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #02b7f7;
+    color: #02b7f7;
+}
+.card-mn-tab-content {
+    margin: 5% 0 3% 0;
+}
+.card-mn-details {
+    margin-right: 15%;
+    width: 35%;
+    display: inline-block;
+    vertical-align: top;
+}
+.card-mn-row:nth-child(odd){
+    background-color: #F5F7F9;
+}
+.card-mn-row {
+    padding: 10px;
+    width: 100%;
+    display: block;
+    line-height: 1em;
+}
+.card-mn-row-value {
+    display: inline-block;
+    width: 45%;
+    font-weight: normal;
+}
+.card-mn-half-block {
+    width: 50%;
+    padding: 3%;
+}
+.card-mn-small-block {
+    width: 33%;
+}
+.card-mn-big-block {
+    width: 66%;
+}
+.card-mn-text-centered {
+    text-align: center;
+}
+.card-mn-icons-slider .slick-prev {
+    top: 30px;
+    left: 5px;
+}
+.card-mn-icons-slider .slick-next {
+    top: 30px;
+    right: 5px;
+}
+.card-mn-icons-slider {
+    height: 65px;
+}
+.card-mn-main-details {
+    display: flex;
+    width: 55%;
+    justify-content: space-around;
+    margin-top: 0.5em;
+}
+/*.card-mn-main-details div {*/
+/*    width: 33%;*/
+/*}*/
+.card-mn-details-block .nav li {
+    margin: 8px 5px;
+}
+.card-mn .complaint {
+    font-size: 12px;
+}
+.card-mn-more-details i {
+    margin-top: 3px;
+    margin-left: 5px;
+}
+.card-mn-km5 {
+    font-size: 14px;
+    color: #9e9e9e;
+}
+.one-offer .insert-video-wrap iframe {
+    height: auto;
+}
+.km-rate-icon-value-block {
+    position: relative;
+    top: -4em;
+}
+.card-mn-km-img {
+    width: 25px;
+    height: 25px;
+    background: url(/old_theme/img/popup1.png) no-repeat;
+    background-size: cover;
+    vertical-align: top;
+    cursor: pointer;
+    display: inline-block;
+}
+.card-mn .refresh-item {
+    font-size: 12px;
+    text-align: right;
+}
+.card-mn .refresh-item i {
+     font-size: 12px;
+}
+.card-mn-name {
+    color: #007BFF;
+    font-size: 1em;
+    font-weight: 600;
+}
+.spec-offer .card-mn-name {
+    top: 5em;
+}
+.card-mn .add_to_compare {
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #797979;
+}
+.card-mn .add_to_compare i,.card-mn .remove_from_compare i {
+    margin-left: 5px;
+}
+.spec-offer .card-mn .refresh-item {
+    top: 6em;
+}
+.card-mn .text-rating {
+    color: #007BFF;
+}
+.card-mn .text-rating a{
+    border-bottom: none;
+}
+.one-offer .card-mn-tab-content .card-mn-rating-km .form-btn1 {
+    width: 185px;
+}
+/*simple card-mn*/
+.card-mn-simple .card-mn-main-details {
+    width: 85%;
+}
+.card-mn-simple .card-mn-main-details div {
+    width: 130px;
+}
+.card-mn-simple .card-mn-main-details .card-mn-license {
+    width: auto;
+}
+.card-mn-simple .card-mn-license .form-btn1 {
+    top: 35px;
+}
+.card-mn-simple .card-mn-main-details .card-mn-label {
+    height: 55px;
+}
+.card-mn-simple .card-mn-main-details img {
+    position: relative;
+    top: -20px;
+}
+.simple-card-mn-offers .one-offer {
+    background: #fff;
+}
+.card-mn-simple .card-mn-main-details .simple-card-mn-sum,.card-mn-simple .card-mn-main-details .simple-card-mn-age {
+    min-width: 120px;
+    display: inline-block;
+}
+
+
+.card-mn-row-value .zaim-p-icon {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-top: 4px;
+    position: relative;
+}
+
+.sprite-block{font-weight: normal;max-width: 180px !important;width: auto;opacity: 1;box-shadow: rgba(54, 70, 83, 0.2) 0px 5px 15px;line-height: 18px;
+    color: rgb(79, 79, 79);font-size: 13px;padding: 14px 19px;position: absolute;background: #fff;z-index: 1;margin-top: 105% !important;;left: 0; min-width: 100px;}
+
+
+/*for video insert*/
+@media (max-width: 424px) {
+
+    .card-mn-main-details div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .card-mn-main-details {
+        flex-wrap: wrap;
+    }
+    .spec-offer .card-mn-logo-review-block .refresh-item {
+        top: 45px;
+    }
+    .card-mn-main-details .card-mn-label {
+        width: 30%;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    .card-mn-main-details b {
+        width: 50%;
+        text-align: left;
+    }
+
+/*    simple card beta*/
+    .card-mn-simple .simple-card-mn-logo-name,.card-mn-simple .card-mn-review-name-block {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card-mn-simple .card-mn-main-details .simple-card-mn-logo-name .card-mn-review-name-block,.card-mn-simple .card-mn-main-details .simple-card-mn-logo-name .card-mn-label {
+        width: 100%;
+        text-align: center;
+    }
+/*    simple card beta*/
+}
+@media (min-width: 425px) and (max-width: 766px) {
+
+    .card-mn-review-name-block .rating-line {
+        width: 100%;
+    }
+    .card-mn-logo-review-block .card-mn-review-name-block {
+        float: none;
+    }
+    .offers-list .spec-offer .card-mn-logo-review-block .refresh-item {
+        top: 45px;
+    }
+}
+@media (max-width: 767px) {
+    .card-mn {
+        flex-wrap: wrap;
+    }
+    .card-mn .add_to_compare,.card-mn .complaint {
+        display: none;
+    }
+    .card-mn-logo-review-block {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .card-mn-logo-review-block img {
+        width: 50%;
+    }
+    .card-mn-review-name-block {
+        /*float: right;*/
+        margin: 10px 10px;
+        width: 95%;
+    }
+    .card-mn-review-name-block .rating-line span {
+        display: block;
+    }
+    .card-mn-name {
+        display: flex;
+        color: #007BFF;
+        font-size: 1.3em;
+        font-weight: 600;
+        justify-content: center;
+    }
+    .card-mn-more-details{
+        margin-top: 10px;
+    }
+
+    .card-mn-logo-review-block .refresh-item {
+        top: 10px;
+        display: flex;
+        max-width: 110px;
+        flex-wrap: wrap;
+        right: 0;
+        left: unset;
+        justify-content: space-around;
+    }
+    .card-mn-license {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 1.1em;
+        height: 70px;
+    }
+    .card-mn-license .form-btn1 {
+        order: -1;
+        /*background: #00D143;*/
+        margin: 0 auto;
+        width: 100%;
+        top: 0;
+    }
+    .card-mn-details-block .card-mn-row b {
+        width: 50%;
+    }
+    .card-mn-details-block .card-mn-row {
+        display: flex;
+    }
+    .card-mn-details-block .card-mn-row b div, .card-mn-half-block, .card-mn-main-details {
+        width: 100%;
+    }
+    .card-mn-license .card-mn-label {
+        margin-top: 1em;
+        margin-left: 0;
+    }
+    .km-rate-icon-value-block {
+        top: 0;
+    }
+    .card-mn-details-block .cl-list {
+        width: 100%;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+    .card-mn-details-block .cl-list .cl-list-bnt,.card-mn-details-block .cl-list a {
+        width: 100%;
+        display: block;
+    }
+    .card-mn .refresh-item i {
+        left: 0;
+        top: 2px;
+    }
+    .card-mn-details-block .nav li {
+        width: 100%;
+        text-align: center;
+        background: #EDEDED;
+        padding: 5px;
+    }
+    .card-mn-details-block .nav .active a {
+        border-bottom:none;
+    }
+/*    simple beta card*/
+    .card-mn-simple .card-mn-main-details {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .card-mn-simple .card-mn-main-details div:not(.card-mn-review-name-block) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-mn-simple .card-mn-main-details .card-mn-label {
+        width: auto;
+        height: auto;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    .card-mn-simple .card-mn-main-details div b {
+        width: auto;
+        text-align: right;
+    }
+    .card-mn-simple .card-mn-main-details div {
+        width: auto;
+    }
+    .card-mn-simple .simple-card-mn-logo-name {
+        flex-wrap: wrap;
+    }
+    .card-mn-simple .card-mn-main-details .simple-card-mn-logo-name .card-mn-review-name-block,.card-mn-simple .card-mn-main-details .simple-card-mn-logo-name .card-mn-label {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .card-mn-simple .card-mn-license .form-btn1 {
+        top: 0;
+    }
+    .card-mn-simple .card-mn-license {
+        height: 50px;
+    }
+    .card-mn-small-block, .card-mn-big-block {
+        width: 100%;
+    }
+/*    simple beta card*/
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .card-mn-license {
+        height: 110px;
+        margin-left: 1%;
+    }
+
+    .card-mn-license .card-mn-label {
+        margin-top: 3em;
+    }
+    .card-mn .refresh-item {
+        right: 10px;
+    }
+/*    simple beta card*/
+    .card-mn-simple .card-mn-main-details,.card-mn-simple .card-mn-license {
+        width: 100%;
+    }
+    .card-mn-simple {
+        flex-wrap: wrap;
+    }
+    .card-mn-simple .card-mn-label {
+        font-size: 0.9rem;
+    }
+/*    simple beta card*/
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+
+    .card-mn-license {
+        height: 110px;
+        margin-left: 1%;
+    }
+    .card-mn-license .card-mn-label {
+        margin-top: 3em;
+    }
+
+    .card-mn .refresh-item {
+        right: 10px;
+    }
+}

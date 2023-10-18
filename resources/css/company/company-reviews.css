@@ -1,0 +1,19 @@
+.reviews_slider_cont .product-items-more-btn.show_more_btn_color {
+    margin-top: 30px;
+}
+.show_more_btn_color {
+    color: #469ED7;
+    border: 1px solid #469ED7;
+    background: #FFFFFF;
+}
+.product-items-more-btn {
+    background: #FFFFFF;
+    border: 1px solid #469ED7;
+    border-radius: 42px;
+    padding: 18px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    color: #469ED7;
+}

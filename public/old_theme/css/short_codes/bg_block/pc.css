@@ -1,0 +1,29 @@
+.bg_post{
+    margin: 15px 0;
+    padding: 15px;
+    clear: both;
+
+}
+/*
+.bg_post img{
+    width: 28%;
+}
+.bg_post p{
+    width: 68%;
+}
+*/
+
+.bg_post > p:last-child{
+    margin-bottom: 0;
+}
+
+.bg_post b{
+    display: contents;
+}
+.bg_post span{
+    margin: 0 auto;
+}
+.bg_post_gray{background:#f8f8f8}
+.bg_post_green{background:#a5ca38}
+.bg_post_blue{background:#00b6f7}
+.bg_post_default{background: #fff;}

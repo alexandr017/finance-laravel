@@ -1,0 +1,36 @@
+.vertical_tab_mob_block div span{
+    display: block;
+    font-weight: 600;
+    color: #292929;
+    background: #ebebeb;
+    border-bottom: 2px solid #f8f8f8;
+    cursor: pointer;
+    padding: 15px 0 15px 15px;
+}
+.vertical_tab_mob_block ul li{
+    list-style: none !important;
+}
+.vertical_tab_mob_block .active .rtext{
+    padding: 0;
+}
+.left-block, .right-block {
+    display: none;
+}
+@media screen and (min-width: 768px) {
+    .vertical_tab_mob_block {
+        display: none;
+    }
+    .left-block, .right-block {
+        display: inline-block;
+    }
+    .vertical_tabs_block{
+        display: flex;
+        justify-content: space-around;
+    }
+    .col_cnt_3 {
+        width: 26%;
+    }
+    .col_cnt_9 {
+        width: 73%;
+    }
+}

@@ -1,0 +1,10 @@
+.vertical_tabs_block{
+    display: flex;
+    justify-content: space-around;
+}
+.col_cnt_3 {
+    width: 26%;
+}
+.col_cnt_9 {
+    width: 73%;
+}

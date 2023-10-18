@@ -1,0 +1,16 @@
+.content_item_wrap .inner{
+    text-align: center;
+    margin: 15px 0;
+    padding: 15px 15px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-bottom: 3px solid #ddd;
+}
+.content_item_wrap .inner a{
+    margin-bottom: 15px;
+    color: #292929;
+    border-bottom: 0 ;
+    cursor: pointer;
+    font-weight: bold;
+
+}

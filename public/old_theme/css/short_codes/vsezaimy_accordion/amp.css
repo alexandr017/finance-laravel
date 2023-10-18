@@ -1,0 +1,32 @@
+.horizontal-accordeon-block {
+    margin-bottom: 30px;
+}
+
+.horizontal-accordeon-block .hitem {
+    border-bottom: 2px solid #fff;
+    background: #ebebeb;
+}
+
+.itop{
+    display: block;
+    padding: 20px;
+}
+
+
+.imore {
+    display: none;
+    padding: 0 20px 20px;
+}
+.itop:before {
+    content: attr(data-open);
+    margin-right: 10px;
+}
+.itop-label{
+    display: none;
+}
+.itop-label:checked+.itop+.imore{
+    display: block;
+}
+.itop-label:checked+.itop:before{
+    content: attr(data-close);
+}

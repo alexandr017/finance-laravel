@@ -1,0 +1,235 @@
+.product-item {
+    display: grid;
+    grid-template-columns: auto 80px 1fr;
+    align-items: flex-start;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 10px 2px rgb(0 0 0 / 5%);
+    border-radius: 30px;
+    padding: 32px;
+    grid-gap: 24px;
+    font-size: 18px;
+    height: 100%;
+}
+
+@media screen and (max-width: 360px) {
+    .product-item {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .product-item {
+        padding: 1.2em;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .product-item {
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .product-item-info-cont {
+        display: grid;
+        grid-template-areas:
+        "title title title"
+        "rating rating kcount"
+        "vcount vcount kcount";
+        align-items: end;
+        column-gap: 0;
+        row-gap: 0;
+        height: unset;
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .product-item-raiting {
+        justify-self: unset;
+    }
+
+    .product-item-vote_count-value {
+        justify-content: unset;
+    }
+
+    .product-item-vote_count-value {
+        margin: 0;
+        margin-top: 4px;
+    }
+
+    .product-item-vote_count-value span {
+        display: unset;
+    }
+}
+
+@media screen and (max-width: 1340px) {
+    .product-item {
+        font-size: 14px;
+        grid-template-columns: auto 4.5em 1fr;
+        grid-gap: 1em;
+    }
+
+    .product-item-num {
+        font-size: 1.7em;
+    }
+
+    .product-item-title a {
+        font-size: 1.3em;
+        line-height: 1.7em;
+    }
+
+    .product-item-kurses-book, .product-item-kurses, .product-item-raiting-value, .product-item-raiting-star {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .product-item-raiting-star img {
+        margin-right: 0.5em;
+        margin-left: 0.5em;
+    }
+
+    .product-item-raiting-star img, .product-item-kurses-book img {
+        width: 1.1em;
+        height: 1.1em;
+    }
+
+    .product-item-kurses-book, .product-item-kurses, .product-item-raiting-value, .product-item-raiting-star {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .product-item-kurses-book, .product-item-kurses, .product-item-raiting-value, .product-item-raiting-star {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .product-item-raiting-star img, .product-item-kurses-book img {
+        width: 1.1em;
+        height: 1.1em;
+    }
+
+    .product-item-kurses-book, .product-item-kurses, .product-item-raiting-value, .product-item-raiting-star {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .product-item-kurses-book, .product-item-kurses, .product-item-raiting-value, .product-item-raiting-star {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .product-item-kurses-book img {
+        margin-right: 0.5em;
+        margin-left: 1.5em;
+    }
+
+    .product-item-raiting-star img, .product-item-kurses-book img {
+        width: 1.1em;
+        height: 1.1em;
+    }
+}
+
+.product-item-num {
+    color: #101820;
+    margin-right: 8px;
+    font-weight: 500;
+    font-size: 32px;
+    align-self: flex-start;
+    line-height: 2.5em;
+}
+
+a {
+    color: #469ED7;
+    text-decoration: none;
+}
+
+a.product-item-image-wrapper span {
+    width: 100%;
+    padding-top: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.product-item-info-cont {
+    display: grid;
+    grid-template-areas:
+        "title title title"
+        "rating vcount kcount";
+    white-space: nowrap;
+    grid-template-columns: auto auto 1fr;
+}
+
+.product-item-title {
+    grid-area: title;
+    margin-bottom: 8px;
+}
+
+.product-item-title a {
+    color: #101820;
+    font-size: 24px;
+    line-height: 32px;
+    text-decoration: none;
+    word-break: break-word;
+    white-space: normal;
+    font-weight: 500;
+}
+
+.product-item-raiting {
+    grid-area: rating;
+}
+
+.product-item-raiting-value {
+    color: #101820;
+    font-weight: 600;
+}
+
+.product-item-raiting-value {
+    margin-right: 3px;
+}
+
+.product-item-vote_count-value {
+    display: flex;
+    align-items: center;
+}
+
+.product-item-vote_count-value {
+    grid-area: vcount;
+}
+
+.product-item-vote_count-value a {
+    color: #469ED7;
+    /* font-size: 1em; */
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.product-item-vote_count-value span {
+    display: none;
+}
+
+.product-item-info-cont > div {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.product-item-kurses {
+    grid-area: kcount;
+    margin-left: 25px;
+}
+
+.product-item-kurses-book {
+    margin-right: 14px;
+    display: flex;
+}
+
+.product-item-kurses-count {
+    font-weight: 500;
+    color: #101820;
+}
+
+
+
+
+
+

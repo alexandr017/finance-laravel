@@ -1,0 +1,95 @@
+.planet-switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    border-radius: 24px;
+    transition: background-color 0.4s;
+    display: inline-block;
+    margin-left: 30px;
+    vertical-align: text-bottom;
+    cursor: pointer;
+}
+
+.planet, .planet .core, .sunrays, .sunrays > .ray {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+.planet-switch.sun {
+    background-color: skyblue;
+}
+.planet-switch.moon {
+    background-color: purple;
+}
+.planet, .sunrays, .sunrays > .ray {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.4s;
+}
+.planet .core, .sunrays .core, .sunrays > .ray .core {
+    border-radius: 50%;
+    transition: background-color 0.4s;
+}
+.sunrays {
+    animation: sun-rolling 3s linear infinite;
+    transition: opacity 0.4s;
+}
+@keyframes sun-rolling {
+    to {
+        transform: rotate(-30deg);
+    }
+}
+.sunrays > .ray {
+    background-color: #ffd600;
+}
+.sunrays > .ray:nth-child(2) {
+    transform: rotate(30deg);
+}
+.sunrays > .ray:nth-child(3) {
+    transform: rotate(60deg);
+}
+.hole {
+    position: absolute;
+    border-radius: 50%;
+    transition: opacity 0.4s;
+}
+.hole {
+    top: 15%;
+    left: 10%;
+    width: 9px;
+    height: 12px;
+    background-color: #bdcacf;
+    transform: rotate(30deg);
+}
+.hole ~ .hole {
+    top: 30%;
+    left: 60%;
+    width: 4px;
+    height: 4px;
+    background-color: #b2c0c6;
+}
+.sun .core {
+    background-color: #fff3b3;
+}
+.moon > .planet, .moon > .sunrays, .sunrays.moon > .ray {
+    transform: translateX(24px);
+}
+.moon .core {
+    background-color: #cfd8dc;
+    box-shadow: 0 0 24px white;
+    animation: moon-shadowing 3s ease infinite;
+}
+@keyframes moon-shadowing {
+    50% {
+        box-shadow: 0 0 18px #cfd8dc;
+    }
+}
+.sun .hole, .moon .sunrays {
+    opacity: 0;
+}

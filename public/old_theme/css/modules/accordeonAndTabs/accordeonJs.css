@@ -1,0 +1,10 @@
+.horizontal-accordeon-block .hitem .itop-js {
+    width: 100%;
+    line-height: 21px;
+    font-weight: 500;
+    padding: 17px 0;
+    cursor: pointer;
+}
+.horizontal-accordeon-block .hitem .itop-js i {
+    margin-right: 10px;
+}

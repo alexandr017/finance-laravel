@@ -1,0 +1,14 @@
+.go_to_account {
+    border: 12.5px solid #F6F6F6;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.go_to_account_img{
+    text-align: center;
+}
+
+.go_to_account .form-btn1{
+    padding: 10px 0;
+}
+

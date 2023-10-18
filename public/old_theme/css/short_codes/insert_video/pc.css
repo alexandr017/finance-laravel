@@ -1,0 +1,38 @@
+.video-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    line-height: 45px;
+    text-align: center;
+    font-size: 15px;
+    padding-left: 2.8125px;
+    background-color: #00b6f7;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    z-index: 9;
+}
+.insert-video-inner .video-button .video-button-icon {
+    font-size: 25px;
+    line-height: 60px;
+    color: #fff;
+}
+.insert-video-wrap {
+    max-width: 620px;
+    margin: 0 auto 15px;
+}
+.insert-video-wrap .single-img-wrap{
+    padding: 0;
+    margin: 0;
+}
+.insert-video-inner {
+    position: relative;
+    display: inline-block;
+    border: 5px solid #00b6f7;
+    cursor: pointer;
+}

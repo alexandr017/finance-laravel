@@ -1,0 +1,40 @@
+.experts_wrap{}
+.experts_item{
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+.experts_wrap .experts_item:last-child{
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.expert_photo{
+    float: left;
+    margin: 0 15px 15px 0;
+    outline: 1px solid #e8e8e8;
+}
+.expert_name{
+    font-weight: bold;
+}
+.expert_info{}
+.expert_email{}
+.exert_social_networks{
+    float: right;
+}
+
+@media screen and (max-width: 560px){
+    .expert_photo{
+        float: none;
+        display: block;
+        margin: auto;
+    }
+    .expert_name, .expert_email{
+        display: block;
+        text-align: center;
+    }
+    .exert_social_networks{
+        float: none;
+        text-align: center;
+    }
+}

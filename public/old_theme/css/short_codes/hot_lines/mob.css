@@ -1,0 +1,51 @@
+@media screen and (min-width: 768px) {
+    .hot_lines_block {
+        display: flex;
+        justify-content: space-around;
+    }
+    .col_cnt_3 {
+        width: 22%;
+    }
+    .col_cnt_4 {
+        width: 30%;
+    }
+    .col_cnt_6 {
+        width: 47%;
+    }
+    .col_cnt_12 {
+        width: 97%;
+    }
+    .hot_lines a.inn_ht_link {
+        padding: 15px;
+    }
+}
+.hot_lines {
+    background: #00b6f7;
+    padding: 15px;
+    text-align: center;
+    margin: 15px 0;
+}
+.hl_title {
+    font-size: 1.4em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+.hot_lines a.inn_ht_link {
+    display: block;
+    color: #00b6f7;
+    background: #fff;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.hot_lines i {
+    font-size: 2em;
+}
+.hot_lines span {
+    display: block;
+}
+
+.hot_lines_block > div {
+    padding: 15px;
+    background: #fff;
+}
