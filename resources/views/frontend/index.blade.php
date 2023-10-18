@@ -12,6 +12,7 @@
         <div class="col-lg-9 col-md-12">
 
                 <div class="single-page">
+                    <p>hello</p>
                     <div class="h2 text-center">Лучшие займы</div>
                     <div class="one-offer">
                         <div id="loansSlider">
