@@ -23,8 +23,8 @@ class GoToAccount extends BaseShortcode{
             $GLOBALS['short_code_css'][]='go_to_account';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/go_to_account/$this->template.blade.php")) {
-            return view("short_codes.go_to_account.$this->template",compact('logo','alt','content', 'link', 'link2','goal_name','goal_name_0'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/go_to_account/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.go_to_account.$this->template",compact('logo','alt','content', 'link', 'link2','goal_name','goal_name_0'));
         }
 
         return;

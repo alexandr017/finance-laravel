@@ -1,5 +1,5 @@
 <?php global $c; $c = $cards; ?>
-@extends('frontend.layouts.app')
+@extends('site.v3.layouts.app')
 @section ('title', Shortcode::compile($page->title,$cards))
 @section ('h1', $page->h1)
 @section ('meta_description', Shortcode::compile($page->meta_description))
@@ -12,7 +12,7 @@
 
 @section('content')
 
-@include('frontend.includes.breadcrumbs')
+@include('site.v3.modules.includes.breadcrumbs')
 
 
 <?php #dd($cards); ?>
@@ -47,13 +47,13 @@
 
 
 {{--    @if(response::check_mobile())--}}
-{{--    @include('frontend.includes.tags')--}}
+{{--    @include('site.v3.modules.includes.tags')--}}
 {{--    @endif--}}
 
 
 
     @if($_SERVER['REQUEST_URI'] == '/rko')
-    @include('frontend.includes.rko.calc_ip_ooo')
+    @include('site.v3.modules.includes.rko.calc_ip_ooo')
     @endif
 
     <div class="row clearfix">
@@ -68,31 +68,20 @@
             @include("site.v3.templates.listings.includes.sorting_fields.".$page->id)
             @endif
             <div class="offers-list">
-                <?php $admins = [
-                    30154, // Артур
-                    1,     // Виталий
-                    12467,  // Я
-                    92879, // Асмик
-                    42101, // Виктор - админ
-                    93480, // Никита - админ
-                    95750, // Игоооооооорь
-                    67835, // София
-                ];
-                ?>
                 <?php $i=0; ?>
                 @foreach($cards as $card)
-                        @if($card->category_id == 1 || in_array(\Auth::id(), $admins))
-                            @include('frontend.cards.minimal.card')
+                        @if($card->category_id == 1)
+                            @include('site.v3.modules.cards.minimal.card')
                         @else
-                            @include('frontend.cards.card.card')
+                            @include('site.v3.modules.cards.card.card')
                         @endif
                     @if(count($cards)>10)
                         @if($i == 8)
-                            @include('frontend.cards.card.info3')
+                            @include('site.v3.modules.cards.card.info3')
                         @endif
                     @else
                         @if(count($cards) > 1 && $i == (count($cards) - 1))
-                            @include('frontend.cards.card.info3')
+                            @include('site.v3.modules.cards.card.info3')
                         @endif
                     @endif
 
@@ -114,7 +103,7 @@
                 <div>
                     @foreach($others_cards as $card)
                     <?php /* $ratingValue = $card */ ?>
-                    @include('frontend.cards.card.card')
+                    @include('site.v3.modules.cards.card.card')
                     @endforeach
                 </div>
             </div>
@@ -167,8 +156,8 @@
 {{--            @endif--}}
 
             @if(isset($category_id))
-            @if(file_exists( base_path().'/resources/views/frontend/listings/includes/total_cards_table/'.$category_id.'.blade.php'))
-            @include("frontend.listings.includes.total_cards_table.$category_id")
+            @if(file_exists( base_path().'/resources/views/site/v3/modules/listings/includes/total_cards_table/'.$category_id.'.blade.php'))
+            @include("site.v3.modules.listings.includes.total_cards_table.$category_id")
             @endif
             @endif
 
@@ -177,7 +166,7 @@
 {{--            <div class="blue-block">--}}
 {{--                @if(($category_id == 1 ||  $category_id == 7))--}}
 {{--                @if(isset($category_id))--}}
-{{--                @include('frontend.includes.zaimy.calc')--}}
+{{--                @include('site.v3.modules.includes.zaimy.calc')--}}
 {{--                @endif--}}
 {{--                @endif--}}
 {{--            </div>--}}
@@ -217,7 +206,7 @@
 
             @if(isset($category_id))
             @if($category_id == 8)
-            @include("frontend.listings.autocredit.knowledge_base")
+            @include("site.v3.modules.listings.autocredit.knowledge_base")
             @endif
             @endif
 
@@ -239,7 +228,7 @@
 
         </div><?php /* end col-md-9 */ ?>
         <div class="col-lg-3 d-lg-block d-xs-none d-none">
-            @include('frontend.includes.sidebar')
+            @include('site.v3.modules.includes.sidebar')
         </div><?php /* md-3 */ ?>
     </div><?php /*row */ ?>
 </section>

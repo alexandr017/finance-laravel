@@ -19,8 +19,8 @@ class BGBlock extends BaseShortcode{
             $GLOBALS['short_code_css'][]='bg_block';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/bg_block/$this->template.blade.php")) {
-            return view("short_codes.bg_block.$this->template", compact('colorClass','content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/bg_block/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.bg_block.$this->template", compact('colorClass','content'));
         }
 
         return;

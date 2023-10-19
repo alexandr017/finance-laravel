@@ -45,8 +45,8 @@ class MFOHubController extends Controller
 
             $cards =  $this->getSortedMfoCards($card_category_id, 'km5', 'desc');
 
-        $amp = false;
-            $blade = ($amp==false) ? 'frontend.companies.mfo' : 'frontend.companies.mfo-amp';
+        $amp = is_amp_page();
+            $blade = (!$amp) ? 'site.v3.templates.companies.hub.mfo' : 'site.v3.templates.companies.companies.hub-amp';
 
             return view($blade, compact('companies_category','breadcrumbs',
                 'cards','amp','filters_json','options_json','card_category_id'));

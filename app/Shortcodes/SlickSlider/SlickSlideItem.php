@@ -13,8 +13,8 @@ class SlickSlideItem extends BaseShortcode{
         $href = $shortcode->href;
 
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/slick_slider/item/$this->template.blade.php")) {
-            return view("short_codes.slick_slider.item.$this->template",compact('src', 'alt','href'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/slick_slider/item/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.slick_slider.item.$this->template",compact('src', 'alt','href'));
         }
 
         return;

@@ -69,8 +69,8 @@ class ProductsController extends BaseBankController
 
 
         $breadcrumbs = [];
-        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banks'];
-        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->h1, 'link' => '/banks/'.$bank->alias];
+        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
+        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->h1, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => $bankCategory->breadcrumb ?? $bankCategory->h1, 'link' => '/banks/'.$bank->alias.'/'.$categoryAlias];
         $breadcrumbs[] = ['h1' => $page->breadcrumb ?? $page->h1];
 

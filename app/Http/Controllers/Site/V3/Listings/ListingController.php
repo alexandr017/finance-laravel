@@ -151,9 +151,9 @@ class ListingController extends Controller
 
 
 
-
-        $breadcrumbs = BreadcrumbsRender::get($listing->breadcrumb, $listing->h1);
-
+        $breadcrumbs = [
+            ['h1' => $listing->h1]
+        ];
 
         $others_cards = ($listing->others_cards == null) ? [] : Cards::getCardByIds($listing->others_cards);
 

@@ -30,8 +30,8 @@ class OfferInRating extends BaseShortcode{
             $GLOBALS['short_code_js'][]='offer_in_rating';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/offer_in_rating/$this->template.blade.php")) {
-            return view("short_codes.offer_in_rating.$this->template",compact('place','img','title','text','content','onclick','class','link'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/offer_in_rating/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.offer_in_rating.$this->template",compact('place','img','title','text','content','onclick','class','link'));
         }
 
         return;

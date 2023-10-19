@@ -26,8 +26,8 @@ class ReadMore extends BaseShortcode{
             $GLOBALS['short_code_css'][]='read_more';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/read_more/$this->template.blade.php")) {
-            return view("short_codes.read_more.$this->template",compact('post','link','content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/read_more/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.read_more.$this->template",compact('post','link','content'));
         }
 
         return;

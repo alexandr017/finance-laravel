@@ -166,10 +166,6 @@ dd($json);
 
 
 
-        if(isset($_GET['yandex_feed'])){
-            $yandex_feed = new TurboController();
-            return $yandex_feed->index_page_init();
-        }
 
         /*
         $redireced = System::redirect();
@@ -178,9 +174,7 @@ dd($json);
         }
         */
 
-        $options = Cache::rememberForever('options', function(){
-            return Options::all();
-        });
+
         $title = ''; $h1 = ''; $meta_description = ''; $content = '';
 
         $card_category = CardsCategories::findOrFail(1);
@@ -347,7 +341,7 @@ dd($json);
         shuffle($reviews);
 
 
-        return view('frontend.index',[
+        return view('site.v3.templates.index',[
             'title' => $title,
             'h1' => $h1,
             'content' => $content,
@@ -385,16 +379,8 @@ dd($json);
 
     public function index_amp(){
 
-        $options = Cache::rememberForever('options', function(){
-            return Options::all();
-        });
         $title = ''; $h1 = ''; $meta_description = ''; $content = '';
-        foreach ($options as $key => $value) {
-            if($value['attributes']['key'] == 'index_title') $title = $value['attributes']['value'];
-            if($value['attributes']['key'] == 'index_h1') $h1 = $value['attributes']['value'];
-            if($value['attributes']['key'] == 'index_meta_desc') $meta_description = $value['attributes']['value'];
-            if($value['attributes']['key'] == 'index_content') $content = $value['attributes']['value'];
-        }
+
         $cards = DB::table('cards')
             ->leftjoin("cards_1_zaimy", 'cards.id', '=', "cards_1_zaimy.card_id")
             ->leftjoin("companies", 'cards.company_id', '=', "companies.id")
@@ -409,7 +395,7 @@ dd($json);
 
         $card_category = CardsCategories::find(1);
         if($card_category == null){
-            return abort(404, 'Not Found');
+            return abort(404);
         }
 
 
@@ -417,13 +403,13 @@ dd($json);
             return $allRows = DB::table('companies_reviews')
                 ->select('companies_reviews.*')
                 ->where(['companies_reviews.status'=>1])
-                ->orderBy('companies_reviews.id','desk')
+                ->orderBy('companies_reviews.id','desc')
                 ->limit(10)
                 ->get();
         });
 
 
-        return view('frontend.index-amp',[
+        return view('site.v3.templates.index-amp',[
             'category_id' => 1,
             'title' => $title,
             'h1' => $h1,

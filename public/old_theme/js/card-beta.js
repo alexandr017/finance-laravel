@@ -44,50 +44,10 @@ $(function() {
         });
         */
         target.parent().find('.card-mn-icons-slider-js').addClass('jsSlideTemporaryClass'+target.parent()[0].id);
-        var cardMnIconsClassList = target.parent().find('.card-mn-icons-slider-js')[0].classList;
-        if(cardMnIconsClassList.value.indexOf('jsSlideMainBlock')== -1){
-            slideShow({
-                element:'.jsSlideTemporaryClass'+target.parent()[0].id,
-                slidesToShow:4,
-                slidesToScroll:1,
-                circleScroll:false,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            })
-        }
 
-        /*
-        target.parent().find('.card-mn-icons-slider').on('init', function(event, slick){
-            $(this).removeClass('.display_none')
-        });
 
-         */
 
-        target.parent().find('.k5m-info').html('<p class="card-mn-text-centered">К5М® — рейтинг, с помощью которого мы оцениваем финансовые продукты (например, микрозаймы, кредиты или кредитные карты). Для объективной оценки используется сложная формула, которая учитывает большое число параметров (в сентябре 2016 года их было всего 5 штук, а через два года — уже более 80). В процессе оценки задействованы не только основные параметры продукта (такие как сумма или процентная ставка кредита), но и оценки клиентов.</p>\n' +
-            '<a class="form-btn1" target="_blank" rel="nofollow" href="/about">Детальнее о К5М</a>');
 
-        target.parent().find('.needCR-text').text('С помощью кредитного рейтинга вы можете моментально узнать свое «финансовое здоровье», которое представлено в виде числового показателя в районе 300-850 баллов. Главное преимущество — вы получите информацию, заполнив лишь небольшую форму, в режиме онлайн совершенно бесплатно. Без платы за подписку и навязчивой рекламы.');
 
     })
     $(document).on('click','.video-button',function(event){

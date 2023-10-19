@@ -20,8 +20,8 @@ class OurExperts extends BaseShortcode{
             $GLOBALS['short_code_css'][]='our_experts';
         }
 
-        if (file_exists(resource_path() . "/views/short_codes/expert/our_experts/$this->template.blade.php")) {
-            return view("short_codes.expert.our_experts.$this->template",compact('experts'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/expert/our_experts/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.expert.our_experts.$this->template",compact('experts'));
         }
     }
 

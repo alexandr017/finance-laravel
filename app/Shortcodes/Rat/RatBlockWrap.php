@@ -42,8 +42,8 @@ class RatBlockWrap extends BaseShortcode{
             $GLOBALS['short_code_css'][]='rat';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/rat/rat_block_wrap/$this->template.blade.php")) {
-            return view("short_codes.rat.rat_block_wrap.$this->template",compact('pros_titles','cons_titles','pros_descs','content','cons_descs'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/rat/rat_block_wrap/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.rat.rat_block_wrap.$this->template",compact('pros_titles','cons_titles','pros_descs','content','cons_descs'));
         }
 
         return;

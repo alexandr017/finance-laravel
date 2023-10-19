@@ -13,8 +13,8 @@ class BigStarList extends BaseShortcode {
             $GLOBALS['short_code_css'][]='big_star_list';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/big_star_list/$this->template.blade.php")) {
-            return view("short_codes.big_star_list.$this->template", compact('content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/big_star_list/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.big_star_list.$this->template", compact('content'));
         }
 
         return;

@@ -1,0 +1,1 @@
+<div class="big_star_wrap">{!! $content !!}</div>

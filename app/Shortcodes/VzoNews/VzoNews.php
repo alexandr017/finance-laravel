@@ -20,8 +20,8 @@ class VzoNews extends BaseShortcode{
         if(!in_array('vzo_news',$GLOBALS['short_code_css'])){
             $GLOBALS['short_code_css'][]='vzo_news';
         }
-        if (file_exists(resource_path() . "/views/short_codes/vzo_news/$this->template.blade.php")) {
-            return view("short_codes.vzo_news.$this->template",compact('vzo_news'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/vzo_news/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.vzo_news.$this->template",compact('vzo_news'));
         }
 
         return;

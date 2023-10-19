@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Site\V3\Banks\InfoPages;
 
-use App\Http\Controllers\Frontend\Banks\BaseBankController;
+use App\Http\Controllers\Site\V3\Banks\BaseBankController;
 
 use App\Models\Banks\BankInfoPage;
 use App\Models\Banks\Bank;
@@ -38,12 +38,12 @@ class LoginInfoPageController extends BaseBankController
         }
 
         $breadcrumbs = [];
-        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banks'];
-        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banks/'.$bank->alias];
+        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
+        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => 'Личный кабинет'];
 
 
-        $template = 'frontend.banks.info-pages.' . $template;
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
 
         $editLink = null;
         $bankTopCard = DB::table('bank_product_cards')

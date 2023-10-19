@@ -27,7 +27,7 @@ class ContentItem extends BaseShortcode{
         }
         // pc, mob, turbo, amp
         if (file_exists(resource_path() . "/views/short_codes/content_item/content_item/$this->template.blade.php")) {
-            return view("short_codes.content_item.content_item.$this->template", compact('link','img','alt','link_title','content'));
+            return view("site.v3.shortcodes.content_item.content_item.$this->template", compact('link','img','alt','link_title','content'));
         }
 
         return;

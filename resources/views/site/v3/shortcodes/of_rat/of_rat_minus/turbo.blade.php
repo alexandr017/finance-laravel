@@ -1,0 +1,1 @@
+<div class="of_rat_un_wrap r"><div class="of_rat_un_wrap_t">Недостатки</div>{!! $content !!}</div>

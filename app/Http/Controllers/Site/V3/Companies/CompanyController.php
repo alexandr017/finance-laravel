@@ -44,12 +44,10 @@ class CompanyController extends Controller
 
         $companiesChildrenPages = CompaniesChildrenPages::where(['company_id'=>$company->id])->get();
 
-        $breadcrumbsGroup = 'mfo';
-        $breadcrumbs = [];
-        $breadcrumbsArr = explode("\n",$breadcrumbsGroup);
-        $urlPath = '';
-
-        $breadcrumbs [] = ['h1' => ($company->breadcrumb == null) ? $company->h1 : $company->breadcrumb];
+        $breadcrumbs = [
+            ['link'=>'/mfo','h1'=> 'Все МФО'],
+            ['h1' => ($company->breadcrumb == null) ? $company->h1 : $company->breadcrumb]
+        ];
 
 
         $uid = Auth::id();
@@ -70,8 +68,9 @@ class CompanyController extends Controller
 
         $icons = [];
 
+        $showContentMenu = true;
 
-        $blade = (!is_amp_page()) ? 'frontend.companies.company' : 'frontend.companies.company-amp';
+        $blade = (!is_amp_page()) ? 'site.v3.templates.companies.company.company' : 'site.v3.templates.companies.company.company-amp';
 
         return view($blade,[
             'companiesChildrenPages' => $companiesChildrenPages,
@@ -88,7 +87,8 @@ class CompanyController extends Controller
             'editLink' => null,
             'similar_companies' => $similar_companies,
             'amp' => is_amp_page(),
-            'icons' => $icons
+            'icons' => $icons,
+            'showContentMenu' => $showContentMenu
         ]);
     }
 

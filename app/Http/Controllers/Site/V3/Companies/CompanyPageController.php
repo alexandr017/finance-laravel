@@ -7,12 +7,10 @@ use Auth;
 use DB;
 use App\Models\Companies\CompaniesChildrenPages;
 use App\Models\Companies\Companies;
-use App\Algorithms\RatingRandom;
 use App\Models\Cards\Cards;
 use App\Algorithms\Frontend\Cards\OldCardsBoot;
 use App\Models\Users\UsersMeta;
 use App\Algorithms\Frontend\Companies\Reviews\ReviewsCount;
-use App\Models\Posts\Authors;
 
 class CompanyPageController extends Controller
 {
@@ -37,7 +35,7 @@ class CompanyPageController extends Controller
 
     public function render($companyAlias, $pageType)
     {
-        $amp = false;
+        $amp = is_amp_page();
 
         $company = Companies::where(['alias'=> $companyAlias, 'status'=>1])->first();
         if ($company == null) {
@@ -76,35 +74,20 @@ class CompanyPageController extends Controller
         $countReviews = $reviewsObj->getAllReviewsAndComplaints();
         $reviews = $reviewsObj->getAllHierarchyReviews();
 
-        if ($page->type_id == 4) {
-            $breadcrumb_h1 = ($page->breadcrumb != null) ? $page->breadcrumb : 'Отзывы';
-        } else {
-            $breadcrumb_h1 = ($page->breadcrumb != null) ? $page->breadcrumb : $page->h1;
-        }
+        $breadcrumbs = [
+            ['link'=>'/mfo','h1'=> 'Все МФО'],
+            ['link'=>'/mfo/'. $company->alias, 'h1' => $company->breadcrumb],
+            ['h1' => $page->breadcrumb],
+        ];
 
-        $breadcrumbs = [];
-        $cardsCategory = DB::table('cards_categories')->where(['id' => $company->card_category_id])->first();
-        if ($cardsCategory != null) {
-            $companyBreadcrumb = $cardsCategory->breadcrumb;
-            $companyAlias = $cardsCategory->alias;
-            if ($companyAlias == '/') {
-                $breadcrumbs [] = ['link'=>'/'. $company->alias ,'h1' => ($company->breadcrumb == null) ? $company->h1 : $company->breadcrumb];
-                $breadcrumbs [] = ['h1' => $breadcrumb_h1];
-            } else {
-                $breadcrumbs [] = ['link'=>'/'.$companyAlias,'h1'=>$companyBreadcrumb];
-                $breadcrumbs [] = ['link'=>'/'.$companyAlias . '/'. $company->alias , 'h1' => ($company->breadcrumb == null) ? $company->h1 : $company->breadcrumb];
-                $breadcrumbs [] = ['h1' => $breadcrumb_h1];
-            }
-
-        }
+        $showContentMenu = true;
 
 
         if($page->type_id != 4){
-            $author = Authors::find($company->author_id);
-            $blade = ($amp==false) ? 'frontend.companies.children' : 'frontend.companies.children-amp';
+            $blade = ($amp==false) ? 'site.v3.templates.companies.children.children' : 'site.v3.templates.companies.children.children-amp';
 
             return view($blade, compact('company','breadcrumbs',
-                'page','editLink','card','amp', 'cards', 'reviews', 'companiesChildrenPages')); // ! 'cards', 'reviews'
+                'page','editLink','card','amp', 'cards', 'reviews', 'companiesChildrenPages', 'showContentMenu'));
 
         } else {
 
@@ -118,9 +101,8 @@ class CompanyPageController extends Controller
 
             }
 
-            $author = Authors::find($company->author_id);
+            $blade = ($amp==false) ? 'site.v3.templates.companies.reviews.reviews' : 'site.v3.templates.companies.reviews.reviews-amp';
 
-            $blade = ($amp==false) ? 'frontend.companies.reviews' : 'frontend.companies.reviews-amp';
             return view($blade, compact('company','breadcrumbs','reviews', 'complaintAllCount', 'complaintAnswerCount',
                 'page','uid','uidName','editLink','countReviews','card','cards','amp', 'companiesChildrenPages'));
         }

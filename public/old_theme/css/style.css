@@ -1262,7 +1262,7 @@ thead th,  thead td{border-bottom: 1px solid #7b9c18 !important; color: #fff; te
 #din_p{text-align: center}
 
 nav.org > ul{padding: 0;position: relative;display: table;width: 100%;}
-nav.org > ul >li{list-style-type: none;display: table-cell;position: relative;background: #EFEFEF;border-right: 1px solid #dbdbdb;}
+nav.org > ul >li{list-style-type: none;display: table-cell;position: relative;background: #EFEFEF;border-right: 1px solid #dbdbdb; text-align: center}
 nav.org > ul >li:before{display: none;}
 nav.org > ul >li:last-child{border-right: none;}
 nav.org > ul >li > a, nav.org > ul >li > span{padding: 15px;color: #292929;text-decoration: none;display: inline-block;width: 100%;text-align: center;border-bottom: none;}

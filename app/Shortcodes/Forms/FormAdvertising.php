@@ -10,8 +10,8 @@ class FormAdvertising extends BaseShortcode{
             return;
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/forms/form_advertising/$this->template.blade.php")) {
-            return view("short_codes.forms.form_advertising.$this->template");
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/forms/form_advertising/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.forms.form_advertising.$this->template");
         }
 
         return;

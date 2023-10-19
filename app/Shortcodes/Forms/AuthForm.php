@@ -25,8 +25,8 @@ class AuthForm extends BaseShortcode{
                 return;
             }
             // pc, mob, turbo, amp
-            if (file_exists(resource_path() . "/views/short_codes/forms/auth_form/$this->template.blade.php")) {
-                return view("short_codes.forms.auth_form.$this->template", compact('session'));
+            if (file_exists(resource_path() . "/views/site/v3/shortcodes/forms/auth_form/$this->template.blade.php")) {
+                return view("site.v3.shortcodes.forms.auth_form.$this->template", compact('session'));
             }
 
             return;

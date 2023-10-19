@@ -28,8 +28,8 @@ class CreditRating extends BaseShortcode{
             return;
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/forms/credit_rating/$this->template.blade.php")) {
-            return view("short_codes.forms.credit_rating.$this->template",compact('last_name','first_name','middle_name','passport','birthday','passport_date',
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/forms/credit_rating/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.forms.credit_rating.$this->template",compact('last_name','first_name','middle_name','passport','birthday','passport_date',
                 'passport_date','email','form_error','form_info'));
         }
 

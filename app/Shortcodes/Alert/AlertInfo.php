@@ -13,8 +13,8 @@ class AlertInfo extends BaseShortcode{
             $GLOBALS['short_code_css'][]='alert';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/alert/info/$this->template.blade.php")) {
-            return view("short_codes.alert.info.$this->template", compact('content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/alert/info/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.alert.info.$this->template", compact('content'));
         }
 
         return;

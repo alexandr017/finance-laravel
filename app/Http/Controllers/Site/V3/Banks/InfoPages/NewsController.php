@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Site\V3\Banks\InfoPages;
 
-use App\Http\Controllers\Frontend\Banks\BaseBankController;
+use App\Http\Controllers\Site\V3\Banks\BaseBankController;
 
 use App\Models\Banks\BankInfoPage;
 use App\Models\Banks\Bank;
@@ -57,8 +57,8 @@ class NewsController extends BaseBankController
 
 
         $breadcrumbs = [];
-        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banks'];
-        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banks/'.$bank->alias];
+        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
+        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => 'Новости'];
 
         $offset = ($number_page == 0) ? 0 : ($number_page*10)-10;
@@ -103,8 +103,8 @@ class NewsController extends BaseBankController
 
 
 
-        $pageAlias = 'banks/'.$bank->alias.'/'.$template;
-        $template = 'frontend.banks.info-pages.' . $template;
+        $pageAlias = 'banki/'.$bank->alias.'/'.$template;
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
 
         $editLink = null;
         return view($template, compact('number_page','page','bank','breadcrumbs','news', 'editLink','pages','postsCount','pageAlias'));

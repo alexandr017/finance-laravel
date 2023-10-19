@@ -37,6 +37,7 @@ class K5MBank {
             ->whereNull('bank_products.deleted_at')
             ->first();
 
+
         if ($row->avgK5M == 0) {
             return null;
         }

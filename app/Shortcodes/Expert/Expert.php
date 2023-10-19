@@ -52,9 +52,9 @@ class Expert extends BaseShortcode{
                 ];
                 // конец
 
-        if (file_exists(resource_path() . "/views/short_codes/expert/expert/$this->template.blade.php")) {
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/expert/expert/$this->template.blade.php")) {
 
-            return view("short_codes.expert.expert.$this->template",compact('expert','content'));
+            return view("site.v3.shortcodes.expert.expert.$this->template",compact('expert','content'));
         }
 
 

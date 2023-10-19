@@ -17,8 +17,8 @@ class BlockWithIcon extends BaseShortcode{
             $GLOBALS['short_code_css'][]='block_with_icon';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/block_with_icon/$this->template.blade.php")) {
-            return view("short_codes.block_with_icon.$this->template", compact('content','icon','color','background'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/block_with_icon/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.block_with_icon.$this->template", compact('content','icon','color','background'));
         }
 
         return;

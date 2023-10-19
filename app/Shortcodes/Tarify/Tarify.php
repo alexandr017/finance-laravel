@@ -50,8 +50,8 @@ class Tarify extends BaseShortcode{
             $GLOBALS['short_code_css'][]='tarify';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/tarify/$this->template.blade.php")) {
-            return view("short_codes.tarify.$this->template",compact('title','img','text','listHtml','tariffCard'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/tarify/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.tarify.$this->template",compact('title','img','text','listHtml','tariffCard'));
         }
 
     }

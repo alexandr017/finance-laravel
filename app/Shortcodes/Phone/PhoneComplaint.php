@@ -15,8 +15,8 @@ class PhoneComplaint extends BaseShortcode{
             $GLOBALS['short_code_js'][]='phone_complaint';
         }
 
-        if (file_exists(resource_path() . "/views/short_codes/phone/phone_complaint/$this->template.blade.php")) {
-            return view("short_codes.phone.phone_complaint.$this->template");
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/phone/phone_complaint/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.phone.phone_complaint.$this->template");
         }
 
         return null;

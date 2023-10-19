@@ -18,8 +18,8 @@ class VsezaimyAccordionItem extends BaseShortcode{
             return;
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/vsezaimy_accordion/vsezaimy_accordion_item/$this->template.blade.php")) {
-            return view("short_codes.vsezaimy_accordion.vsezaimy_accordion_item.$this->template",compact('content','title','show'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/vsezaimy_accordion/vsezaimy_accordion_item/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.vsezaimy_accordion.vsezaimy_accordion_item.$this->template",compact('content','title','show'));
         }
 
         return;

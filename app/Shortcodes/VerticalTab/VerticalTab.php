@@ -16,7 +16,7 @@ class VerticalTab extends BaseShortcode{
                 if(!in_array('vertical_tab',$GLOBALS['short_code_css'])){
                     $GLOBALS['short_code_css'][]='vertical_tab';
                 }
-                $GLOBALS['vertical_tabs'][] = view("short_codes.vertical_tab.vertical_tab.amp",compact('content','title'));
+                $GLOBALS['vertical_tabs'][] = view("site.v3.shortcodes.vertical_tab.vertical_tab.amp",compact('content','title'));
             } else {
                 $GLOBALS['vertical_tabs'][] = '';
             }

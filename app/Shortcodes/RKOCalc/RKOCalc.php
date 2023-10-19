@@ -13,8 +13,8 @@ class RKOCalc extends BaseShortcode{
             $GLOBALS['short_code_css'][]='rko_calc_ooo_and_ip';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/rko_calc_ooo_and_ip/$this->template.blade.php")) {
-            return view("short_codes.rko_calc_ooo_and_ip.$this->template");
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/rko_calc_ooo_and_ip/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.rko_calc_ooo_and_ip.$this->template");
         }
 
         return;

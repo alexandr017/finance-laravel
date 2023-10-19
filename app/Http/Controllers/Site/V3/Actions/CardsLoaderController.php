@@ -20,9 +20,73 @@ use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Algorithms\Frontend\Cards\CardSorting;
 use App\Http\Controllers\Site\V3\Actions\CardFilter\CardFilter;
 use Auth;
+use App\Repositories\Frontend\Companies\CompaniesCategoryRepository;
 
 class CardsLoaderController extends Controller
 {
+    public function getCardForHubs(Request $request)
+    {
+        $res = [];
+
+        $sort_field = clear_data($request['field']);
+        $page = (int) clear_data($request['page']);
+        $category_id = (int) clear_data($request['category_id']);
+        $count_on_page = (int)  clear_data($request['count_on_page']);
+        $sort_type = clear_data($request['sort_type']);
+
+        if(($category_id == 0) || ($count_on_page == 0)) return null;
+
+
+        if ($sort_field == '') {
+            $sort_field = 'km5';
+        }
+        if ($sort_type == '') {
+            $sort_type = 'desc';
+        }
+
+        $cards = (new CompaniesCategoryRepository)->getSortedCardsForHabPages($category_id, $sort_field, $sort_type);
+
+
+
+        if ($sort_field == 'cache_back') {
+            foreach ($cards as $key => $value) {
+                $cards[$key]->_cache_back = (float) GlobalAlgorithms::getMaxNumberWithPercentFromStr($value->cache_back);
+            }
+            $sort_field = '_cache_back';
+            // сортировка
+            //
+            $cards = CardSorting::sort($cards, $sort_field, $sort_type);
+        }
+
+
+
+
+
+
+
+        // пагинация
+        //ddd($cards, 10, $page);
+        $cards = paginate($cards, 10, $page);
+        //ddd($cards, 10, $page);
+
+
+        $resultHTML = '';
+
+        foreach($cards as $card){
+            //companies/hubs_includes/blocks/card_body
+            $view = view('frontend.cards.hubs.pc_and_mob.'.$category_id,['card'=>$card, 'amp' => 0]);
+            $resultHTML .= $view->render();//or echo $view->render(); whatever you like
+        }
+
+        //ddd($cards);
+
+        if($resultHTML == '') $resultHTML = '<br><br><h4>Извините, по вашим критериям ничего не найдено. Попробуйте изменить условия поиска.</h4><br><br>';
+
+        $res['code'] = $resultHTML;
+        $res['count'] = count($cards);
+
+        return $res;
+    }
 
 
 

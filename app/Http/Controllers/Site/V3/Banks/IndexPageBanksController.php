@@ -149,8 +149,8 @@ class IndexPageBanksController extends BaseBankController
 
 
         $template = $isAMP == false
-            ? 'frontend.banks.index'
-            : 'frontend.banks.index-amp';
+            ? 'site.v3.templates.banks.index'
+            : 'site.v3.templates.banks.index-amp';
 
         return view($template,compact('page','breadcrumbs','banks','cardCategories', 'editLink',
             'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage','reviews'

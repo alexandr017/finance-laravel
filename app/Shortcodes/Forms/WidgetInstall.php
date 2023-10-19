@@ -10,8 +10,8 @@ class WidgetInstall extends BaseShortcode{
             return;
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/forms/widget_install/$this->template.blade.php")) {
-            return view("short_codes.forms.widget_install.$this->template");
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/forms/widget_install/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.forms.widget_install.$this->template");
         }
 
         return;

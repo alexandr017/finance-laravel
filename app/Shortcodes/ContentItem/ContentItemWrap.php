@@ -19,8 +19,8 @@ class ContentItemWrap extends BaseShortcode{
             $GLOBALS['short_code_css'][]='content_item';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/content_item/content_item_wrap/$this->template.blade.php")) {
-            return view("short_codes.content_item.content_item_wrap.$this->template", compact('content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/content_item/content_item_wrap/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.content_item.content_item_wrap.$this->template", compact('content'));
         }
 
         return;

@@ -44,8 +44,8 @@ class OverpaymentTable extends BaseShortcode{
                     $GLOBALS['short_code_css'][]='overpayment_table';
                 }
                 // pc, mob, turbo, amp
-                if (file_exists(resource_path() . "/views/short_codes/overpayment_table/$this->template.blade.php")) {
-                    return view("short_codes.overpayment_table.$this->template",compact('min_sum','max_sum','percent'));
+                if (file_exists(resource_path() . "/views/site/v3/shortcodes/overpayment_table/$this->template.blade.php")) {
+                    return view("site.v3.shortcodes.overpayment_table.$this->template",compact('min_sum','max_sum','percent'));
                 }
 
                 return;

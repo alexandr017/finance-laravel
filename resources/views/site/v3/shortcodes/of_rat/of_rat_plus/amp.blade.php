@@ -1,0 +1,1 @@
+<div class="of_rat_un_wrap l shadow"><div class="of_rat_un_wrap_t">Преимущества</div>{!! $content !!}</div>

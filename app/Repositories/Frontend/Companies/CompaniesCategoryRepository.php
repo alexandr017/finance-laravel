@@ -32,14 +32,7 @@ class CompaniesCategoryRepository extends Repository
 
     public function getCardsForHabPages($cardCategoryID)
     {
-        $cards = ($cardCategoryID != $this->CASH_BACK_CATEGORY)
-            ? Cards::where(['cards.show_in_habs' => 1,'cards.category_id' => $cardCategoryID, 'cards.status' => 1])
-                ->select('id','category_id')
-                ->orderBy('flow')
-                ->orderBy('km5','desc')
-                ->orderBy('cards.id','asc')
-                ->get()
-            : DB::table('cards')
+        $cards = DB::table('cards')
                 ->leftJoin('bank_product_cards', 'bank_product_cards.card_id', 'cards.id')
                 ->leftJoin('bank_products', 'bank_products.id', 'bank_product_cards.bank_product_id')
                 ->where(['cards.show_in_habs' => 1, 'bank_products.is_cashback' => 1, 'cards.status' => 1])
@@ -54,22 +47,13 @@ class CompaniesCategoryRepository extends Repository
 
     public function getSortedCardsForHabPages($cardCategoryID, $field = 'km5', $sort = 'desc')
     {
-        $cards = ($cardCategoryID != $this->CASH_BACK_CATEGORY)
-            ? Cards::where(['cards.show_in_habs' => 1,'cards.category_id' => $cardCategoryID, 'cards.status' => 1])
+        $cards = Cards::where(['cards.show_in_habs' => 1,'cards.category_id' => $cardCategoryID, 'cards.status' => 1])
                 ->select('id','category_id')
                 ->orderBy('flow')
                 ->orderBy($field,$sort)
                 ->orderBy('cards.id','asc')
-                ->get()
-            : DB::table('cards')
-                ->leftJoin('bank_product_cards', 'bank_product_cards.card_id', 'cards.id')
-                ->leftJoin('bank_products', 'bank_products.id', 'bank_product_cards.bank_product_id')
-                ->where(['cards.show_in_habs' => 1, 'bank_products.is_cashback' => 1, 'cards.status' => 1])
-                ->select('cards.id','category_id')
-                ->orderBy('cards.flow')
-                ->orderBy('cards.km5','desc')
-                ->orderBy('cards.id','asc')
                 ->get();
+
 
         return  CardsBoot::getCardsForListingByIDs($cards);
     }

@@ -17,8 +17,8 @@ class TimeLineWrap extends BaseShortcode {
         if(!in_array('time_line',$GLOBALS['short_code_css'])){
             $GLOBALS['short_code_css'][]='time_line';
         }
-        if (file_exists(resource_path() . "/views/short_codes/time_line/$this->template.blade.php")) {
-            return view("short_codes.time_line.$this->template",compact('innerItems'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/time_line/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.time_line.$this->template",compact('innerItems'));
         }
 
         return;

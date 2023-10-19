@@ -29,8 +29,8 @@ class AuthorsCode extends BaseShortcode{
             $GLOBALS['short_code_css'][]='authors_code';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/authors_code/$this->template.blade.php")) {
-            return view("short_codes.authors_code.$this->template", compact('content','current_author'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/authors_code/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.authors_code.$this->template", compact('content','current_author'));
         }
 
         return;

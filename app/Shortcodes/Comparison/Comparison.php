@@ -35,8 +35,8 @@ class Comparison extends BaseShortcode{
         }
         //ddd($GLOBALS['short_code_css']);
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/comparison/$this->template.blade.php")) {
-            return view("short_codes.comparison.$this->template", compact('count','title','img1','alt1','t0','content0','img2','alt2','t1','content1','t2','content2'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/comparison/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.comparison.$this->template", compact('count','title','img1','alt1','t0','content0','img2','alt2','t1','content1','t2','content2'));
         }
 
         return;

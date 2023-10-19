@@ -14,7 +14,7 @@
 
 @section('content')
 
-    @include('frontend.includes.breadcrumbs')
+    @include('site.v3.modules.includes.breadcrumbs')
 
     <section class="container main">
         <div itemscope itemtype="http://schema.org/ImageObject">

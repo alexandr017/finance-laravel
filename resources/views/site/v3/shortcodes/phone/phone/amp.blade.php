@@ -1,0 +1,1 @@
+<a href="tel:{!! $number !!}" target="_blank">{!! $content !!}</a>

@@ -28,7 +28,7 @@ $page->paragraph = 'Простой способ получить займ под
 
 @section('content')
 
-    @include('frontend.includes.breadcrumbs')
+    @include('site.v3.modules.includes.breadcrumbs')
     <section class="container main">
         <div class="row">
             <div class="col-lg-9 col-md-12">

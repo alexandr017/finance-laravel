@@ -6,6 +6,7 @@ use App\Models\Banks\Bank;
 //use App\Models\Banks\BankCategoryPage;
 use App\Models\Banks\BankATMCity;
 use App\Models\Banks\BankATM;
+use App\Models\Cards\CardsCategories;
 use DB;
 use App\Algorithms\Frontend\Cards\CardsBoot;
 
@@ -42,7 +43,6 @@ class CategoryController extends BaseBankController
             abort(404);
         }
 
-
         $categoryAlias = clear_data($categoryAlias);
         $page = DB::table('bank_category_pages')
             ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
@@ -56,59 +56,33 @@ class CategoryController extends BaseBankController
         }
 
         $breadcrumbs = [];
-        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banks'];
-        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->h1, 'link' => '/banks/'.$bank->alias];
+        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
+        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->h1, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => $page->breadcrumb ?? $page->h1];
 
-        // для кэшбэков иной алгоритм выборки
-        if ($page->category_id == 9) {
-            $cardIDs = DB::table('bank_product_cards')
-                ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-                ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-                ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
-                ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-                ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
-                ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-                ->where(['bank_products.is_cashback' => 1, 'bank_category_pages.bank_id' => $page->bank_id])
-                ->whereNull('bank_products.deleted_at')
-                ->orderBy("cards.flow", 'asc')
-                ->orderBy("cards.km5", 'desc')
-                ->orderBy("cards.id", 'asc')
-                ->get();
 
-            $cardIDs = $cardIDs->unique('id');
-            $cards = CardsBoot::getCardsForListingByIDs($cardIDs);
-
-            $products = DB::table('bank_products')
-                ->leftJoin('bank_product_cards','bank_products.id','bank_product_cards.bank_product_id')
-                ->where(['bank_products.is_cashback' => 1, 'bank_products.bank_id' => $page->bank_id])
-                ->whereNull('deleted_at')
-                ->get();
-
-        } else {
-            $cardIDs = DB::table('bank_product_cards')
-                ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-                ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-                ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
-                ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-                ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
-                ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-                ->where(['bank_products.bank_category_id' => $page->id])
-                ->whereNull('bank_products.deleted_at')
-                ->orderBy("cards.flow", 'asc')
-                ->orderBy("cards.km5", 'desc')
-                ->orderBy("cards.id", 'asc')
-                ->get();
+        $cardIDs = DB::table('bank_product_cards')
+            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
+            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
+            ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
+            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
+            ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
+            ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
+            ->where(['bank_products.bank_category_id' => $page->id])
+            ->whereNull('bank_products.deleted_at')
+            ->orderBy("cards.flow", 'asc')
+            ->orderBy("cards.km5", 'desc')
+            ->orderBy("cards.id", 'asc')
+            ->get();
 
 
-            $cardIDs = $cardIDs->unique('id');
-            $cards = CardsBoot::getCardsForListingByIDs($cardIDs);
+        $cardIDs = $cardIDs->unique('id');
+        $cards = CardsBoot::getCardsForListingByIDs($cardIDs);
 
-            $products = DB::table('bank_products')
-                ->where(['bank_products.bank_category_id' => $page->id])
-                ->whereNull('deleted_at')
-                ->get();
-        }
+        $products = DB::table('bank_products')
+            ->where(['bank_products.bank_category_id' => $page->id])
+            ->whereNull('deleted_at')
+            ->get();
 
 
 
@@ -181,8 +155,8 @@ class CategoryController extends BaseBankController
 
 
         $template = $isAMP === false
-            ? 'frontend.banks.categories.category'
-            : 'frontend.banks.categories.category-amp';
+            ? 'site.v3.templates.banks.categories.category'
+            : 'site.v3.templates.banks.categories.category-amp';
 
         return view($template, compact('breadcrumbs','page','bank','cards','scales','categoryAlias','all_vzo_icons','icons','reviews','editLink', 'bankTopCard','reviewsPage'));
     }

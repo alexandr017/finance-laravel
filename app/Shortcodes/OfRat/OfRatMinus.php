@@ -13,8 +13,8 @@ class OfRatMinus extends BaseShortcode{
             $GLOBALS['short_code_css'][]='of_rat';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/of_rat/of_rat_minus/$this->template.blade.php")) {
-            return view("short_codes.of_rat.of_rat_minus.$this->template",compact('content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/of_rat/of_rat_minus/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.of_rat.of_rat_minus.$this->template",compact('content'));
         }
 
         return;

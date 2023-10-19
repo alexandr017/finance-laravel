@@ -18,8 +18,8 @@ class ShortButton extends BaseShortcode{
             $GLOBALS['short_code_css'][]='short_button';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/short_button/$this->template.blade.php")) {
-            return view("short_codes.short_button.$this->template",compact('onclick','link'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/short_button/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.short_button.$this->template",compact('onclick','link'));
         }
 
         return;

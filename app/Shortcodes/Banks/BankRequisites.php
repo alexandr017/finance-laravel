@@ -17,12 +17,13 @@ class BankRequisites extends BaseShortcode{
 
         $bank = Bank::find($BankID);
 
+
         if ($bank == null) {
             return '';
         }
 
-        if (file_exists(resource_path() . "/views/short_codes/banks/bank_requisites/$this->template.blade.php")) {
-            return view("short_codes.banks.bank_requisites.$this->template", compact('bank'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/banks/bank_requisites/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.banks.bank_requisites.$this->template", compact('bank'));
         }
 
         return '';

@@ -2,6 +2,7 @@
 
 
 use App\Models\System;
+use App\Models\Users\Users;
 
 if (!function_exists('fake_update_offer')) {
     /**
@@ -275,4 +276,51 @@ function cardHeader3($header_3,$category_id) {
             break;
         default: return $header_3;
     }
+}
+
+
+if (! function_exists('img_size')) {
+    /**
+     * @param  string img
+     * @param  int width
+     * @param  int height
+     * @return array
+     */
+    function img_size($img, $width = 100, $height = 100)
+    {
+        $img = str_replace('https://vsezaimyonline.ru/', '', $img);
+        if (file_exists(public_path().'/'.$img)) {
+            $data = getimagesize(public_path() .'/'. $img);
+            $width = $data[0];
+            $height = $data[1];
+        }
+
+        return [
+            'width' => $width,
+            'height' => $height
+        ];
+    }
+}
+
+
+
+function getIdUserCompanies() {
+
+    global $idUserCompanies;
+
+    if ($idUserCompanies == null) {
+
+        $userIds = \Cache::rememberForever('id_user_companies', function(){
+            return Users::where('company_id', '!=', null)
+                ->select('id', 'company_id')
+                ->get()
+                ->pluck('company_id', 'id')
+                ->toArray();
+        });
+
+        $idUserCompanies = $userIds;
+    }
+
+    return $idUserCompanies;
+
 }

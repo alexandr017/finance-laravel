@@ -33,8 +33,8 @@ class RelatedPosts extends BaseShortcode{
             $arr['terms'] = $terms;
             $arr['termsDB'] = $termsDB;
         }
-        if (file_exists(resource_path() . "/views/short_codes/related_posts/$this->template.blade.php")) {
-            return view("short_codes.related_posts.$this->template",$arr);
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/related_posts/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.related_posts.$this->template",$arr);
         }
 
         return;

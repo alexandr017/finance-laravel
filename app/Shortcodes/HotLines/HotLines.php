@@ -37,8 +37,8 @@ class HotLines extends BaseShortcode{
             $GLOBALS['short_code_css'][]='hot_lines';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/hot_lines/$this->template.blade.php")) {
-            return view("short_codes.hot_lines.$this->template",compact('online_credit','credit_cards','debit_cards','rko','greed'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/hot_lines/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.hot_lines.$this->template",compact('online_credit','credit_cards','debit_cards','rko','greed'));
         }
 
         return;

@@ -27,8 +27,8 @@ class SlickSliderWrap extends BaseShortcode{
         }
 
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/slick_slider/wrap/$this->template.blade.php")) {
-            return view("short_codes.slick_slider.wrap.$this->template",compact('sliderId','content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/slick_slider/wrap/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.slick_slider.wrap.$this->template",compact('sliderId','content'));
         }
 
         return;

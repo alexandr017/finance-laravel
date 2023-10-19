@@ -13,8 +13,8 @@ class Quote extends BaseShortcode{
             $GLOBALS['short_code_css'][]='quote';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/promo/$this->template.blade.php")) {
-            return view("short_codes.quote.$this->template",compact('content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/promo/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.quote.$this->template",compact('content'));
         }
 
         return;

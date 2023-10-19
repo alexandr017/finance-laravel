@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('frontend.includes.breadcrumbs')
+    @include('site.v3.modules.includes.breadcrumbs')
 
     <?php #dd($cards); ?>
     <section class="container main">

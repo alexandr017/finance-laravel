@@ -245,7 +245,7 @@ class ActionsController extends Controller
 
             foreach($cards as $key => $card){
 
-                $code .= view('frontend.cards.card.card', compact('card','hideEntityLink'))->render();
+                $code .= view('site.v3.modules.cards.minimal.card', compact('card','hideEntityLink'))->render();
             }
 
             return [

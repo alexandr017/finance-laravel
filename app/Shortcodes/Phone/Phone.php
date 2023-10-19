@@ -15,8 +15,8 @@ class Phone extends BaseShortcode{
             return;
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/phone/phone/$this->template.blade.php")) {
-            return view("short_codes.phone.phone.$this->template",compact('number','content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/phone/phone/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.phone.phone.$this->template",compact('number','content'));
         }
 
         return;

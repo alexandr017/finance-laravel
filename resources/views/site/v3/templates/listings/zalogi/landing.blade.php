@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @include('frontend.includes.breadcrumbs')
+    @include('site.v3.modules.includes.breadcrumbs')
 
     <div class="first-block def_bg" data-src="/old_theme/img/bg/grey-bg.jpg">
     <div class="container">

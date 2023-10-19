@@ -1,0 +1,1 @@
+<div class="content_item_block content_item_wrap">{!! $content !!}</div>

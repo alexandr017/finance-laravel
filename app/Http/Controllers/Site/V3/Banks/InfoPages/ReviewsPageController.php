@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Site\V3\Banks\InfoPages;
 
 use App\Algorithms\Frontend\Cards\CardsBoot;
-use App\Http\Controllers\Frontend\Banks\BaseBankController;
+use App\Http\Controllers\Site\V3\Banks\BaseBankController;
 
 use App\Models\Banks\BankInfoPage;
 use App\Models\Banks\Bank;
@@ -44,8 +44,8 @@ class ReviewsPageController extends BaseBankController
 
 
         $breadcrumbs = [];
-        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banks'];
-        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banks/'.$bank->alias];
+        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
+        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => 'Отзывы'];
 //        $reviews =  DB::table('bank_reviews')
 //            ->leftjoin('banks','banks.id','bank_reviews.bank_id')
@@ -63,7 +63,7 @@ class ReviewsPageController extends BaseBankController
             ->where(['bank_reviews.status' => 1,  'bank_reviews.bank_id' => $bank->id])
             // убрал 'bank_reviews.off_answer' => null,
             ->whereNull('bank_reviews.deleted_at')
-            ->orderBy('bank_reviews.id','desk');
+            ->orderBy('bank_reviews.id','desc');
         $reviews = $reviewsForGet->get();
         $reviewCatForGet = $reviewsForGet->groupBy('category_id');
         $reviewCats = $reviewCatForGet->get();
@@ -89,7 +89,7 @@ class ReviewsPageController extends BaseBankController
             }
         }
 
-        $template = 'frontend.banks.info-pages.' . $template;
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
 
         $editLink = null;
         $bankTopCard = DB::table('bank_product_cards')

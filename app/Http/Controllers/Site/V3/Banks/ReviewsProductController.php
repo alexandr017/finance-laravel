@@ -76,10 +76,10 @@ class ReviewsProductController extends BaseBankController
         }
 
         $breadcrumbs = [];
-        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banks'];
-        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banks/'.$bank->alias];
-        $breadcrumbs[] = ['h1' => $category->categoryBreadcrumb ?? $category->h1, 'link' => '/banks/'.$bank->alias.'/'.$categoryAlias];
-        $breadcrumbs[] = ['h1' => $product->breadcrumb ?? $product->h1, 'link' => '/banks/'.$bank->alias.'/'.$categoryAlias.'/'.$product->alias];
+        $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
+        $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banki/'.$bank->alias];
+        $breadcrumbs[] = ['h1' => $category->categoryBreadcrumb ?? $category->h1, 'link' => '/banki/'.$bank->alias.'/'.$categoryAlias];
+        $breadcrumbs[] = ['h1' => $product->breadcrumb ?? $product->h1, 'link' => '/banki/'.$bank->alias.'/'.$categoryAlias.'/'.$product->alias];
         $breadcrumbs[] = ['h1' => 'Отзывы'];
 
 

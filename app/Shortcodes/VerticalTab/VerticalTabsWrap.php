@@ -39,8 +39,8 @@ class VerticalTabsWrap extends BaseShortcode{
             $GLOBALS['short_code_js'][]='vertical_tab';
         }
         // pc, mob, turbo, amp
-        if (file_exists(resource_path() . "/views/short_codes/vertical_tab/vertical_tab_wrap/$this->template.blade.php")) {
-            return view("short_codes.vertical_tab.vertical_tab_wrap.$this->template",compact('content'));
+        if (file_exists(resource_path() . "/views/site/v3/shortcodes/vertical_tab/vertical_tab_wrap/$this->template.blade.php")) {
+            return view("site.v3.shortcodes.vertical_tab.vertical_tab_wrap.$this->template",compact('content'));
         }
 
         return '';
