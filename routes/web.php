@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 include 'site.php';
 
 include 'admin.php';
+
+Route::get('/import/banks', [ImportController::class, 'banks']);
+Route::get('/import/bank-children', [ImportController::class, 'bankChildren']);
+Route::get('/import/companies', [ImportController::class, 'companies']);
 

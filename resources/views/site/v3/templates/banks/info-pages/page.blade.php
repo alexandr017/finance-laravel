@@ -32,6 +32,8 @@
 
                 <img loading="lazy" src="{{$bank->logo}}" alt="{{$bank->h1}}" class="company-child-logo">
 
+                {!! TagsParser::compile(Shortcode::compile($page->lead)) !!}
+
                 {!! TagsParser::compile(Shortcode::compile($page->content)) !!}
 
 

@@ -14,6 +14,8 @@
 
                 @include('site.v3.modules.banks.menu.amp')
 
+                <?php echo \App\Algorithms\AMP::render(Shortcode::compile(System::nofollow($page->lead))); ?>
+
                 <?php echo \App\Algorithms\AMP::render(Shortcode::compile(System::nofollow($page->content))); ?>
 
                 <?php
