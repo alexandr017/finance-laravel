@@ -29,6 +29,7 @@ use App\Models\HideLinks\HideLinks;
 use App\Models\HideLinks\HideLinkTimes;
 
 
+use App\Models\StaticPages\StaticPage;
 use Cache;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -69,6 +70,18 @@ class FrontendController extends Controller
      * @return \Illuminate\View\View
      */
     public function index(){
+
+
+        //dd(StaticPage::all());
+//        for ($i = 1; $i<=11; $i++) {
+//            $page = new StaticPage([
+//                'title' => 'test',
+//                'meta_description' => 'test',
+//                'h1' => 'test',
+//                'alias' => 'test' . rand(1,10000),
+//            ]);
+//            $page->save();
+//        }
 
 //        $cards = DB::table('cards')->where(['category_id' => 1])->get();
 

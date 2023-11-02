@@ -244,32 +244,18 @@
 
 
 
-        <?php if(isset($section_type) && isset($posts_category)): ?>
-        <?php $NEWS_CATEGORIES = [8,27,28,21,29,30,35, 36, 37, 38, 39 ,14, 13]; // список новостных категорий ?>
-        <?php if(($section_type == 7) && in_array($posts_category->id, $NEWS_CATEGORIES)) : ?>
+        @if(isset($blogCategories))
         <div class="side-block">
-            <div class="side-title"><i class="fa fa-folder-open-o"></i> Рубрики новостей</div>
+            <div class="side-title"><i class="fa fa-folder-open-o"></i> Рубрики</div>
             <div class="side-box options-list">
                 <ul class="mb0 rating-mfk">
-                    @if($posts_category->id != 8)<li><a rel="nofollow" href="/news/actions">Акции и промокоды</a></li>@endif
-                    @if($posts_category->id != 27)<li><a rel="nofollow" href="/news/mfk">Новости МФК и МКК</a></li>@endif
-                    @if($posts_category->id != 28)<li><a rel="nofollow" href="/news/banks">Новости банков</a></li>@endif
-                    @if($posts_category->id != 21)<li><a rel="nofollow" href="/news/insurance">Новости страхования</a></li>@endif
-                    @if($posts_category->id != 29)<li><a rel="nofollow" href="/news/payment-systems">Платежные системы</a></li>@endif
-                    @if($posts_category->id != 30)<li><a rel="nofollow" href="/news/research">Исследования</a></li>@endif
-                    @if($posts_category->id != 35)<li><a rel="nofollow" href="/news/laws">Новости законодательства</a></li>@endif
-                    @if($posts_category->id != 36)<li><a rel="nofollow" href="/news/blog">Блог</a></li>@endif
-                    @if($posts_category->id != 37)<li><a rel="nofollow" href="/news/investments">Инвестиции и вклады</a></li>@endif
-                    @if($posts_category->id != 38)<li><a rel="nofollow" href="/news/market">Участникам рынка</a></li>@endif
-                    @if($posts_category->id != 39)<li><a rel="nofollow" href="/news/interview">Интервью</a></li>@endif
-                    @if(Request::url() != 'https://finance.ru/news/translations')<li><a rel="nofollow" href="/news/translations">Трансляции</a></li>@endif
-                    @if($posts_category->id != 40)<li><a rel="nofollow" href="/news/webinars">Вебинары</a></li>@endif
-                    @if($posts_category->id != 14)<li><a rel="nofollow" href="/news/vzo">Новости #ВЗО</a></li>@endif
+                    @foreach($blogCategories as $blogCategory)
+                    <li><a rel="nofollow" href="/{{$blogCategory->alias_category}}">{{$blogCategory->h1}}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>
-        <?php endif; ?>
-        <?php endif; ?>
+       @endif
 
     @if(isset($category_id))
     @if(($category_id == 1 ||  $category_id == 7))

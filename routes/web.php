@@ -21,4 +21,5 @@ include 'admin.php';
 Route::get('/import/banks', [ImportController::class, 'banks']);
 Route::get('/import/bank-children', [ImportController::class, 'bankChildren']);
 Route::get('/import/companies', [ImportController::class, 'companies']);
+Route::get('/import/static-pages', [ImportController::class, 'staticPages']);
 

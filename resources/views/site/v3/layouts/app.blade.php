@@ -302,11 +302,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "#ВсеЗаймыОнлайн",
+  "name": "#ФинансыРу",
   "url": "https://finance.ru",
   "sameAs": [
     "https://vk.com/vsezaimyonline",
-    "https://www.facebook.com/vsezaimyonline",
     "https://ok.ru/vsezaimyonline",
     "https://www.youtube.com/channel/UCaEfgVCVioDGWdbmLnKC3Qg",
     "https://zen.yandex.ru/vsezaimyonline"

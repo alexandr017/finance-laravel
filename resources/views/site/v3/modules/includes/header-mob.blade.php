@@ -1,9 +1,9 @@
 <div class="container">
     <div class="logo-head-wrap">
         @if(Request::is('/'))
-            <img loading="lazy" width="48" height="48" src="/src" alt="Finance.ru" title="#Finance.ru"><span>#Finance.ru</span>
+            <img width="180" height="60" src="/old_theme/img/logo.svg" alt="Finance.ru" title="#Finance.ru">
         @else
-            <a href="/"><img loading="lazy" width="48" height="48" src="/src" alt="Finance.ru" title="#Finance.ru"><span>#Finance.ru</span></a>
+            <a href="/"><img width="180" height="60" src="/old_theme/img/logo.svg" alt="Finance.ru" title="#Finance.ru"></a>
         @endif
     </div>
 

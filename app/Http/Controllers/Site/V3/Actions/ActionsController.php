@@ -14,6 +14,7 @@ use App\Models\GoogleCaptcha\GoogleCaptcha;
 use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Algorithms\Frontend\Cards\CardSorting;
 use Storage;
+use App\Models\Posts\PostsComments;
 
 class ActionsController extends Controller
 {
@@ -256,6 +257,60 @@ class ActionsController extends Controller
 
 
         return ['code' => null];
+    }
+
+
+
+
+    public function loadPosts(Request $request)
+    {
+        $PER_PAGE = 6;
+
+        $number_page = clear_data($request['page']);
+        $category_id = clear_data($request['category_id']);
+
+
+        $offset = ($number_page == 0) ? 0 : ($number_page*$PER_PAGE)-$PER_PAGE;
+        if($number_page == 1) $offset = 0;
+
+        $posts = DB::table('posts')
+            ->leftJoin('posts_categories','posts.pcid','posts_categories.id')
+            ->select('posts.*',
+                'posts_categories.alias_category',
+                'posts_categories.id as category_id')
+            ->where(['posts.pcid'=>$category_id,'posts.status'=>1])
+            ->limit($PER_PAGE)
+            ->orderBy('posts.date', 'desc')
+            ->offset($offset)
+            ->get()
+            ->toArray();
+
+
+        foreach ($posts as $k => $item) {
+            $posts[$k]->comments_count = PostsComments::where(['pid' => $item->id, 'status' => 1])
+                ->select(DB::raw('select count(id) as comments_count'))
+                ->count();
+            if($posts[$k]->valid_until >= date('Y-m-d')){
+                $posts[$k]->availability = 'yes';
+            }else{
+                $posts[$k]->availability = 'no';
+            }
+        }
+
+
+
+        $count_posts_row = DB::table('posts')
+            ->select(DB::raw('count(posts.id) as count'))
+            ->where(['posts.pcid'=>$category_id,'posts.status'=>1])
+            ->first();
+
+        $isset_next_page = ($PER_PAGE * $number_page <= $count_posts_row->count);
+
+        return [
+            'code' => view('site.v3.modules.posts.posts',compact('posts'))->render(),
+            'next_count' => $isset_next_page
+        ];
+
     }
 
 }

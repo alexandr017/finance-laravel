@@ -22,9 +22,10 @@ Route::get('actions/load_cards_for_listings', [CardsLoaderController::class, 're
 Route::get('actions/load_cards_for_hubs', [CardsLoaderController::class, 'getCardForHubs'])->name('actions.load_cards_for_hubs');
 
 
-
 include "site/banks.php";
 
+
+include "site/blog.php";
 
 
 

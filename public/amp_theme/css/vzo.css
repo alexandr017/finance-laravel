@@ -111,8 +111,8 @@ amp-carousel a{
 .text-center{text-align: center}
 .small-green-btn{
     color: #ffffff;
-    background: #a5ca38;
-    border: 1px solid #a5ca38;
+    background: #063;
+    border: 1px solid #063;
     padding: 5px 7px;
     text-decoration: none;
     text-align: center;
@@ -149,7 +149,7 @@ header{padding: 10px 0;}
 }
 .main-menu a {
     display: block;
-    border-bottom: 1px solid #a5ca38;
+    border-bottom: 1px solid #063;
     color: #292929;
     padding: .5em;
     text-decoration: none;
@@ -161,7 +161,7 @@ header{padding: 10px 0;}
   text-align: center;
   display: block;
   cursor: pointer;
-  background-color: #a5ca38;
+  background-color: #063;
   color: #fff;
 }
 .toggle-button:after {
@@ -179,7 +179,7 @@ header{padding: 10px 0;}
 
 
 .header-label-rating{position: absolute;color: #fff; top: 10px;right: 0px;}
-.header-label-rating a{color:#fff;text-decoration:none;background:#a5ca38;border-radius:6px;;display: inline-block;padding: 3px 6px}
+.header-label-rating a{color:#fff;text-decoration:none;background:#063;border-radius:6px;;display: inline-block;padding: 3px 6px}
 .header-search{float: right;margin: 19px 8px 0 0;opacity: .4;cursor: pointer;}
 /******************************** header ************************************/
 
@@ -378,7 +378,7 @@ article.single a {
 }
 
 .offer-bg-silver{background: #f0f0f0;}
-.bg-success {background-color: #a5ca38;}
+.bg-success {background-color: #063;}
 .tt{position: relative;}
 .tt img{position: absolute;right: 0;cursor: pointer;}
 .informer_button{cursor: pointer;}
@@ -640,13 +640,13 @@ nav.org > ul >li{display: block;}
 .line-bottom-above .text-center{width: 49.5%; display: inline-block;}
 ul.mobl-menu b{display: inline-block;cursor: pointer;padding: 1px 4px;margin-left: 5px;border-radius: 3px;border: 1px solid #292929;}
 ul.mobl-menu {padding: 0;position: relative;width: 100%;}
-ul.mobl-menu >li {list-style-type: none;display: block;margin: 0;position: relative;background: #a5ca38;border-bottom: 1px solid #fff}
+ul.mobl-menu >li {list-style-type: none;display: block;margin: 0;position: relative;background: #063;border-bottom: 1px solid #fff}
 ul.mobl-menu li a {text-align: center;padding: 10px 10px;
     line-height: 18px;display: block;}
 .activeLi{background: #bee840 ;}
-ul.mobl-menu li a:hover {background: #a5ca38;color: #fff;text-decoration: none;}
+ul.mobl-menu li a:hover {background: #063;color: #fff;text-decoration: none;}
 ul.mobl-menu li a:hover b {border-color: #fff;}
-ul.mobl-menu ul{border-top: 1px solid #a5ca38}
+ul.mobl-menu ul{border-top: 1px solid #063}
 header ul ul {position: inherit;background: transparent;margin: 0;padding: 0 0 0 15px;box-shadow: none;}
 header ul ul li{margin: 0;}
 .comments-add-form form {margin: 15px;}
@@ -756,7 +756,7 @@ img{height: auto;}
 }
 .bank-menu-btn {
     border-radius: 5px;
-    border:2px solid #a5ca38;
+    border:2px solid #063;
     padding: 5px;
     background: white;
 }
@@ -774,8 +774,8 @@ img{height: auto;}
     position: absolute;
     top: 15px;
     left: 0;
-    border-top: 2px solid #a5ca38;
-    background: #a5ca38;
+    border-top: 2px solid #063;
+    background: #063;
     width: 100%;
     z-index: -1;
 }
@@ -791,7 +791,7 @@ img{height: auto;}
     color: black;
 }
 .bank-menu .bank-active-item {
-    background-color: #a5ca38;
+    background-color: #063;
     width: 98%;
 }
 .bank-menu .bank-active-item a {
@@ -925,7 +925,7 @@ footer{
 }
 
 .f-support-phone{
-    color: #A5CA38;
+    color: #063;
     font-size: 1.3rem;
 }
 .f-support-text{
