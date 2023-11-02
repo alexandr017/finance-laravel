@@ -174,6 +174,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         Webwizo\Shortcodes\ShortcodesServiceProvider::class,
         App\Providers\ShortcodesServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
 
     ])->toArray(),

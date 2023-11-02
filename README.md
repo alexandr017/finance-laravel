@@ -6,9 +6,9 @@ create database
 
 configure .env
 
-php artisan key:generate
+composer install
 
-php composer install
+php artisan key:generate
 
 php artisan migrate
 
