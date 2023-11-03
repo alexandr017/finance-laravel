@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site\V3;
 use App\Http\Controllers\Controller;
 use App\Models\Cards\CardsCategories;
 use DB;
+use App\Models\StaticPages\StaticPage;
 
 class StaticPagesController extends Controller
 {
@@ -49,5 +50,19 @@ class StaticPagesController extends Controller
             'all_products_count', 'all_reviews_count', 'users_count', 'we_help_count'
         ));
     }
+
+    public function render()
+    {
+        $page = StaticPage::findByAlias();
+
+        if ($page == null) {
+            abort(404);
+        }
+
+        $breadcrumbs = [['h1' => $page->breadcrumbs ?? $page->h1]];
+
+        return view('site.v3.templates.static-pages.page', compact('page', 'breadcrumbs'));
+    }
+
 
 }

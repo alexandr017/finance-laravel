@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +18,6 @@ include 'site.php';
 
 include 'admin.php';
 
-Route::get('/import/banks', [ImportController::class, 'banks']);
-Route::get('/import/bank-children', [ImportController::class, 'bankChildren']);
-Route::get('/import/companies', [ImportController::class, 'companies']);
-Route::get('/import/static-pages', [ImportController::class, 'staticPages']);
+include 'parsers.php';
+Route::get('/tmp-route', [\App\Http\Controllers\TmpController::class, 'index']);
 

@@ -61,10 +61,9 @@ class CompanyPageController extends Controller
         $cards = OldCardsBoot::getCardsForListingByCompanyID($company->id);
         
         $reviews = DB::table('companies_reviews')
-            ->leftJoin('users_meta','users_meta.user_id','companies_reviews.uid')
             ->leftJoin('companies','companies.id','companies_reviews.company_id')
-            ->select('companies_reviews.*','users_meta.last_name', 'users_meta.first_name', 'users_meta.middle_name','companies.img')
-            ->where(['companies_reviews.company_id'=>$company->id,'companies_reviews.status'=>1])
+            ->select('companies_reviews.*','companies.img')
+            ->where(['companies_reviews.company_id'=> $company->id,'companies_reviews.status'=>1])
             ->orderBy('companies_reviews.id', 'desc')
             ->get();
 
@@ -84,7 +83,7 @@ class CompanyPageController extends Controller
 
 
         if($page->type_id != 4){
-            $blade = ($amp==false) ? 'site.v3.templates.companies.children.children' : 'site.v3.templates.companies.children.children-amp';
+            $blade = (!is_amp_page()) ? 'site.v3.templates.companies.children.children' : 'site.v3.templates.companies.children.children-amp';
 
             return view($blade, compact('company','breadcrumbs',
                 'page','editLink','card','amp', 'cards', 'reviews', 'companiesChildrenPages', 'showContentMenu'));
@@ -93,15 +92,8 @@ class CompanyPageController extends Controller
 
             $uid = Auth::id();
             $uidName = '';
-            if($uid != null){
-                $userMeta = UsersMeta::where(['user_id'=>$uid])->first();
-                $uidName = $userMeta == null
-                    ? 'Гость'
-                    : $userMeta->last_name . ' ' . $userMeta->first_name . ' ' . $userMeta->middle_name;
 
-            }
-
-            $blade = ($amp==false) ? 'site.v3.templates.companies.reviews.reviews' : 'site.v3.templates.companies.reviews.reviews-amp';
+            $blade = (!is_amp_page()) ? 'site.v3.templates.companies.reviews.reviews' : 'site.v3.templates.companies.reviews.reviews-amp';
 
             return view($blade, compact('company','breadcrumbs','reviews', 'complaintAllCount', 'complaintAnswerCount',
                 'page','uid','uidName','editLink','countReviews','card','cards','amp', 'companiesChildrenPages'));

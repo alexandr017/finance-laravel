@@ -16,9 +16,6 @@
                                 <div>Лицензия: {{$bank->licence}}</div>
                             </div>
                         </div>
-                        <div class="showed-wrapper column-2" data-label="Рейтинг К5М">
-                            <span>{{App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankID($bank->id)}}</span>
-                        </div>
                         <div class="showed-wrapper column-3" data-label="Контакты">
                             <div>{{$bank->phone}}</div>
                             <a class="hotline-link" href="/banki/{{$bank->alias}}/hotline">Служба поддержки</a>

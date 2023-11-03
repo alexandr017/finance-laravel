@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Algorithms\Frontend\Cards;
-use App\Models\Cards\Cards;
-use App\Models\Companies\CompaniesReviews;
+
 use DB;
 use Cache;
-use App\Algorithms\Frontend\Cards\CardTable;
 use App\Algorithms\Frontend\Banks\BankReviews;
 use Auth;
 
@@ -17,24 +15,20 @@ class CardsBoot
     {
         $cards = [];
         foreach($IDs as $card_row){
-
             // взятие полей карточки
             $card = Cache::rememberForever('card'.$card_row->id, function() use($card_row){
 
                 $table_name = CardTable::getNameById($card_row->category_id);
                 $card_ = DB::table('cards')
                     ->leftjoin('companies','companies.id', 'cards.company_id')
-                    ->leftjoin("companies_url", 'companies.group_id', '=', "companies_url.id")
                     ->leftjoin($table_name,'cards.id', $table_name.'.card_id')
+                    ->leftJoin('cards_filters', 'cards_filters.card_id', 'cards.id')
                     ->where(['cards.id' => $card_row->id])
-                    ->select("$table_name.*","cards.*", 'companies.alias as companies_alias', 'companies.reviews_page', 'companies_url.url as group_url')
+                    ->select("$table_name.*","cards.*", 'companies.alias as companies_alias', 'companies.reviews_page', 'cards_filters.filter')
                     ->first();
-
                 return $card_;
             });
             //$card = $card_;
-
-
 
             $loadFrom = strpos($card->link_to_reviews_page, 'banks') ? 'banks' : 'companies';
             $card = ($loadFrom == 'banks')

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banks\Bank;
 use App\Models\Banks\BankInfoPage;
 use App\Models\Companies\Companies;
+use App\Models\Companies\CompaniesChildrenPages;
 use App\Models\StaticPages\StaticPage;
 use DB;
 
@@ -13,7 +14,6 @@ class ImportController extends Controller
 {
     public function banks()
     {
-
         $id = '1ZRnBmWIYLFUHHUzG4t2TeIcqAgMQeBA3Cc_wIZM3LvA';
         $gid = '0';
 
@@ -23,8 +23,12 @@ class ImportController extends Controller
 
         $isFirstLine = true;
 
+        //dd($csv);
+
         DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
+
+                //dd($data);
 
                 if ($isFirstLine) {
                     $isFirstLine = false;
@@ -44,6 +48,7 @@ class ImportController extends Controller
                 $bank->content = $row[6];
                 $bank->alias = $row[7];
                 $bank->breadcrumb = $row[8];
+                $bank->status = 1;
                 $bank->save();
 
             }
@@ -84,6 +89,7 @@ class ImportController extends Controller
                 $page->h1 = $row[4];
                 $page->lead = $row[5];
                 $page->content = $row[6];
+                $page->status = 1;
                 $page->save();
 
             }
@@ -128,12 +134,55 @@ class ImportController extends Controller
                 $page->text_after = $row[6];
                 $page->alias = $row[7];
                 $page->breadcrumb = $row[8];
+                $page->status = 1;
                 $page->save();
 
             }
         });
 
         dd('Все ок');
+    }
+
+    public function companyChildren()
+    {
+
+        $id = '1UJqMbC_ooN46ZnGKcfNKJU3KMOSSh6nnCIoeYXtUfVs';
+        $gid = '0';
+
+        $csv = file_get_contents('https://docs.google.com/spreadsheets/d/' . $id . '/export?format=csv&gid=' . $gid);
+        $csv = explode("\r\n", $csv);
+        $data = array_map('str_getcsv', $csv);
+
+        $isFirstLine = true;
+
+
+        DB::transaction(function() use($data, $isFirstLine) {
+            foreach ($data as $row) {
+
+                if ($isFirstLine) {
+                    $isFirstLine = false;
+                    continue;
+                }
+
+                $page = CompaniesChildrenPages::where(['company_id' => $row[0], 'type_id' => $row[5]])->first();
+                if ($page == null) {
+                    dd('Не найден элемент для ID ' .  $row[0], ' type_id ' . $row[5]);
+                }
+
+                $page->title = $row[2];
+                $page->meta_description = $row[3];
+                $page->h1 = $row[4];
+                //$page->text_before = $row[6];
+                $page->content = $row[6] . $row[7];
+                $page->breadcrumb = $row[8];
+                $page->status = 1;
+                $page->save();
+
+            }
+        });
+
+        dd('Все ок');
+
     }
 
 

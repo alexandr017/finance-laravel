@@ -5,9 +5,6 @@
 
     <img loading="lazy" src="{{$bank->logo}}" alt="{{$bank->name}}}" class="logo-company">
     <?php $tmpRatingK5M = App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankID($bank->id); ?>
-    @if($tmpRatingK5M != null)
-        <div class="k5m-wrap">К5М = {{$tmpRatingK5M}}/10 <img loading="lazy" src="/old_theme/img/icon-help2.png" alt="Рейтинг К5М" class="lazy icon-help k5m_button"></div>
-    @endif
     <div class="rating-line micro">
         <?php
         $realCount = 0; $ratingValue = 0; $ratingValueTmp = 0;

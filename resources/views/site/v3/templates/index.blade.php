@@ -1,7 +1,7 @@
 @extends('site.v3.layouts.app')
-@section ('title', $title)
-@section ('h1', $h1)
-@section ('meta_description', $meta_description)
+@section ('title', $page->title)
+@section ('h1', $page->h1)
+@section ('meta_description', $page->meta_description)
 @section('additional-styles')
 @endsection
 @section('content')
@@ -123,7 +123,7 @@
 
 
             <div class="alc">
-                {!! TagsParser::compile(Shortcode::compile($content)) !!}
+                {!! TagsParser::compile(Shortcode::compile($page->content)) !!}
             </div>
 
             <div class="bordered-rating star-rating light-border">

@@ -85,7 +85,7 @@
         @yield('compress-styles')
         <? ob_end_flush(); ?></style>
 
-    <link rel="icon" type="image/png" href="/old_theme/img/logo_finance.png" />
+    <link rel="icon" type="image/png" href="/old_theme/img/logo.svg" />
     <link rel="alternate" hreflang="ru" href="{{Request::url()}}">
     <?php /* <link rel="manifest" href="/manifest.json"> */ ?>
 @if(isset($section_type))

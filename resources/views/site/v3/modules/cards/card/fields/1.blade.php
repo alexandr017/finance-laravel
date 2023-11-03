@@ -43,7 +43,7 @@
                     <?php
                     if(!$amp){
                         $result_val = $card->pay_method;
-                        include base_path().'/resources/views/frontend/cards/card/fields/sprite.php';
+                        include base_path().'/resources/views/site/v3/modules/cards/card/fields/sprite.php';
                     } else {
                         echo $card->pay_method;
                     }
@@ -58,7 +58,7 @@
                     <?php
                     if(!$amp){
                         $result_val = $card->payment_method;
-                        include base_path().'/resources/views/frontend/cards/card/fields/sprite.php';
+                        include base_path().'/resources/views/site/v3/modules/cards/card/fields/sprite.php';
                     } else {
                         echo $card->payment_method;
                     }

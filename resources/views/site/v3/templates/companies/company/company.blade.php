@@ -38,33 +38,15 @@
             @include('site.v3.modules.companies.company_menu')
 
             <?php
-            switch($company->group_id) {
-                case 1:
-                    $group_name = 'zaimy';
-                    break;
-                case 2:
-                    $group_name = 'credit';
-                    break;
-                case 4:
-                    $group_name = 'debit';
-                    break;
-                case 5:
-                    $group_name = 'credit_card';
-                    break;
-                case 6:
-                    $group_name = 'rko';
-                    break;
-                default:
-                    $group_name = 'default';
-            }
+            $group_name = 'zaimy';
 
                 $company_includes = 'company_includes';
             ?>
 
                 @if(is_mobile_device())
-                    @include("site.v3.modules.companies.$company_includes.".$group_name.'.face-mob')
+                    @include("site.v3.modules.companies.company_includes.zaimy.face-mob")
                 @else
-                    @include("site.v3.modules.companies.$company_includes.".$group_name.'.face')
+                    @include("site.v3.modules.companies.company_includes.zaimy.face")
                 @endif
 
 

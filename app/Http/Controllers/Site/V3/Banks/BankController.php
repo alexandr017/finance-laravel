@@ -151,25 +151,6 @@ class BankController extends BaseBankController
             abort(404);
         }
 
-        $news = DB::table('posts')
-            ->leftJoin('posts_categories', 'posts.pcid','posts_categories.id')
-            ->select('posts.*', 'posts_categories.alias_category as categoryAlias')
-            ->whereIn('posts.pcid',[13,28])
-            ->where(['bank_id' => $bank->id])
-            ->orderBy('posts.date','desc')
-            ->limit(3)
-            ->get();
-
-        /*
-        $newsBase = DB::table('posts')
-            ->leftJoin('posts_categories', 'posts.pcid','posts_categories.id')
-            ->select('posts.*', 'posts_categories.alias_category as categoryAlias')
-            ->where(['posts.pcid' => 15])
-            //->where(['bank_id' => $bank->id]) // !!! убрать
-            ->orderBy('posts.date','desc')
-            ->limit(3)
-            ->get();
-        */
 
         $reviews = DB::table('bank_reviews')
             ->select('*')

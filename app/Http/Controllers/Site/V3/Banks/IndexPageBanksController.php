@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\V3\Banks;
 
 use App\Models\Options\Options;
+use App\Models\StaticPages\StaticPage;
 use DB;
 
 use App\Models\Banks\BankInfoPage;
@@ -31,14 +32,12 @@ class IndexPageBanksController extends BaseBankController
 
     private function render($isAMP = false)
     {
+        $page = StaticPage::findByAlias();
 
-        $page = collect([]);
+        if ($page == null) {
+            abort(404);
+        }
 
-        $page->h1 = 'h1';
-        $page->title = 'title';
-        $page->meta_description = 'meta';
-        $page->content = 'content';
-        $page->lead = 'lead';
         $page->average_rating = 4.9; // просто рандом на случай
         $page->number_of_votes = 345; // если данные отваляться
 

@@ -85,8 +85,9 @@ class CategoryController extends BaseBlogController
         //$breadcrumbs = BreadcrumbsRender::get($postsCategory->breadcrumbs, $postsCategory->h1);
 
         $blogCategories = DB::table('posts_categories')
-            ->select('id', 'h1', 'alias_category')
+            ->select('id', 'h1', 'alias_category', 'short_name')
             ->where(['sidebar_menu' => $queryType])
+            ->orderBy('sidebar_order', 'asc')
             ->get();
 
         return view('site.v3.templates.blog.category',[

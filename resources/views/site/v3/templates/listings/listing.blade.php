@@ -58,10 +58,6 @@
 
     <div class="row clearfix">
         <div class="col-lg-9 col-md-12">
-            @if(($category_id == 4) && ($page->id == 4))
-            @include('site.v3.templates.listings.includes.calc.credit')
-            @endif
-
             @if(isset($page->category_id))
             @include("site.v3.templates.listings.includes.sorting_fields.".$page->category_id)
             @else

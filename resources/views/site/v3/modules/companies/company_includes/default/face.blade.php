@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <div class="top-credit-cards">
             <span @if($company->closed) class="closed-company" @endif>
-                <img loading="lazy" src="https://finance.ru{{$company->img}}" alt="{{$company->h1}}" class="alignleft no-margin">
+                <img loading="lazy" src="{{$company->img}}" alt="{{$company->h1}}" class="alignleft no-margin">
             </span>
         </div>
     </div>

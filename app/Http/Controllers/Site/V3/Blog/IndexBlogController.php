@@ -31,8 +31,9 @@ class IndexBlogController extends BaseBlogController
         }
 
         $blogCategories = DB::table('posts_categories')
-            ->select('id', 'h1', 'alias_category')
+            ->select('id', 'h1', 'alias_category', 'short_name')
             ->where(['sidebar_menu' => $queryType])
+            ->orderBy('sidebar_order', 'asc')
             ->get();
 
 
@@ -80,7 +81,6 @@ class IndexBlogController extends BaseBlogController
             'blogCategories' => $blogCategories,
             'posts' => $posts,
             'breadcrumbs' => $breadcrumbs,
-            'section_type' => 7,
             'editLink' => '/'
         ]);
 

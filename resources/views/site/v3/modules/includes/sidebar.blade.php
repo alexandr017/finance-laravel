@@ -250,7 +250,7 @@
             <div class="side-box options-list">
                 <ul class="mb0 rating-mfk">
                     @foreach($blogCategories as $blogCategory)
-                    <li><a rel="nofollow" href="/{{$blogCategory->alias_category}}">{{$blogCategory->h1}}</a></li>
+                    <li><a rel="nofollow" href="/{{$blogCategory->alias_category}}">{{$blogCategory->short_name}}</a></li>
                     @endforeach
                 </ul>
             </div>

@@ -62,22 +62,11 @@ class SimilarCompanies {
             if($card->km5 > $max_k5m) $max_k5m = $card->km5;
         }
 
-        // выбор текущей группы и поиск всех компаний из этой группы
-        $group = CompaniesUrl::where(['id'=>$company->group_id])->first();
-
         // для дебетовых карт своя логика
-        if ($company->group_id == 4) {
-            $similar_companies_row = DB::table("companies")
-                ->select("companies.*",DB::raw("(select cards.km5 from cards where company_id = companies.id or company_id2 = companies.id limit 1) as km5" ))
-                ->where(['companies.group_id'=>$company->group_id,'companies.status'=>1])
-                ->where('companies.support_link', '<>', null)
-                ->get();
-        } else {
-            $similar_companies_row = DB::table("companies")
-                ->select("companies.*",DB::raw("(select cards.km5 from cards where company_id = companies.id or company_id2 = companies.id limit 1) as km5" ))
-                ->where(['companies.group_id'=>$company->group_id,'companies.status'=>1])
-                ->get();
-        }
+        $similar_companies_row = DB::table("companies")
+            ->select("companies.*", DB::raw("(select cards.km5 from cards where company_id = companies.id or company_id2 = companies.id limit 1) as km5" ))
+            ->where(['companies.status' => 1])
+            ->get();
 
 
         // отбор компаний, у карточек которых к5ь равен текущей.

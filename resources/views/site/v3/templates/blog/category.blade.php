@@ -23,7 +23,7 @@ if (isset($page)) {
             <h1 class="p-h1">{{$postCategory->h1  . $pagePrefix}}</h1>
 
             <div class="post-category-text">
-                {!! TagsParser::compile(Shortcode::compile($postCategory->lead)) !!}
+                {!! TagsParser::compile(Shortcode::compile($postCategory->text)) !!}
             </div>
 
             <div class="post-wrap">

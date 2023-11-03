@@ -3,27 +3,12 @@
 namespace App\Http\Controllers\Site\V3;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cities\Cities;
 use App\Models\Partners\Partners;
 use App\Models\Options\Options;
-use App\Models\Posts\Posts;
 use App\Models\Posts\PostFavoritesReviews;
-use App\Models\Posts\PostsCategories;
 use App\Models\MediaAboutUs\MediaAboutUs;
 use App\Models\Cards\CardsCategories;
-use App\Models\Cards\CardCategoriesAdvantages;
-use App\Models\Cards\CardsChildrenPages;
-use App\Models\Cards\CardsCities;
-use App\Models\Companies\CompaniesCategories;
-use App\Models\Companies\CompaniesChildrenPages;
-use App\Models\Companies\Companies;
-use App\Models\Companies\CompaniesUrl;
-use App\Models\Companies\CompaniesReviews;
-
-
 use App\Http\Controllers\Frontend\InitController;
-
-use App\Models\Cards\Cards;
 
 use App\Models\HideLinks\HideLinks;
 use App\Models\HideLinks\HideLinkTimes;
@@ -42,158 +27,26 @@ use Request;
 use App\Models\System as System;
 use Auth;
 use URL;
-use App\Models\Urls\Url as Urls;
-use App\Models\Users\UsersMeta;
+
 
 use App\Http\Controllers\Frontend\Actions\ZalogiController;
 
-use App\Models\Banks\Popular;
 
 use App\Http\Controllers\Frontend\Yandex\TurboController;
 
 use App\Algorithms\IndexPageCardsLoad;
 use App\Models\Expert\Expert;
 
-use App\Models\Posts\PostsComments;
-
-use App\Repositories\Frontend\Card\CardRepository;
-use App\Algorithms\Frontend\Cards\CardsBoot;
-use Illuminate\Database\Schema\Blueprint;
-
-
-/**
- * Class FrontendController.
- */
 class FrontendController extends Controller
 {
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function index(){
+    public function index()
+    {
+        $page = StaticPage::findByAlias();
 
-
-        //dd(StaticPage::all());
-//        for ($i = 1; $i<=11; $i++) {
-//            $page = new StaticPage([
-//                'title' => 'test',
-//                'meta_description' => 'test',
-//                'h1' => 'test',
-//                'alias' => 'test' . rand(1,10000),
-//            ]);
-//            $page->save();
-//        }
-
-//        $cards = DB::table('cards')->where(['category_id' => 1])->get();
-
-//        foreach ($cards as $_card) {
-//            $card = Cards::find($_card->id);
-//
-//            $card->link_to_entity = '/mfo' . $card->link_to_entity;
-//            $card->support_link = '/mfo' . $card->link_to_entity;
-//            $card->account_link = '/mfo' . $card->account_link;
-//            $card->save();
-//        }
-
-//        dd($cards->first());
-
-//        for ($i = 1; $i <= 9000; $i++) {
-//            if(\Cache::has('card'.$i)) \Cache::forget('card'.$i);
-//        }
-
-//        $statement = "ALTER TABLE cards_children_pages AUTO_INCREMENT = 100000;";
-//
-//        DB::unprepared($statement);
-
-
-        //\DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-//        \Schema::table('listings', function (Blueprint $table) {
-//            $table->bigIncrements('id')->change();
-//        });
-        //\DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
-//
-//        $children = DB::table('cards_children_pages')->get();
-//
-//
-//        //DB::transaction(function() use($children) {
-//
-//        foreach ($children as $child) {
-//
-//            $data = [
-//                "id" => rand(10000,100000),
-//                "category_id" => $child->cards_category_id,
-//                "parent_id" => null,
-//                "parent_table" => null,
-//                "title" => $child->title,
-//                "meta_description"  => $child->meta_description,
-//                "h1" => $child->h1,
-//                "breadcrumb" => $child->breadcrumb,
-//                "expert_anchor" => $child->expert_anchor,
-//                "h2" => $child->h2,
-//                "img" => $child->img,
-//                "infographic" => $child->infographic,
-//                "lead" => $child->text_before,
-//                "content" => $child->text_after,
-//                "total_compare_label" => $child->total_compare_label,
-//                "city_id" => $child->city_id,
-//                "number_in_exel" => $child->number_in_exel,
-//                "average_rating" => $child->average_rating,
-//                "number_of_votes" => $child->number_of_votes,
-//                "status"=> $child->status,
-//                "alias"=> $child->alias
-//            ];
-//
-//            $listing = new \App\Models\Cards\Listing($data);
-//            $listing->save();
-//
-//           // echo $listing->h1 . PHP_EOL;
-//        }
-
-        //});
-
-
-/*
-        if( Auth::id() == 12467) {
-
-
-           $json = '[{"id":"3765","url":"news\/banks\/banki-nazvali-ipoteku.html","section_id":"248","section_type":"8"},{"id":"3785","url":"news\/banks\/edinaya-rossiya-predlagaet.html","section_id":"268","section_type":"8"},{"id":"3792","url":"news\/mfk\/obrazovatelnye-zajmy.html","section_id":"275","section_type":"8"},{"id":"3795","url":"news\/mfk\/elektronnye-zajmy-uzakoneny.html","section_id":"278","section_type":"8"},{"id":"3884","url":"news\/mfk\/eps-dlya-mkk-2.html","section_id":"367","section_type":"8"}]';
-
-           $manage = json_decode($json);
-
-
-            foreach ($manage as $item) {
-                $data = [
-                    'url' =>$item->url,
-                    'section_id' =>$item->section_id,
-                'section_type' => $item->section_type
-                ];
-                $item = new Urls($data);
-                $item->save();
-            }
-
-
-dd($json);
-
+        if ($page == null) {
+            abort(404);
         }
-        */
 
-
-
-
-        /*
-        $redireced = System::redirect();
-        if($redireced != null){
-            return redirect($redireced, 301); 
-        }
-        */
-
-
-        $title = ''; $h1 = ''; $meta_description = ''; $content = '';
-
-        $card_category = CardsCategories::findOrFail(1);
-
-        $filters_json = $card_category->filters_json;
-        $options_json = $card_category->options_json;
 
         $all_products_count = 0;
         $companies_count = DB::select("select count(id) as count from companies where status=1");
@@ -208,9 +61,6 @@ dd($json);
         $all_reviews_count += $companies_reviews_count[0]->count;
         $all_reviews_count += $banks_reviews_count[0]->count;
 
-
-        $users_count = DB::select("select count(id) as count from users");
-        $we_help_count = DB::select("select * from sidebar where id=1");
 
         $countChildListings = System::getCountChildListings(1);
 
@@ -282,37 +132,13 @@ dd($json);
 
 
 
-//        $cashBackCards = DB::table('cards')
-//            ->leftJoin('bank_product_cards', 'bank_product_cards.card_id', 'cards.id')
-//            ->leftJoin('bank_products', 'bank_products.id', 'bank_product_cards.bank_product_id')
-//            ->where(['bank_products.is_cashback' => 1, 'cards.status' => 1])
-//            ->select('cards.id','category_id')
-//            ->orderBy('cards.flow')
-//            ->orderBy('cards.km5','desc')
-//            ->orderBy('cards.id','asc')
-//            ->groupBy('cards.id')
-//            ->limit(3)
-//            ->get();
-//        $cashBackCards = CardsBoot::getCardsForListingByIDs($cashBackCards);
-
-
-
-        $insurances = DB::table('insurance_cards')
-            ->orderBy('sorting','asc')
-            ->limit(3)
-            ->get();
-
-
-
-
         $posts = DB::table('posts')
-            ->leftJoin('urls', 'urls.section_id', 'posts.id')
             ->leftJoin('posts_categories','posts.pcid','posts_categories.id')
             ->select('posts.*',
                 'posts_categories.id as category_id',
                 'posts_categories.alias_category',
                 'posts_categories.h1 as category_h1')
-            ->where(['posts.status' => 1, 'urls.section_type' => 8])
+            ->where(['posts.status' => 1])
             ->whereIn('posts.pcid', [8, 27, 28, 21, 29, 30, 14])
             ->limit(10)
             ->orderBy('posts.id', 'desc')
@@ -331,9 +157,8 @@ dd($json);
 
         $reviewsCompany = DB::table('companies_reviews')
             ->leftJoin('companies', 'companies.id', 'companies_reviews.company_id')
-            ->leftJoin('urls', 'urls.section_id', 'companies.id')
-            ->select('companies_reviews.*', 'companies.company_name as companyName', 'urls.url')
-            ->where(['companies_reviews.status' => 1, 'off_answer' => null, 'companies.status' => 1, 'companies.closed' => 0, 'urls.section_type' => 5])
+            ->select('companies_reviews.*', 'companies.company_name as companyName', 'companies.alias')
+            ->where(['companies_reviews.status' => 1, 'off_answer' => null, 'companies.status' => 1, 'companies.closed' => 0])
             ->where('companies_reviews.rating', '>', 2)
             ->orderBy('companies_reviews.created_at', 'desc')
             ->limit(10)
@@ -355,26 +180,17 @@ dd($json);
 
 
         return view('site.v3.templates.index',[
-            'title' => $title,
-            'h1' => $h1,
-            'content' => $content,
-            'meta_description' => $meta_description,
+            'page' => $page,
 
             'all_products_count' => $all_products_count,
             'all_reviews_count' => $all_reviews_count,
-            'users_count' => $users_count,
-            'we_help_count' => $we_help_count,
 
-            'filters_json' => $filters_json,
-            'options_json' => $options_json,
             'def_load' => true,
             'amp' => false,
             'countChildListings' => $countChildListings,
             'loans' => $loans,
 
             'reviews' => $reviews,
-
-            'page' => $card_category,
 
             'experts' => $experts,
             //

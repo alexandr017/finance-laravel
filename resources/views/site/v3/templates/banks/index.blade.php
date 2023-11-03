@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+@extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
 @section ('meta_description', $page->meta_description)

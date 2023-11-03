@@ -12,4 +12,12 @@ class StaticPage extends Model
 
     public $timestamps = false;
 
+    public static function findByAlias()
+    {
+        $alias = clear_data(\Request::path());
+
+        return StaticPage::where(['alias' => $alias])->first();
+    }
+
+
 }

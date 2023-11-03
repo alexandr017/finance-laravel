@@ -45,7 +45,7 @@
         @if(isset($comment->child))
             @foreach($comment->child as $child)
                 <div class="comment-item @if($child->off_answer != null) off_answer @endif @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-body @endif" id="comment-{{$child->id}}">
-                    <div class="title-line">@if($child->off_answer != null) <i class="fa fa-check-square-o"></i> @endif @if($child->first_name!=null) {{$child->last_name}} {{$child->first_name}} {{$child->middle_name}} @if($child->off_answer != null) - официальный представитель компании  @endif @else {{$child->author}} @endif
+                    <div class="title-line">@if($child->off_answer != null) <i class="fa fa-check-square-o"></i> @endif  {{$child->author}}
                         @if($comment->rating!=null)
                             @if($child->off_answer == null)
                                 <div class="rating-line rev">

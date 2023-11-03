@@ -1,14 +1,11 @@
 <?php
 
-use App\Http\Controllers\Site\V3\FrontendController;
-use App\Http\Controllers\Site\V3\StaticPagesController;
+
 use App\Http\Controllers\Site\V3\Actions\ActionsController;
 use App\Http\Controllers\Site\V3\Actions\CardsLoaderController;
 
 
-Route::get('/', [FrontendController::class, 'index']);
-Route::get('/amp', [FrontendController::class, 'index_amp']);
-Route::get('/about', [StaticPagesController::class, 'about']);
+include "site/static-pages.php";
 
 include "site/listings.php";
 
@@ -33,6 +30,6 @@ include "site/blog.php";
 include "sitemap/index-sitemap-xml.php";
 
 
-Route::fallback(function(){
-    return (new App\Http\Controllers\Site\V3\DynamicSiteController())->render();
-});
+//Route::fallback(function(){
+//    return (new App\Http\Controllers\Site\V3\DynamicSiteController())->render();
+//});

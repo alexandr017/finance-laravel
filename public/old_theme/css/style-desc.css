@@ -128,8 +128,9 @@
 
 /*** header ****/
 
-header ul{    padding: 0;
-    margin: 15px 0 0;
+header ul{
+    padding: 0;
+    margin: 8px 0 0;
     display: inline-block;
     min-height: 45px;
     position: relative;}
