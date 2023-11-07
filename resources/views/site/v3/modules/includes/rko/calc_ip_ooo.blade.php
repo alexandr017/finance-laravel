@@ -295,7 +295,7 @@
         }
 
         #rko_render:hover{
-            background: #92b527;
+            background: #063;
         }
 
         #rko_render:hover{

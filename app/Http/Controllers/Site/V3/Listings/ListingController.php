@@ -114,13 +114,29 @@ class ListingController extends Controller
                 'og_img' => '',
                 'img' => '',
                 'expert_anchor' => '',
-                'text_before' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore repudiandae rerum sint. A accusamus aliquid consequatur consequuntur delectus, deleniti, deserunt fugiat libero minima nam nobis, odit quae quidem sit temporibus?</p>',
+                'lead' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore repudiandae rerum sint. A accusamus aliquid consequatur consequuntur delectus, deleniti, deserunt fugiat libero minima nam nobis, odit quae quidem sit temporibus?</p>',
                 'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore repudiandae rerum sint. A accusamus aliquid consequatur consequuntur delectus, deleniti, deserunt fugiat libero minima nam nobis, odit quae quidem sit temporibus?</p>',
                 'city_id' => '',
                 'imenitelny' => '',
+                'average_rating' => 5,
+                'number_of_votes' => 43,
                 'h1' => 'Главная раздела',
             ];
         }
+
+
+        $relinkData = DB::table('relinking')
+            ->join('relinking_groups', 'relinking_groups.id', 'relinking.relinking_group_id')
+            ->select('relinking_groups.group_name as group_name', 'relinking.title' ,'relinking.link', 'relinking.sort_order')
+            ->where(['relinking_groups.category_id' => $categoryID, 'relinking.category_id' => $categoryID])
+            ->where('relinking.link','!=', 'https://vsezaimyonline.ru'.$_SERVER['REQUEST_URI'])
+            ->orderBy('relinking_groups.sort_order', 'asc')
+            ->get()
+            ->groupBy('group_name')
+            ->map(function ($elements) {
+                return $elements->sortBy('sort_order',0);
+            })
+            ->toArray();
 
         if ($listing == null) {
             abort(404);
@@ -146,11 +162,6 @@ class ListingController extends Controller
         }
 
 
-
-        $countChildListings = System::getCountChildListings($listing->cards_category_id);
-
-
-
         $breadcrumbs = [
             ['h1' => $listing->h1]
         ];
@@ -172,25 +183,11 @@ class ListingController extends Controller
         }
 
 
-        switch ($category_id) {
-            case 2:
-                $db_news = DB::select("select alias, h1, h1_in_category from posts where pcid=23 and status = 1 limit 30");
-                break;
-            case 8:
-                $db_news = DB::select("select alias, h1, h1_in_category from posts where pcid=24 and status = 1 limit 30");
-                break;
-            default:
-                $db_news = [];
-        }
-
-        $amp = false;
-
-        $blade = (!$amp) ? 'site.v3.templates.listings.listing' : 'site.v3.templates.listings.listing-amp';
+        $blade = (!is_amp_page()) ? 'site.v3.templates.listings.listing' : 'site.v3.templates.listings.listing-amp';
 
         return view($blade,[
             'category_id' => $category_id,
             'page' => $listing,
-            'filters_json' => $filters_json,
             'options_json' => $options_json,
             'popular_offer_json' => $popular_offer_json,
             'breadcrumbs' => $breadcrumbs,
@@ -200,11 +197,9 @@ class ListingController extends Controller
             'others_cards' => $others_cards,
             'def_load' => true,
             'popular_banks' => $popular_banks,
-            'amp' => $amp,
             'prefixType' => '',
-            'countChildListings' => $countChildListings,
             'tag_name' => $tag_name,
-            'db_news' => $db_news,
+            'relinkData' => $relinkData
         ]);
 
         return view('');

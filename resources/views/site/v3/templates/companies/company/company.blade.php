@@ -10,20 +10,22 @@
     @section ('og_image', 'https://finance.ru'.$company->og_img)
 @endif
 
+
 @section('content')
 
 @include('site.v3.modules.includes.breadcrumbs')
+
 
 @if(isset($cards[0]))
 <div class="fixed-company">
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-8 col-md-9">
                 <img loading="lazy" width="150" src="{{$cards[0]->logo}}" alt="{{$cards[0]->title}}">
                 <span class="zaym-name">{{ ($company->company_name != null) ? $company->company_name : $cards[0]->title}}</span>
             </div>
-            <div class="col-sm-3">
-                <a data-id="{{$cards[0]->id}}" class="hdl form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+            <div class="col-sm-4 col-md-3">
+                <a data-id="{{$cards[0]->id}}" class="hdl form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank">Оформить</a>
             </div>
         </div>
     </div>
@@ -39,8 +41,7 @@
 
             <?php
             $group_name = 'zaimy';
-
-                $company_includes = 'company_includes';
+            $company_includes = 'company_includes';
             ?>
 
                 @if(is_mobile_device())
@@ -127,7 +128,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 text-center">
-                        <a class="form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"><i class="fa fa-lock"></i> Оформить займ</a>
+                        <a class="form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"> Оформить займ</a>
 
                     </div>
 
@@ -253,112 +254,6 @@
                     @endforeach
                 </div>
             </div>
-            @endif
-
-
-            @if(!$company->reviews_page)
-            <h2 id="reviews" class="text-center">Отзывы и жалобы</h2>
-                <div class="reviews-status-line">
-                    <span class="reviews-status-line-left">Отзывы ({{$countReviews - $complaintAllCount}})</span>
-                    <span class="reviews-status-line-right">Жалобы ({{$complaintAllCount}})</span>
-                    <div class="reviews-progress-wrap">
-                        <div class="reviews-progressbar">
-                            <div class="progress progress-bar bg-success progress-bar-striped" style="width: {{99.9 - $complaintAllCount / ($countReviews + 0.000001) * 100 }}%"></div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-                @if($complaintAllCount > 0)
-                <p class="text-center reviews-status-title">Статистика по жалобам</p>
-                <div class="reviews-status-line">
-                    <span class="reviews-status-line-left">Решено 🙂 ({{$complaintAnswerCount}})</span>
-                    <span class="reviews-status-line-right">Рассматривается 😒 ({{$complaintAllCount - $complaintAnswerCount}})</span>
-                    <div class="reviews-progress-wrap">
-                        <div class="reviews-progressbar">
-                            @if($complaintAllCount == 0)
-                                <div class="progress progress-bar bg-success progress-bar-striped" style="width:100%"></div>
-                            @else
-                                <div class="progress progress-bar bg-success progress-bar-striped" style="width: {{ ($complaintAnswerCount / $complaintAllCount * 100) }}%"></div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
-
-            <div class="sorting-line reviews_items" data-term-id="{{$company->id}}">
-                <ul>
-                    <li class="first-item">Сортировать:</li>
-                    <li class="sort-item active" data-field="date"><i class="fa fa-arrow-circle-down"></i> <span>по дате</span></li>
-                    <li class="sort-item" data-field="rating"><i></i> <span>по оценкам</span></li>
-                </ul>
-            </div>
-
-            <div class="reviews-wrap comments-add-form">
-                <div class="reviews-list-wrap">
-                    @include('site.v3.modules.companies.reviews_includes.render')
-                </div>
-                <?php global $reviewsGroups ?>
-                @if(($reviewsGroups > 1) && count($reviews)>10)
-                <div class="text-center"><button id="loadReviews" class="form-btn1" data-groups-count="{{$reviewsGroups}}" data-groups-current="1">Показать ещё <span></span></button></div>
-                @endif
-                <br>
-                <br>
-
-                <div id="AddReviewWrap">
-                <div class="title-comments"><i class="fa fa-commenting"></i> Оставить отзыв</div>
-                <form action="#" method="post" id="AddReview">
-                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="post" id="reviewCompany" value="{{$company->id}}">
-                    <input type="hidden" name="parent" id="reviewParent" value="0">
-                    <div class="form-line">
-                        <label>Рейтинг:</label>
-                        <div class="companies-rating">
-                            <i data-item="1" data-value="fa fa-star-o" title="Очень плохо" class="fa fa-star-o"></i>
-                            <i data-item="2" data-value="fa fa-star-o" title="Плохо" class="fa fa-star-o"></i>
-                            <i data-item="3" data-value="fa fa-star-o" title="Средне" class="fa fa-star-o"></i>
-                            <i data-item="4" data-value="fa fa-star-o" title="Хорошо" class="fa fa-star-o"></i>
-                            <i data-item="5" data-value="fa fa-star-o" title="Отлично" class="fa fa-star-o"></i>
-                        </div>
-                        <input type="hidden" id="reviewRating" class="width-100" name="reviewRating" value="0">
-                    </div>
-                    <div class="form-line form-group">
-                        <label>Имя:</label>
-                        @if($uid != null)
-                        <input id="reviewUserName" class="width-100" name="name" required readonly="true" value="{{$uidName}}">
-                        <input type="hidden" id="reviewUserId" name="id" value="{{$uid}}">
-                        @else
-                        <input id="reviewUserName" class="width-100" name="name" required>
-                        <input type="hidden" id="reviewUserId" name="id" value="null">
-                        @endif
-                    </div>
-                    <div class="form-line form-group">
-                        <label>Комментарий:</label>
-                        <textarea class="width-100" id="reviewUserComment" name="reviewUserComment" required></textarea>
-                    </div>
-                    <div class="form-line">
-                        <div class="sub-form-line form-group">
-                            <label>Плюсы:</label>
-                            <textarea class="width-100" id="pros" name="pros"></textarea>
-                        </div>
-                        <div class="sub-form-line form-group">
-                            <label>Минусы:</label>
-                            <textarea class="width-100" id="minuses" name="minuses"></textarea>
-                        </div>
-                    </div>
-
-                    @if(Auth::id()==null)
-                    <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="6LdYqz0UAAAAAPKI1karX0-Gr35D7_MVfO8IN2TD"></div>
-                    </div>
-                    @endif
-
-                    <div class="form-line">
-                        <button class="width-100 form-btn1"><span class="review-button-name">Отправить отзыв</span> <i class="fa fa-arrow-right"></i></button>
-                    </div>
-                </form>
-                </div>
-                </div>
             @endif
 
 

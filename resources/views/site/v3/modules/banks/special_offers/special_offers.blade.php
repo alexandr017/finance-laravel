@@ -63,7 +63,7 @@
                     <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
                     <?php $onClick = ""; ?>
                     <span class="mt-offer">
-                    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}" onclick="{{$onClick}} return true;"> <i class="fa fa-lock"></i> Оформить</a>
+                    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}" onclick="{{$onClick}} return true;">  Оформить</a>
                     </span>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
                     <?php $onClick = ""; ?>
                     <span class="mt-offer">
-                    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}" onclick="{{$onClick}} return true;"> <i class="fa fa-lock"></i> Оформить</a>
+                    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}" onclick="{{$onClick}} return true;">  Оформить</a>
                     </span>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                     <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
                     <?php $onClick = ""; ?>
                         <span class="mt-offer">
-                    <a data-id="250" href="{{$link}}" target="_blank" class="hdl form-btn1 credit-hub" onclick="{{$onClick}} return true;"><i class="fa fa-lock"></i> Оформить</a>
+                    <a data-id="250" href="{{$link}}" target="_blank" class="hdl form-btn1 credit-hub" onclick="{{$onClick}} return true;"> Оформить</a>
                         </span>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                     <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
                     <?php $onClick = ""; ?>
                         <span class="mt-offer">
-                    <a data-id="250" href="{{$link}}" target="_blank" class="hdl form-btn1 credit-hub" onclick="{{$onClick}} return true;"><i class="fa fa-lock"></i> Оформить</a>
+                    <a data-id="250" href="{{$link}}" target="_blank" class="hdl form-btn1 credit-hub" onclick="{{$onClick}} return true;"> Оформить</a>
                         </span>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                         <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
                         <?php $onClick = ""; ?>
                         <span class="mt-offer">
-                    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}" onclick="{{$onClick}} return true;"> <i class="fa fa-lock"></i> Оформить</a>
+                    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}" onclick="{{$onClick}} return true;">  Оформить</a>
                     </span>
                     </div>
                 </div>

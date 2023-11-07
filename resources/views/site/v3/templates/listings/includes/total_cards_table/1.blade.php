@@ -54,13 +54,13 @@
 @endif
 @section('additional-scripts')
 
-<link rel="stylesheet" type="text/css" href="/backend/dataTables/datatables.min.css">
-<script src="/backend/dataTables/datatables.min.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/admin-assets/dataTables/datatables.min.css">
+<script src="/admin-assets/dataTables/datatables.min.js" defer></script>
 <script>
 $(document).ready(function(){
     $('.total_cards_table').DataTable( {
         "order": [[ 0, "asc" ]],
-        "language": {"url": "/backend/dataTables/datatables.json"},
+        "language": {"url": "/admin-assets/dataTables/datatables.json"},
         drawCallback: function(settings){
             var info = this.api().page.info();
             if(info.recordsTotal <= 10){

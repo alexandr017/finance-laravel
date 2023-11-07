@@ -18,8 +18,7 @@ class ReviewsController extends Controller
         $s_field = ($sort_field == 'date') ? 'id' : 'rating';
 
         $reviews = DB::table('companies_reviews')
-            ->leftJoin('users_meta','users_meta.user_id','companies_reviews.uid')
-            ->select('companies_reviews.*','users_meta.last_name', 'users_meta.first_name', 'users_meta.middle_name')
+            ->select('companies_reviews.*')
             ->where(['companies_reviews.company_id' => $company_id,'companies_reviews.status' => 1])
             ->orderBy("companies_reviews.$s_field", $sort_type)
             ->get();

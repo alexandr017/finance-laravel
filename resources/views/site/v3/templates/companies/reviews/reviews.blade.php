@@ -12,6 +12,7 @@
         <div class="col-lg-9 col-md-12">
 
             <h1 class="p2-h1">{{$page->h1}}</h1>
+            @include('site.v3.modules.companies.company_menu')
 
             <?php echo Shortcode::compile(System::nofollow($page->content)); ?>
 
@@ -150,7 +151,7 @@
         <div class="fixed-company">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8 col-md-9">
                         <?php $product_title = ($card->category_id == 1)
                             ? (($company->company_name) ? $company->company_name : $company->h1)
                             : $card->title;
@@ -158,7 +159,7 @@
                         <img loading="lazy" width="150" src="{{$card->logo}}" alt="{{$product_title}}">
                         <span class="zaym-name">{{$product_title}}</span>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4 col-md-3">
                         <?php if($card->status) {
                             $company_link = ($card->link_type == 1) ? $card->link_1 : $card->link_2;
                         } else {
@@ -167,7 +168,7 @@
 
                         $goal = ($card->category_id == 1) ? 'zaim-reviews' : 'orgbut';
                         ?>
-                        <a data-id="{{$card->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+                        <a data-id="{{$card->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"> Оформить</a>
                     </div>
                 </div>
             </div>

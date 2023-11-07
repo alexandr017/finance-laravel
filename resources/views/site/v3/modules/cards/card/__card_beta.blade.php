@@ -41,9 +41,9 @@
                 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
                 <span>Обновлено</span><br><span>{{fake_update_offer(strtotime($card->created_at))}}</span>
             </div>
-            @if($card->category_id != 3)
-                <button data-id="{{$card->id}}" class="compare add_to_compare">+ к сравнению<i class="fa fa-balance-scale"></i></button>
-            @endif
+{{--            @if($card->category_id != 3)--}}
+{{--                <button data-id="{{$card->id}}" class="compare add_to_compare">+ к сравнению<i class="fa fa-balance-scale"></i></button>--}}
+{{--            @endif--}}
         </div>
         <div class="beta-card-main-details">
             <div>

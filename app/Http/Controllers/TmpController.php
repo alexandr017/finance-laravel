@@ -8,6 +8,11 @@ class TmpController extends Controller
 {
     public function index()
     {
+        // перелинковка
+//        DB::delete('delete from relinking');
+//        DB::delete('delete from relinking_groups');
+
+
         // компании
         //DB::update('update companies set status = 0');
 
@@ -24,7 +29,9 @@ class TmpController extends Controller
 
         // записи
 
-        // теги
+        // листинги
+//        DB::delete('delete from listing');
+//        DB::delete('delete from listing_cards');
 
 
         //dd(StaticPage::all());

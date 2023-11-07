@@ -48,7 +48,7 @@ class ActionsController extends Controller
         return 1;
     }
 
-    public function add_review(Request $request){
+    public function addReview(Request $request){
 
         $rating = clear_data($request['rating']); 
 		$author = clear_data($request['name']); 

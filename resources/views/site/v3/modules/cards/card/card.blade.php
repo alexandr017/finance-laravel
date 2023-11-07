@@ -41,11 +41,11 @@
                                 </div>
                                 @endif
                                 <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
-                        		<a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}"> <i class="fa fa-lock"></i> Оформить</a>
-                                @if($card->category_id != 3 && $card->category_id !=10)
-                                <button data-id="{{$card->id}}" class="compare add_to_compare"><span>+ к сравнению</span></button>
-                                @endif
-                                <span  data-id="{{$card->id}}" class="complaint"><i class="fa fa-warning"></i> <span>Подать жалобу</span></span>
+                        		<a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}">  Оформить</a>
+{{--                                @if($card->category_id != 3 && $card->category_id !=10)--}}
+{{--                                <button data-id="{{$card->id}}" class="compare add_to_compare"><span>+ к сравнению</span></button>--}}
+{{--                                @endif--}}
+{{--                                <span  data-id="{{$card->id}}" class="complaint"><i class="fa fa-warning"></i> <span>Подать жалобу</span></span>--}}
                             </div><?php /* col-md-4 */ ?>
 
                             <div class="col-md-8 mob-initial">

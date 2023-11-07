@@ -15,7 +15,7 @@
     <?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
     <?php if(!strstr($link,'vsezaimyonline')) $link = 'https://finance.ru' . $link; ?>
     <p class="border-left border-right bg-grey">
-        <a href="{{$link}}" target="_blank" class="form-btn1" data-goals="offer"> <i class="fa fa-lock"></i> ОФОРМИТЬ</a>
+        <a href="{{$link}}" target="_blank" class="form-btn1" data-goals="offer">  ОФОРМИТЬ</a>
     </p>
 
     @if(isset($card->additional))

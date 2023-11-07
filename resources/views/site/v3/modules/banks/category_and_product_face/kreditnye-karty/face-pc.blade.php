@@ -180,7 +180,7 @@
     <div class="row">
     @if(isset($cards[0]))
         <div class="col-sm-6">
-            <a data-id="{{$cards[0]->id}}" class="form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+            <a data-id="{{$cards[0]->id}}" class="form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"> Оформить</a>
         </div>
         <div class="col-sm-6">
             <button id="load_card_for_bank" class="form-btn1">Все карты банка ({{count($cards)}} шт.)</button>

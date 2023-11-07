@@ -13,7 +13,7 @@
                 }
                 $goal = ($bank->category_id == 1) ? 'zaim-reviews' : 'orgbut';
                 ?>
-                <a data-id="{{$bank->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+                <a data-id="{{$bank->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"> Оформить</a>
             </div>
         </div>
     </div>

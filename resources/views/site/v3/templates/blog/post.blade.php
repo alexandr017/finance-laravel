@@ -84,7 +84,7 @@
                     <div class="author-info">
                         <div class="left-wrap"><img loading="lazy" src="{{$author->photo}}" alt="{{$author->name}}"></div>
                         <div class="right-wrap">
-                            <a href="/about#{{str_slug($author->name)}}" class="name_wrap">{{$author->name}}</a>
+                            <a href="/about#{{\Str::slug($author->name)}}" class="name_wrap">{{$author->name}}</a>
                             <div class="desc_wrap"><p>{!! $author->text !!}</p>
                             </div>
                             <span class="email_wrap">{{$author->email}}</span>

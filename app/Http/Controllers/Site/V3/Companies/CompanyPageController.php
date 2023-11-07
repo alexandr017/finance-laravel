@@ -80,12 +80,13 @@ class CompanyPageController extends Controller
         ];
 
         $showContentMenu = true;
+        $showSidebarConversionBlock = true;
 
 
         if($page->type_id != 4){
             $blade = (!is_amp_page()) ? 'site.v3.templates.companies.children.children' : 'site.v3.templates.companies.children.children-amp';
 
-            return view($blade, compact('company','breadcrumbs',
+            return view($blade, compact('company','breadcrumbs', 'showSidebarConversionBlock',
                 'page','editLink','card','amp', 'cards', 'reviews', 'companiesChildrenPages', 'showContentMenu'));
 
         } else {
@@ -95,7 +96,8 @@ class CompanyPageController extends Controller
 
             $blade = (!is_amp_page()) ? 'site.v3.templates.companies.reviews.reviews' : 'site.v3.templates.companies.reviews.reviews-amp';
 
-            return view($blade, compact('company','breadcrumbs','reviews', 'complaintAllCount', 'complaintAnswerCount',
+            return view($blade, compact('company','breadcrumbs','reviews', 'complaintAllCount',
+                'showSidebarConversionBlock', 'complaintAnswerCount',
                 'page','uid','uidName','editLink','countReviews','card','cards','amp', 'companiesChildrenPages'));
         }
     }

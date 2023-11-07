@@ -395,7 +395,7 @@ $('.post-ratings i').on('mouseover',function(){
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
         type: "POST",
-        url: "/forms/rating_add",
+        url: "/actions/rating-add",
         data: {
             '_token': token,
             'rating': rating,

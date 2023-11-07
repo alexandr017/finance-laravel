@@ -23,8 +23,6 @@ $(function(){
 
 });
 
-setTimeout(update_img_and_bg,1);
-
 // menu hover on desktop
 /* ПЕРЕПИСАНО
 if($(window).width() > 769){
@@ -39,49 +37,6 @@ if($(window).width() > 769){
     });
 }
 */
-
-
-// защита от копирования
-document.oncopy = function () {
-    var bodyElement = document.body;
-    var selection = getSelection();
-    var href = document.location.href;
-    if(window.isAuth == undefined){
-        var copyright = ' - Читайте подробнее на #ВЗО: <a href="'+ href +'">' + href + '</a>';
-    } else {
-        var copyright = '';
-    }
-    var text = selection + copyright;
-    var divElement = document.createElement('div');
-    divElement.style.position = 'absolute';
-    divElement.style.left = '-99999px';
-    text1 = document.createTextNode(text); //создал текстовый узел
-    divElement.appendChild(text1); //и добавил его
-    bodyElement.appendChild(divElement);
-    selection.selectAllChildren(divElement);
-    setTimeout(function(){
-        bodyElement.removeChild(divElement);
-    }, 0);
-};
-
-function update_img_and_bg(){
-    $('img.loading_lazy').each(function () {
-        $(this).wrap('<div class="single-img-wrap"></div>');
-    });
-
-
-    $('.def_bg[data-src]').each(function(){
-        $(this).css('background','url('+$(this).attr('data-src')+')').removeAttr('data-src');
-    })
-}
-
-function update_img_and_bg_full_version(){
-
-    $('.def_bg[data-src]').each(function(){
-        $(this).css('background','url('+$(this).attr('data-src')+')').removeAttr('data-src');
-    })
-}
-
 
 
 
@@ -366,7 +321,7 @@ $('.post-ratings i').on('mouseover',function(){
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
         type: "POST",
-        url: "/forms/rating_add",
+        url: "/actions/rating-add",
         data: {
             '_token': token,
             'rating': rating,
@@ -489,7 +444,7 @@ $('#toTop').click(function() {
 
 // скрол на странице продуктов
 
-if(document.body.clientWidth > 768){
+//if(document.body.clientWidth > 768){
 if ($(".fixed-company")[0]){
 $(document).ready(function($) {
     $nav = $('.fixed-company');
@@ -507,7 +462,7 @@ $(document).ready(function($) {
 });
 }
 
-}
+//}
 
 function getLoadCountReview(){
     var current = parseInt($('#loadReviews').attr('data-groups-current'));
@@ -757,24 +712,6 @@ function compare(){
             }
         }
     });
-
-    if(document.body.clientWidth > 768) {
-        $.ajax({
-            type: "POST",
-            url: "/compare_load_images",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                'cards': favorites,
-                'id': window.category_id
-            },
-            success: function (data) {
-                $('.cilp_inner').html(data+buttons);
-                $('#compare_in_listing_pages').show();
-            }
-        });
-    } else {
-        $('.cilp_inner').html(buttons);
-    }
 
 
     //localStorage.removeItem("vzo_compare");

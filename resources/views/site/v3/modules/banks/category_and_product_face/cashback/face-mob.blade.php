@@ -138,7 +138,7 @@
     @if(isset($cards[0]))
         <a data-id="{{$cards[0]->id}}" class="form-btn1"
            @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}"
-           @endif target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+           @endif target="_blank"> Оформить</a>
 
         <button id="load_card_for_bank" class="form-btn1">Все карты банка ({{count($cards)}} шт.)</button>
     @endif

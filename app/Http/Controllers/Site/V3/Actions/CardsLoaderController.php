@@ -98,8 +98,6 @@ class CardsLoaderController extends Controller
         $count_on_page = (int)  clear_data($request['count_on_page']);
         $sort_type = clear_data($request['sort_type']);
         $category_id = clear_data($request['category_id']);
-        $section_type = (int) clear_data($request['section_type']);
-
 
 
         if (($listing_id == 0) || ($count_on_page == 0)) {
@@ -107,17 +105,7 @@ class CardsLoaderController extends Controller
         }
 
         $card_repository = app(CardRepository::class);
-        $cards = $card_repository->getSortedCards($section_type, $listing_id, $field, $sort_type);
-
-        /*
-        if (\Auth::id () == 12467) {
-            foreach ($cards as $card) {
-                echo $card->title . '<br>';
-            }
-            ddd();
-        }
-        */
-        //ddd($cards, $field, $sort_type);
+        $cards = $card_repository->getSortedCards($listing_id, $field, $sort_type);
 
 
 
@@ -164,12 +152,13 @@ class CardsLoaderController extends Controller
         //$betaCards = [393, 521, 410, 392, 530, 383, 401, 532, 563, 562];
 
         foreach ($cards as $card) {
-                if($card->category_id == 1) {
-                    $view = view('frontend.cards.minimal.card',['card'=>$card,'amp' => 0]);
+            //dd($card->category_id);
+                if ($card->category_id == 1) {
+                    $view = view('site.v3.modules.cards.minimal.card',['card'=>$card,'amp' => 0]);
                     $result .= $view->render();//or echo $view->render(); whatever you like
 
                 } else {
-                    $view = view('frontend.cards.card.card',['card'=>$card]);
+                    $view = view('site.v3.modules.cards.card.card',['card'=>$card]);
                     $result .= $view->render();//or echo $view->render(); whatever you like
                 }
 

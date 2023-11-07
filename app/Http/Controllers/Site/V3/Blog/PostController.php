@@ -57,8 +57,7 @@ class PostController extends BaseBlogController
 
 
         $postsComments = DB::table('posts_comments')
-            ->leftJoin('users_meta','users_meta.user_id','posts_comments.uid')
-            ->select('posts_comments.*','users_meta.last_name', 'users_meta.first_name', 'users_meta.middle_name')
+            ->select('posts_comments.*')
             ->where(['posts_comments.pid' => $post->id,'posts_comments.status' => 1])
             ->orderBy('posts_comments.id', 'desc')
             ->get();

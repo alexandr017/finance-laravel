@@ -86,7 +86,7 @@
                             } else {
                                 $company_link = $card->link_2;
                             } ?>
-                            <a data-id="{{$card->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+                            <a data-id="{{$card->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"> Оформить</a>
                         </div>
                     </div>
                 </div>

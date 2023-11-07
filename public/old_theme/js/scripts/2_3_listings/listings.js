@@ -47,7 +47,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -60,7 +60,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
             }
         });
     }
@@ -106,7 +105,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -118,7 +117,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
             }
         });
     }
@@ -173,7 +171,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -185,7 +183,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
 
             }
         });
@@ -239,7 +236,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -251,7 +248,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
             }
         });
     }
@@ -299,7 +295,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -312,7 +308,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
             }
         });
     }
@@ -358,7 +353,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -370,7 +365,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
             }
         });
     }
@@ -420,7 +414,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -432,7 +426,6 @@ function fakeLoader() {
             success: function(data){
                 $('.offers-list').html(data['code']);
                 showOrHideLoadBtn(data['nextPage']);
-                update_img_and_bg();
             }
         });
     }
@@ -476,7 +469,7 @@ function fakeLoader() {
                 'page': 1,
                 'listing_id': window.listing_id,
                 'category_id' : window.category_id,
-                'section_type' : window.section_type,
+                
                 'count_on_page': window.count_on_page,
                 'options': options,
                 'sort_type': window.sort_type,
@@ -487,8 +480,6 @@ function fakeLoader() {
             },
             success: function(data){
                 $('.offers-list').html(data['code']);
-                update_img_and_bg();
-                update_img_and_bg();
             }
         });
     }
@@ -560,7 +551,6 @@ function fakeLoader() {
                 };
                 $('#load_more').hide();
                 $('.clear-search-bank').css('display','inline-block');
-                update_img_and_bg();
             }
         });
         return false;
@@ -792,8 +782,6 @@ $('.sorting-line span').on('click',function(){
         success: function(data){
             $('.offers-list').html(data['code']);
 
-            update_img_and_bg_full_version();
-
             if(data['count']){
                 $('#load_more').show();
                 $('#load_more_index_page').show();
@@ -859,8 +847,6 @@ $('#load_more').on('click',function(){
         data: data,
         success: function(data){
             $('.offers-list').append(data['code']);
-
-            update_img_and_bg_full_version();
 
             $(window).scrollTop(offsetTop);
 

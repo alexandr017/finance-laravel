@@ -83,28 +83,12 @@
     <style><?php
         ob_start("compress_css"); ?>
         @yield('compress-styles')
-        <? ob_end_flush(); ?></style>
+        <?php ob_end_flush(); ?></style>
 
     <link rel="icon" type="image/png" href="/old_theme/img/logo.svg" />
     <link rel="alternate" hreflang="ru" href="{{Request::url()}}">
-    <?php /* <link rel="manifest" href="/manifest.json"> */ ?>
-@if(isset($section_type))
-@if(($section_type >=2) && ($section_type <=8))
-    @if($section_type != 7)
-@if(!strstr($_SERVER['REQUEST_URI'],'/page/'))
-    <link rel="amphtml" href="{{Request::url()}}/amp" />
-@endif
-@endif
-@endif
-@endif
-@if(strstr(Request::url(),'.ru/banks'))
-        @if(!strstr(Request::url(),'/page/'))
-<link rel="amphtml" href="{{Request::url()}}/amp" />
-        @endif
-    @endif
-@if(Request::is('/'))
-    <link rel="amphtml" href="https://finance.ru/amp" />
-@endif
+
+
 @yield('additional-styles')
 @yield('additional-styles2')
 </head>

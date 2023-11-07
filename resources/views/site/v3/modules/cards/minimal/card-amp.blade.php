@@ -48,7 +48,7 @@
 
 
             <?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
-            <a href="{{$link}}" target="_blank" class="form-btn1 {{$card->yandex_event}}"> <i class="fa fa-lock"></i> Подать заявку</a>
+            <a href="{{$link}}" target="_blank" class="form-btn1 {{$card->yandex_event}}">  Подать заявку</a>
 
 
 

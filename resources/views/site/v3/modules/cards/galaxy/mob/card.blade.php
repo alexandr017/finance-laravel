@@ -60,12 +60,12 @@
     <img class="card-logo" loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
 
     <?php $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2; ?>
-    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}"> <i class="fa fa-lock"></i> Оформить</a>
+    <a data-id="{{$card->id}}" href="{{$link}}" target="_blank" class="hdl form-btn1 no-print {{$card->yandex_event}}">  Оформить</a>
 
-    @if($card->category_id != 3)
-        <button data-id="{{$card->id}}" class="compare add_to_compare"><span>+ к сравнению</span></button>
-    @endif
-    <span  data-id="{{$card->id}}" class="complaint"><i class="fa fa-warning"></i> <span>Подать жалобу</span></span>
+{{--    @if($card->category_id != 3)--}}
+{{--        <button data-id="{{$card->id}}" class="compare add_to_compare"><span>+ к сравнению</span></button>--}}
+{{--    @endif--}}
+{{--    <span  data-id="{{$card->id}}" class="complaint"><i class="fa fa-warning"></i> <span>Подать жалобу</span></span>--}}
 
 
     @if(file_exists( base_path().'/resources/views/frontend/cards/card/mob/fields/'.$card->category_id.'.blade.php'))

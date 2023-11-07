@@ -13,7 +13,7 @@
                                     </div>
                                 </div>
 
-                        		<a href="https://finance.ru/zaim/kredito24" target="_blank" class="form-btn1"> <i class="fa fa-lock"></i> Оформить</a>
+                        		<a href="https://finance.ru/zaim/kredito24" target="_blank" class="form-btn1">  Оформить</a>
                             </div><?php /* col-md-4 */ ?>
 
                             <div class="col-md-8 mob-initial">
@@ -146,8 +146,8 @@
                                 <li><i class="fa fa-download"></i> <a href="/files/kredito241.pdf" target="_blank">Свидетельство МФО</a></li>
                             </ul>
                             <div class="cl-list d-flex space-around">
-                                <a href=""><i class="fa fa-print"></i> Распечатать</a>
-                                <a href=""><i class="fa fa-star"></i> В избранное</a>
+{{--                                <a href=""><i class="fa fa-print"></i> Распечатать</a>--}}
+{{--                                <a href=""><i class="fa fa-star"></i> В избранное</a>--}}
                                 <a href=""><i class="fa fa-phone"></i> Служба поддержки</a>
                                 <a href=""><i class="fa fa-user"></i> Личный кабинет</a>
                                 <a href=""><i class="fa fa-file"></i> Подробнее</a>

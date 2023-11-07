@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Site\V3\Actions\ActionsController;
 use App\Http\Controllers\Site\V3\Actions\CardsLoaderController;
+use App\Http\Controllers\Site\V3\Actions\PageRatingController;
 
 
 include "site/static-pages.php";
@@ -17,7 +18,8 @@ include "site/mfo.php";
 Route::get('actions/load_card_for_company', [ActionsController::class, 'loadCardForCompany'])->name('actions.load_card_for_company');
 Route::get('actions/load_cards_for_listings', [CardsLoaderController::class, 'render'])->name('actions.load_cards_for_listings');
 Route::get('actions/load_cards_for_hubs', [CardsLoaderController::class, 'getCardForHubs'])->name('actions.load_cards_for_hubs');
-
+Route::post('actions/rating-add', [PageRatingController::class, 'addVote'])->name('actions.rating_add');
+Route::post('actions/add-review', [ActionsController::class, 'addReview'])->name('actions.add_review');
 
 include "site/banks.php";
 

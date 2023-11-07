@@ -35,9 +35,9 @@
                 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
                 <span>Обновлено</span><br><span>{{fake_update_offer(strtotime($card->created_at))}}</span>
             </div>
-            @if($card->category_id != 3)
-                <button data-id="{{$card->id}}" class="compare add_to_compare">+ к сравнению<i class="fa fa-balance-scale"></i></button>
-            @endif
+{{--            @if($card->category_id != 3)--}}
+{{--                <button data-id="{{$card->id}}" class="compare add_to_compare">+ к сравнению<i class="fa fa-balance-scale"></i></button>--}}
+{{--            @endif--}}
         </div>
 
         <div class="card-mn-main-details">
@@ -75,11 +75,11 @@
             @endif
         </div>
         <div class="cl-list d-flex space-around no-print">
-            <span class="cl-list-bnt print_card"><i class="fa fa-print"></i> Распечатать</span>
-            <span data-id="{{$card->id}}" class="cl-list-bnt favorite add_to_favorite"><i class="fa fa-star"></i> <span class="fav">В избранное</span></span>
+{{--            <span class="cl-list-bnt print_card"><i class="fa fa-print"></i> Распечатать</span>--}}
+{{--            <span data-id="{{$card->id}}" class="cl-list-bnt favorite add_to_favorite"><i class="fa fa-star"></i> <span class="fav">В избранное</span></span>--}}
             @if(isset($card->support_link) && $card->support_link!=null)<a href="{{$card->support_link}}" target="_blank"><i class="fa fa-phone"></i> Служба поддержки</a>@endif
             @if(isset($card->account_link) && $card->account_link!=null)<a href="{{$card->account_link}}" target="_blank"><i class="fa fa-user"></i> Личный кабинет</a>@endif
-            @if(isset($card->promocodes) && $card->promocodes!=null)<a href="{{$card->promocodes}}" target="_blank"><i class="fa fa-tags"></i> Промокоды</a>@endif
+{{--            @if(isset($card->promocodes) && $card->promocodes!=null)<a href="{{$card->promocodes}}" target="_blank"><i class="fa fa-tags"></i> Промокоды</a>@endif--}}
         </div>
     </div>
 </div><?php /* end carts */ ?>

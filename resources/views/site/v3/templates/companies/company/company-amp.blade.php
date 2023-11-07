@@ -51,54 +51,6 @@
                 </ul>
             </nav>
 
-<?php /*
-                <nav class="org">
-                    <amp-carousel
-                            width="450"
-                            height="48"
-                            layout="responsive"
-                            type="slides"
-                            role="region"
-                            aria-label="Basic carousel"
-                    >
-                        <?php
-                        $currentUrl = URL::current();
-                        $currentUrl = str_replace('/amp', '', $currentUrl);
-                        ?>
-                        @if($company->support_link!=null)
-                            <a href="{{$company->support_link}}"><i class="fa fa-life-bouy"></i>Служба поддержки</a>
-                            <?php $support_link_tmp = 1; ?>
-                        @endif
-                        @if($company->account_link!=null)
-                            <a href="{{$company->account_link}}"><i class="fa fa-life-bouy"></i>Личный кабинет</a>
-                            <?php $account_link_tmp = 1; ?>
-                        @endif
-                        @if($company->promokody_link!=null)
-                            <a href="{{$company->promokody_link}}"><i class="fa fa-life-bouy"></i>Промокоды</a>
-                            <?php $promokody_link_tmp = 1; ?>
-                        @endif
-                        @if($company->reviews_link!=null)
-                            <a href="{{$company->reviews_link}}"><i class="fa fa-comments-o"></i>Отзывы</a>
-                            <?php $promokody_link_tmp = 1; ?>
-                        @endif
-                        @foreach($companiesChildrenPages as $page)
-                            @if(($page->type_id == 1) && ($page->status==1) && (!isset($support_link_tmp)))
-                                <a href="{{$currentUrl}}/gorjachaja-linija"><i class="fa fa-life-bouy"></i>Служба поддержки</a>
-                            @endif
-                            @if(($page->type_id == 2) && ($page->status==1) && (!isset($account_link_tmp)))
-                                <a href="{{$currentUrl}}/login"><i class="fa fa-user"></i>Личный кабинет</a>
-                            @endif
-                            @if(($page->type_id == 3) && ($page->status==1) && (!isset($promokody_link_tmp)))
-                                <a href="{{$currentUrl}}/promokody"><i class="fa fa-bookmark"></i>Промокоды</a>
-                            @endif
-                            @if(($page->type_id == 4) && ($page->status==1) && (!isset($reviews_link_tmp)))
-                                <a href="{{$currentUrl}}/reviews"><i class="fa fa-comments-o"></i>Отзывы</a>
-                            @endif
-                        @endforeach
-                    </amp-carousel>
-                </nav>
-*/ ?>
-
             <div class="row">
                 <div class="col-md-4 text-center">
                     <link itemprop="mainEntityOfPage" href="{{URL::Current()}}" />
@@ -165,61 +117,6 @@
                     @endforeach
                 </div>
             @endif
-
-
-
-
-            @if(!$company->reviews_page)
-                <h2 id="reviews" class="text-center">Отзывы</h2>
-                <div class="reviews-wrap comments-add-form">
-                    <?php $reviewsGroups = 1; $i = 0;  ?>
-                    @foreach($reviews as $comment)
-                        <div class="comment-item {{RatingParser::getCssClassForBackground($comment->rating)}} rev-group-{{$reviewsGroups}} " id="comment-{{$comment->id}}">
-                            <div class="title-line">@if($comment->author!=null) {{$comment->author}} @else {{$comment->last_name}} {{$comment->first_name}} {{$comment->middle_name}} @endif
-                                <div class="rating-line rev">
-                                    @if($comment->rating!=null)
-                                        {!! RatingParser::printImgRatingByValueForAMP($comment->rating) !!}
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="text-rew">
-                                {!!$comment->review!!}
-                            </div>
-                            @if(($comment->pros!=null) || ($comment->minuses!=null))
-                                <div class="pros_minuses_wrap">
-                                    <div class="pros">{!! $comment->pros !!}</div>
-                                    <div class="minuses">{!! $comment->minuses !!}</div>
-                                </div>
-                            @endif
-                            @if(isset($comment->child))
-                                @foreach($comment->child as $child)
-                                    <div class="comment-item @if($child->off_answer != null) off_answer @endif" id="comment-{{$child->id}}">
-                                        <div class="title-line">@if($child->off_answer != null) <i class="fa fa-check-square-o"></i> @endif @if($child->author!=null) {{$child->author}} @else {{$child->last_name}} {{$child->first_name}} {{$child->middle_name}} @endif
-                                            @if($comment->rating!=null)
-                                                @if($child->off_answer == null)
-                                                    <div class="rating-line rev">
-
-                                                    </div>
-                                                @endif
-                                            @endif
-                                        </div>
-                                        <div class="text-rew">
-                                            {!!$child->review!!}
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @endif
-
-                        </div>
-                        <?php $i++; if($i % 10 == 0) $reviewsGroups++; ?>
-                    @endforeach
-
-                    <br>
-                    <br>
-
-                </div>
-            @endif
-
 
 
         </div><?php /* end col-md-12 */ ?>

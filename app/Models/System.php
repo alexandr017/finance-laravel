@@ -71,25 +71,25 @@ class System extends Model
 */
 
         if($rating>=4.8){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/5.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/5.png)"></span>';
         }elseif($rating>=4.25){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/4,5.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/4,5.png)"></span>';
         }elseif($rating>=3.75) {
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/4.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/4.png)"></span>';
         }elseif($rating>=3.25){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/3,5.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/3,5.png)"></span>';
         }elseif($rating>=2.75) {
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/3.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/3.png)"></span>';
         }elseif($rating>=2.25){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/2,5.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/2,5.png)"></span>';
         }elseif($rating>=1.75){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/2.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/2.png)"></span>';
         }elseif($rating>=1.25){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/1,5.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/1,5.png)"></span>';
         }elseif($rating>=0.75){
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/1.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/1.png)"></span>';
         }else{
-            $i_code = '<span class="star_span def_bg" data-src="/old_theme/img/stars/0,5.png"></span>';
+            $i_code = '<span class="star_span" style="background:url(/old_theme/img/stars/0,5.png)"></span>';
         }
         /*
         1,25 - 1,74 - 1,5 звезды
@@ -301,27 +301,6 @@ class System extends Model
         if($f1->$field_name < $f2->$field_name) return -1;
         elseif($f1->$field_name > $f2->$field_name) return 1;
         else return 0;
-    }
-
-    public static function getCountChildListings($category_id){
-        $countCards = DB::table('cards_children_pages')
-            ->leftJoin('cards_childrens','cards_childrens.children_id','cards_children_pages.id')
-            ->leftJoin('cards','cards.id','cards_childrens.card_id')
-            ->select('cards_children_pages.alias',DB::raw("count(cards_childrens.card_id) as count"))
-            ->where(['cards.category_id'=>$category_id,'cards.status'=>1])
-            ->groupBy('cards_children_pages.alias')
-            ->get();
-        if($countCards != null){
-            $tmpArr = [];
-            foreach ($countCards as $key => $value) {
-                $tmpArr [$value->alias] = $value->count;
-            }
-            #dd($tmpArr);
-            return $tmpArr;
-        }
-
-        return null;
-        
     }
 
  

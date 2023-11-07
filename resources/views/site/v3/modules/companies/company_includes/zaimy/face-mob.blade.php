@@ -28,7 +28,7 @@
         ?>
         @foreach ($current_vzo_icons as $current_item_icon)
         @if (isset($all_vzo_icons[$current_item_icon]))
-        <span class="sprite vzo_icons def_bg" data-src="/images/ic/icon-{{$current_item_icon}}.png" data-title="{{$all_vzo_icons[$current_item_icon]['title']}}"></span>
+                <div class="sprite vzo_icons def_bg" style="background: url(/images/ic/icon-{{$current_item_icon}}.png)" data-title="{{$all_vzo_icons[$current_item_icon]['title']}}"></div>
         @endif
         @endforeach
     </div>
@@ -165,7 +165,7 @@
     @endif
 
     @if(isset($cards[0]))
-        <a data-id="{{$cards[0]->id}}" class="form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"><i class="fa fa-lock"></i> Оформить</a>
+        <a data-id="{{$cards[0]->id}}" class="form-btn1" @if($cards[0]->link_type==1) href="{{$cards[0]->link_1}}" @else href="{{$cards[0]->link_2}}" @endif target="_blank"> Оформить</a>
         <button id="load_card_for_company" class="form-btn1">Все продукты компании</button>
     @endif
 </div>

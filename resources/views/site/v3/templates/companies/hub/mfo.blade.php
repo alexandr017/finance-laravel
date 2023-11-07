@@ -162,8 +162,6 @@
                         success: function(data){
                             $('.offers-list').html(data['code']);
 
-                            update_img_and_bg_full_version();
-
                             if(data['count']){
                                 $('#load_more').show();
                                 $('#load_more_index_page').show();
@@ -228,8 +226,6 @@
                     data: data,
                     success: function(data){
                         $('.offers-list').append(data['code']);
-
-                        update_img_and_bg_full_version();
 
                         $(window).scrollTop(offsetTop);
 

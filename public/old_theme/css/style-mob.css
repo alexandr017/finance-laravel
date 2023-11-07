@@ -105,20 +105,19 @@ header.second_header{min-height: 58px;}
 
 
 
-#menu-mob-button{display: inline-block;font-size: 20px;  position: absolute; left: 30px; top: 20px; cursor: pointer;}
+#menu-mob-button{display: inline-block;font-size: 20px;  position: absolute; left: 20px; top: 15px; cursor: pointer;}
 #menu-mob-button u{width: 27px;height: 2px;background: #000;display: block;margin-bottom: 8px;}
 
 
 .logo-head-wrap{position: absolute;left: 0;right: 0;margin: auto; display: inline-block;width: 200px;z-index: 1;text-align: center}
-.logo-head-wrap img {max-width: 40px;height: auto}
 .logo-head-wrap span {font-size: 14px;vertical-align: -7px;}
 .mob-menu-wrap {position: fixed;top: 0;background: #fff;z-index: 2;left: -200%;width: 100%; height: 130%;}
 
 
 
-.menu-line-top{height: 56px; border-bottom: 1px solid #ccc;margin-top: 20px;position: relative;}
-header {padding: 10px 0 18px;border-bottom: 1px solid #ccc;}
-#sub-menu{height: 100%;background: #fafff9;left: -200%;width: 100%;position: absolute;z-index: 2}
+.menu-line-top{height: 56px; border-bottom: 1px solid #ccc;margin-top: 2px;position: relative;}
+header {padding: 0;border-bottom: 1px solid #ccc;}
+#sub-menu{height: 100%;left: -200%;width: 100%;z-index: 2}
 ul.mobl-menu b{display:none;}
 #sub-menu-title{background: #fff}
 #sub-menu-title i{display: block;line-height: 50px;padding: 0 15px;border-bottom: 2px solid #ccc;color: #292929;cursor: pointer;}
@@ -140,7 +139,7 @@ ul.mobl-menu li a {text-align: center;font-size: 18px;padding: 10px 10px;}
     left: 0;right: 0;top: 13px;color: #fff;text-decoration: none;
     background: #a5ca38;border-radius: 6px;padding: 3px 10px;display: inline-block;}
 .mob-rating:hover{text-decoration: none; color: #fff; background: #8dad2e;}
-.mob-close{cursor: pointer; position: absolute; margin: 13px 7px 0; }
+.mob-close{cursor: pointer; position: absolute; margin: 10px 0 0 15px; }
 .mob-login, .mob-login2{ margin: 8px 8px 0 0;opacity: .8;font-size: 20px !important;position: absolute;right: 3px;color: #292929;top:5px;}
 .mob-login2{right: 45px;}
 .mob-close svg{color: #292929;display: block;stroke-width: 3;stroke: #000; pointer-events: none; width: 31px;cursor: pointer}

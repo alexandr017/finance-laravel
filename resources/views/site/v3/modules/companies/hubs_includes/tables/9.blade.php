@@ -24,7 +24,7 @@
                         @endif
                         <?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
                         @if($link != null)
-                        <br><a data-id="{!! $card->card_id!!}" href="{!! $link!!}" target="_blank" class="hdl form-btn1 cashback-hub hub-list"> <i class="fa fa-lock"></i> Оформить</a><br>
+                        <br><a data-id="{!! $card->card_id!!}" href="{!! $link!!}" target="_blank" class="hdl form-btn1 cashback-hub hub-list">  Оформить</a><br>
                         @endif
                     </td>
                     <td class="text-center">{{$card->km5}}</td>

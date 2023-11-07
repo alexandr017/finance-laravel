@@ -15,13 +15,12 @@
 @include('site.v3.modules.includes.breadcrumbs')
 
 
-<?php #dd($cards); ?>
 <section class="container main">
     <div>
         <h1 class="p-h1">{{$page->h1}}</h1>
     </div>
 
-    <div class="lpt">
+    <div class="lpt listing-lead">
         <span class="pup-inner">Обновлено в <span class="lowercase">{{\App\Models\System::getCurrentMonth(false)}}</span> <?= date('Y') ?></span>
         @if($page->cards_category_id != 1)
             <span class="pupcount"> {{Shortcode::compile("[carts_count]")}} шт.</span>
@@ -31,29 +30,17 @@
         <a href="{{$page->expert_anchor}}" class="verified_by_expert"><i class="fa fa-check-square-o"></i> Проверено экспертом</a>
         @endif
 
-        {!! $page->text_before !!}
-
-        @if(isset($page->lead))
-            @if(! strstr( $page->lead, '<p>'))
-                <p>{!! $page->lead !!}</p>
-            @else
-                {!! $page->lead !!}
-            @endif
+        @if(! strstr( $page->lead, '<p>'))
+            <p>{!! $page->lead !!}</p>
+        @else
+            {!! $page->lead !!}
         @endif
         <br class="clearfix">
     </div>
 
 
-
-
-{{--    @if(response::check_mobile())--}}
-{{--    @include('site.v3.modules.includes.tags')--}}
-{{--    @endif--}}
-
-
-
-    @if($_SERVER['REQUEST_URI'] == '/rko')
-    @include('site.v3.modules.includes.rko.calc_ip_ooo')
+    @if(is_mobile_device())
+    @include('site.v3.modules.includes.relink')
     @endif
 
     <div class="row clearfix">
@@ -66,21 +53,11 @@
             <div class="offers-list">
                 <?php $i=0; ?>
                 @foreach($cards as $card)
-                        @if($card->category_id == 1)
-                            @include('site.v3.modules.cards.minimal.card')
-                        @else
-                            @include('site.v3.modules.cards.card.card')
-                        @endif
-                    @if(count($cards)>10)
-                        @if($i == 8)
-                            @include('site.v3.modules.cards.card.info3')
-                        @endif
+                    @if($card->category_id == 1)
+                        @include('site.v3.modules.cards.minimal.card')
                     @else
-                        @if(count($cards) > 1 && $i == (count($cards) - 1))
-                            @include('site.v3.modules.cards.card.info3')
-                        @endif
+                        @include('site.v3.modules.cards.card.card')
                     @endif
-
                     <?php $i++; ?>
                     <?php if($i>9) break; ?>
                 @endforeach
@@ -105,69 +82,20 @@
             </div>
             @endif
 
-
-{{--            @if( ! response::check_mobile())--}}
-{{--            @if($cca != null)--}}
-{{--            <div class="list_vntages_wrap">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-sm-4">--}}
-{{--                        <div class="lvw-inner">--}}
-{{--                            <div class="lvw-head-wrap @if(strstr(Request::url(),'debit-cards')) lvw-head-wrap-6 @endif">--}}
-{{--                                <img loading="lazy" src="{{$cca->adv1_img}}" alt="">--}}
-{{--                                <span>{!! $cca->adv1_title !!}</span>--}}
-{{--                            </div>--}}
-{{--                            {!! $cca->adv1_text !!}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-sm-4">--}}
-{{--                        <div class="lvw-inner">--}}
-{{--                            <div class="lvw-head-wrap @if(strstr(Request::url(),'debit-cards')) lvw-head-wrap-6 @endif">--}}
-{{--                                <img loading="lazy" src="{{$cca->adv2_img}}" alt="">--}}
-{{--                                <span>{!! $cca->adv2_title !!}</span>--}}
-{{--                            </div>--}}
-{{--                            {!! $cca->adv2_text !!}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-sm-4">--}}
-{{--                        <div class="lvw-inner">--}}
-{{--                            <div class="lvw-head-wrap @if(strstr(Request::url(),'debit-cards')) lvw-head-wrap-6 @endif">--}}
-{{--                                <img loading="lazy" src="{{$cca->adv3_img}}" alt="">--}}
-{{--                                <span>{!! $cca->adv3_title !!}</span>--}}
-{{--                            </div>--}}
-{{--                            {!! $cca->adv3_text !!}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            @endif--}}
-{{--            @endif--}}
-
-{{--            @if(response::check_mobile())--}}
-{{--            @if($page->menu != null)--}}
-{{--            <div class="listing-menu">--}}
-{{--                <div class="fdsb text-center">Вам будет полезно</div>--}}
-{{--                {!! $page->menu !!}--}}
-{{--            </div>--}}
-{{--            @endif--}}
-{{--            @endif--}}
-
             @if(isset($category_id))
-            @if(file_exists( base_path().'/resources/views/site/v3/modules/listings/includes/total_cards_table/'.$category_id.'.blade.php'))
-            @include("site.v3.modules.listings.includes.total_cards_table.$category_id")
+                @if(file_exists( base_path().'/resources/views/site/v3/modules/listings/includes/total_cards_table/'.$category_id.'.blade.php'))
+                    @include("site.v3.modules.listings.includes.total_cards_table.$category_id")
+                @endif
             @endif
+
+
+            @if(is_mobile_device())
+            <div class="blue-block">
+                @if(($category_id == 1 || $category_id == 7))
+                    @include('site.v3.modules.includes.zaimy.calc')
+                @endif
+            </div>
             @endif
-
-
-{{--            @if(is_mobile_device())--}}
-{{--            <div class="blue-block">--}}
-{{--                @if(($category_id == 1 ||  $category_id == 7))--}}
-{{--                @if(isset($category_id))--}}
-{{--                @include('site.v3.modules.includes.zaimy.calc')--}}
-{{--                @endif--}}
-{{--                @endif--}}
-{{--            </div>--}}
-{{--            @endif--}}
-
 
 
             @if($popular_banks != null)
@@ -188,18 +116,6 @@
             <div class="alc">{!! TagsParser::compile(Shortcode::compile($page->content)) !!}</div>
 
 
-            @if(isset($zalogi_types))
-            @if(count($zalogi_types) > 0)
-            <div class="zalogi_types-wrap">
-                <ul>
-                    @foreach($zalogi_types as $zalogi_key => $zalogi_value)
-                    <li><a href="/zalogi/{{$zalogi_key}}">{{$zalogi_value}}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif @endif
-
-
             @if(isset($category_id))
             @if($category_id == 8)
             @include("site.v3.modules.listings.autocredit.knowledge_base")
@@ -207,19 +123,12 @@
             @endif
 
 
-{{--            <div class="bordered-rating star-rating light-border">--}}
-{{--                <div class="post-ratings" data-type="new_listing" data-id="{{$prefixType}}{{$page->id}}">--}}
-{{--                    {!! RatingParser::printIRatingByValue($page->average_rating) !!}--}}
-{{--                    (<span class="bold">{{$page->number_of_votes}}</span> оценок, среднее: <span class="bold">{{$page->average_rating}}</span> из 5)<br />--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-
-            <div id="compare_in_listing_pages" class="cilp">
-                <div class="cilp_inner"></div>
+            <div class="bordered-rating star-rating light-border">
+                <div class="post-ratings" data-type="listing" data-id="{{$prefixType}}{{$page->id}}">
+                    {!! RatingParser::printIRatingByValue($page->average_rating) !!}
+                    (<span class="bold">{{$page->number_of_votes}}</span> оценок, среднее: <span class="bold">{{$page->average_rating}}</span> из 5)<br />
+                </div>
             </div>
-
 
 
         </div><?php /* end col-md-9 */ ?>
@@ -247,7 +156,6 @@
     window.category_id = @if($section_type==2) {{$page->id}} @else {{$page->category_id}}  @endif;
     window.count_on_page = 10;
     window.cards_count = {{count($cards)}};
-    window.section_type = 15;
     window.field = 'km5';
     window.sort_type = 'desc';
     window.sidebar_listings = {};
@@ -283,7 +191,6 @@
     });
 </script>
 
-<?php //@if(!isset($GLOBALS['issetStructuredFAQ'])) ?>
-    {!! App\Algorithms\Frontend\StructuredData\Product\Listings::render($cards, $page) !!}
+{!! App\Algorithms\Frontend\StructuredData\Product\Listings::render($cards, $page) !!}
 
 @endsection

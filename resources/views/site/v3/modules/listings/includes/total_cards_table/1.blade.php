@@ -38,7 +38,7 @@
 			<td class="display_none">{{$j}}</td>
 			<td>
 			<?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
-        		<a class="offer" href="{{$link}}" target="_blank" @if(!$amp) onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}'); return true;"@endif>{{$card->title}}</a>
+        		<a class="offer" href="{{$link}}" target="_blank" @if(!is_amp_page()) onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}'); return true;"@endif>{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->header_1}}</td>
 			<td class="text-center">{{number_format($card->header_1, 0, '.', ' ')}} руб.</td>
@@ -54,13 +54,13 @@
 @endif
 @section('additional-scripts')
 
-<link rel="stylesheet" type="text/css" href="/backend/dataTables/datatables.min.css">
-<script src="/backend/dataTables/datatables.min.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/admin-assets/dataTables/datatables.min.css">
+<script src="/admin-assets/dataTables/datatables.min.js" defer></script>
 <script>
 $(document).ready(function(){
     $('.total_cards_table').DataTable( {
         "order": [[ 0, "asc" ]],
-        "language": {"url": "/backend/dataTables/datatables.json"},
+        "language": {"url": "/admin-assets/dataTables/datatables.json"},
         drawCallback: function(settings){
             var info = this.api().page.info();
             if(info.recordsTotal <= 10){
