@@ -44,7 +44,7 @@ class CompanyController extends Controller
         $companiesChildrenPages = CompaniesChildrenPages::where(['company_id'=>$company->id])->get();
 
         $breadcrumbs = [
-            ['link'=>'/mfo','h1'=> 'Все МФО'],
+            ['link'=>'/mfo','h1'=> 'МФО'],
             ['h1' => ($company->breadcrumb == null) ? $company->h1 : $company->breadcrumb]
         ];
 

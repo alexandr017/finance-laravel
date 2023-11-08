@@ -2,12 +2,10 @@
 
 namespace App\Algorithms\Frontend\Cards;
 
+use App\Algorithms\Frontend\Banks\BankReviews;
 use DB;
 use Cache;
-use App\Algorithms\Frontend\Banks\BankReviews;
-use Auth;
-
-use App\Repositories\Frontend\Companies\CompaniesReviewRepository;
+use App\Repositories\Site\Companies\CompaniesReviewRepository;
 
 class CardsBoot
 {

@@ -10,8 +10,6 @@
         || $bank->show_deposits
         || $bank->show_mortgage
         || $bank->show_rko
-        || $bank->show_refinancing
-        || $bank->show_cashback
 ?>
     @if($showBankMenu)
 <div class="side-block">
@@ -39,12 +37,6 @@
             @if($bank->show_rko && Request::path() != "banki/$bank->alias/rko")
             <li><a href="/banki/{{$bank->alias}}/rko" class="fa-icon fa-id-card">РКО</a></li>
             @endif
-            @if($bank->show_refinancing && Request::path() != "banki/$bank->alias/refinancing")
-            <li><a href="/banki/{{$bank->alias}}/refinancing" class="fa-icon fa-id-card">Рефинансирование</a></li>
-            @endif
-            @if($bank->show_cashback && Request::path() != "banki/$bank->alias/cashback")
-            <li><a href="/banki/{{$bank->alias}}/cashback" class="fa-icon fa-credit-card">Кэшбэки</a></li>
-            @endif
 
         </ul>
     </div>
@@ -55,31 +47,7 @@
 
 
 
-<?php /*
-@if(isset($newsBase))
-<div class="side-block">
-    <div class="side-title fa-icon fa-bank"> База знаний</div>
-    <div class="side-box">
-        <ul class="mb0 rating-mfk">
-            @foreach($newsBase as $post)
-                <?php $post = (object)$post; ?>
-                <?php $post_h1 = ($post->h1_in_category != null) ? $post->h1_in_category : $post->h1; ?>
-            <li style="line-height: 1.3rem; padding: 15px 0" >
-                <a href="/{{$post->categoryAlias}}/{{$post->alias}}.html"><?php echo Shortcode::compile($post_h1); ?></a>
-            </li>
-            @endforeach
-        </ul>
-        <div class="text-center" style="margin-top: 30px">
-            <a href="/" class="">Все записи</a>
-        </div>
-    </div>
-</div>
-@endif
-*/ ?>
-
-
-
-@if(Request::path() == 'banks')
+@if(Request::path() == 'banki')
     @if(isset($cardCategories))
 
         @foreach($cardCategories as $cardCategory)

@@ -62,9 +62,6 @@ class FrontendController extends Controller
         $all_reviews_count += $banks_reviews_count[0]->count;
 
 
-        $countChildListings = System::getCountChildListings(1);
-
-
         $loans = DB::table('cards')
             //->select('id','category_id')
             ->where(['category_id' =>1 ,'status' => 1, 'show_in_index' => 1])
@@ -77,10 +74,6 @@ class FrontendController extends Controller
 
         //$cards = CardsBoot::getCardsForListingByIDs($cards);
 
-
-        $experts = Cache::rememberForever('experts', function(){
-            return Expert::all();
-        });
 
         $rko = DB::table('cards')
             ->where(['status' => 1, 'category_id' => 2, 'flow' => 1])
@@ -187,12 +180,10 @@ class FrontendController extends Controller
 
             'def_load' => true,
             'amp' => false,
-            'countChildListings' => $countChildListings,
             'loans' => $loans,
 
             'reviews' => $reviews,
 
-            'experts' => $experts,
             //
             'autoCredits' => $autoCredits,
             'debitCards' => $debitCards,

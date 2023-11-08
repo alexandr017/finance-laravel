@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Frontend\Card;
+namespace App\Repositories\Site\Card;
 
 use App\Repositories\Repository;
 use App\Models\Cards\Cards as Model;

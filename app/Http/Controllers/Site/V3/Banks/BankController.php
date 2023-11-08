@@ -18,19 +18,6 @@ class BankController extends BaseBankController
 {
     public function index($bankAlias)
     {
-        $resUrl = str_replace('https://finance.ru/', '', Request::url());
-        $hideLink = HideLinks::where(['in'=>$resUrl])->first();
-        if($hideLink != null){
-            $hideLink = hideLinks::find($hideLink->id);
-            $hideLink->increment('clicks');
-            if(Cache::has('hide_links')) Cache::forget('hide_links');
-            $hideLinkTime = new HideLinkTimes();
-            $hideLinkTime->hlid = $hideLink->id;
-            $hideLinkTime->save();
-            //ddd('обычная', $hideLink->straight);
-            return redirect($hideLink->straight, $hideLink->redirect_type);
-        }
-
         $bankAlias = clear_data($bankAlias);
         $bank = Bank::where(['alias' => $bankAlias,'status' => 1])
             ->whereNull('deleted_at')
@@ -135,8 +122,24 @@ class BankController extends BaseBankController
         $cardsMortgage = CardsBoot::getCardsForListingByIDs($cardsMortgageIds);
         $cardsMortgage = $this->arrMerge($cardsMortgage, $cardsMortgageIds);
 
+
+        $cardsDepositsIds = DB::table('bank_product_cards')
+            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
+            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
+            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
+            ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
+            ->where(['cards.category_id' => 11, 'bank_products.bank_id' => $bank->id])
+            ->whereNull('bank_products.deleted_at')
+            ->orderBy("cards.flow", 'asc')
+            ->orderBy("cards.km5", 'desc')
+            ->orderBy("cards.id", 'asc')
+            ->limit(3)
+            ->get();
+        $cardsDeposits = CardsBoot::getCardsForListingByIDs($cardsDepositsIds);
+        $cardsDeposits = $this->arrMerge($cardsDeposits, $cardsDepositsIds);
+
         return view('site.v3.templates.banks.banks.bank',['page' => $bank], compact('breadcrumbs','bank','reviews','editLink',
-            'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage'
+            'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage', 'cardsDeposits'
         ));
     }
 

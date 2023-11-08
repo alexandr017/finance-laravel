@@ -14,6 +14,7 @@ use App\Models\Banks\BankCategoryReviewsPage;
 
 use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Algorithms\Frontend\Banks\BankReviews;
+use Cache;
 
 use App\Models\Cards\Cards;
 
@@ -27,10 +28,10 @@ class IndexPageBanksController extends BaseBankController
 
     public function amp()
     {
-        return $this->render(true);
+        return $this->render();
     }
 
-    private function render($isAMP = false)
+    private function render()
     {
         $page = StaticPage::findByAlias();
 
@@ -38,17 +39,11 @@ class IndexPageBanksController extends BaseBankController
             abort(404);
         }
 
-        $page->average_rating = 4.9; // просто рандом на случай
-        $page->number_of_votes = 345; // если данные отваляться
-
         $breadcrumbs = [];
-        $breadcrumbs [] = ['h1' => 'Банки'];
+        $breadcrumbs [] = ['h1' => $page->breadcrumb ?? $page->h1];
 
 
-        $banks = DB::table('banks')
-            ->where(['status' => 1])
-            ->whereNull('deleted_at')
-            ->get();
+        $banks = DB::table('banks')->where(['status' => 1])->whereNull('deleted_at')->get();
 
         $banks = BankReviews::reviewsParse($banks);
 
@@ -134,6 +129,23 @@ class IndexPageBanksController extends BaseBankController
         $cardsMortgage = CardsBoot::getCardsForListingByIDs($cardsMortgageIds);
         $cardsMortgage = $this->arrMerge($cardsMortgage, $cardsMortgageIds);
 
+        $cardsDepositIds = Cache::remember('cardsDepositIds', 20, function () {
+            return DB::table('bank_product_cards')
+                ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
+                ->leftJoin('banks','banks.id', 'bank_products.bank_id')
+                ->leftJoin('cards','cards.id','bank_product_cards.card_id')
+                ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias','banks.name as bankName')
+                ->where(['cards.category_id' => 11])
+                ->whereNull('bank_products.deleted_at')
+                ->orderBy("cards.flow", 'asc')
+                ->orderBy("cards.km5", 'desc')
+                ->orderBy("cards.id", 'asc')
+                ->limit(3)
+                ->get();
+        });
+        $cardsDeposits = CardsBoot::getCardsForListingByIDs($cardsDepositIds);
+        $cardsDeposits = $this->arrMerge($cardsDeposits, $cardsDepositIds);
+
 
         $reviews =  DB::table('bank_reviews')
             ->leftjoin('banks','banks.id','bank_reviews.bank_id')
@@ -147,12 +159,12 @@ class IndexPageBanksController extends BaseBankController
             ->get();
 
 
-        $template = $isAMP == false
+        $template = ! is_amp_page()
             ? 'site.v3.templates.banks.index'
             : 'site.v3.templates.banks.index-amp';
 
         return view($template,compact('page','breadcrumbs','banks','cardCategories', 'editLink',
-            'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage','reviews'
+            'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage', 'cardsDeposits', 'reviews'
         ));
     }
 

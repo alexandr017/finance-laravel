@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Frontend\Access\User;
+namespace App\Repositories\Site\Access\User;
 
 use App\Models\Access\User\User;
 use App\Repositories\Repository;

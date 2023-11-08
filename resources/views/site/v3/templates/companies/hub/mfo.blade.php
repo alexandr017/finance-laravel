@@ -1,7 +1,7 @@
 @extends('site.v3.layouts.app')
-@section ('title', $companies_category->title)
-@section ('h1', $companies_category->h1)
-@section ('meta_description', $companies_category->meta_description)
+@section ('title', $page->title)
+@section ('h1', $page->h1)
+@section ('meta_description', $page->meta_description)
 
 @section('additional-styles')
     <link rel="stylesheet" href="/old_theme/css/modules/init/4_hubs/hubs.css">
@@ -15,10 +15,11 @@
     <section class="container main">
         <div class="row">
             <div class="col-lg-9 col-md-12">
-                <h1 class="p-h1">{{$companies_category->h1}}</h1>
-                {!! $companies_category->lead !!}
+                <h1 class="p-h1">{{$page->h1}}</h1>
 
-                <input id="search-company" type="text" placeholder="Поиск компании по названию...">
+                {!! $page->lead !!}
+
+{{--                <input id="search-company" type="text" placeholder="Поиск компании по названию...">--}}
 
                     <div class="sorting-line habs_items">
                         <ul>
@@ -49,7 +50,7 @@
                 @endif
 
                 <div class="text-wrap">
-                    {!! TagsParser::compile(Shortcode::compile($companies_category->content)) !!}
+                    {!! TagsParser::compile(Shortcode::compile($page->content)) !!}
                 </div>
 
             </div><?php /* end col-md-9 */ ?>
@@ -66,7 +67,7 @@
 */ ?>
 
     <script>
-        window.category_id = {{$card_category_id}};
+        window.category_id = {{$categoryID}};
         window.count_on_page = 10;
         window.number_page = 1;
     </script>

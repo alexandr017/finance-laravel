@@ -4,23 +4,12 @@ namespace App\Http\Controllers\Site\V3\Listings;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Cards\CardsChildrenPagesLevel2;
 use DB;
-use App\Models\System;
 use App\Models\Cards\CardsCategories;
 use Cache;
-use App\Models\Cards\CardsChildrenPages;
-use App\Http\Controllers\Frontend\Actions\ZalogiController;
 use App\Models\Banks\Popular;
-use App\Models\Cards\CardCategoriesAdvantages;
-use App\Models\Posts\PostFavoritesReviews;
-use Auth;
 use App\Models\Cards\Listing;
-use App\Models\Cards\ListingCards;
-use App\Algorithms\Frontend\Breadcrumbs\BreadcrumbsRender;
-use App\Algorithms\Frontend\Cards\CardsBoot;
-use App\Algorithms\Frontend\Cards\CardSorting;
-use App\Repositories\Frontend\Card\CardRepository;
+use App\Repositories\Site\Card\CardRepository;
 
 
 class ListingController extends Controller
@@ -125,18 +114,7 @@ class ListingController extends Controller
         }
 
 
-        $relinkData = DB::table('relinking')
-            ->join('relinking_groups', 'relinking_groups.id', 'relinking.relinking_group_id')
-            ->select('relinking_groups.group_name as group_name', 'relinking.title' ,'relinking.link', 'relinking.sort_order')
-            ->where(['relinking_groups.category_id' => $categoryID, 'relinking.category_id' => $categoryID])
-            ->where('relinking.link','!=', 'https://vsezaimyonline.ru'.$_SERVER['REQUEST_URI'])
-            ->orderBy('relinking_groups.sort_order', 'asc')
-            ->get()
-            ->groupBy('group_name')
-            ->map(function ($elements) {
-                return $elements->sortBy('sort_order',0);
-            })
-            ->toArray();
+        $relinkData = (new (\App\Repositories\Site\Relinking\RelinkingRepository::class))->getRelinkByCategory($categoryID);
 
         if ($listing == null) {
             abort(404);

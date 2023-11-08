@@ -157,7 +157,8 @@
 
 
                 <div class="bordered-rating star-rating light-border">
-                    (<strong>{{count($reviews)}}</strong> оценок, среднее: <strong>{{round(544, 2)}}</strong> из 5)
+                    {!! RatingParser::printIRatingByValue($reviews) !!}
+                    (<strong>{{$page->number_of_votes}}</strong> оценок, среднее: <strong>{{round($page->average_rating, 2)}}</strong> из 5)
                 </div>
 
             </div><?php /* end col-md-9 */ ?>
@@ -197,54 +198,7 @@
     */ ?>
 
     <script>
-        @if(Auth::id() == 92879 || Auth::id() == 12467 || Auth::id() == 30154 || Auth::id() == 110510)        // if(document.getElementsByClassName('post-slider').length>0){
-        //     slideShow({
-        //         element:'.post-slider',
-        //         slidesToShow:3,
-        //         slidesToScroll:1,
-        //         circleScroll:true,
-        //         responsive: [
-        //             {
-        //                 breakpoint: 992,
-        //                 settings: {
-        //                     slidesToShow: 2,
-        //                     slidesToScroll: 1
-        //                 }
-        //             },
-        //             {
-        //                 breakpoint: 768,
-        //                 settings: {
-        //                     slidesToShow: 1,
-        //                     slidesToScroll: 1
-        //                 }
-        //             }
-        //         ]            })
-        // }
-        // if(document.getElementsByClassName('reviews').length >0){
-        //     slideShow({
-        //         element:'.reviews',
-        //         slidesToShow:3,
-        //         slidesToScroll:1,
-        //         circleScroll:true,
-        //         responsive: [
-        //             {
-        //                 breakpoint: 1200,
-        //                 settings: {
-        //                     slidesToShow: 2,
-        //                     slidesToScroll: 1
-        //                 }
-        //             },
-        //             {
-        //                 breakpoint: 768,
-        //                 settings: {
-        //                     slidesToShow: 1,
-        //                     slidesToScroll: 1
-        //                 }
-        //             }
-        //         ]
-        //     })
-        // }
-        @else
+
         $(function(){
             /*
             $('.post-slider').slick({
@@ -342,7 +296,6 @@
             })
             /* special offers */
         });
-        @endif
     </script>
 
     <script type="application/ld+json">{
@@ -365,7 +318,7 @@
         "name": "{{$page->h1}}",
          "description" : "{{$page->meta_description}}",
          "sku": "{{$page->id}}",
-         "slogan": "ВсеЗаймыОнлайн",
+         "slogan": "ФинансыРу",
          "url": "https://finance.ru/banks",
          "brand": "ВсеЗаймыОнлайн"
         }

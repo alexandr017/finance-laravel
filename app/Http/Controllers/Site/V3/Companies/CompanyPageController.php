@@ -74,7 +74,7 @@ class CompanyPageController extends Controller
         $reviews = $reviewsObj->getAllHierarchyReviews();
 
         $breadcrumbs = [
-            ['link'=>'/mfo','h1'=> 'Все МФО'],
+            ['link'=>'/mfo','h1'=> 'МФО'],
             ['link'=>'/mfo/'. $company->alias, 'h1' => $company->breadcrumb],
             ['h1' => $page->breadcrumb],
         ];

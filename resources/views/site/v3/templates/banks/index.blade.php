@@ -21,7 +21,10 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
         <div class="row">
             <div class="col-lg-9 col-md-12">
                 <h1 class="p-h1">{{$page->h1}}</h1>
-                {!! TagsParser::compile(Shortcode::compile($page->lead)) !!}
+
+                <div class="lpt listing-lead">
+                    {!! TagsParser::compile(Shortcode::compile($page->lead)) !!}
+                </div>
 
 
 

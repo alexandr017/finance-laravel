@@ -118,6 +118,16 @@ class ImportController extends Controller
                 $bank->content = $row[6];
                 $bank->alias = $row[7];
                 $bank->breadcrumb = $row[8];
+
+                $bank->show_credit_cards = $row[9];
+                $bank->show_debit_cards = $row[10];
+                $bank->show_auto_credits = $row[11];
+                $bank->show_deposits = $row[12];
+                $bank->show_mortgage = $row[13];
+                $bank->show_rko = $row[14];
+
+                $bank->logo = $row[15];
+
                 $bank->status = 1;
                 $bank->save();
 

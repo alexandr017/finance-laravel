@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Frontend\Companies;
+namespace App\Repositories\Site\Companies;
 
 use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Models\Cards\Cards;

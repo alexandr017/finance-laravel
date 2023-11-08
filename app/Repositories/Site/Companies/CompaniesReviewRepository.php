@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Frontend\Companies;
+namespace App\Repositories\Site\Companies;
 
 use App\Repositories\Repository;
 use App\Models\Companies\CompaniesCategories;
