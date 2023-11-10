@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\Site\V3\Blog;
 
 use DB;
-use App\Models\Posts\PostsComments;
 use App\Models\StaticPages\StaticPage;
 
 class IndexBlogController extends BaseBlogController
 {
-    private const INDEX_POSTS_PAGE_ID = 5;
-    private const INDEX_ARTICLES_PAGE_ID = 6;
-
     public function news()
     {
         return $this->render('news');
@@ -21,27 +17,21 @@ class IndexBlogController extends BaseBlogController
         return $this->render('articles');
     }
 
-    private function render(string $type)
+    private function render(string $alias)
     {
-        $queryType = IndexBlogController::POSTS_TYPE;
-        $pageID = IndexBlogController::INDEX_POSTS_PAGE_ID;
-        if ($type == 'articles') {
-            $queryType = IndexBlogController::ARTICLES_TYPE;
-            $pageID = IndexBlogController::INDEX_ARTICLES_PAGE_ID;
+        $postsCategory = StaticPage::where(['alias' => $alias])->first();
+
+        if ($postsCategory == null) {
+            abort(404);
         }
+
+        $queryType = $this->getTypePagesByAlias($alias);
 
         $blogCategories = DB::table('posts_categories')
             ->select('id', 'h1', 'alias_category', 'short_name')
             ->where(['sidebar_menu' => $queryType])
             ->orderBy('sidebar_order', 'asc')
             ->get();
-
-
-        $postsCategory = StaticPage::find($pageID);
-
-        if ($postsCategory == null) {
-            abort(404);
-        }
 
 
         $posts = [];
@@ -57,24 +47,12 @@ class IndexBlogController extends BaseBlogController
                 ->orderBy('posts.date', 'desc')
                 ->get();
 
-            foreach ($row as $k => $item) {
-                $row[$k]->comments_count = PostsComments::where(['pid' => $item->id, 'status' => 1])
-                    ->select(DB::raw('select count(id) as comments_count'))
-                    ->count();
-                if($row[$k]->valid_until >= date('Y-m-d')){
-                    $row[$k]->availability = 'yes';
-                }else{
-                    $row[$k]->availability = 'no';
-                }
-            }
-
             $posts [] = $row;
-
         }
 
 
         $breadcrumbs = [];
-        $breadcrumbs [] =  ['h1'=>$postsCategory->breadcrumb];
+        $breadcrumbs [] =  ['h1' => $postsCategory->breadcrumb ?? $postsCategory->h1];
 
         return view('site.v3.templates.blog.index',[
             'postsCategory' => $postsCategory,

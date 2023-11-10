@@ -19,27 +19,6 @@
 
             <h1 class="p-h1">{{$post->h1}}</h1>
             <div class="single">
-
-
-                @if($post->studied_the_topic !=null || $post->read_the_sources !=null || $post->write_articles !=null )
-                <div class="row">
-                    @if($post->studied_the_topic !=null)
-                    <div class="col-sm-4"><div class="t-in"><span><i class="fa fa-graduation-cap"></i> Изучали тему:</span> {{$post->studied_the_topic}} мин.</div></div>
-                    @endif
-                    @if($post->read_the_sources !=null)
-                    <div class="col-sm-4"><div class="t-in"><span><i class="fa fa-book"></i> Прочитали источников:</span> {{$post->read_the_sources}} шт.</div></div>
-                    @endif
-                    @if($post->write_articles !=null)
-                    <div class="col-sm-4"><div class="t-in"><span><i class="fa fa-hourglass-half"></i> Писали статью:</span> {{$post->write_articles}} мин.</div></div>
-                    @endif
-                    <br><br>
-                </div>
-                @endif
-
-                @if($post->the_author_answers)
-                    <div class="the_author_answers"><i class="fa fa-check-square-o"></i> Автор отвечает на вопросы</div>
-                @endif
-
                 @if($post->date_upd != null)
                 @if($post->pcid != '8')
                 <div class="upd-post"><i class="fa fa-refresh"></i> Информация обновлена: {{date('d.m.Y',strtotime($post->date_upd))}}</div>
@@ -50,7 +29,7 @@
                 <p class="date">Опубликовано: {{date('d.m.Y',strtotime($post->date))}}</p>
                 @endif
         
-                @if($post->valid_until != null && $post->pcid == 8)
+                @if($post->valid_until != null)
                 <p class="date">Действует до: {{date('d.m.Y',strtotime($post->valid_until))}}</p>
                 @endif
 
@@ -58,90 +37,27 @@
 
                 
                 <div class="content">
-
                     {!! TagsParser::compile(Shortcode::compile($post->content)) !!}
 
-                    @if(is_mobile_device())
-                    @if($post->infographic != null)
-                        <img loading="lazy" src="{{$post->infographic}}" alt="{{$post->h1}}">
-                    @endif
-                    @endif
 
-
-                    @if(count($related)>0)
+                    @if(count($relatedPosts)>0)
                     <div class="related">
                         <b class="h2">Рекомендовано для вас</b>
                         <ul>
-                            @foreach($related as $p)
+                            @foreach($relatedPosts as $p)
                             <li><a href="/{{$p->alias_category}}/{{$p->alias}}.html" rel="bookmark" title="{{$p->h1}}">{{$p->h1}}</a></li>
                             @endforeach
                         </ul>
                     </div>
                     @endif
 
-
-                    @if($postCategory->show_author_in_posts && $author != null)
-                    <div class="author-info">
-                        <div class="left-wrap"><img loading="lazy" src="{{$author->photo}}" alt="{{$author->name}}"></div>
-                        <div class="right-wrap">
-                            <a href="/about#{{\Str::slug($author->name)}}" class="name_wrap">{{$author->name}}</a>
-                            <div class="desc_wrap"><p>{!! $author->text !!}</p>
-                            </div>
-                            <span class="email_wrap">{{$author->email}}</span>
-                        </div>
-                    </div>
-                    @endif
-
-                    @if(isset($GLOBALS['shortcodes']['experts']) != null)
-                        @foreach($GLOBALS['shortcodes']['experts'] as $expert)
-                            <div class="author-info">
-                                <div class="left-wrap"><img loading="lazy" src="{{$expert->photo}}" alt="{{$expert->name}}"></div>
-                                <div class="right-wrap">
-                                    <a href="/about#{{str_slug($expert->name)}}" class="name_wrap">{{$expert->name}}</a>
-                                    <div class="desc_wrap"><p>{!! $expert->short_text !!}</p>
-                                    </div>
-                                    <span class="email_wrap">{{$expert->email}}</span>
-                                    <div class="social_networks_wrap">{!! $expert->social_networks !!}</div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-
                     <div class="bordered-rating star-rating light-border">
-                        <div class="post-ratings"  data-nonce="2d7c6c6fcb" data-type="post" data-id="{{$post->id}}">
+                        <div class="post-ratings" data-type="post" data-id="{{$post->id}}">
                             {!! RatingParser::printIRatingByValue($post->average_rating) !!}
                             (<span class="bold">{{$post->number_of_votes}}</span> оценок, среднее: <span class="bold">{{$post->average_rating}}</span> из 5)
                             <br />
                         </div>
                     </div>
-                    
-                    @if($author != null)
-                        <?php if ( !isset($GLOBALS['issetStructuredProduct'])) $GLOBALS['issetStructuredProduct'] = true; ?>
-                        <script type="application/ld+json">{
-                             "@context": "http://schema.org",
-                             "@type": "Product",
-                             "aggregateRating": {
-                             "@type": "AggregateRating",
-                               "bestRating": "5",
-                               "ratingCount": "{{$post->number_of_votes}}",
-                               "ratingValue": "{{$post->average_rating}}"
-                             },
-                             "review": {
-                             "@type": "Review",
-                             "name": "{{$post->h1}}" ,
-                             "author": "{{$author->name}}"
-                             },
-                             "image": "https://finance.ru/old_theme/img/logo_old.png",
-                             "name": "{{$post->h1}}",
-                             "description" : "{{$post->meta_description}}",
-                            "sku": "{{$post->id}}",
-                             "slogan": "ФинансыРу",
-                             "url": "https://finance.ru{{$_SERVER['REQUEST_URI']}}",
-                             "brand": "ФинансыРу"
-                            }
-                        </script>
-                    @endif
-
 
                     <div class="share-wrap light-border">
                         <script async src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
@@ -149,7 +65,7 @@
                         <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,lj"></div>
                     </div>
 
-                </div><?/* content  */ ?>
+                </div><?php /* content  */ ?>
 
 
                     @if($postCategory->show_comments_in_posts)
@@ -163,13 +79,8 @@
 
                                 <div class="form-line form-group">
                                     <label>Имя:</label>
-                                    @if($uid != null)
-                                    <input id="commentUserName" class="width-100" name="name" required readonly="true" value="{{$uidName}}">
-                                    <input type="hidden" id="commentUserId" name="id" value="{{$uid}}">
-                                    @else
                                     <input id="commentUserName" class="width-100" name="name" required>
                                     <input type="hidden" id="commentUserId" name="id" value="null">
-                                    @endif
                                 </div>
                                 <div class="form-line form-group">
                                     <label>Комментарий:</label>
@@ -206,16 +117,9 @@
                             </div>
                         </div>
                         @endforeach
-                    </div><?/* comments-add-form */ ?>
+                    </div><?php /* comments-add-form */ ?>
                     @endif
 
-
-                    <progress value="0">
-                        <div class="progress-container">
-                            <span class="progress-bar"></span>
-                        </div>
-                    </progress>
-                
             </div>
 
 
@@ -230,19 +134,6 @@
 
 
 @section('additional-scripts')
-<script async src="/vzo_theme/js/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    /*
-    MathJax.Hub.Config({
-        "HTML-CSS" : {
-            availableFonts : ["STIX"],
-            preferredFont : "STIX",
-            webFont : "Latin-Modern",
-            imageFont : null
-        }
-    });
-    */
-</script>
 <script async src="/vzo_theme/js/scripts/8_posts/posts.js?v=2"></script>
 <script>window.post_id = "{{$post->id}}"</script>
 @endsection

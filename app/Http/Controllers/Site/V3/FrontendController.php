@@ -47,7 +47,6 @@ class FrontendController extends Controller
             abort(404);
         }
 
-
         $all_products_count = 0;
         $companies_count = DB::select("select count(id) as count from companies where status=1");
         $bank_products_count = DB::select("select count(id) as count from bank_products where status=1");
@@ -172,7 +171,7 @@ class FrontendController extends Controller
         shuffle($reviews);
 
 
-        return view('site.v3.templates.index',[
+        return view('site.v3.templates.static-pages.index',[
             'page' => $page,
 
             'all_products_count' => $all_products_count,
@@ -196,56 +195,6 @@ class FrontendController extends Controller
 
         ]);
     }
-
-    public function index_amp(){
-
-        $title = ''; $h1 = ''; $meta_description = ''; $content = '';
-
-        $cards = DB::table('cards')
-            ->leftjoin("cards_1_zaimy", 'cards.id', '=', "cards_1_zaimy.card_id")
-            ->leftjoin("companies", 'cards.company_id', '=', "companies.id")
-            ->leftjoin("companies_url", 'companies.group_id', '=', "companies_url.id")
-            ->select('cards.*', "cards_1_zaimy.*", "cards_1_zaimy.id as idd",'companies.alias as companies_alias', 'companies_url.url as group_url','companies.reviews_page')
-            ->where(['cards.category_id'=>1,'cards.show_in_index'=>1,'cards.status'=>1])
-            ->orderBy("cards.km5", 'desc')
-            ->get();
-        if($cards == null) $cards = [];
-
-        $cards = System::reviewsParse($cards);
-
-        $card_category = CardsCategories::find(1);
-        if($card_category == null){
-            return abort(404);
-        }
-
-
-        $throughReviews = Cache::rememberForever('through_reviews', function(){
-            return $allRows = DB::table('companies_reviews')
-                ->select('companies_reviews.*')
-                ->where(['companies_reviews.status'=>1])
-                ->orderBy('companies_reviews.id','desc')
-                ->limit(10)
-                ->get();
-        });
-
-
-        return view('site.v3.templates.index-amp',[
-            'category_id' => 1,
-            'title' => $title,
-            'h1' => $h1,
-            'content' => $content,
-            'meta_description' => $meta_description,
-            'section_type' => -1,
-
-            'throughReviews' => $throughReviews,
-
-            'cards' => $cards,
-
-        ]);
-    }
-
-
-
 
 
     public function dynamic_routes($url,$url2=null,$url3=null,$url4=null,$url5=null,$number_page=1){

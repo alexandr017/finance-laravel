@@ -111,19 +111,19 @@ header.second_header{min-height: 58px;}
 
 .logo-head-wrap{position: absolute;left: 0;right: 0;margin: auto; display: inline-block;width: 200px;z-index: 1;text-align: center}
 .logo-head-wrap span {font-size: 14px;vertical-align: -7px;}
-.mob-menu-wrap {position: fixed;top: 0;background: #fff;z-index: 2;left: -200%;width: 100%; height: 130%;}
+.mob-menu-wrap {position: fixed;top: 0;background: #fff;z-index: 2;left: -200%;width: 100%; height: 101%; overflow-y: auto}
 
 
 
 .menu-line-top{height: 56px; border-bottom: 1px solid #ccc;margin-top: 2px;position: relative;}
 header {padding: 0;border-bottom: 1px solid #ccc;}
-#sub-menu{height: 100%;left: -200%;width: 100%;z-index: 2}
-ul.mobl-menu b{display:none;}
+#sub-menu{height: 100%;left: -200%;width: 100%;z-index: 2; position: fixed}
+/*ul.mobl-menu b{display:none;}*/
 #sub-menu-title{background: #fff}
 #sub-menu-title i{display: block;line-height: 50px;padding: 0 15px;border-bottom: 2px solid #ccc;color: #292929;cursor: pointer;}
 #sub-menu-title i span{margin-left: 15px;}
-#sub-menu-title+ul{background: #fafff9;margin: 0;display: block;width: 90%;margin-left: 5%;}
-#sub-menu-title+ul li{display: block;border-bottom: 1px solid #ccc;width: 100%;line-height: 44px;}
+#sub-menu-title+ul{margin: 0;display: block;width: 90%;margin-left: 5%;}
+#sub-menu-title+ul li{display: block;border-bottom: 1px solid #ccc;width: 100%;line-height: 38px;}
 #sub-menu-title+ul li a{display: block;}
 ul.mobl-menu {padding: 0;position: relative;width: 90%;margin-left: 5%;z-index: 1}
 ul.mobl-menu >li {list-style-type: none;display: block;margin: 0;position: relative;border-bottom: 1px solid #ccc}

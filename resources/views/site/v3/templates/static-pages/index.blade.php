@@ -162,6 +162,7 @@
 
 @section('additional-scripts')
 <script async src="/old_theme/js/scripts/index/index.js?v=17"></script>
+<script async src="/old_theme/js/scripts/index/select-pages.js"></script>
 @endsection
 @section('listings-scripts')
 {{--<script async src="/old_theme/js/modules/slider/js-slider.js"></script>--}}

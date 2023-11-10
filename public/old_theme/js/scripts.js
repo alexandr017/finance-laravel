@@ -23,21 +23,6 @@ $(function(){
 
 });
 
-// menu hover on desktop
-/* ПЕРЕПИСАНО
-if($(window).width() > 769){
-    $('header ul li:not(.jsMenuLi)').on('mouseover',function(e){
-        $(this).find('ul').show();
-        width = $(this).find('a').width();
-        $(this).find('.menu-cursor').css('transform','translateX('+ (width/2-7) +'px) rotate(45deg)');
-
-    }).on('mouseout',function(e){
-        $(this).find('ul').hide();
-        $(this).find('.menu-cursor').remove();
-    });
-}
-*/
-
 
 
 $('.hint').on('click',function(){
@@ -77,20 +62,23 @@ $('.mob-close').on('click',function(){
     });
 });
 
+//var menuCode = $('.mobl-menu').html();
 
 $('ul.mobl-menu li a.a-sub-m').click(function(e){
     e.preventDefault();
+    $('.mobl-menu').hide();
     $('#sub-menu').find('div').html('<i class="fa fa-arrow-left"><span>' + $(this).attr('data-text') + '</span></i>');
     $('#sub-menu').find('ul').html($(this).parent().find('ul').html());
     $('#sub-menu').animate({
         'left':'0'
-    },700,function(){});
+    },250,function(){});
 });
 
 $('#sub-menu-title').click(function(){
+    $('.mobl-menu').show(250);
     $('#sub-menu').animate({
         'left':'-200%'
-    },700,function(){});
+    },250,function(){});
 });
 
 
@@ -893,27 +881,6 @@ $('.calc-block button').on('click',function(){
 
 
 // forms
-$('#creditRating').on('submit',function(e){
-    if($('#last_name').val()=='') { $('#last_name').focus(); return false; }
-    if($('#first_name').val()=='') { $('#first_name').focus(); return false; }
-    if($('#middle_name').val()=='') { $('#middle_name').focus(); return false; }
-    if($('#passport').val()=='') { $('#passport').focus(); return false; }
-    if($('#birthday').val()=='') { $('#birthday').focus(); return false; }
-    if($('#passport_date').val()=='') { $('#passport_date').focus(); return false; }
-    if($('#email').val()=='') { $('#email').focus(); return false; }
-    return true;
-});
-
-$('.go-to-page').on('click',function(){
-    if($('b.active-element').attr('data-val').indexOf('autocredit') > -1) {
-        location.href = '/' + $('b.active-element').attr('data-val');
-    } else {
-        location.href = $('b.active-element').attr('data-val');
-    }
-});
-$('.go-to-page2').on('click',function(){
-    location.href =  $('b.active-element2').attr('data-val');
-});
 
 if(document.body.clientWidth < 768){
 $('.name-line').each(function(){

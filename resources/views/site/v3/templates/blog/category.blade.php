@@ -26,24 +26,20 @@ if (isset($page)) {
                 {!! TagsParser::compile(Shortcode::compile($postCategory->text)) !!}
             </div>
 
-            <div class="post-wrap">
+            <div class="news-post-block">
                 @foreach($posts as $post)
-                <?php $post_h1 = ($post->h1_in_category != null) ? $post->h1_in_category : $post->h1; ?>
-                <div class="row">
-                    <?php $availability = ($post->availability == null || $post->availability =='no') ? 'unavailable' : 'available'; ?>
-                    <div class="col-md-12">
-                        <a href="/{{$postCategory->alias_category}}/{{$post->alias}}.html"><?php echo Shortcode::compile($post_h1); ?></a>
-                        @if($postCategory->id == 13)
-                            <p class="date">{{date('d.m.Y',strtotime($post->date))}}</p>
-                        @endif
-                        @if($post->valid_until != null && $postCategory->id == 8)
-                            <p class="date">Действует до: {{date('d.m.Y',strtotime($post->valid_until))}}</p>
-                        @endif
-                        <p>{!! $post->short_content !!}</p>
+                    <div class="news-action-post-item">
+                        <a href="/{{$postCategory->alias_category}}/{{$post->alias}}.html" class="news-post-item-link">
+                            <?php $post_h1 = ($post->h1_in_category != null) ? $post->h1_in_category : $post->h1; ?>
+                            <b>{{$post_h1}}</b>
+                            <p>{!! $post->short_content !!}</p>
+                            <span class="news-post-date">{{date('d.m.Y',strtotime($post->date))}}</span>
+                        </a>
                     </div>
-                </div>
                 @endforeach
+
             </div>
+
 
                 @include('site.v3.modules.includes.pagination')
         </div><?php /* end col-md-9 */ ?>

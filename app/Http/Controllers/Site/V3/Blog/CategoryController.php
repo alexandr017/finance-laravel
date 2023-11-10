@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\V3\Blog;
 
 use App\Models\Posts\PostsCategories;
+use App\Models\StaticPages\StaticPage;
 use DB;
 use App\Models\Posts\Posts;
 
@@ -19,15 +20,17 @@ class CategoryController extends BaseBlogController
     }
 
 
-    private function category(string $categoryAlias, int $pageNumber, string $type)
+    private function category(string $categoryAlias, int $pageNumber, string $alias)
     {
-        $categoryAlias = clear_data($categoryAlias);
-        $queryType = CategoryController::POSTS_TYPE;
-        if ($type == 'articles') {
-            $queryType = CategoryController::ARTICLES_TYPE;
+        $postGlobalCategory = StaticPage::where(['alias' => $alias])->first();
+
+        if ($postGlobalCategory == null) {
+            abort(404);
         }
 
-        $postCategory = PostsCategories::where(['alias_category' => $type . '/' . $categoryAlias, 'sidebar_menu' => $queryType])->first();
+        $queryType = $this->getTypePagesByAlias($alias);
+
+        $postCategory = PostsCategories::where(['alias_category' => $alias . '/' . $categoryAlias, 'sidebar_menu' => $queryType])->first();
 
         if ($postCategory == null) {
             abort(404);
@@ -39,10 +42,9 @@ class CategoryController extends BaseBlogController
         }
 
 
-
         $posts = DB::table('posts')
             ->select('posts.*')
-            ->where(['posts.pcid'=>$postCategory->id,'posts.status'=>1])
+            ->where(['posts.pcid' => $postCategory->id, 'posts.status' => 1])
             ->limit(10)
             ->orderBy('posts.valid_until', 'desc')
             ->orderBy('posts.date', 'desc')
@@ -50,39 +52,17 @@ class CategoryController extends BaseBlogController
             ->get();
 
 
-
-        $available_posts = [];
-        $unavailable_posts = [];
-        foreach ($posts as $post){
-            if($post->valid_until >= date('Y-m-d')){
-                $post->availability = 'yes';
-                $available_posts[]=$post;
-            }else{
-                $post->availability = 'no';
-                $unavailable_posts[]=$post;
-            }
-        }
-        $posts = array_merge($available_posts,$unavailable_posts);
-
-
         $postsCount = Posts::where(['posts.pcid' => $postCategory->id, 'status' => 1])->paginate(10);
-
 
         if ((count($posts) == 0) && ($pageNumber!=1)) {
             abort(404);
         }
 
-
         $pages = $postsCount->lastPage();
 
         $breadcrumbs = [];
-        if ($postCategory->id == 23) {
-            $breadcrumbs [] = ['link' => '/rko', 'h1' => 'РКО'];
-            $breadcrumbs [] = ['h1'=>$postCategory->h1];
-        } else {
-            $breadcrumbs [] =  ['h1'=>$postCategory->h1];
-        }
-        //$breadcrumbs = BreadcrumbsRender::get($postsCategory->breadcrumbs, $postsCategory->h1);
+        $breadcrumbs [] = ['link' => '/' . $alias, 'h1' => $postGlobalCategory->breadcrumbs ?? $postGlobalCategory->h1];
+        $breadcrumbs [] = ['h1'=> $postCategory->breadcrumbs ?? $postCategory->h1];
 
         $blogCategories = DB::table('posts_categories')
             ->select('id', 'h1', 'alias_category', 'short_name')
@@ -96,7 +76,7 @@ class CategoryController extends BaseBlogController
             'breadcrumbs' => $breadcrumbs,
             'page' => $pageNumber,
             'pages' => $pages,
-            'editLink' => '/admin/posts/categories/edit/'.$postCategory->id,
+            'editLink' => '/',
             'blogCategories' => $blogCategories
         ]);
 

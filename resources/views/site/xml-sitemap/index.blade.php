@@ -2,19 +2,19 @@
 <?php echo '<?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>'."\n"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>https://finance.ru/static-pages.xml</loc>
+        <loc>{{\Request::getSchemeAndHttpHost()}}/static-pages.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>https://finance.ru/mfo.xml</loc>
+        <loc>{{\Request::getSchemeAndHttpHost()}}/mfo.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>https://finance.ru/banks.xml</loc>
+        <loc>{{\Request::getSchemeAndHttpHost()}}/banks.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>https://finance.ru/blog.xml</loc>
+        <loc>{{\Request::getSchemeAndHttpHost()}}/blog.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>https://finance.ru/listings.xml</loc>
+        <loc>{{\Request::getSchemeAndHttpHost()}}/listings.xml</loc>
     </sitemap>
 </sitemapindex>
 <!-- XML Sitemap -->

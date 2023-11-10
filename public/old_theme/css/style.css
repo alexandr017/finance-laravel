@@ -2535,6 +2535,43 @@ input[type=checkbox], input[type=radio]{vertical-align: -4px;width: 20px;height:
 
 
 
+.news-post-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.news-post-item {
+    width: 48%;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #CECECE;
+    cursor: pointer;
+}
+
+.news-post-item .news-post-date {
+    color: #F65151;
+}
+
+.news-post-load-block {
+    text-align: right;
+    margin-top: 0.5em;
+}
+
+.news-post-load-block .news-post-load {
+    width: 48%;
+    background-color: #C4C4C4;
+    border: none;
+    padding: 0.5em 0;
+}
+
+@media (max-width: 767px) {
+    .news-post-item, .news-post-load-block .news-post-load {
+        width: 100%;
+    }
+}
+
+
+
 /*******************************************************************************/
 /***************************** RESPONSIVE DESIGN *******************************/
 /*******************************************************************************/
@@ -2862,10 +2899,24 @@ input[type=checkbox], input[type=radio]{vertical-align: -4px;width: 20px;height:
     }
 }
 
+.news-action-post-item {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #CECECE;
+}
+
+.news-post-item-link, .news-post-item-link:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.news-action-post-item .news-post-date {
+    color: #F65151;
+    font-weight: bold;
+}
+
 
 @media (max-width: 767px) {
     .pc-block{display: none !important;}
-    .post-wrap a, .news-post-wrap a {font-size: 20px;line-height: 24px; text-align: center;display: block;}
     .post-wrap p{margin-left: initial;}
     .post-wrap .read-full-posts{margin-top: -15px;}
 
