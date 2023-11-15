@@ -6,11 +6,11 @@
 </div>
 <div>
     <span class="card-mn-label">Открытие</span>
-    <b>@if($card->opened != null){{$card->opened}} руб. @endif</b>
+    <b>@if($card->opened != null){{$card->opened}} ₽ @endif</b>
 </div>
 <div>
     <span class="card-mn-label">Обслуживание</span>
-    <b>@if($card->maintenance != null) {{$card->maintenance}} руб. @endif</b>
+    <b>@if($card->maintenance != null) {{$card->maintenance}} ₽ @endif</b>
 </div>
 <div>
     <span class="card-mn-label">Скорость открытия</span>

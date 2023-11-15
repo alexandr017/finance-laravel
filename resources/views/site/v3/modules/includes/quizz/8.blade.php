@@ -10,7 +10,7 @@
      <span class="quiz-div-label">
          <label class="quiz-label" for="quiz-autocredit-first-pay">Первоначальный взнос</label>
          <input type="number" pattern="[0-9]" min="0" id="quiz-autocredit-first-pay" disabled>
-         <label class="quiz-label" for="quiz-autocredit-first-pay">руб.</label>
+         <label class="quiz-label" for="quiz-autocredit-first-pay">₽</label>
      </span>
 </div>
 <div class="quiz-adv-search-second-block d-flex quiz-bordered-block">

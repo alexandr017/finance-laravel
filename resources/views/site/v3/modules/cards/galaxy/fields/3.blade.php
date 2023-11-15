@@ -4,7 +4,7 @@
 	                                    <div class="lvc fa-building-o">Виды залога: <div class="value">{{$card->zalog_type}}</div></div>
 	                                    @endif @endif
                                         @if(isset($card->sum_min)) @if($card->sum_min !== null)
-                                        <div class="lvc fa-money">Сумма: <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif @endif</div></div>
+                                        <div class="lvc fa-money">Сумма: <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div></div>
                                         @endif  @endif
                                         @if(isset($card->term_min)) @if($card->term_min !== null)
                                         <div class="lvc fa-calendar">Срок: <div class="value">от {{$card->term_min}} @if(isset($card->term_max)) @if($card->sum_max != null) до {{$card->term_max}} дней @endif @endif</div></div>

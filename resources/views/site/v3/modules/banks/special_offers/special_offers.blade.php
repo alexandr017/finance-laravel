@@ -54,7 +54,7 @@
                     $sum_min = isset($card->sum_min) ? 'от '.number_format($card->sum_min, 0, '.', ' ') : '';
                     $sum_max = isset($card->sum_max) ? 'до '.number_format($card->sum_max, 0, '.', ' ') : '';
                     ?>
-                    <span class="mt-offer">{{$sum_min}} {{$sum_max}} руб.</span>
+                    <span class="mt-offer">{{$sum_min}} {{$sum_max}} ₽</span>
                 </div>
                 <div class="showed-wrapper" data-label="Срок">
                     <?php
@@ -91,7 +91,7 @@
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Максимальный лимит">
-                    <span class="mt-offer">{{number_format($card->limit_max, 0, '.', ' ')}} руб.</span>
+                    <span class="mt-offer">{{number_format($card->limit_max, 0, '.', ' ')}} ₽</span>
                 </div>
                 <div class="showed-wrapper" data-label="Процентная ставка">
                     <?php
@@ -131,10 +131,10 @@
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Открытие">
-                    <span class="mt-offer">{{number_format($card->opened, 0, '.', ' ')}} руб.</span>
+                    <span class="mt-offer">{{number_format($card->opened, 0, '.', ' ')}} ₽</span>
                 </div>
                 <div class="showed-wrapper" data-label="Обслуживание">
-                    <span class="mt-offer">{{number_format($card->maintenance, 0, '.', ' ')}} руб.</span>
+                    <span class="mt-offer">{{number_format($card->maintenance, 0, '.', ' ')}} ₽</span>
                 </div>
                 <div class="showed-wrapper" data-label="Возраст">
                     <span class="mt-offer">
@@ -170,10 +170,10 @@
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Открытие">
-                    <span class="mt-offer">{{number_format($card->opened, 0, '.', ' ')}} руб.</span>
+                    <span class="mt-offer">{{number_format($card->opened, 0, '.', ' ')}} ₽</span>
                 </div>
                 <div class="showed-wrapper" data-label="Обслуживание">
-                    <span class="mt-offer">{{number_format($card->maintenance, 0, '.', ' ')}} руб.</span>
+                    <span class="mt-offer">{{number_format($card->maintenance, 0, '.', ' ')}} ₽</span>
                 </div>
                 <div class="showed-wrapper" data-label="Скорость открытия">
                     <span class="mt-offer">{{$card->speed_opened}} </span>
@@ -218,7 +218,7 @@
                         $sum_min = isset($card->sum_min) ? 'от '.number_format($card->sum_min, 0, '.', ' ') : '';
                         $sum_max = isset($card->sum_max) ? 'до '.number_format($card->sum_max, 0, '.', ' ') : '';
                         ?>
-                        <span class="mt-offer">{{$sum_min}} {{$sum_max}} руб.</span>
+                        <span class="mt-offer">{{$sum_min}} {{$sum_max}} ₽</span>
                     </div>
                     <div class="showed-wrapper" data-label="Срок">
                         <?php
@@ -267,7 +267,7 @@
                             $sum_min = isset($card->sum_min) ? 'от '.number_format($card->sum_min, 0, '.', ' ') : '';
                             $sum_max = isset($card->sum_max) ? 'до '.number_format($card->sum_max, 0, '.', ' ') : '';
                             ?>
-                        <span class="mt-offer">{{$sum_min}} {{$sum_max}} руб.</span>
+                        <span class="mt-offer">{{$sum_min}} {{$sum_max}} ₽</span>
                     </div>
                     <div class="showed-wrapper" data-label="Срок">
                             <?php

@@ -98,7 +98,7 @@
                 $value = $cards[0]->opened;
             }
             if ($value != '') {
-                $value .= ' руб.';
+                $value .= ' ₽';
                 $firstCardDetails['Открытие'] = $value;
                 $value = '';
             }
@@ -106,7 +106,7 @@
                 $value = $cards[0]->maintenance;
             }
             if ($value != '') {
-                $value .= ' руб.';
+                $value .= ' ₽';
                 $firstCardDetails['Обслуживание'] = $value;
                 $value = '';
             }

@@ -57,12 +57,13 @@ class PostController extends BaseBlogController
         $breadcrumbs [] = ['h1'=> $post->breadcrumbs ?? $post->h1];
 
         $table_of_contents = $post->table_of_contents;
+        $showContentMenu = true;
 
         $editLink = '/';
 
         $blade = !is_amp_page() ? 'site.v3.templates.blog.post' : 'site.v3.templates.blog.post-amp';
         return view($blade, compact('post', 'postCategory', 'breadcrumbs',
-            'postsComments', 'relatedPosts', 'editLink', 'table_of_contents'));
+            'postsComments', 'relatedPosts', 'editLink', 'table_of_contents', 'showContentMenu'));
     }
 
     private function getComments(int $postID)

@@ -80,7 +80,7 @@
             <div>
             <span class="quiz-checkbox-margin">
                 <input type="checkbox" id="quiz-rubli">
-                <label class="quiz-label" for="quiz-rubli">Рубли</label>
+                <label class="quiz-label" for="quiz-rubli">₽</label>
             </span>
                 <span class="quiz-checkbox-margin">
                 <input type="checkbox" id="quiz-dollar" value="debit-cards/v-dollarah">

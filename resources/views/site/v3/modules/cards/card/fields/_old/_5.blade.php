@@ -12,7 +12,7 @@ foreach ($iconsArr as $key => $value) {
 	                                    @if(isset($card->limit_max)) @if($card->limit_max !== null)
 	                                    <div class="lvc">
 	                                        <div class="label"><i class="fa fa-line-chart"></i>Максимальный лимит:</div>
-	                                        <div class="value">{{number_format($card->limit_max, 0, '.', ' ')}} руб.</div>
+	                                        <div class="value">{{number_format($card->limit_max, 0, '.', ' ')}} ₽</div>
 	                                    </div>
 	                                    @endif @endif
 										@if(isset($card->percent_min)) @if($card->percent_min !== null)
@@ -40,13 +40,13 @@ foreach ($iconsArr as $key => $value) {
                                        	@if(isset($card->opened)) @if($card->opened !== null)
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-clock-o"></i>Открытие:</div>
-                                            <div class="value">{{$card->opened}} руб.</div>
+                                            <div class="value">{{$card->opened}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->maintenance)) @if($card->maintenance !== null)
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-wrench"></i>Обслуживание:</div>
-                                            <div class="value">{{$card->maintenance}} руб.</div>
+                                            <div class="value">{{$card->maintenance}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->age_min)) @if($card->age_min !== null)

@@ -9,7 +9,7 @@
                                         @if(isset($card->sum_min)) @if($card->sum_min !== null)
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-money"></i>Сумма:</div>
-                                            <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif @endif</div>
+                                            <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div>
                                         </div>
                                         @endif  @endif
                                         @if(isset($card->term_min)) @if($card->term_min !== null)

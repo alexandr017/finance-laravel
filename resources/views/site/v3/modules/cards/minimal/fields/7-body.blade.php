@@ -8,7 +8,7 @@
             <div class="card-mn-row">
                 <span class="card-mn-details">Сумма займа</span>
                 <b> от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max) && $card->sum_max != null)
-                        до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif </b>
+                        до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif </b>
             </div>
         @endif
         @if(isset($card->percent) && $card->percent !== null)

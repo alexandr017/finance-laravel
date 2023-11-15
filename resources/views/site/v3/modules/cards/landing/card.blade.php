@@ -20,7 +20,7 @@
             <div>
                 <p class="card-mn-label">Макс. сумма займа</p>
                 @if(isset($card->sum_max) && $card->sum_max != null)
-                    <b class="simple-card-mn-sum"><span class="sorting-field-3">{{number_format($card->sum_max, 0, '.', ' ')}}</span> руб</b>
+                    <b class="simple-card-mn-sum"><span class="sorting-field-3">{{number_format($card->sum_max, 0, '.', ' ')}}</span> ₽</b>
                 @endif
             </div>
             <div>

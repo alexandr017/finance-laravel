@@ -45,7 +45,7 @@
             @if($card->opened != null)
             <div class="line-prop">
                 <span class="line-prop-title fa-icon fa-clock-o">Стоим. открытия </span>
-                <span class="line-prop-value">{!! number_format($card->opened,0,'.',' ') !!} рублей</span>
+                <span class="line-prop-value">{!! number_format($card->opened,0,'.',' ') !!} ₽</span>
             </div>
             @endif
             @if($card->age_min != null || $card->age_max != null)
@@ -82,7 +82,7 @@
             @if($card->opened != null)
             <div class="line-prop">
                 <span class="line-prop-title fa-icon fa-clock-o">Стоим. открытия </span>
-                <span class="line-prop-value">{!! $card->opened !!} рублей</span>
+                <span class="line-prop-value">{!! $card->opened !!} ₽</span>
             </div>
             @endif
             @if($card->percent_min != null || $card->percent_min != null)

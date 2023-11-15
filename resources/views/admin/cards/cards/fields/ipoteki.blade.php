@@ -72,11 +72,11 @@
 
                 <div style="font-size: 1.7rem"><b>Общие условия:</b></div>
                 <div class="form-group">
-                    <label for="sum_min">Сумма min (руб):</label>
+                    <label for="sum_min">Сумма min (₽):</label>
                     <input class="form-control" type="text" value="{sum_min}" name="sum_min" id="sum_min">
                 </div>
                 <div class="form-group">
-                    <label for="sum_max">Сумма max (руб):</label>
+                    <label for="sum_max">Сумма max (₽):</label>
                     <input class="form-control" type="text" value="{sum_max}" name="sum_max" id="sum_max">
                 </div>
                 <div class="form-group">
@@ -149,11 +149,11 @@
                     <input class="form-control" type="text" value="{experience}" name="experience" id="experience">
                 </div>
                 <div class="form-group">
-                    <label for="income_min">Примерный доход min (руб):</label>
+                    <label for="income_min">Примерный доход min (₽):</label>
                     <input class="form-control" type="text" value="{income_min}" name="income_min" id="income_min">
                 </div>
                 <div class="form-group">
-                    <label for="income_max">Примерный доход max (руб):</label>
+                    <label for="income_max">Примерный доход max (₽):</label>
                     <input class="form-control" type="text" value="{income_max}" name="income_max" id="income_max">
                 </div>
 

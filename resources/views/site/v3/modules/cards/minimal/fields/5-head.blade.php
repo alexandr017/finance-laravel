@@ -6,7 +6,7 @@
 </div>
 <div>
     <span class="card-mn-label">Максимальный лимит</span>
-    <b>{{number_format($card->limit_max, 0, '.', ' ')}} руб.</b>
+    <b>{{number_format($card->limit_max, 0, '.', ' ')}} ₽</b>
 </div>
 <div>
     <span class="card-mn-label">Ставка в год</span>

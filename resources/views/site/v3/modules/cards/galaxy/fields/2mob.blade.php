@@ -17,13 +17,13 @@
 <div class="rko-card-wrap active">
 
             @if(isset($card->opened)) @if(($card->opened!==null))
-                <div class="lvc fa-clock-o">Открытие: <div class="value">{{$card->opened}} руб.</div></div>
+                <div class="lvc fa-clock-o">Открытие: <div class="value">{{$card->opened}} ₽</div></div>
             @endif @endif
             @if(isset($card->maintenance)) @if(($card->maintenance!==null))
-                <div class="lvc fa-spinner">Обслуживание: <div class="value">{{$card->maintenance}} руб.</div></div>
+                <div class="lvc fa-spinner">Обслуживание: <div class="value">{{$card->maintenance}} ₽</div></div>
             @endif @endif
             @if(isset($card->count_payment)) @if(($card->count_payment!==null))
-                <div class="lvc fa-calculator">Платежка: <div class="value">{{$card->count_payment}} руб.</div></div>
+                <div class="lvc fa-calculator">Платежка: <div class="value">{{$card->count_payment}} ₽</div></div>
             @endif @endif
             @if(isset($card->speed_opened)) @if(($card->speed_opened!==null))
                 <div class="lvc fa-hourglass-o">Скорость открытия: <div class="value">{{$card->speed_opened}}</div></div>

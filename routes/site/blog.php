@@ -20,3 +20,4 @@ Route::get('/articles/{categoryAlias}/{postAlias}.html', [PostController::class,
 Route::get('/articles/{categoryAlias}/{postAlias}.html/amp', [PostController::class, 'articles']);
 
 Route::get('posts/load_more', [ActionsController::class, 'loadPosts']);
+Route::post('forms/comment_add', [ActionsController::class, 'commentAdd']);

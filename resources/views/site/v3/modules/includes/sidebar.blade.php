@@ -100,18 +100,7 @@
 
 
 
-@if(isset($blogCategories))
-<div class="side-block">
-    <div class="side-title"><i class="fa fa-folder-open-o"></i> Рубрики</div>
-    <div class="side-box options-list">
-        <ul class="mb0 rating-mfk">
-            @foreach($blogCategories as $blogCategory)
-            <li><a rel="nofollow" href="/{{$blogCategory->alias_category}}">{{$blogCategory->short_name}}</a></li>
-            @endforeach
-        </ul>
-    </div>
-</div>
-@endif
+@include('site.v3.modules.blog.categories')
 
 @if(isset($category_id))
 @if(($category_id == 1 || $category_id == 7))

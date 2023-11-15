@@ -16,7 +16,7 @@ foreach ($iconsArr as $key => $value) {
 <div class="row"> 
                                     <div class="col-md-6">
 	                                    @if(isset($card->limit_max)) @if($card->limit_max !== null)
-	                                    <div class="lvc fa-line-chart">Максимальный лимит: <div class="value">{{number_format($card->limit_max, 0, '.', ' ')}} руб.</div></div>
+	                                    <div class="lvc fa-line-chart">Максимальный лимит: <div class="value">{{number_format($card->limit_max, 0, '.', ' ')}} ₽</div></div>
 	                                    @endif @endif
 										@if(isset($card->percent_min)) @if($card->percent_min !== null)
                                         <div class="lvc fa-percent">Процентная ставка в год:
@@ -39,10 +39,10 @@ foreach ($iconsArr as $key => $value) {
 	                                    </div>
 	                                    @endif @endif
                                        	@if(isset($card->opened)) @if($card->opened !== null)
-                                        <div class="lvc fa-clock-o">Открытие: <div class="value">{{$card->opened}} руб.</div></div>
+                                        <div class="lvc fa-clock-o">Открытие: <div class="value">{{$card->opened}} ₽</div></div>
                                         @endif @endif
                                         @if(isset($card->maintenance)) @if($card->maintenance !== null)
-                                        <div class="lvc fa-wrench">Обслуживание: <div class="value">{{$card->maintenance}} руб.</div></div>
+                                        <div class="lvc fa-wrench">Обслуживание: <div class="value">{{$card->maintenance}} ₽</div></div>
                                         @endif @endif
                                         @if(isset($card->other_maintenance)) @if($card->other_maintenance !== null)
                                             <div class="lvc fa-wrench">Доп.условия обслуживания: <div class="value">{{$card->other_maintenance}}</div></div>

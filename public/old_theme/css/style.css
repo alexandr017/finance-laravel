@@ -396,7 +396,7 @@ progress{
     appearance:none;
     border:none;
     background:#f6f6f6;
-    color:#7dae12;
+    color:#063;
     z-index: 111;
 }
 progress::-webkit-progress-bar{
@@ -404,15 +404,15 @@ progress::-webkit-progress-bar{
     border-radius:5px;
 }
 progress::-webkit-progress-value{
-    background:#7dae12;
+    background:#063;
     border-radius:5px;
 }
 progress::-moz-progress-bar{
-    background:#7dae12;
+    background:#063;
     border-radius:5px;
 }
 .progress-bar{
-    background:#7dae12;
+    background:#063;
     width:0%;
     display:block;
     height:inherit;

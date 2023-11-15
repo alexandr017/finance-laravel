@@ -146,6 +146,19 @@ ul.mobl-menu li a {text-align: center;font-size: 18px;padding: 10px 10px;}
 /*** end header ***/
 
 
+.side-block.news-categories{background: #f6f6f6;margin-top: 20px; box-shadow: 0 0 21px 0 rgba(0,0,0,.2); margin-bottom: 30px}
+.news-categories .side-title{background: #fff;padding: 15px 0;text-align: center;font-weight: bold}
+.news-categories .side-box{padding: 15px;overflow: hidden;}
+
+.news-categories .side-box ul {list-style-type: none;padding: 0 0 0 15px;margin: 0;}
+.news-categories .side-box ul li{line-height: 36px;position: relative;display: inline-block;}
+.news-categories .side-box ul li:before{display: none;}
+.news-categories .side-box ul li:after{content: ',';}
+.news-categories .side-box ul li:last-child:after{content: none}
+.news-categories .side-box ul a{color: #292929}
+.news-categories .side-box ul a:hover{text-decoration: none}
+
+
 @media (max-width: 767px) {
     .activeLi{background: #bee840 !important;}
     ul.mobl-menu li a:hover b {border-color: #fff;}

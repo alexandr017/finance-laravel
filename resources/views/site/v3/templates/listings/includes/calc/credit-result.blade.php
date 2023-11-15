@@ -55,7 +55,7 @@ function getMonthCount($time_){
 					<label for="">Сумма:</label><br>
 					<?php $sum_min = number_format($value->sum_min, 0, '.', ' '); ?>
 					<?php $sum_max = number_format($value->sum_max, 0, '.', ' '); ?>
-					<?= $sum_min ?> - <?= $sum_max ?> руб.
+					<?= $sum_min ?> - <?= $sum_max ?> ₽
 					</div>
 					<div class="i2">
 					<label for="">Срок:</label><br>
@@ -127,11 +127,11 @@ if($term != 'любой'){
 					</div>
 					<div class="i2">
 						<img src="/old_theme/img/donation_zaymer.png" alt="">
-						<span>Платеж: <?php if(gettype($month_p_res) != 'string') echo number_format($month_p_res, 0, '.', ' ').' руб./мес.'; else echo $month_p_res; ?></span>
+						<span>Платеж: <?php if(gettype($month_p_res) != 'string') echo number_format($month_p_res, 0, '.', ' ').' ₽/мес.'; else echo $month_p_res; ?></span>
 					</div>
 					<div class="i3">
 						<img src="/old_theme/img/rich_zaymer.png" alt="">
-						<span>Переплата:  <?php if(gettype($over_p_res) != 'string') echo number_format($over_p_res, 0, '.', ' ').' руб.'; else echo $over_p_res; ?></span>
+						<span>Переплата:  <?php if(gettype($over_p_res) != 'string') echo number_format($over_p_res, 0, '.', ' ').' ₽'; else echo $over_p_res; ?></span>
 					</div>
 				</div>
 

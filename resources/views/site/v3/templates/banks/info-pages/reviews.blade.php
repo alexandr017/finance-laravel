@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+@extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
 @section ('meta_description', $page->meta_description)
@@ -15,7 +15,7 @@
                 @include('site.v3.modules.banks.head_fixed_block.pc_and_mob')
             @endif
 
-        @if(response::check_mobile())
+            @if(is_mobile_device())
                 @include('site.v3.modules.banks.menu.mob')
             @else
                 @include('site.v3.modules.banks.menu.pc')
@@ -24,10 +24,7 @@
             <?php echo Shortcode::compile(System::nofollow($page->content)); ?>
             <div class="reviews-wrap comments-add-form">
 
-
                 <p class="text-center reviews-status-title">Все отзывы и жалобы</p>
-
-
 
                 <div class="rating-line micro text-center">
                     <?php
@@ -157,19 +154,7 @@
                         <div class="title-line">
                             <span class="title-review-name @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-name @endif"><?php if($comment->author!=null) echo trim($comment->author); else echo trim($comment->last_name . ' ' . $comment->first_name . ' ' . $comment->middle_name); ?></span>
                             @if($comment->rating!=null)
-                            <div class="rating-line rev">{!! App\Models\System::rating($comment->rating) !!}
-                                <?php
-                                /*
-                                if(Auth::user() != null){
-                                    $role = Auth::user()->roles()->get()[0]->id;
-                                    if($role == 1){
-                                        echo "<button class=\"remove-review btn btn-danger pull-right\"><i class=\"remove-review fa fa-remove\"></i></button>";
-                                        echo "<button class=\"edit-review btn btn-primary pull-right\"><i class=\"edit-review fa fa-edit\"></i></button>";
-                                    }
-                                }
-                                */
-                                ?>
-                            </div>
+                            <div class="rating-line rev">{!! App\Models\System::rating($comment->rating) !!}</div>
                             @endif
                             @if($comment->rating <= 2)
                             @if(isset($comment->complain_result))
@@ -197,18 +182,7 @@
                             <div class="title-line">@if($child->off_answer != null) <i class="fa fa-check-square-o"></i> @endif @if(isset($child->first_name) && $child->first_name!=null) {{$child->last_name}} {{$child->first_name}} {{$child->middle_name}} @if($child->off_answer != null) - официальный представитель компании  @endif @else {{$child->author}} @endif
                                 @if($comment->rating!=null)
                                 @if($child->off_answer == null)
-                                <div class="rating-line rev">
-                                    <?php
-                                    /*
-                                    if(Auth::user() != null){
-                                        $role = Auth::user()->roles()->get()[0]->id;
-                                        if($role == 1){
-                                            echo "<button class=\"remove-review btn btn-danger pull-right\"><i class=\"remove-review fa fa-remove\"></i></button>";
-                                        }
-                                    }
-                                    */
-                                    ?>
-                                </div>
+                                <div class="rating-line rev"></div>
                                 @endif
                                 @endif
                             </div>

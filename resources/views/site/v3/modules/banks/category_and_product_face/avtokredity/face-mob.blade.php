@@ -77,7 +77,7 @@
             @if(isset($cards[0]))
                 <div class="scb-value">
                     от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null)
-                        до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif @endif</div>
+                        до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div>
             @endif
             <span class="scb-label"><i class="fa fa-calendar"></i> Срок</span>
             @if(isset($cards[0]))
@@ -112,7 +112,7 @@
             <th>Сумма</th>
             <td>
                 @if(isset($cards[0]->sum_min)) @if($cards[0]->sum_min != null)
-                    от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif @endif
+                    от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif @endif
                 @endif @endif
             </td>
         </tr>
@@ -183,7 +183,7 @@
                 $value .= ' до ' . number_format($cards[0]->sum_max, 0, '.', ' ');
             }
             if ($value != '') {
-                $value .= ' руб';
+                $value .= ' ₽';
                 $firstCardDetails['Сумма'] = $value;
                 $value = '';
             }

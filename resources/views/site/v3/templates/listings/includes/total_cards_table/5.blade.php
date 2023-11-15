@@ -38,7 +38,7 @@
                     <a class="creditonline" href="{{$link}}" target="_blank">{{$card->title}}</a>
                 </td>
                 <td class="display_none">{{$card->limit_max}}</td>
-                <td class="text-center">{{number_format($card->limit_max, 0, '.', ' ')}} руб.</td>
+                <td class="text-center">{{number_format($card->limit_max, 0, '.', ' ')}} ₽</td>
                 <td class="display_none">{{$card->none_percent_period}}</td>
                 <td class="text-center">{{$card->none_percent_period}} {{System::endWords($card->none_percent_period,['день','дня','дней'])}}</td>
                 <td class="display_none">

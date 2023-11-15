@@ -28,11 +28,11 @@
 
 
             <div class="form-group">
-                <label for="opened">Открытие (руб):</label>
+                <label for="opened">Открытие (₽):</label>
                 <input class="form-control" type="number" value="{opened}" name="opened" id="opened">
             </div>
             <div class="form-group">
-                <label for="maintenance">Обслуживание (руб):</label>
+                <label for="maintenance">Обслуживание (₽):</label>
                 <input class="form-control" type="number" value="{maintenance}" name="maintenance" id="maintenance">
             </div>
             <div class="form-group">

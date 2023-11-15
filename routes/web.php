@@ -17,7 +17,3 @@ use Illuminate\Support\Facades\Route;
 include 'site.php';
 
 include 'admin.php';
-
-include 'parsers.php';
-Route::get('/tmp-route', [\App\Http\Controllers\TmpController::class, 'index']);
-

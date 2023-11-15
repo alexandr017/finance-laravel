@@ -75,7 +75,7 @@
         <li>
             <a data-text="Назад" class="a-sub-m" href="/vklady"><b class="caret fa fa-angle-down"></b> Вклады</a>
             <ul>
-                <li><a href="/vklady">все вклады</a></li>
+                <li><a href="/vklady">Все вклады</a></li>
                 <li><a href="/vklady/fizicheskim-litsam">Для физических лиц</a></li>
                 <li><a href="/vklady/s-vysokim-protsentom">С высоким процентом</a></li>
                 <li><a href="/vklady/luchshie">Лучшие</a></li>

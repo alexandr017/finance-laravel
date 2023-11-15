@@ -27,7 +27,7 @@
                     $sum_min = isset($card->sum_min) ? 'от '.number_format($card->sum_min, 0, '.', ' ') : '';
                     $sum_max = isset($card->sum_max) ? 'до '.number_format($card->sum_max, 0, '.', ' ') : '';
                     ?>
-                    {{$sum_min}}  {{$sum_max}} руб.
+                    {{$sum_min}}  {{$sum_max}} ₽
                 </div>
                 <div>
                     <div class="bank-details">Срок</div>
@@ -59,7 +59,7 @@
                     @endif
                 </div>
                 <div><div class="bank-details">Максимальный лимит</div>
-                    {{number_format($card->limit_max, 0, '.', ' ')}} руб.
+                    {{number_format($card->limit_max, 0, '.', ' ')}} ₽
                 </div>
                 <div><div class="bank-details">Процентная ставка</div>
                     <?php
@@ -94,10 +94,10 @@
                     @endif
                 </div>
                 <div><div class="bank-details">Открытие</div>
-                    {{number_format($card->opened, 0, '.', ' ')}} руб.
+                    {{number_format($card->opened, 0, '.', ' ')}} ₽
                 </div>
                 <div><div class="bank-details">Обслуживание</div>
-                    {{number_format($card->maintenance, 0, '.', ' ')}} руб.
+                    {{number_format($card->maintenance, 0, '.', ' ')}} ₽
                 </div>
                 <div>
                     <div class="bank-details">Возраст</div>
@@ -125,10 +125,10 @@
                     @endif
                 </div>
                 <div><div class="bank-details">Открытие</div>
-                    {{number_format($card->opened, 0, '.', ' ')}} руб.
+                    {{number_format($card->opened, 0, '.', ' ')}} ₽
                 </div>
                 <div><div class="bank-details">Обслуживание</div>
-                    {{number_format($card->maintenance, 0, '.', ' ')}} руб.
+                    {{number_format($card->maintenance, 0, '.', ' ')}} ₽
                 </div>
                 <div>
                     <div class="bank-details">Скорость открытия</div>
@@ -170,7 +170,7 @@
                         $sum_min = isset($card->sum_min) ? 'от '.number_format($card->sum_min, 0, '.', ' ') : '';
                         $sum_max = isset($card->sum_max) ? 'до '.number_format($card->sum_max, 0, '.', ' ') : '';
                         ?>
-                        {{$sum_min}}  {{$sum_max}} руб.
+                        {{$sum_min}}  {{$sum_max}} ₽
                     </div>
                     <div>
                         <div class="bank-details">Срок</div>

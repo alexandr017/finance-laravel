@@ -38,7 +38,7 @@
             @if($card->opened != null)
                 <div class="line-prop">
                     <span class="line-prop-title fa-icon fa-clock-o">Открытие</span>
-                    <span class="line-prop-value">{!! $card->opened !!} рублей</span>
+                    <span class="line-prop-value">{!! $card->opened !!} ₽</span>
                 </div>
             @endif
             @if($card->percent_min != null || $card->percent_min != null)

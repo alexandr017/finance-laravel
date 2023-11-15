@@ -10,7 +10,7 @@
             <div class="card-mn-row">
                 <span class="card-mn-details">Сумма займа</span>
                 <b class="card-mn-row-value"> от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max) && $card->sum_max != null)
-                        до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif </b>
+                        до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif </b>
             </div>
         @endif
         @if(isset($card->percent) && $card->percent !== null)
@@ -34,7 +34,7 @@
                 $m_term_min = (isset($card->term_min)) ? $card->term_min : 0;
                 $m_percent = (isset($card->percent)) ? $card->percent : 0;
                 $res = $m_min * ($m_percent / 100) * $m_term_min;
-                echo number_format($res, 0, '.', ' ') . ' руб.';
+                echo number_format($res, 0, '.', ' ') . ' ₽';
                 ?>
             </b>
         </div>

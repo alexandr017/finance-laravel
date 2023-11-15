@@ -60,7 +60,7 @@
             <div class="row row-margin-block-1">
                 <div class="col-sm-4">
                     <span class="scb-label"><i class="fa fa-money"></i> Сумма</span>
-                    <div class="scb-value">от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max) && $cards[0]->sum_max != null && $cards[0]->sum_max != 0) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif</div>
+                    <div class="scb-value">от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max) && $cards[0]->sum_max != null && $cards[0]->sum_max != 0) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif</div>
                 </div>
                 <div class="col-sm-4">
                     <span class="scb-label"><i class="fa fa-calendar"></i> Срок</span>
@@ -129,7 +129,7 @@
             $value .= ' до ' . number_format($cards[0]->sum_max, 0, '.', ' ');
         }
         if ($value != '') {
-            $value .= ' руб';
+            $value .= ' ₽';
             $firstCardDetails['Сумма'] = $value;
             $value = '';
         }
@@ -141,10 +141,10 @@
         }
         */
         if ($cards[0]->sum_min != null) {
-            $firstCardDetails['Минимальная сумма вклада'] = number_format($cards[0]->sum_min, 0, '.', ' ') . ' руб';
+            $firstCardDetails['Минимальная сумма вклада'] = number_format($cards[0]->sum_min, 0, '.', ' ') . ' ₽';
         }
         if ($cards[0]->sum_max != null) {
-            $firstCardDetails['Минимальный срок вклада'] = number_format($cards[0]->sum_max, 0, '.', ' ') . ' руб';
+            $firstCardDetails['Минимальный срок вклада'] = number_format($cards[0]->sum_max, 0, '.', ' ') . ' ₽';
         }
         if ($cards[0]->percent_min != null) {
             $firstCardDetails['Процент по вкладу'] = $cards[0]->percent_min . '%';

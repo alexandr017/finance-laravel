@@ -1,6 +1,6 @@
 @if(isset($card->sum_min)) @if($card->sum_min !== null)
 <p class="border-left border-right bg-grey">
-    <b class="label">Сумма:</b> от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} руб @endif @endif
+    <b class="label">Сумма:</b> от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif @endif
 </p>
 @endif @endif
 @if(isset($card->term_min)) @if($card->term_min !== null)

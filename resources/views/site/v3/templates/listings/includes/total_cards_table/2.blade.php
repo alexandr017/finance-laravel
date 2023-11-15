@@ -39,11 +39,11 @@
         		<a class="rko" href="{{$link}}" target="_blank">{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->opened}}</td>
-			<td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} руб.</td>
+			<td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} ₽</td>
 			<td class="display_none">{{$card->maintenance}}</td>
-			<td class="text-center">{{$card->maintenance}} руб.</td>
+			<td class="text-center">{{$card->maintenance}} ₽</td>
 			<td class="display_none">{{$card->count_payment}}</td>
-			<td class="text-center">{{$card->count_payment}} руб.</td>
+			<td class="text-center">{{$card->count_payment}} ₽</td>
             <?php $j++; ?>
 		</tr>
 		@endforeach

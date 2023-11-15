@@ -1,6 +1,6 @@
 
         @if(isset($card->limit_max)) @if($card->limit_max !== null)
-        <p class="border-left border-right bg-grey"><b class="label">Максимальный лимит:</b> {{number_format($card->limit_max, 0, '.', ' ')}} руб</p>
+        <p class="border-left border-right bg-grey"><b class="label">Максимальный лимит:</b> {{number_format($card->limit_max, 0, '.', ' ')}} ₽</p>
         @endif @endif
         @if(isset($card->percent_min)) @if($card->percent_min !== null)
         <p class="border-left border-right bg-grey">
@@ -20,10 +20,10 @@
                 <p class="border-left border-right bg-grey"><b class="label">Беспроцентный период:</b> {{$card->none_percent_period}} {{App\Models\System::endWords($card->none_percent_period,['день','дня','дней'])}}</p>
         @endif @endif
         @if(isset($card->opened)) @if($card->opened !== null)
-                <p class="border-left border-right bg-grey"><b class="label">Открытие:</b> {{$card->opened}} руб</p>
+                <p class="border-left border-right bg-grey"><b class="label">Открытие:</b> {{$card->opened}} ₽</p>
         @endif @endif
         @if(isset($card->maintenance)) @if($card->maintenance !== null)
-                <p class="border-left border-right bg-grey"><b class="label">Обслуживание:</b> {{$card->maintenance}} руб</p>
+                <p class="border-left border-right bg-grey"><b class="label">Обслуживание:</b> {{$card->maintenance}} ₽</p>
         @endif @endif
         @if(isset($card->age_min)) @if($card->age_min !== null)
                 <p class="border-left border-right bg-grey"><b class="label">Возраст:</b> от {{$card->age_min}} @if(isset($card->age_max)) @if($card->age_max != null) до {{$card->age_max}} лет @endif @endif</p>

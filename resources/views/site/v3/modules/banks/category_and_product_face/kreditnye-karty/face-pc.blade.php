@@ -64,7 +64,7 @@
             <div class="row row-margin-block-1">
                 <div class="col-sm-4">
                     <span class="scb-label"><i class="fa fa-money"></i> Макс. лимит</span>
-                    <div class="scb-value">@if(isset($cards[0]->limit_max)) @if($cards[0]->limit_max != null) {{$cards[0]->limit_max}} @endif @endif рублей</div>
+                    <div class="scb-value">@if(isset($cards[0]->limit_max)) @if($cards[0]->limit_max != null) {{$cards[0]->limit_max}} @endif @endif ₽</div>
                 </div>
                 <div class="col-sm-4">
                     <span class="scb-label"><i class="fa fa-percent"></i> Ставка в год</span>
@@ -132,7 +132,7 @@
                 $value = '';
             }
             if(isset($cards[0]->limit_max) && $cards[0]->limit_max != null){
-                $firstCardDetails['Максимальный лимит'] = $cards[0]->limit_max.' руб.';
+                $firstCardDetails['Максимальный лимит'] = $cards[0]->limit_max.' ₽';
                 $value = '';
             }
             if(isset($cards[0]->none_percent_period) && $cards[0]->none_percent_period != null){
@@ -140,11 +140,11 @@
                 $value = '';
             }
             if(isset($cards[0]->opened) && $cards[0]->opened != null){
-                $firstCardDetails['Открытие'] = $cards[0]->opened.' руб.';
+                $firstCardDetails['Открытие'] = $cards[0]->opened.' ₽';
                 $value = '';
             }
             if(isset($cards[0]->maintenance) && $cards[0]->maintenance != null){
-                $firstCardDetails['Обслуживание'] = $cards[0]->maintenance.' руб.';
+                $firstCardDetails['Обслуживание'] = $cards[0]->maintenance.' ₽';
                 $value = '';
             }
             if(isset($cards[0]->age_min) && $cards[0]->age_min != null){

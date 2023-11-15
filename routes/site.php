@@ -32,6 +32,9 @@ include "site/blog.php";
 include "sitemap/index-sitemap-xml.php";
 
 
+include 'parsers.php';
+
+
 //Route::fallback(function(){
 //    return (new App\Http\Controllers\Site\V3\DynamicSiteController())->render();
 //});

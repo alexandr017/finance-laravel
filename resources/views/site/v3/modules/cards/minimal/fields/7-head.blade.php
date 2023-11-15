@@ -6,7 +6,7 @@
 </div>
 <div>
     <span class="card-mn-label">Сумма</span>
-    <b>до {{number_format($card->sum_max, 0, '.', ' ')}} руб.</b>
+    <b>до {{number_format($card->sum_max, 0, '.', ' ')}} ₽</b>
 </div>
 <div>
     <span class="card-mn-label">Ставка</span>

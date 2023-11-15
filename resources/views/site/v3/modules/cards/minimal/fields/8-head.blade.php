@@ -1,6 +1,6 @@
 <div>
     <span class="card-mn-label">Сумма</span>
-    <b>@if($card->sum_max != null)до {{number_format($card->sum_max, 0, '.', ' ')}}  @else от {{number_format($card->sum_min, 0, '.', ' ')}} @endif руб.</b>
+    <b>@if($card->sum_max != null)до {{number_format($card->sum_max, 0, '.', ' ')}}  @else от {{number_format($card->sum_min, 0, '.', ' ')}} @endif ₽</b>
 </div>
 <div>
     <span class="card-mn-label">Ставка</span>

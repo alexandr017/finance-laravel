@@ -120,6 +120,13 @@
                     </div><?php /* comments-add-form */ ?>
                     @endif
 
+                    <progress value="0">
+                        <div class="progress-container">
+                            <span class="progress-bar"></span>
+                        </div>
+                    </progress>
+
+
             </div>
 
 
@@ -134,6 +141,6 @@
 
 
 @section('additional-scripts')
-<script async src="/vzo_theme/js/scripts/8_posts/posts.js?v=2"></script>
+<script async src="/old_theme/js/scripts/8_posts/posts.js?v=2"></script>
 <script>window.post_id = "{{$post->id}}"</script>
 @endsection

@@ -13,13 +13,13 @@ foreach ($iconsArr as $key => $value) {
                                        	@if(isset($card->opened)) @if($card->opened !== null)
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-clock-o"></i>Открытие:</div>
-                                            <div class="value">{{number_format($card->opened, 0, '.', ' ')}} руб.</div>
+                                            <div class="value">{{number_format($card->opened, 0, '.', ' ')}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->maintenance)) @if($card->maintenance !== null)
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-spinner"></i>Обслуживание:</div>
-                                            <div class="value">{{number_format($card->maintenance, 0, '.', ' ')}} руб.</div>
+                                            <div class="value">{{number_format($card->maintenance, 0, '.', ' ')}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->age_min)) @if($card->age_min !== null)

@@ -240,10 +240,7 @@
 
 <script src="/old_theme/js/modules/menu/menuJs.js" defer></script>
 <script src="/old_theme/js/modules/search/search.js?v=1" defer></script>
-@if(Auth::id() == 92879 || Auth::id() == 12467 || Auth::id() == 30154 || Auth::id() == 110510)
-    <script src="/old_theme/js/modules/accordeonAndTabs/accordeonJs.js" defer></script>
-    <script src="/old_theme/js/modules/accordeonAndTabs/horizontalTabs.js" defer></script>
-@endif
+
 <?php /*
 @if(isset($GLOBALS['shortCodeSlider']))
     @include('short_codes.slick_slider.js')
@@ -265,7 +262,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "https://finance.ru",
-  "logo": "https://finance.ru/old_theme/img/logo_vzo.png",
+  "logo": "https://finance.ru/old_theme/img/old_logo.png",
   "name": "ФинансРу",
   "contactPoint": [{
     "@type": "ContactPoint",

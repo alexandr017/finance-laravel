@@ -67,6 +67,17 @@
 
 
                     <div class="h2 text-center">Лучшие ипотеки</div>
+                    <div class="one-offer">
+                        <div id="mortgageSlider">
+                            @foreach($mortgage as $item)
+                                <div class="index-cards-item text-center">
+                                    <img loading="lazy" src="{{$item->logo}}" alt="{{$item->title}}">
+                                    <div>{{$item->title}}</div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div style="margin: 15px 0 0" class="text-center"><a style="max-width: 170px" class="form-btn1" href="/ipoteka">Смотреть все</a></div>
+                    </div>
 
                     <div class="h2 text-center">Лучшие автокредиты</div>
                     <div class="one-offer">
@@ -82,6 +93,18 @@
                     </div>
 
                     <div class="h2 text-center">Лучшие вклады</div>
+                    <div class="one-offer">
+                        <div id="depositsSlider">
+                            @foreach($deposits as $deposit)
+                                <div class="index-cards-item text-center">
+                                    <img loading="lazy" src="{{$deposit->logo}}" alt="{{$deposit->title}}">
+                                    <div>{{$deposit->title}}</div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div style="margin: 15px 0 0" class="text-center"><a style="max-width: 170px" class="form-btn1" href="/rko">Смотреть все</a></div>
+                    </div>
+
 
                     <div class="h2 text-center">Лучшие расчетные счета</div>
                     <div class="one-offer">
@@ -161,7 +184,7 @@
 @endsection
 
 @section('additional-scripts')
-<script async src="/old_theme/js/scripts/index/index.js?v=17"></script>
+<script async src="/old_theme/js/scripts/index/index.js"></script>
 <script async src="/old_theme/js/scripts/index/select-pages.js"></script>
 @endsection
 @section('listings-scripts')

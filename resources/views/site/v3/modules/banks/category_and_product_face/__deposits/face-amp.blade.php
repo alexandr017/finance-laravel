@@ -49,7 +49,7 @@
         @if(isset($cards[0]))
             @if(isset($cards[0]) && isset($cards[0]->sum_min) || isset($cards[0]->sum_max))
                 <div class="lvc">Сумма: <div class="value"> @if(isset($cards[0]->sum_min))от {{number_format($cards[0]->sum_min, 0, '.', ' ')}}@endif @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null)
-                            до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif @endif</div></div>
+                            до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div></div>
             @endif
             @if(isset($cards[0]) && isset($cards[0]->term_min) || isset($cards[0]->term_max))
                 <div class="lvc">Срок: <div class="value">@if(isset($cards[0]->term_min)) от {{$cards[0]->term_min}} @endif @if(isset($cards[0]->term_max)) до {{$cards[0]->term_max}} дней @endif</div></div>
@@ -89,7 +89,7 @@
                             <th>Сумма</th>
                             <td>
                                 @if(isset($cards[0]->sum_min)) @if($cards[0]->sum_min != null)
-                                    от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif @endif
+                                    от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif @endif
                                 @endif @endif
                             </td>
                         </tr>

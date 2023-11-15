@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="row three-block">
                                         <div class="col-md-4">
-                                            <i class="fa fa-check-circle"></i><span>15 000 руб.</span>
+                                            <i class="fa fa-check-circle"></i><span>15 000 ₽</span>
                                         </div>
                                         <div class="col-md-4">
                                             <i class="fa fa-check-circle"></i><span>30 дней</span>
@@ -47,7 +47,7 @@
                                     <div class="col-md-6">
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-ruble"></i>Сумма:</div>
-                                            <div class="value">от 1 000 - 15 000 руб.</div>
+                                            <div class="value">от 1 000 - 15 000 ₽</div>
                                         </div>
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-calendar"></i>Срок:</div>

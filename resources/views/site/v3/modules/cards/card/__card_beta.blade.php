@@ -59,9 +59,9 @@
                     <p class="beta-card-label">Сумма</p>
                     {{--                @if(isset($card->sum_min)) @if($card->sum_min !== null)--}}
                     {{--                    <b>от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null)--}}
-                    {{--                        до {{number_format($card->sum_max, 0, '.', ' ')}} руб.</b>@endif @endif--}}
+                    {{--                        до {{number_format($card->sum_max, 0, '.', ' ')}} ₽</b>@endif @endif--}}
                     {{--                @endif @endif--}}
-                    <b>до {{number_format($card->sum_max, 0, '.', ' ')}} руб.</b>
+                    <b>до {{number_format($card->sum_max, 0, '.', ' ')}} ₽</b>
                 @endif
             </div>
             <div>
@@ -105,7 +105,7 @@
                     <div class="beta-card-gray-row beta-card-row">
                         <span class="beta-card-details">Сумма займа</span>
                         <b> от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null)
-                            до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif @endif </b>
+                            до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif @endif </b>
                     </div>
                 @endif @endif
                 @if(isset($card->percent)) @if($card->percent !== null)
@@ -129,7 +129,7 @@
                     $m_term_min = (isset($card->term_min)) ? $card->term_min : 0;
                     $m_percent = (isset($card->percent)) ? $card->percent : 0;
                     $res = $m_min * ($m_percent / 100) * $m_term_min;
-                    echo number_format($res, 0, '.', ' ') . ' руб.';
+                    echo number_format($res, 0, '.', ' ') . ' ₽';
                     ?>
                     </b>
                 </div>

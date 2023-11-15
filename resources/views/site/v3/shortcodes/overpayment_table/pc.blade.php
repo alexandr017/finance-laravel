@@ -1,8 +1,8 @@
 <table class="table overpayment-table">
     <thead>
         <tr>
-            <td class="text-left">Сумма займа, рублей</td>
-            <td class="text-left">Переплата за 30 дней, рублей</td>
+            <td class="text-left">Сумма займа, ₽</td>
+            <td class="text-left">Переплата за 30 дней, ₽</td>
         </tr>
     </thead>
     <tbody>

@@ -2,19 +2,19 @@
         @if(isset($card->opened)) @if(($card->opened!==null))
             <p class="border-left border-right bg-grey">
                 <b class="label">Открытие:</b>
-                {{$card->opened}} руб
+                {{$card->opened}} ₽
             </p>
         @endif @endif
         @if(isset($card->maintenance)) @if(($card->maintenance!==null))
             <p class="border-left border-right bg-grey">
                 <b class="label">Обслуживание:</b>
-                {{$card->maintenance}} руб
+                {{$card->maintenance}} ₽
             </p>
         @endif @endif
         @if(isset($card->count_payment)) @if(($card->count_payment!==null))
             <p class="border-left border-right bg-grey">
                 <b class="label">Платежка:</b>
-                {{$card->count_payment}} руб
+                {{$card->count_payment}} ₽
             </p>
         @endif @endif
         @if(isset($card->speed_opened)) @if(($card->speed_opened!==null))

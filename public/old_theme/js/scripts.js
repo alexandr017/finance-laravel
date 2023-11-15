@@ -1167,7 +1167,7 @@ $(document).on('mouseover touchstart','.zaym_cards span',function(){
 
 
 // раскрытие отзывов
-$('.show_the_reviews').click(function(){
+$('body').on('click', '.show_the_reviews', function(){
     $(this).next().show();
     $(this).prev('.three_dots').remove();
     $(this).remove();

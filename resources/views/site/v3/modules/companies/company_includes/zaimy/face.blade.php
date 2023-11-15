@@ -50,7 +50,7 @@
                 <div class="col-sm-4">
                     <span class="scb-label"><i class="fa fa-money"></i> Сумма</span>
                     @if(isset($cards[0]))
-                    <div class="scb-value">от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif @endif</div>
+                    <div class="scb-value">от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div>
                     @endif
                 </div>
                 <div class="col-sm-4">
@@ -129,7 +129,7 @@
                 <th>Сумма</th>
                 <td>
                     @if(isset($cards[0]->sum_min)) @if($cards[0]->sum_min != null)
-                        от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} руб. @endif @endif
+                        от {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @if(isset($cards[0]->sum_max)) @if($cards[0]->sum_max != null) до {{number_format($cards[0]->sum_max, 0, '.', ' ')}} ₽ @endif @endif
                     @endif @endif
                 </td>
                 <th>Документы</th>
@@ -161,7 +161,7 @@
                     $m_term_min = (isset($cards[0]->term_min)) ? $cards[0]->term_min : 0;
                     $m_percent = (isset($cards[0]->percent)) ? $cards[0]->percent : 0;
                     $res = $m_min * ($m_percent /100) * $m_term_min;
-                    echo number_format($res, 0, '.', ' ') . ' руб.';
+                    echo number_format($res, 0, '.', ' ') . ' ₽';
                     ?>
                 </td>
                 <th>Продление</th>

@@ -16,7 +16,7 @@
             <div class="card-mn-row">
                 <span class="card-mn-details">Минимальный доход</span>
                 <b class="card-mn-row-value"> от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max) && $card->sum_max != null)
-                        до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif </b>
+                        до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif </b>
             </div>
         @endif
         @if(isset($card->term_min) && $card->term_min !== null)
@@ -72,7 +72,7 @@
             <div class="card-mn-row">
                 <span class="card-mn-details">Сумма займа</span>
                 <b class="card-mn-row-value"> от {{$card->income_min}} @if(isset($card->income_max) && $card->income_max != null)
-                        до {{$card->income_max}} руб. @endif </b>
+                        до {{$card->income_max}} ₽ @endif </b>
             </div>
         @endif
     </div>

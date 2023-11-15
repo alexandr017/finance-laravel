@@ -75,11 +75,11 @@
             {icon_after_name}
 
             <div class="form-group">
-                <label for="sum_min">Сумма min (руб):</label>
+                <label for="sum_min">Сумма min (₽):</label>
                 <input class="form-control" type="number" value="{sum_min}" name="sum_min" id="sum_min">
             </div>
             <div class="form-group">
-                <label for="sum_max">Сумма max (руб):</label>
+                <label for="sum_max">Сумма max (₽):</label>
                 <input class="form-control" type="number" value="{sum_max}" name="sum_max" id="sum_max">
             </div>
             <div class="form-group">

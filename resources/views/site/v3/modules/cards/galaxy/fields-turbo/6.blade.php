@@ -1,8 +1,8 @@
 @if(isset($card->opened)) @if($card->opened !== null)
-<p class="border-left border-right bg-grey"><b class="label">Открытие:</b> {{number_format($card->opened, 0, '.', ' ')}} руб</p>
+<p class="border-left border-right bg-grey"><b class="label">Открытие:</b> {{number_format($card->opened, 0, '.', ' ')}} ₽</p>
 @endif @endif
 @if(isset($card->maintenance)) @if($card->maintenance !== null)
-<p class="border-left border-right bg-grey"><b class="label">Обслуживание:</b> {{number_format($card->maintenance, 0, '.', ' ')}} руб</p>
+<p class="border-left border-right bg-grey"><b class="label">Обслуживание:</b> {{number_format($card->maintenance, 0, '.', ' ')}} ₽</p>
 @endif @endif
 @if(isset($card->age_min)) @if($card->age_min !== null)
 <p class="border-left border-right bg-grey"><b class="label">Возраст:</b> от {{$card->age_min}} @if(isset($card->age_max)) @if($card->age_max != null) до {{$card->age_max}} лет @endif @endif</p>

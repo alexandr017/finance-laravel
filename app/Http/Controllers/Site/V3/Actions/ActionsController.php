@@ -18,36 +18,6 @@ use App\Models\Posts\PostsComments;
 
 class ActionsController extends Controller
 {
-    public function remove_review(Request $request){
-    	$tmpArr = explode('-',$request['id']);
-    	if(isset($tmpArr[1])){
-    		$id = (int) clear_data($tmpArr[1]);
-            DB::delete("delete from companies_reviews where id=?",[$id]);
-            if(Cache::has('through_reviews')) Cache::forget('through_reviews');
-
-    	}
-    }
-
-    public function edit_review(Request $request)
-    {
-        $id = (int) clear_data($request['id']);
-        $rating = (float) clear_data($request['rating']);
-        if(!$id || !$rating){
-            return false;
-        }
-        DB::update('update companies_reviews set rating = ? where id = ?', [$rating, $id]);
-        if(Cache::has('through_reviews')) Cache::forget('through_reviews');
-    }
-
-    public function remove_card(Request $request){
-        $card_id = (int) clear_data($request['card_id']);
-        $children_id = (int) clear_data($request['listing_id']);
-        $ccid = (int) clear_data($request['ccid']);
-        DB::delete("delete from cards_childrens where id=?",[$ccid]);
-        //DB::delete("delete from cards_childrens where card_id=? and children_id=?",[$card_id,$children_id]);
-        return 1;
-    }
-
     public function addReview(Request $request){
 
         $rating = clear_data($request['rating']); 
@@ -90,61 +60,6 @@ class ActionsController extends Controller
         $review->status = 0;
         $review->save();
         return 'Данные успешно отправлены. <br> Ваш комментарий появится после проверки администратором';
-
-    }
-
-    public function inc_help_count(Request $request)
-    {
-        $link =  clear_data($request['link']);
-        $link  = preg_replace('/^\//','',$link);
-
-        $card_id = (int) clear_data($request['card_id']);
-
-
-
-        $link_id_row = DB::select("select id from hide_links where `in` = ?", [$link]);
-        if(isset($link_id_row[0])){
-            $link_id = $link_id_row[0]->id;
-        } else {
-            $link_id = null;
-        }
-
-        $company_id_row = DB::select("select * from cards where id=?", [$card_id]);
-        if(isset($link_id_row[0])){
-            $company_id = $company_id_row[0]->company_id;
-        } else {
-            $company_id = null;
-        }
-
-        DB::insert('insert into cards_clicks (hl_id, card_id, company_id, date) values (?, ?, ?, ?)', [$link_id, $card_id, $company_id, date('Y-m-d H:i:s')]);
-
-        $help_count = SideBar::find('help_count');
-        $help_count->side_value = $help_count->side_value +1;
-        if(Cache::has('sidebar')) Cache::forget('sidebar');
-        $help_count->save(); 
-    }
-
-    public function favorites_load(Request $request){
-        $favoritesArr = explode(',',$request['favorites']);
-        foreach ($favoritesArr as $key => $value) {
-            $favoritesArr[$key] = (int) clear_data($value);
-            if($favoritesArr[$key] == 0) unset($favoritesArr[$key]);
-        }
-        $cards_list = implode(',', $favoritesArr);
-
-        $cards_ = DB::select("select id, category_id from cards where id in ($cards_list)");
-
-        $cards = CardsBoot::getCardsForListingByIDs($cards_);
-        $cards = CardSorting::sort($cards);
-
-
-        $result = '';
-
-        foreach($cards as $card){
-            $result .= view('frontend.cards.card.card',['card'=>$card,'section_type'=>-1,'amp'=>0])->render();
-        }
-
-        return $result;
 
     }
 
@@ -312,5 +227,35 @@ class ActionsController extends Controller
         ];
 
     }
+
+    public function commentAdd(Request $request)
+    {
+        $name = clear_data($request['name']);
+        $uid = clear_data($request['uid']);
+        $pid = clear_data($request['pid']);
+        $comment = clear_data($request['comment']);
+        $parent = clear_data($request['parent']);
+
+        if(Auth::id() == null){
+            $captcha = clear_data($request['captcha']);
+            $captchaCheck = GoogleCaptcha::init($captcha);
+            if(!$captchaCheck)
+                return 'Вы не прошли проверку Captcha';
+        }
+
+        $form = new PostsComments();
+
+        if($uid == 'null'){
+            $form->author_name = $name;
+        }
+        $form->uid = ($uid === 'null') ? null : $uid;
+        $form->comment = ($comment == '') ? null : $comment;
+        $form->pid = $pid;
+        $form->parent = ($parent === 'null') ? null : $parent;
+        $form->status = 0;
+        $form->save();
+        return 'Данные успешно отправлены. <br> Ваш комментарий появится после проверки администратором';
+    }
+
 
 }

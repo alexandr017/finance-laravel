@@ -17,7 +17,7 @@ class CardsServiceProvider extends ServiceProvider
     {
         Response::macro('cardHeader1', function($header_1,$category_id){
             switch ($category_id) {
-                case '1': return number_format((float)$header_1, 0, '.', ' ')  . ' руб.';
+                case '1': return number_format((float)$header_1, 0, '.', ' ')  . ' ₽';
                     break;
                 case '2':
                     # code...
@@ -25,7 +25,7 @@ class CardsServiceProvider extends ServiceProvider
                 case '3': 
                     # code...
                     break;
-                case '4': return number_format((float)$header_1, 0, '.', ' ')  . ' руб.';
+                case '4': return number_format((float)$header_1, 0, '.', ' ')  . ' ₽';
                     break;
                 case '5':
                     # code...
@@ -33,13 +33,13 @@ class CardsServiceProvider extends ServiceProvider
                 case '6':
                     # code...
                     break;
-                case '7': return number_format((float)$header_1, 0, '.', ' ')  . ' руб.';
+                case '7': return number_format((float)$header_1, 0, '.', ' ')  . ' ₽';
                     break;
                 case '8':
-                    return number_format((float)$header_1, 0, '.', ' ')  . ' руб.';
+                    return number_format((float)$header_1, 0, '.', ' ')  . ' ₽';
                     break;
                 case '10':
-                    return number_format((float)$header_1, 0, '.', ' ')  . ' руб.';
+                    return number_format((float)$header_1, 0, '.', ' ')  . ' ₽';
                     break;
                 default: return $header_1;
             }

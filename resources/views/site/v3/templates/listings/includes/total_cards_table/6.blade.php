@@ -38,9 +38,9 @@
                     <a class="creditcards" href="{{$link}}" target="_blank">{{$card->title}}</a>
                 </td>
                 <td class="display_none">{{$card->opened}}</td>
-                <td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} руб.</td>
+                <td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} ₽</td>
                 <td class="display_none">{{$card->maintenance}}</td>
-                <td class="text-center">{{number_format($card->maintenance, 0, '.', ' ')}} руб.</td>
+                <td class="text-center">{{number_format($card->maintenance, 0, '.', ' ')}} ₽</td>
                 <td class="display_none">{{$card->percent_on_balance}}</td>
                 <td class="text-center">@if($card->percent_on_balance != '') {{$card->percent_on_balance}}% @endif</td>
             </tr>

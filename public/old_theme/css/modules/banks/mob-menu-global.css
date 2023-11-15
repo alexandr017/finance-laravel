@@ -29,9 +29,9 @@
     color: black;
 }
 .bank-menu .bank-active-item {
-    background-color: #a5ca38;
+    background-color: #063;
 }
-.bank-menu .bank-active-item a {
+.bank-menu .bank-active-item span {
     color: white;
 }
 .bank-menu li {

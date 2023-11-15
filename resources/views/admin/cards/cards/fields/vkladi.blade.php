@@ -34,11 +34,11 @@
                     <input class="form-control" type="text" value="{term}" name="term" id="term">
                 </div>
                 <div class="form-group">
-                    <label for="sum_min"> Сумма мин. руб.:</label>
+                    <label for="sum_min"> Сумма мин. ₽:</label>
                     <input class="form-control" type="number" value="{sum_min}" name="sum_min" id="sum_min">
                 </div>
                 <div class="form-group">
-                    <label for="sum_max"> Сумма макс. руб.:</label>
+                    <label for="sum_max"> Сумма макс. ₽:</label>
                     <input class="form-control" type="number" value="{sum_max}" name="sum_max" id="sum_max">
                 </div>
                 <div class="form-group">

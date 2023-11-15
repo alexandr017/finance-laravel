@@ -121,10 +121,10 @@
                     <div class="col-md-4">
                         <div class="calc-result">
                             <div class="sub-title">Рассчитать займ в {{$cards[0]->title}}</div>
-                            <div class="line">Сумма: <span id="sum_field">{{$sum_max/2}} руб</span></div>
+                            <div class="line">Сумма: <span id="sum_field">{{$sum_max/2}} ₽</span></div>
                             <div class="line">Срок: <span id="term_field">{{ceil($term_max/2)}} дн.</span></div>
                             <div class="line">Процентная ставка: <span>@if(isset($cards[0]->percent)) {{$cards[0]->percent}}% @else 0% @endif</span></div>
-                            <div class="total-line">Переплата <span>{{round(($sum_max/2)*($term_max/2)*$cards[0]->percent/100,2)}} руб.</span></div>
+                            <div class="total-line">Переплата <span>{{round(($sum_max/2)*($term_max/2)*$cards[0]->percent/100,2)}} ₽</span></div>
                         </div>
                     </div>
                     <div class="col-md-4 text-center">
@@ -135,7 +135,7 @@
                 </div>
                 <p class="calc-info">Вышеуказанная форма используется для имитации расчета стоимости займа с ориентировочными значениями.
                         Для уточнения информации нажмите кнопку.
-                        Минимальная сумма займа: @if(isset($cards[0]->sum_min)) {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @else 0 @endif рублей, максимальная: @if(isset($cards[0]->sum_max)) {{number_format($cards[0]->sum_max, 0, '.', ' ')}} @else 0 @endif рублей.
+                        Минимальная сумма займа: @if(isset($cards[0]->sum_min)) {{number_format($cards[0]->sum_min, 0, '.', ' ')}} @else 0 @endif ₽, максимальная: @if(isset($cards[0]->sum_max)) {{number_format($cards[0]->sum_max, 0, '.', ' ')}} @else 0 @endif ₽.
                         Процентная ставка в год: @if(isset($cards[0]->percent)) {{$cards[0]->percent * 365}}% @else 0% @endif.
                         Минимальный срок: @if(isset($cards[0]->term_min)) {{$cards[0]->term_min}} @else 0 @endif дней, максимальный: @if(isset($cards[0]->term_max)) {{$cards[0]->term_max}} @else 0 @endif дней.
                         Предложение не является офертой.</p>
@@ -149,7 +149,7 @@
                         </tr>
                         <tr>
                             <th>Сумма</th>
-                            <td class="amount">до {{$cards[0]->header_1}} руб.</td>
+                            <td class="amount">до {{$cards[0]->header_1}} ₽</td>
                         </tr>
                         <tr>
                             <th>Ставка</th>
@@ -163,7 +163,7 @@
                                 $m_term_min = (isset($cards[0]->term_min)) ? $cards[0]->term_min : 0;
                                 $m_percent = (isset($cards[0]->percent)) ? $cards[0]->percent : 0;
                                 $res = $m_min * ($m_percent /100) * $m_term_min;
-                                echo number_format($res, 0, '.', ' ') . ' руб.';
+                                echo number_format($res, 0, '.', ' ') . ' ₽';
                                 ?>
                             </td>
                         </tr>
@@ -177,8 +177,8 @@
                     percent = @if(isset($cards[0]->percent)) {{$cards[0]->percent}} @else 1 @endif;
                     if(field == 1){
                         sum = value;
-                        $('#sum_field').text(new Intl.NumberFormat().format(Number(value).toFixed(0))+' руб');
-                        //$('#sum_field').text(sum+' руб');
+                        $('#sum_field').text(new Intl.NumberFormat().format(Number(value).toFixed(0))+' ₽');
+                        //$('#sum_field').text(sum+' ₽');
                         term = $('#term_field').text();
                         term = parseInt(term.replace(' дн.',''));
                     } else {
@@ -186,11 +186,11 @@
                         $('#term_field').text(term+' дн.');
                         sum = $('#sum_field').text();
                         sum = sum.replace(/\s/g, '');
-                        sum = parseInt(sum.replace('руб',''));
+                        sum = parseInt(sum.replace('₽',''));
                     }
                     res = new Intl.NumberFormat().format(Number((sum*term*percent/100).toFixed(0)));
                     res = res.replace(',','.');
-                    $('.total-line span').text(res + ' руб');
+                    $('.total-line span').text(res + ' ₽');
                 }
             </script>
             @endif

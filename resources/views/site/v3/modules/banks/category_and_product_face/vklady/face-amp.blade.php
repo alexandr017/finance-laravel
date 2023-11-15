@@ -75,10 +75,10 @@
         <table class="company-face-table">
             <?php
             if ($cards[0]->sum_min != null) {
-                $firstCardDetails['Минимальная сумма вклада'] = number_format($cards[0]->sum_min, 0, '.', ' ') . ' руб';
+                $firstCardDetails['Минимальная сумма вклада'] = number_format($cards[0]->sum_min, 0, '.', ' ') . ' ₽';
             }
             if ($cards[0]->sum_max != null) {
-                $firstCardDetails['Минимальный срок вклада'] = number_format($cards[0]->sum_max, 0, '.', ' ') . ' руб';
+                $firstCardDetails['Минимальный срок вклада'] = number_format($cards[0]->sum_max, 0, '.', ' ') . ' ₽';
             }
             if ($cards[0]->percent_min != null) {
                 $firstCardDetails['Процент по вкладу'] = $cards[0]->percent_min . '%';

@@ -27,7 +27,7 @@
         		<a class="creditonline" href="{{$link}}" target="_blank" @if(!$amp) onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}'); return true;"@endif>{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->header_1}}</td>
-			<td class="text-center">{{number_format($card->header_1, 0, '.', ' ')}} руб.</td>
+			<td class="text-center">{{number_format($card->header_1, 0, '.', ' ')}} ₽</td>
 			<td class="display_none">{{$card->header_2}}</td>
 			<td class="text-center">{{$card->header_2}} месяцев</td>
 			<td class="display_none">{{str_replace('%','',str_replace(',','.',$card->header_3))}}</td>

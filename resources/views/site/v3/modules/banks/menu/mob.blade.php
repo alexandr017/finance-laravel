@@ -46,9 +46,6 @@
         ->where(['bank_id' => $bank->id, 'status' => 1])
         ->orderBy('posts.date','desc')
         ->get();
-    if(isset($news) && count($news) != 0){
-        $bank_menu_items['news'] = ['Новости','newspaper-o'];
-    }
     $url= explode('/',$_SERVER['REQUEST_URI']);
     $section = '';
     $active_item = '';

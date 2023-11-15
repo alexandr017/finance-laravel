@@ -48,19 +48,19 @@ if(isset($card->onep_bonus)) if(($card->onep_bonus!==null))$active_fields++;
                                         @if(isset($card->opened)) @if(($card->opened!==null))
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-clock-o"></i>Открытие:</div>
-                                            <div class="value">{{$card->opened}} руб.</div>
+                                            <div class="value">{{$card->opened}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->maintenance)) @if(($card->maintenance!==null))
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-spinner"></i>Обслуживание:</div>
-                                            <div class="value">{{$card->maintenance}} руб.</div>
+                                            <div class="value">{{$card->maintenance}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->count_payment)) @if(($card->count_payment!==null))
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-calculator"></i>Платежка:</div>
-                                            <div class="value">{{$card->count_payment}} руб.</div>
+                                            <div class="value">{{$card->count_payment}} ₽</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->speed_opened)) @if(($card->speed_opened!==null))

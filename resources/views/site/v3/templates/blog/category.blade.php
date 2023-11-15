@@ -22,6 +22,10 @@ if (isset($page)) {
 
             <h1 class="p-h1">{{$postCategory->h1  . $pagePrefix}}</h1>
 
+            @if (is_mobile_device())
+                @include('site.v3.modules.blog.categories')
+            @endif
+
             <div class="post-category-text">
                 {!! TagsParser::compile(Shortcode::compile($postCategory->text)) !!}
             </div>

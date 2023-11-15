@@ -75,11 +75,11 @@
                 $value = '';
                 $firstCardDetails = [];
                 if (isset($cards[0]->opened) && $cards[0]->opened != null) {
-                    $firstCardDetails['Открытие'] = $cards[0]->opened . ' руб.';
+                    $firstCardDetails['Открытие'] = $cards[0]->opened . ' ₽';
                     $value = '';
                 }
                 if (isset($cards[0]->maintenance) && $cards[0]->maintenance != null) {
-                    $firstCardDetails['Обслуживание'] = $cards[0]->maintenance . ' руб.';
+                    $firstCardDetails['Обслуживание'] = $cards[0]->maintenance . ' ₽';
                     $value = '';
                 }
                 if (isset($cards[0]->age_min) && $cards[0]->age_min != null) {

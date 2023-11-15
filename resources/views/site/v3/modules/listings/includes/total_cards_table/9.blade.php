@@ -38,9 +38,9 @@
                     <a class="creditcards" href="{{$link}}" target="_blank" @if(!$amp) onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}'); return true;"@endif>{{$card->title}}</a>
                 </td>
                 <td class="display_none">{{$card->opened}}</td>
-                <td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} руб.</td>
+                <td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} ₽</td>
                 <td class="display_none">{{$card->maintenance}}</td>
-                <td class="text-center">{{number_format($card->maintenance, 0, '.', ' ')}} руб.</td>
+                <td class="text-center">{{number_format($card->maintenance, 0, '.', ' ')}} ₽</td>
                 <?php $maxPercent = App\Algorithms\Frontend\GlobalAlgorithms::getMaxNumberWithPercentFromStr($card->cache_back) ?>
                 <td class="display_none">@if($maxPercent != null) {{$maxPercent}}% @endif</td>
                 <td class="text-center">@if($maxPercent != null) {{$maxPercent}}% @endif</td>

@@ -267,6 +267,46 @@ if(document.getElementById('zalogiSlider')){
     })
 }
 
+if(document.getElementById('mortgageSlider')){
+    slideShow({
+        element:'#mortgageSlider',
+        slidesToShow:3,
+        slidesToScroll:1,
+        circleScroll:true,
+        height:'140',
+        blockWidth:'100',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    })
+}
+
+if(document.getElementById('depositsSlider')){
+    slideShow({
+        element:'#depositsSlider',
+        slidesToShow:3,
+        slidesToScroll:1,
+        circleScroll:true,
+        height:'140',
+        blockWidth:'100',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    })
+}
+
 if(document.getElementById('cashBackSlider')){
     slideShow({
         element:'#cashBackSlider',

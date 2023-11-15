@@ -15,10 +15,10 @@ foreach ($iconsArr as $key => $value) {
 
                                     <div class="col-md-6">
                                        	@if(isset($card->opened)) @if($card->opened !== null)
-                                        <div class="lvc fa-clock-o">Открытие: <div class="value">{{number_format($card->opened, 0, '.', ' ')}} руб.</div></div>
+                                        <div class="lvc fa-clock-o">Открытие: <div class="value">{{number_format($card->opened, 0, '.', ' ')}} ₽</div></div>
                                         @endif @endif
                                         @if(isset($card->maintenance)) @if($card->maintenance !== null)
-                                        <div class="lvc fa-spinner">Обслуживание: <div class="value">{{number_format($card->maintenance, 0, '.', ' ')}} руб.</div></div>
+                                        <div class="lvc fa-spinner">Обслуживание: <div class="value">{{number_format($card->maintenance, 0, '.', ' ')}} ₽</div></div>
                                         @endif @endif
                                         @if(isset($card->other_maintenance)) @if($card->other_maintenance !== null)
                                             <div class="lvc fa-wrench">Доп.условия обслуживания: <div class="value">{{$card->other_maintenance}}</div></div>

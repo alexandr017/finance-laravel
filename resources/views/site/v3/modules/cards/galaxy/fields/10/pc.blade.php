@@ -9,7 +9,7 @@
             @if(isset($card->sum_min)) @if($card->sum_min !== null)
             <div class="lvc fa-rub">
                 Сумма:
-                <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif @endif</div>
+                <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div>
             </div>
             @endif @endif
             @if(isset($card->term_min)) @if($card->term_min !== null)
@@ -62,7 +62,7 @@
             @if(isset($card->income_min)) @if($card->income_min !== null)
             <div class="lvc fa-suitcase">
                 Примерный доход:
-                <div class="value">от {{$card->income_min}} @if(isset($card->income_max)) @if($card->income_max != null) до {{$card->income_max}} @endif @endif руб </div>
+                <div class="value">от {{$card->income_min}} @if(isset($card->income_max)) @if($card->income_max != null) до {{$card->income_max}} @endif @endif ₽ </div>
             </div>
             @endif @endif
         </div>

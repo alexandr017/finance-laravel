@@ -14,6 +14,10 @@
 
                 {!!$postsCategory->lead!!}
 
+                @if (is_mobile_device())
+                    @include('site.v3.modules.blog.categories')
+                @endif
+
                 <div class="news-post-wrap">
                     @foreach($posts as $post_category)
                         @if(count($post_category))

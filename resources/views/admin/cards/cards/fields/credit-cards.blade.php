@@ -49,7 +49,7 @@
 
 
             <div class="form-group">
-                <label for="limit_max">Максимальный лимит (руб):</label>
+                <label for="limit_max">Максимальный лимит (₽):</label>
                 <input class="form-control" type="number" value="{limit_max}" name="limit_max" id="limit_max">
             </div>
             <div class="form-group">
@@ -65,11 +65,11 @@
                 <input class="form-control" type="number" value="{none_percent_period}" name="none_percent_period" id="none_percent_period">
             </div>
             <div class="form-group">
-                <label for="opened">Открытие (руб):</label>
+                <label for="opened">Открытие (₽):</label>
                 <input class="form-control" type="number" value="{opened}" name="opened" id="opened">
             </div>
             <div class="form-group">
-                <label for="maintenance">Обслуживание (руб):</label>
+                <label for="maintenance">Обслуживание (₽):</label>
                 <input class="form-control" type="number" value="{maintenance}" name="maintenance" id="maintenance">
             </div>
             <div class="form-group">

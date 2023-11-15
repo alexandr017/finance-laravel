@@ -26,7 +26,7 @@
         		<a class="zalogi" href="{{$link}}" target="_blank">{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->sum_max}}</td>
-			<td class="text-center">{{number_format($card->sum_max, 0, '.', ' ')}} руб.</td>
+			<td class="text-center">{{number_format($card->sum_max, 0, '.', ' ')}} ₽</td>
 			<td class="display_none">{{$card->term_max}}</td>
 			<td class="text-center">{{$card->term_max}} дней</td>
 			<td class="text-center">{{$card->percent_min}}%</td>

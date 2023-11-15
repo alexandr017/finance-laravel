@@ -3,7 +3,7 @@
         @if(isset($card->sum_min)) @if($card->sum_min !== null)
             <div class="lvc fa-money">
                 Сумма:
-                <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} руб. @endif @endif</div>
+                <div class="value">от {{number_format($card->sum_min, 0, '.', ' ')}} @if(isset($card->sum_max)) @if($card->sum_max != null) до {{number_format($card->sum_max, 0, '.', ' ')}} ₽ @endif @endif</div>
             </div>
         @endif @endif
         @if(isset($card->term_min)) @if($card->term_min !== null)
@@ -26,7 +26,7 @@
                 $m_term_min = (isset($card->term_min)) ? $card->term_min : 0;
                 $m_percent = (isset($card->percent)) ? $card->percent : 0;
                 $res = $m_min * ($m_percent /100) * $m_term_min;
-                echo number_format($res, 0, '.', ' ') . ' руб.';
+                echo number_format($res, 0, '.', ' ') . ' ₽';
                 ?>
             </div>
         </div>

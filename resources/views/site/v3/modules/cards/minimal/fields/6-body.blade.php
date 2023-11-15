@@ -7,13 +7,13 @@
         @if(isset($card->opened) && $card->opened !== null)
             <div class="card-mn-row">
                 <span class="card-mn-details">Открытие</span>
-                <b class="card-mn-row-value">{{$card->opened}} руб.</b>
+                <b class="card-mn-row-value">{{$card->opened}} ₽</b>
             </div>
         @endif
         @if(isset($card->maintenance) && $card->maintenance !== null)
             <div class="card-mn-row">
                 <span class="card-mn-details">Обслуживание</span>
-                <b class="card-mn-row-value">{{$card->maintenance}} руб.</b>
+                <b class="card-mn-row-value">{{$card->maintenance}} ₽</b>
             </div>
         @endif
         @if(isset($card->other_maintenance) && $card->other_maintenance !== null)

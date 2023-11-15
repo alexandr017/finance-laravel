@@ -38,7 +38,7 @@ class Tarify extends BaseShortcode{
             $text = $tarif->text;
 
             $listHtml = "<ul>
-                <li>Сумма $sum_min $sum_max руб.</li>
+                <li>Сумма $sum_min $sum_max ₽</li>
                 <li>Срок $term_min $term_max дней</li>
                 <li>Процентная ставка от $tarif->percent% в день</li>
             </ul>";
