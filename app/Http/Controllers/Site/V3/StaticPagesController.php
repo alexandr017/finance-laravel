@@ -146,6 +146,8 @@ class StaticPagesController extends Controller
         $reviews = $reviewsCompany->merge($reviewsBank)->toArray();
         shuffle($reviews);
 
+        $test = [];
+
 
         return view('site.v3.templates.static-pages.index',[
             'page' => $page,
