@@ -7,7 +7,7 @@ use Cache;
 
 trait CardsTrait
 {
-    public function setImagesCards()
+    public function updateCards()
     {
         $cards = Cards::select('id')->where(['category_id' => 1])->get();
         foreach ($cards as $_card) {
@@ -22,6 +22,7 @@ trait CardsTrait
             $card->link_to_reviews_page = '/mfo' . $card->link_to_reviews_page;
             $card->link_to_reviews_page = str_replace('/reviews', '/otzyvy', $card->link_to_reviews_page);
 
+            $card->link_to_entity = '/mfo' . $card->link_to_entity;
 
             $card->save();
 

@@ -39,4 +39,4 @@ Route::get('/import/relink', [ImportController::class, 'relink']);
 
 
 // cards
-Route::get('/import/set-images-cards', [ImportController::class, 'setImagesCards']);
+Route::get('/import/update-cards', [ImportController::class, 'updateCards']);

@@ -52,6 +52,9 @@ trait BlogTrait
 
     public function blogPosts()
     {
+//        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+//        DB::table('posts_comments')->truncate();
+
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('posts')->truncate();
 

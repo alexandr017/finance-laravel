@@ -9,4 +9,7 @@ Route::get('/rules', [StaticPagesController::class, 'render']);
 Route::get('/privacy', [StaticPagesController::class, 'render']);
 Route::get('/contacts', [StaticPagesController::class, 'render']);
 
+Route::get('mfo', [StaticPagesController::class, 'mfo']);
+//Route::get('mfo/amp', [MFOHubController::class, 'index']);
+
 

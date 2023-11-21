@@ -4,6 +4,26 @@
 
 @if($_SERVER['REQUEST_URI'] == '/')
     block for index sidebar
+
+    <table>
+        <tr>
+            <td>test</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>test2</td>
+            <td>1123</td>
+        </tr>
+        <tr>
+            <td>test3</td>
+            <td>2343</td>
+        </tr>
+        <tr>
+            <td>test4</td>
+            <td>233</td>
+        </tr>
+    </table>
+
 @endif
 
 

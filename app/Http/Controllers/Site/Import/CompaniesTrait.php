@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site\Import;
 
+use App\Models\Cards\Cards;
 use App\Models\Companies\Companies;
 use App\Models\Companies\CompaniesChildrenPages;
 use App\Models\Companies\CompaniesReviews;
@@ -12,6 +13,8 @@ trait CompaniesTrait
     public function companies()
     {
         DB::update('update companies set status = 0');
+
+        DB::update('update cards set status = 0 where category_id = 1');
 
         $id = '1IpCuClu4Cz9MIirCH6sUCzCs_GQJIfEt-ObaHw0KQ4w';
         $gid = '0';
@@ -50,6 +53,15 @@ trait CompaniesTrait
                 $page->og_img = $row[10];
                 $page->status = 1;
                 $page->save();
+
+                $cardsArr = explode(',', $row[9]);
+                foreach ($cardsArr as $cardId) {
+                    $card = Cards::find($cardId);
+                    if ($card != null) {
+                        $card->status = 1;
+                    }
+                    $card->save();
+                }
 
             }
         });

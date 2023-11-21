@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Site\V3;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cards\Cards;
+use App\Models\Cards\CardsCategories;
+use App\Repositories\Site\Relinking\RelinkingRepository;
 use DB;
 use App\Models\StaticPages\StaticPage;
+use App\Algorithms\Frontend\Cards\CardsBoot;
 
 
 class StaticPagesController extends Controller
@@ -211,6 +215,38 @@ class StaticPagesController extends Controller
         ));
     }
 
+    public function mfo()
+    {
+        $categoryID = 1;
+
+        $page = StaticPage::findByAlias();
+
+        if ($page == null) {
+            abort(404);
+        }
+
+        $breadcrumbs = [['h1' => $page->breadcrumb ?? $page->h1]];
+
+        $relinkData = (new (RelinkingRepository::class))->getRelinkByCategory($categoryID);
+
+
+        $cards = Cards::where(['cards.show_in_habs' => 1,'cards.category_id' => $categoryID, 'cards.status' => 1])
+            ->select('id','category_id')
+            ->orderBy('flow')
+            ->orderBy('km5','desc')
+            ->orderBy('cards.id','asc')
+            ->get();
+        $cards = CardsBoot::getCardsForListingByIDs($cards);
+
+
+        $blade = (!is_amp_page())
+            ? 'site.v3.templates.companies.hub.mfo'
+            : 'site.v3.templates.companies.companies.hub-amp';
+
+        return view($blade, compact('categoryID','breadcrumbs', 'cards', 'relinkData', 'page'));
+
+    }
+
     public function render()
     {
         $page = StaticPage::findByAlias();
@@ -224,5 +260,17 @@ class StaticPagesController extends Controller
         return view('site.v3.templates.static-pages.page', compact('page', 'breadcrumbs'));
     }
 
+
+    private function getSortedMfoCards($cardCategoryID, $field = 'km5', $sort = 'desc')
+    {
+        $cards = Cards::where(['cards.show_in_habs' => 1,'cards.category_id' => $cardCategoryID, 'cards.status' => 1])
+            ->select('id','category_id')
+            ->orderBy('flow')
+            ->orderBy($field,$sort)
+            ->orderBy('cards.id','asc')
+            ->get();
+
+        return  CardsBoot::getCardsForListingByIDs($cards);
+    }
 
 }
