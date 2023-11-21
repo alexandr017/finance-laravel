@@ -79,22 +79,7 @@
                 </div>
                 <br>
 
-                @if($complaintAllCount > 0)
-                <p class="text-center reviews-status-title">Статистика по жалобам</p>
-                <div class="reviews-status-line">
-                    <span class="reviews-status-line-left">Решено 🙂 ({{$complaintAnswerCount}})</span>
-                    <span class="reviews-status-line-right">Рассматривается 😒 ({{$complaintAllCount - $complaintAnswerCount}})</span>
-                    <div class="reviews-progress-wrap">
-                        <div class="reviews-progressbar">
-                            @if($complaintAllCount == 0)
-                            <div class="progress progress-bar bg-success progress-bar-striped" style="width:100%"></div>
-                            @else
-                            <div class="progress progress-bar bg-success progress-bar-striped" style="width: {{ ($complaintAnswerCount / $complaintAllCount * 100) }}%"></div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
+
                 <?php /*
                 <div class="sorting-line reviews_items" data-term-id="{{$bank->id}}">
                     <ul>
@@ -150,19 +135,19 @@
             <?php $reviewsGroups = 1; $i = 0;?>
                 <div class="reviews-list-wrap">
                     @foreach($reviews as $comment)
-                    <div data-product="{{$comment->product_id}}" @if(isset($comment->category_id)) data-category="{{$comment->category_id}}" @endif class="comment-item {{RatingParser::getCssClassForBackground($comment->rating)}} rev-group-{{$reviewsGroups}} @if($reviewsGroups > 1) {{'display_none'}} @endif" id="comment-{{$comment->id}}">
-                        <div class="title-line">
+                    <div data-product="{{$comment->product_id}}" @if(isset($comment->category_id)) data-category="{{$comment->category_id}}" @endif class="comment-item rev-group-{{$reviewsGroups}} @if($reviewsGroups > 1) {{'display_none'}} @endif" id="comment-{{$comment->id}}">
+                        <div class="title-line {{RatingParser::getCssClassForBackground($comment->rating)}}">
                             <span class="title-review-name @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-name @endif"><?php if($comment->author!=null) echo trim($comment->author); else echo trim($comment->last_name . ' ' . $comment->first_name . ' ' . $comment->middle_name); ?></span>
                             @if($comment->rating!=null)
                             <div class="rating-line rev">{!! App\Models\System::rating($comment->rating) !!}</div>
                             @endif
-                            @if($comment->rating <= 2)
-                            @if(isset($comment->complain_result))
-                            <span class="label_of_complain_success">Решено</span>
-                            @else
-                            <span class="label_of_complain_warning">Рассматривается</span>
-                            @endif
-                            @endif
+{{--                            @if($comment->rating <= 2)--}}
+{{--                            @if(isset($comment->complain_result))--}}
+{{--                            <span class="label_of_complain_success">Решено</span>--}}
+{{--                            @else--}}
+{{--                            <span class="label_of_complain_warning">Рассматривается</span>--}}
+{{--                            @endif--}}
+{{--                            @endif--}}
                         </div>
                         <div class="text-rew @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-body @endif">
                             {!!$comment->review!!}

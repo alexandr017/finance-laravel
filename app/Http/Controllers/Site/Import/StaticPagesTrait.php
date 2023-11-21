@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\Import;
 
 use App\Models\StaticPages\StaticPage;
+use DB;
 
 trait StaticPagesTrait
 {

@@ -48,22 +48,6 @@
                 </div>
                 <br>
 
-                @if($complaintAllCount > 0)
-                <p class="text-center reviews-status-title">Статистика по жалобам</p>
-                <div class="reviews-status-line">
-                    <span class="reviews-status-line-left">Решено 🙂 ({{$complaintAnswerCount}})</span>
-                    <span class="reviews-status-line-right">Рассматривается 😒 ({{$complaintAllCount - $complaintAnswerCount}})</span>
-                    <div class="reviews-progress-wrap">
-                        <div class="reviews-progressbar">
-                            @if($complaintAllCount == 0)
-                                <div class="progress progress-bar bg-success progress-bar-striped" style="width:100%"></div>
-                            @else
-                                <div class="progress progress-bar bg-success progress-bar-striped" style="width: {{ ($complaintAnswerCount / $complaintAllCount * 100) }}%"></div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                @endif
 
                 <div class="sorting-line reviews_items" data-term-id="{{$company->id}}">
                     <ul>

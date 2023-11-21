@@ -112,7 +112,7 @@
                                         @if(isset($card->poor_ch)) @if($card->poor_ch !== null)
                                         <div class="lvc">
                                             <div class="label"><i class="fa fa-user-secret"></i>Плохая КИ:</div>
-                                            <div class="value">@if($card->poor_ch==1) Да @else Нет @endif</div>
+                                            <div class="value">@if($card->poor_ch==1) да @else нет @endif</div>
                                         </div>
                                         @endif @endif
                                         @if(isset($card->extension)) @if($card->extension !== null)

@@ -101,7 +101,7 @@
         @if(isset($card->poor_ch)) @if($card->poor_ch !== null)
             <div class="lvc fa-user-secret">
                 Плохая КИ:
-                <div class="value">@if($card->poor_ch==1) Да @else Нет @endif</div>
+                <div class="value">@if($card->poor_ch==1) да @else нет @endif</div>
             </div>
         @endif @endif
         @if(isset($card->extension)) @if($card->extension !== null)

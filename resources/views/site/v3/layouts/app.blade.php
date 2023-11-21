@@ -113,11 +113,7 @@
     </div>
 </div>
 
-@if(Request::is('/'))
-@include('site.v3.modules.includes.first-section')
-@endif
 @yield('cities-first-section')
-
 
 @yield('content')
 

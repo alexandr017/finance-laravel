@@ -186,8 +186,9 @@ header a.active{font-weight: bold;}
 
 /**************************** first section on index ********************************/
 .first-block.about{background: url(/images/pages/team1.jpg);  background-size: cover;}
-.ckl-title{width: 100%;text-align: center;color: #292929;font-size: 37px; height: 120px; line-height: 48px;
-    margin-top: 42px;font-weight: bold;display: inline-block;}
+.ckl-title{width: 100%;text-align: center;color: #292929;font-size: 37px; line-height: 48px;
+    margin-top: 42px;font-weight: bold;display: inline-block;font-family: 'Proxima Nova Rg'}
+.index-lead {text-align: center; margin-bottom: 50px}
 .typed-wrap {margin: 0px auto 0;max-width: 880px;display: block;width: 90%;}
 .white-bg{background: rgba(255, 255, 255, 0.85);margin-top: 25px;width: 100%;text-align: center;color: #292929;padding-top: 20px;}
 .mkcx{font-family: 'Futura PT';font-size: 18px; padding-bottom: 20px;}
@@ -1278,10 +1279,10 @@ nav.org .vdde{color: #e64653;}
 .fixed-company{display: none;background: #0d2f50;
     background-blend-mode: normal , overlay , overlay , normal , normal , normal , normal;
     background-image: linear-gradient(195deg,rgba(44,34,150,0),#17436d) ,linear-gradient(rgb(221 70 11 / 95%),rgb(241 236 67 / 95%)) ,linear-gradient(121deg,#ebc50e,#FFEB3B) ,linear-gradient(238deg,rgba(173,32,142,0),#0d2f50) ,linear-gradient(42deg,rgba(0,190,213,0),rgba(0,190,213,.85) 85%,rgba(0,190,213,.87) 87%,#1a4d80) ,linear-gradient(126deg,rgba(0,190,213,0),#0d2f50) ,linear-gradient(#594099,#594099);
-    color: #fff;font-size: 1.2em;}
+    color: #fff;font-size: 1.2em; background: #009fe3;}
 .fixed-company img{margin-right: 15px;max-height: 70px;float: left}
 .fixed-company a{width: 100%;margin-top: 10px;}
-.fixed-company a:hover{color: #fff;text-decoration: none;}
+.fixed-company a:hover, .fixed-company a:focus{color: #fff;text-decoration: none;}
 .fixed-company .zaym-name{display: table-cell;vertical-align: middle;height: 70px;}
 .vab{width: 100%;margin: 30px 0;background: #f8f8f8;}
 .vab .left-block{background: #ebebeb;padding: 0;}
@@ -1325,11 +1326,11 @@ nav.org .vdde{color: #e64653;}
 .ind-wrap label{margin-bottom: 0px; font-size: 0.9em; color: #9a9696;}
 
 
-.r_bg_1{background: #FFCCBC !important;}
-.r_bg_2{background: #FFE0B2 !important;}
-.r_bg_3{background: #FFF59D !important;}
-.r_bg_4{background: #E6EE9C !important;}
-.r_bg_5{background: #C5E1A5 !important;}
+.r_bg_1{border-bottom: 2px solid #ffccbc}
+.r_bg_2{border-bottom: 2px solid #ffe0b2}
+.r_bg_3{border-bottom: 2px solid #fff59d}
+.r_bg_4{border-bottom: 2px solid #e6ee9c}
+.r_bg_5{border-bottom: 2px solid #c5e1a5}
 
 
 .companies_icons_wrap{
@@ -2549,7 +2550,7 @@ input[type=checkbox], input[type=radio]{vertical-align: -4px;width: 20px;height:
 }
 
 .news-post-item .news-post-date {
-    color: #F65151;
+    color: #7e7c7c;
 }
 
 .news-post-load-block {

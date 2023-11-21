@@ -148,7 +148,7 @@
                     <th>Плохая КИ</th>
                     <td>
                         @if(isset($cards[0]->poor_ch)) @if($cards[0]->poor_ch != null)
-                            @if($cards[0]->poor_ch==1) Да @else Нет @endif
+                            @if($cards[0]->poor_ch==1) да @else нет @endif
                         @endif @endif
                     </td>
                 </tr>

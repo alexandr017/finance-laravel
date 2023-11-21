@@ -1,8 +1,8 @@
 <?php global $reviewsGroups ?>
 <?php $reviewsGroups = 1; $i = 0;  ?>
 @foreach($reviews as $comment)
-    <div class="comment-item {{RatingParser::getCssClassForBackground($comment->rating)}} rev-group-{{$reviewsGroups}} @if($reviewsGroups > 1) {{'display_none'}} @endif" id="comment-{{$comment->id}}">
-        <div class="title-line">
+    <div class="comment-item rev-group-{{$reviewsGroups}} @if($reviewsGroups > 1) {{'display_none'}} @endif" id="comment-{{$comment->id}}">
+        <div class="title-line {{RatingParser::getCssClassForBackground($comment->rating)}}">
             <span class="title-review-name @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-name @endif"><?php if($comment->author!=null) echo trim($comment->author); else echo trim($comment->last_name . ' ' . $comment->first_name . ' ' . $comment->middle_name); ?></span>
             @if($comment->rating!=null)
                 <div class="rating-line rev">{!! App\Models\System::rating($comment->rating) !!}
@@ -20,13 +20,13 @@
                     ?>
                 </div>
             @endif
-            @if($comment->rating <= 2)
-                @if(isset($comment->complain_result))
-                    <span class="label_of_complain_success">Решено</span>
-                @else
-                    <span class="label_of_complain_warning">Рассматривается</span>
-                @endif
-            @endif
+{{--            @if($comment->rating <= 2)--}}
+{{--                @if(isset($comment->complain_result))--}}
+{{--                    <span class="label_of_complain_success">Решено</span>--}}
+{{--                @else--}}
+{{--                    <span class="label_of_complain_warning">Рассматривается</span>--}}
+{{--                @endif--}}
+{{--            @endif--}}
         </div>
         <div class="text-rew @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-body @endif">
             {!!$comment->review!!}

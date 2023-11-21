@@ -1,18 +1,18 @@
 @extends('site.v3.layouts.app')
-@section ('title', 'Страница не найдена - #FinanceRu')
-@section ('h1', '404')
+@section ('title', 'Ошибка 500 - #FinanceRu')
+@section ('h1', '500')
 @section ('meta_description', '')
 
 @section('content')
 
-    <?php $breadcrumbs[]['h1'] = '404'; ?>
+    <?php $breadcrumbs[]['h1'] = '500'; ?>
     @include('site.v3.modules.includes.breadcrumbs')
 
     <section class="container main">
         <div class="wrapper" style="padding:10px 0 20px">
             <div class="text-block" style="text-align: center;">
-                <h1 style="font-size:200px;font-weight:bold">404</h1>
-                <h3>К сожалению, такой страницы не существует</h3>
+                <h1 style="font-size:200px;font-weight:bold">500</h1>
+                <h3>Скоро починим попробуйте еще раз позже</h3>
                 <br>
                 <?php /*
                 <p class="first-404-p">Вы можете использовать поиск по сайту:</p>

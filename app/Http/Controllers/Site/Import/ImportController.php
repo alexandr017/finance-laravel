@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Site\Import;
 
 use App\Http\Controllers\Controller;
 
-use DB;
-
 class ImportController extends Controller
 {
     private const min_average_rating = 4.0;
@@ -20,4 +18,5 @@ class ImportController extends Controller
     use StaticPagesTrait;
     use ListingsTrait;
     use BlogTrait;
+    use CardsTrait;
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site\Import;
 use App\Models\Banks\Bank;
 use App\Models\Banks\BankCategoryPage;
 use App\Models\Banks\BankInfoPage;
+use DB;
 
 trait BanksTrait
 {
@@ -148,6 +149,12 @@ trait BanksTrait
         });
 
         echo 'Все ок';
+    }
+
+
+    public function bankReviews()
+    {
+
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site\Import;
 
 use App\Models\Cards\Listing;
 use App\Models\Cards\ListingCards;
+use DB;
 
 trait ListingsTrait
 {

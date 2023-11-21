@@ -5,7 +5,7 @@
 
 <?php
     $bank_menu_items = [];
-    $sideBarItems = ['kredity','debetovye-karty','avtokredity','kreditnye-karty','vklady','ipoteki','refinancing','rko','cashback'];
+    $sideBarItems = ['kredity','debetovye-karty','avtokredity','kreditnye-karty','vklady','ipoteki','refinancing','rko'];
     $bank_menu_items[''] = ['О банке','bank'];
     if($bank->show_credits){
         $bank_menu_items['kredity'] = ['Кредиты','bank'];
@@ -30,9 +30,6 @@
     }
     if($bank->show_rko){
         $bank_menu_items['rko'] = ['РКО','id-card'];
-    }
-    if($bank->show_cashback){
-        $bank_menu_items['cashback'] = ['Кэшбэки','credit-card-alt'];
     }
 
     $bank_menu_items['gorjachaja-linija'] = ['Служба поддержки','life-bouy'];

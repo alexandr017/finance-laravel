@@ -33,9 +33,9 @@ class IndexBlogController extends BaseBlogController
             ->orderBy('sidebar_order', 'asc')
             ->get();
 
-
         $posts = [];
         foreach ($blogCategories as $category) {
+
             $row = DB::table('posts')
                 ->leftJoin('posts_categories','posts.pcid','posts_categories.id')
                 ->select('posts.*',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site\Import;
 
 use App\Models\Relinking\Relinking;
 use App\Models\Relinking\RelinkingGroup;
+use DB;
 
 trait RelinkTrait
 {

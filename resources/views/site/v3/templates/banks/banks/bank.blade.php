@@ -120,10 +120,7 @@
                 </div>
  */ ?>
 
-
-                <h2 class="h2 text-center">Общая информация</h2>
                 {!! TagsParser::compile(Shortcode::compile($page->content)) !!}
-
 
 
                 @if(

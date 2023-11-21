@@ -18,8 +18,6 @@
 
                 @include('site.v3.modules.banks.bank_face.face-amp')
 
-
-                <h2 class="h2 text-center">Общая информация</h2>
                 <?php echo \App\Algorithms\AMP::render(Shortcode::compile(System::nofollow($page->content))); ?>
 
                 @if(

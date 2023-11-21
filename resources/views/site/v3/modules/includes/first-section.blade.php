@@ -1,6 +1,7 @@
 <div class="first-block index def_bg" style="background: url(/old_theme/img/bg/grey-bg-2.webp)">
     <div class="container">
-        <h1 style="font-family: 'Proxima Nova Rg';" class="ckl-title">{{$page->h1}}</h1>
+        <h1 class="ckl-title">{{$page->h1}}</h1>
+        <p class="index-lead">{!! $page->lead !!}</p>
             <div class="form-block">
                 <div class="col1 form-line">
                     <div class="new-select width-100" id="indexFirstSelect">

@@ -506,11 +506,11 @@ nav.org > ul >li a i{margin-right: 10px;}
 .similars{margin: 45px 0;}
 .similars-title{margin: 15px auto;}
 .similars a{display: block; text-align: center; color: #292929;padding: 15px;margin: 15px 0}
-.r_bg_1{background:#ffccbc}
-.r_bg_2{background:#ffe0b2}
-.r_bg_3{background:#fff59d}
-.r_bg_4{background:#e6ee9c}
-.r_bg_5{background:#c5e1a5}
+.r_bg_1{border-bottom: 2px solid #ffccbc}
+.r_bg_2{border-bottom: 2px solid #ffe0b2}
+.r_bg_3{border-bottom: 2px solid #fff59d}
+.r_bg_4{border-bottom: 2px solid #e6ee9c}
+.r_bg_5{border-bottom: 2px solid #c5e1a5}
 .comment-item{padding: 15px;}
 .title-line{font-weight: bold}
 

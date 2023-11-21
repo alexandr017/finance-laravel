@@ -4,7 +4,10 @@
 @section ('meta_description', $page->meta_description)
 @section('additional-styles')
 @endsection
+
 @section('content')
+
+@include('site.v3.modules.includes.first-section')
 
 <section class="container main">
 
