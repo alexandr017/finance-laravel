@@ -30,7 +30,6 @@ use Cache;
 use Auth;
 use Log;
 use DB;
-use App\Algorithms\UpdateDBVersion;
 use App\Algorithms\General\Banks\ProductScaleNames;
 use App\Models\Banks\Bank;
 
@@ -515,19 +514,6 @@ class CardsController extends BaseCardsController
         $card = Cards::find($request['id']);
         $card->category_id = $request['category_id'];
 
-
-        if(
-            $card->title != $request['title'] ||
-            $card->company_id != $request['company_id'] ||
-            $card->km5 != $request['km5'] ||
-            $card->link_1 != $request['link_1'] ||
-            $card->link_2 != $request['link_2'] ||
-            $card->link_type != $request['link_type']
-        ){
-            UpdateDBVersion::incVersion();
-        }
-
-
         $card->title = $request['title'];
         $card->product_title = $request['product_title'] ?? null;
         $card->flow = $request['flow'];
@@ -660,19 +646,6 @@ class CardsController extends BaseCardsController
 
         $card = Cards::find($request['id']);
         $card->category_id = $request['category_id'];
-
-
-        if(
-            $card->title != $request['title'] ||
-            $card->company_id != $request['company_id'] ||
-            $card->km5 != $request['km5'] ||
-            $card->link_1 != $request['link_1'] ||
-            $card->link_2 != $request['link_2'] ||
-            $card->link_type != $request['link_type']
-        ){
-            UpdateDBVersion::incVersion();
-        }
-
 
         $card->title = $request['title'];
         $card->product_title = $request['product_title'] ?? null;

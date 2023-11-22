@@ -20,9 +20,6 @@ class ListingsController extends BaseCardsController
     private const min_number_of_votes = 15;
     private const max_number_of_votes = 25;
 
-    private $page_type;
-
-
     private $listing_repository;
 
     private $cards_categories_repository;
@@ -32,8 +29,6 @@ class ListingsController extends BaseCardsController
 
     public function __construct()
     {
-        $this->page_type = Config::get('urls-types.card-listings');
-
         $this->listing_repository = app(ListingRepository::class);
         $this->cards_categories_repository = app(CardsCategoriesRepository::class);
         $this->city_repository = app(CityRepository::class);

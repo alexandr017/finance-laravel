@@ -14,7 +14,7 @@
                 </a>
             </li>
 
-            <li class="header">Карточки</li>
+            <li class="header">Финансовый раздел</li>
             <li class="@if(Request::routeIs('admin.cards')) active @endif treeview">
                 <a href="#">
                     <i class="fa fa-id-card-o"></i>
@@ -44,6 +44,32 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="@if(Request::routeIs('admin.companies')) active @endif treeview">
+                <a href="#">
+                    <i class="fa fa-bank"></i>
+                    <span>Компании</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu @if(Request::routeIs('admin.companies.*')) menu-open @endif"
+                    style="display: none; @if(Request::routeIs('admin.companies.*')) display: block; @endif"
+                >
+                    <li class="@if(Request::routeIs('admin.companies.*')) active @endif">
+                        <a href="{{ route('admin.companies.index') }}">
+                            <i class="fa fa-bank"></i>
+                            <span>Компании</span>
+                        </a>
+                    </li>
+
+                    <li class="@if(Request::routeIs('admin.companies.reviews.*')) active @endif">
+                        <a href="{{ route('admin.companies.reviews.index') }}">
+                            <i class="fa fa-commenting-o"></i>
+                            <span>Отзывы</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
         </ul><!-- /.sidebar-menu -->
 
     </section>

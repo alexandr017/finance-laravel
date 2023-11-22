@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\Cards\CardsCategoriesController;
 use App\Http\Controllers\Admin\Cards\CardsController;
 use App\Http\Controllers\Admin\Cards\ListingCardsController;
 use App\Http\Controllers\Admin\Cards\ListingsController;
+use App\Http\Controllers\Admin\Companies\ChildrenPagesController;
+use App\Http\Controllers\Admin\Companies\CompaniesController;
+use App\Http\Controllers\Admin\Companies\ReviewsController;
 use App\Http\Controllers\Admin\DashboardController;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -34,4 +37,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('listing-search-by-id', [ListingsController::class, 'searchById'])->name('listings.search_by_id');
         Route::resource('listing-cards', ListingCardsController::class, ['only' => ['edit','update']]);
     });
+
+    /**************** COMPANIES ****************/
+
+    Route::resource('companies', CompaniesController::class)->except(['show']);
+    Route::resource('companies.children', ChildrenPagesController::class)->shallow()->except(['show']);
+
+    Route::group(['prefix' => 'companies', 'as' => 'companies.'], function () {
+        Route::resource('reviews', ReviewsController::class)->except(['show']);
+
+        Route::get('{id}/reviews', [ReviewsController::class, 'reviews_by_company'])->name('reviews_by_company');
+        Route::group(['prefix' => 'reviews', 'as' => 'reviews.'], function () {
+            Route::post('search', [ReviewsController::class, 'search'])->name('search');
+            Route::get('change_status/{id}', [ReviewsController::class, 'change_status'])->name('change_status');
+        });
+    });
+
 });

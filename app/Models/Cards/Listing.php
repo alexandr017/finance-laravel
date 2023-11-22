@@ -38,13 +38,4 @@ class Listing extends Model
         'status',
         'alias'
     ];
-
-    public function urls()
-    {
-        $section_type = Config::get('urls-types.card-listings');
-
-        return $this->hasOne(Url::class, 'section_id','id')
-            ->where('section_type', $section_type);
-    }
-
 }
