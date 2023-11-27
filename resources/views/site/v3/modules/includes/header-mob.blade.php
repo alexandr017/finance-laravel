@@ -70,11 +70,17 @@
                     <li><a href="/kreditnye-karty/bez-proverok">Без проверок</a></li>
                     <li><a href="/kreditnye-karty/pensioneram">Кредитные карты для пенсионеров</a></li>
                     <li><a href="/kreditnye-karty/s-prosrochkami">Кредитные карты с просрочками</a></li>
-                    <li><a href="/kreditnye-karty/120-dnej">Кредитные карты 120 дней</a></li>
-                    <li><a href="/kreditnye-karty/200-dnej">Кредитные карты 200 дней</a></li>
-                    <li><a href="/kreditnye-karty/luchshie">Лучшие кредитные карты</a></li>
-                    <li><a href="/kreditnye-karty/virtualnye">Виртуальные кредитные карты</a></li>
-                    <li><a href="/kreditnye-karty/momentalnye">Моментальные кредитные карты</a></li>
+                </ul>
+            </li>
+            <li>
+                <a data-text="Назад" class="a-sub-m" href="/debetovye-karty"><b class="caret fa fa-angle-down"></b> Дебетовые карты</a>
+                <ul>
+                    <li><a href="/debetovye-karty">Все дебетовые карты</a></li>
+                    <li><a href="/debetovye-karty/bez-komissii">Без комиссии</a></li>
+                    <li><a href="/debetovye-karty/besplatnoe-obsluzhivanie">С бесплатным обслуживанием</a></li>
+                    <li><a href="/debetovye-karty/zarplatnaya">Зарплатная карта</a></li>
+                    <li><a href="/debetovye-karty/s-protsentom-na-ostatok">С процентом на остаток</a></li>
+                    <li><a href="/debetovye-karty/imennaya">Именная</a></li>
                 </ul>
             </li>
             <li>

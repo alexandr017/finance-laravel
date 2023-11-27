@@ -61,39 +61,12 @@ class PageRatingController extends Controller
         }
 
         switch ($type) {
-            case 'index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 4, $rating);
+            case 'index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 1, $rating);
             case 'mfo': return $this->pushVote('\App\Models\StaticPages\StaticPage', 2, $rating);
-            case 'category-listing': return $this->pushVote('\App\Models\Cards\CardsCategories', $id, $rating, 'cards_categories');
-            case 'old-listing': return $this->pushVote('\App\Models\Cards\CardsChildrenPages', $id, $rating);
             case 'listing': return $this->pushVote('\App\Models\Cards\Listing', $id, $rating);
-            case 'translation': return $this->pushVote('\App\Models\Translation\Translation', $id, $rating);
-            case 'banks-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 5, $rating);
-            case 'insurance-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 6, $rating);
-            case 'insurance-category': return $this->pushVote('\App\Models\Insurance\InsuranceCategories', $id, $rating);
-            case 'insurance-listing': return $this->pushVote('\App\Models\Insurance\InsurancePages', $id, $rating);
+            case 'banks-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 3, $rating);
             case 'post': return $this->pushVote('\App\Models\Posts\Posts', $id, $rating);
-            case 'qa-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 7, $rating);
-            case 'qa-tag': return $this->pushVote('\App\Models\QA\QATag', $id, $rating);
-            case 'qa-question': return $this->pushVote('\App\Models\QA\QAQuestion', $id, $rating);
-            case 'about-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 8, $rating);
-            case 'about-experts': return $this->pushVote('\App\Models\StaticPages\StaticPage', 9, $rating);
-            case 'about-team': return $this->pushVote('\App\Models\StaticPages\StaticPage', 10, $rating);
-            case 'about-employee': return $this->pushVote('\App\Models\Posts\Authors', $id, $rating);
-            case 'about-expert': return $this->pushVote('\App\Models\Expert\Expert', $id, $rating);
-            case 'about-k5m': return $this->pushVote('\App\Models\StaticPages\StaticPage', 11, $rating);
-            case 'contacts-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 12, $rating);
-            case 'services-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 13, $rating);
-            case 'services-personal-data': return $this->pushVote('\App\Models\StaticPages\StaticPage', 14, $rating);
-            case 'services-unsubscribing': return $this->pushVote('\App\Models\StaticPages\StaticPage', 15, $rating);
-            case 'services-credit-history': return $this->pushVote('\App\Models\StaticPages\StaticPage', 16, $rating);
-            case 'business': return $this->pushVote('\App\Models\StaticPages\StaticPage', 18, $rating);
-            case 'franchise': return $this->pushVote('\App\Models\StaticPages\StaticPage', 19, $rating);
-            case 'franchise-category': return $this->pushVote('\App\Models\Franchises\FranchiseCategory', $id, $rating);
-            case 'mortgage-calculator': return $this->pushVote('\App\Models\StaticPages\StaticPage', 20, $rating);
-            case 'currency': return $this->pushVote('\App\Models\StaticPages\StaticPage', 21, $rating);
-            case 'currency-converter': return $this->pushVote('\App\Models\StaticPages\StaticPage', 22, $rating);
-            case 'currency-cb-rf': return $this->pushVote('\App\Models\StaticPages\StaticPage', 23, $rating);
-            case 'currency-ticker': return $this->pushVote('\App\Models\Currency\CurrencyPage', $id, $rating);
+            case 'about-index': return $this->pushVote('\App\Models\StaticPages\StaticPage', 4, $rating);
             case 'listing_children_page': return $this->pushVote('\App\Models\Companies\CompaniesChildrenPages', $id, $rating);
         }
     }

@@ -46,16 +46,17 @@
                 <li class="jsMenuLi">Карты
                     <ul>
                         <li><a href="/kreditnye-karty">Кредитные карты</a></li>
+                        <li><a href="/debetovye-karty">Дебетовые карты</a></li>
                         <li><a href="/kreditnye-karty/bez-otkaza">Без отказа</a></li>
+                        <li><a href="/debetovye-karty/bez-komissii">Без комиссии</a></li>
                         <li><a href="/kreditnye-karty/s-plohoj-kreditnoj-istoriej">С плохой кредитной историей</a></li>
+                        <li><a href="/debetovye-karty/besplatnoe-obsluzhivanie">С бесплатным обслуживанием</a></li>
                         <li><a href="/kreditnye-karty/bez-proverok">Без проверок</a></li>
+                        <li><a href="/debetovye-karty/zarplatnaya">Зарплатная карта</a></li>
                         <li><a href="/kreditnye-karty/pensioneram">Для пенсионеров</a></li>
+                        <li><a href="/debetovye-karty/s-protsentom-na-ostatok">С процентом на остаток</a></li>
                         <li><a href="/kreditnye-karty/s-prosrochkami">С просрочками</a></li>
-                        <li><a href="/kreditnye-karty/120-dnej">На 120 дней</a></li>
-                        <li><a href="/kreditnye-karty/200-dnej">На 200 дней</a></li>
-                        <li><a href="/kreditnye-karty/luchshie">Лучшие</a></li>
-                        <li><a href="/kreditnye-karty/virtualnye">Виртуальные</a></li>
-                        <li><a href="/kreditnye-karty/momentalnye">Моментальные</a></li>
+                        <li><a href="/debetovye-karty/imennaya">Именная</a></li>
                     </ul>
                 </li>
                 <li class="jsMenuLi"><a href="/vklady">Вклады</a>

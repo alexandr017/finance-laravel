@@ -58,14 +58,10 @@ class BankLoadProductActionController extends Controller
         //$cards = $this->arrMerge($cards, $cardIDs);
 
         $code = '';
-        $amp = 0;
-
         foreach ($cards as $card) {
-            $code .= view('site.v3.modules.cards.card.card', compact('card','amp'))->render();
+            $code .= view('site.v3.modules.cards.card.card', compact('card'))->render();
         }
-
         return ['code' => $code];
-
     }
 
 

@@ -24,45 +24,23 @@ class BankLoadProductActionController extends Controller
             abort(404);
         }
 
-        // для кэшбэков иной алгоритм выборки
-        if ($page->category_id == 9) {
-            $cardIDs = DB::table('bank_product_cards')
-                ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-                ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-                ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
-                ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-                ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
-                ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-                ->where(['bank_products.is_cashback' => 1, 'bank_category_pages.bank_id' => $page->bank_id])
-                ->whereNull('bank_products.deleted_at')
-                ->orderBy("cards.flow", 'asc')
-                ->orderBy("cards.km5", 'desc')
-                ->orderBy("cards.id", 'asc')
-                ->get();
+        $cardIDs = DB::table('bank_product_cards')
+            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
+            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
+            ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
+            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
+            ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
+            ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
+            ->where(['bank_products.bank_category_id' => $pageID])
+            ->whereNull('bank_products.deleted_at')
+            ->orderBy("cards.flow", 'asc')
+            ->orderBy("cards.km5", 'desc')
+            ->orderBy("cards.id", 'asc')
+            ->get();
 
-            //ddd($cardIDs, $page);
-            $cardIDs = $cardIDs->unique('id');
+        $cardIDs = $cardIDs->unique('id');
 
-            $cards = CardsBoot::getCardsForListingByIDs($cardIDs);
-        } else {
-            $cardIDs = DB::table('bank_product_cards')
-                ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-                ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-                ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
-                ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-                ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
-                ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-                ->where(['bank_products.bank_category_id' => $pageID])
-                ->whereNull('bank_products.deleted_at')
-                ->orderBy("cards.flow", 'asc')
-                ->orderBy("cards.km5", 'desc')
-                ->orderBy("cards.id", 'asc')
-                ->get();
-
-            $cardIDs = $cardIDs->unique('id');
-
-            $cards = CardsBoot::getCardsForListingByIDs($cardIDs);
-        }
+        $cards = CardsBoot::getCardsForListingByIDs($cardIDs);
 
 
 

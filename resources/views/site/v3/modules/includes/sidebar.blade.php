@@ -15,6 +15,8 @@
                 </div>
             @endforeach
         </div>
+        <br>
+        <br>
 
         <div class="side-title">Последение посты</div>
         <div class="news-post-wrap">

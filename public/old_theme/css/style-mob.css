@@ -83,15 +83,6 @@
 .horizontal-accordeon-block .hitem .itop.active-itop{
     text-decoration: underline;
 }
-.single-page .h2, .single-page .h3, .single-page .h4, .single-page .h5,
-.single-page h2, .single-page h3, .single-page h4, .single-page h5,
-.single h2, .single h3, .single h4, .single h5,
-.single .h2, .single .h3, .single .h4, .single .h5,
-.alc h2, .alc h3, .alc h4, .alc h5,
-.alc .h2, .alc .h3, .alc .h4, .alc .h5
-{
-    text-align: center;
-}
 /*** end posts ***/
 
 

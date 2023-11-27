@@ -174,6 +174,9 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
                 $(add_active_page).css('display','block');
                 $('.pagination li').removeClass('active');
                 $(this).parent().addClass('active');
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(".bank-wrap").offset().top
+                }, 2);
             })
         });
 

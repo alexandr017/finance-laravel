@@ -140,7 +140,7 @@
 
 
                 <div class="bordered-rating star-rating light-border">
-                    <div class="post-ratings" data-type="project" data-id="0">
+                    <div class="post-ratings" data-type="index">
                         {!! RatingParser::printIRatingByValue($page->average_rating) !!}
                         (<span class="bold">{{$page->number_of_votes}}</span> оценок, среднее: <span
                                 class="bold">{{$page->average_rating}}</span> из 5)<br/>
