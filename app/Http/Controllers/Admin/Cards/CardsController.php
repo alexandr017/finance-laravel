@@ -30,7 +30,6 @@ use Cache;
 use Auth;
 use Log;
 use DB;
-use App\Algorithms\UpdateDBVersion;
 use App\Algorithms\General\Banks\ProductScaleNames;
 use App\Models\Banks\Bank;
 

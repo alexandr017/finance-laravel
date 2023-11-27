@@ -40,5 +40,4 @@ class Listing extends Model
         'status',
         'alias'
     ];
-
 }
