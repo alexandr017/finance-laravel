@@ -173,8 +173,6 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Webwizo\Shortcodes\ShortcodesServiceProvider::class,
         App\Providers\ShortcodesServiceProvider::class,
-        App\Providers\HelperServiceProvider::class,
-
 
     ])->toArray(),
 
