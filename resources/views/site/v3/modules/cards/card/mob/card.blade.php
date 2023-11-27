@@ -3,11 +3,6 @@
         <div class="title-top"><i class="fa fa-star-o"></i> Специальное предложение</div>
     @endif
 
-    <div class="refresh-item">
-        <?php $dateUpdate = \App\Algorithms\Frontend\Cards\CardDate::setUpdateDate($card->created_at); ?>
-        <i class="fa fa-refresh"></i> <span>Обновлено</span><br><span>{{$dateUpdate}}</span>
-    </div>
-
     @if(isset($cards) && isset($i))
         @if(count($cards) > 10)
             @if($i < 10)
@@ -28,7 +23,7 @@
                 @if(isset($card->ratingValue))
                     @if($card->ratingValue != null)
                         @if($card->companies_alias != '')
-                            {!! App\Models\System::rating($card->ratingValue) !!}
+                            {!! App\Algorithms\System::rating($card->ratingValue) !!}
                             <div class="text-rating">
                                 @if($card->reviews_page == 1)
                                     <a target="_blank" href="@if($card->group_url!='/')/@endif{{$card->group_url}}@if($card->group_url!='/')/@endif{{$card->companies_alias}}/reviews">
@@ -43,7 +38,7 @@
                 @endif
             @endif
         @else
-            {!! App\Models\System::rating($ratingValue) !!}
+            {!! App\Algorithms\System::rating($ratingValue) !!}
             <?php $card->ratingValue = $ratingValue; ?>
             <div class="text-rating">
                 @if(!$company->reviews_page)

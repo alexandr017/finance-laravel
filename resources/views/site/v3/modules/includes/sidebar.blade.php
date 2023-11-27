@@ -3,27 +3,31 @@
 <aside>
 
 @if($_SERVER['REQUEST_URI'] == '/')
-    block for index sidebar
+        <div class="side-title">Последение новости</div>
+        <div class="news-post-wrap">
+            @foreach($news as $post)
+                <div class="news-post-item bold" style="width: 100%;">
+                    <a class="news-post-item-link" href="/{{$post->alias_category}}/{{$post->alias}}.html">
+                        <span class="news-post-date">{{date('d.m.Y',strtotime($post->date))}}</span>
+                            <?php $post_h1 = ($post->h1_in_category != null) ? $post->h1_in_category : $post->h1; ?>
+                        {{Shortcode::compile($post_h1)}}
+                    </a>
+                </div>
+            @endforeach
+        </div>
 
-    <table>
-        <tr>
-            <td>test</td>
-            <td>23</td>
-        </tr>
-        <tr>
-            <td>test2</td>
-            <td>1123</td>
-        </tr>
-        <tr>
-            <td>test3</td>
-            <td>2343</td>
-        </tr>
-        <tr>
-            <td>test4</td>
-            <td>233</td>
-        </tr>
-    </table>
-
+        <div class="side-title">Последение посты</div>
+        <div class="news-post-wrap">
+            @foreach($articles as $post)
+                <div class="news-post-item bold" style="width: 100%;">
+                    <a class="news-post-item-link" href="/{{$post->alias_category}}/{{$post->alias}}.html">
+                        <span class="news-post-date">{{date('d.m.Y',strtotime($post->date))}}</span>
+                            <?php $post_h1 = ($post->h1_in_category != null) ? $post->h1_in_category : $post->h1; ?>
+                        {{Shortcode::compile($post_h1)}}
+                    </a>
+                </div>
+            @endforeach
+        </div>
 @endif
 
 
@@ -118,8 +122,6 @@
 
 
 
-
-
 @include('site.v3.modules.blog.categories')
 
 @if(isset($category_id))
@@ -127,17 +129,6 @@
     @include('site.v3.modules.includes.zaimy.calc')
 @endif
 @endif
-
-
-@if(Request::url() == 'https://finance.ru/get-rating')
-    <div class="side-block listing-menu-s">
-        <div class="side-title"><i class="fa fa-question-circle-o"></i>  Работа с личным кабинетом</div>
-        <div class="side-box">
-            <a href="https://finance.ru/get-rating#faq"><img src="/old_theme/img/get-rating.png" alt="Работа с личным кабинетом"></a>
-        </div>
-    </div>
-@endif
-
 
 </aside>
 </div><?php /* sidebar */ ?>

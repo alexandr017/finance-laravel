@@ -4,11 +4,7 @@ namespace App\Algorithms\Frontend\Content;
 
 class CreateSidebarMenu
 {
-    /**
-     * @param $content
-     * @return mixed
-     */
-    public static function render($content)
+    public static function render(string $content) : string
     {
         global $sidebar_tags_menu;
         $menu = [];
@@ -21,7 +17,7 @@ class CreateSidebarMenu
 
             $id = '';
             if(isset($matches[1][$key])) {
-                if (strstr($matches[1][$key], 'id')) {
+                if (str_contains($matches[1][$key], 'id')) {
                     preg_match_all( '#id=[\'\"][a-zA-Z0-9_\s]{1,}[\'\"]#', trim($matches[1][$key]), $matches_id );
                     if(isset($matches_id[0][0])) {
                         $id = str_replace('id=','',$matches_id[0][0]);
@@ -81,24 +77,6 @@ class CreateSidebarMenu
                 $text = str_replace("$i место.", '', $text);
             }
             $menu[$key]['text'] = $text;
-            /*
-            $menu[$key]['text'] = str_replace("место", '', $item['text']);
-            $menu[$key]['text'] = str_replace("место", '', $item['text']);
-            $menu[$key]['text'] = str_replace("место", '', $item['text']);
-            $menu[$key]['text'] = str_replace("3 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("4 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("5 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("6 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("7 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("8 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("9 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("10 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("11 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("12 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("13 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("14 место.", '', $item['text']);
-            $menu[$key]['text'] = str_replace("15 место.", '', $item['text']);
-            */
 
         }
 

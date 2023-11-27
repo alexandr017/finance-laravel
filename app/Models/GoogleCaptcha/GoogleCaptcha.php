@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Models\GoogleCaptcha;
-use App\Models\GoogleCaptcha\GoogleCaptcha;
 
-
-class GoogleCaptcha{
-
+class GoogleCaptcha
+{
 	private static $SECRET_KEY = '6LdYqz0UAAAAABeYZCRt536o2AkYeCFFZBfwuGBW';
 
     public static function init($captcha){

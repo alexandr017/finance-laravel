@@ -3,26 +3,23 @@
 namespace App\Http\Controllers\Site\V3\Banks;
 
 use App\Models\Banks\Bank;
-//use App\Models\Banks\BankCategoryPage;
 use DB;
 use App\Algorithms\Frontend\Cards\CardsBoot;
-
 use App\Algorithms\General\Banks\ProductScaleNames;
 use App\Algorithms\Frontend\Banks\ProductScaleRender;
-
 use Config;
-use Auth;
+use Illuminate\Contracts\View\View;
 
 class ProductsController extends BaseBankController
 {
-    public function index($bankAlias)
+    public function index($bankAlias) : View
     {
         $categoryAlias = request()->segment(count(request()->segments()) - 1);
         $productAlias = request()->segment(count(request()->segments()));
         return $this->render($bankAlias, $categoryAlias, $productAlias);
     }
 
-    public function amp($bankAlias)
+    public function amp($bankAlias) : View
     {
         $categoryAlias = request()->segment(count(request()->segments()) - 2);
         $productAlias = request()->segment(count(request()->segments()) - 1);
@@ -31,7 +28,7 @@ class ProductsController extends BaseBankController
     }
 
 
-    private function render($bankAlias, $categoryAlias, $productAlias, $isAMP = false )
+    private function render($bankAlias, $categoryAlias, $productAlias, $isAMP = false) : View
     {
         $bankAlias = clear_data($bankAlias);
         $bank = Bank::where(['alias' => $bankAlias,'status' => 1])
@@ -137,28 +134,5 @@ class ProductsController extends BaseBankController
 
         return view($template, compact('breadcrumbs','page','bank','cards','section_type','scales', 'categoryAlias','all_vzo_icons','icons','reviews','editLink', 'bankTopCard'));
     }
-
-    /*
-    private function arrMerge($array1, $array2)
-    {
-        foreach ($array1 as $key => $item) {
-            if (isset($array2[$key])) {
-                $array1[$key]->productAlias = $array2[$key]->productAlias;
-                $array1[$key]->bankAlias = $array2[$key]->bankAlias;
-                $array1[$key]->categoryAlias = $array2[$key]->categoryAlias;
-                $array1[$key]->separate_page = $array2[$key]->separate_page;
-
-                $array1[$key]->linkToEntityReviews = '/banks/' . $array2[$key]->bankAlias . '/' . $array2[$key]->categoryAlias . '/reviews';
-                //if ($array1[$key]->separate_page) {
-                    //$array1[$key]->linkToEntity = '/banks/' . $array2[$key]->bankAlias . '/' . $array2[$key]->categoryAlias . '/' . $array2[$key]->productAlias;
-                //}
-
-            }
-
-        }
-
-        return $array1;
-    }
-    */
 
 }

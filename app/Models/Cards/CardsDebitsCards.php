@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class CardsDebitsCards extends Model
 {
     protected $table = 'cards_6_debit_cards';
-    
-
-
 
     public static function go($request, $id,$action){
 

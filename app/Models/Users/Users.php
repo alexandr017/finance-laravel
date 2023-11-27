@@ -3,7 +3,6 @@
 namespace App\Models\Users;
 
 use Illuminate\Database\Eloquent\Model;
-use Validator;
 
 class Users extends Model
 {

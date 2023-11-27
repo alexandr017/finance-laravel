@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Site\V3\Actions\CardFilter\Classes;
 
-use App\Http\Controllers\Frontend\Actions\CardFilter\CardFilterInterface;
+use App\Http\Controllers\Site\V3\Actions\CardFilter\CardFilterInterface;
 use DB;
 
 class FilterForCategory10 implements CardFilterInterface

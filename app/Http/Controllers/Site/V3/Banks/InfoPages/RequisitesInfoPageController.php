@@ -5,34 +5,32 @@ namespace App\Http\Controllers\Site\V3\Banks\InfoPages;
 use App\Http\Controllers\Site\V3\Banks\BaseBankController;
 
 use App\Models\Banks\BankInfoPage;
-use App\Models\Banks\Bank;
+use App\Repositories\Site\Bank\BankInfoPageRepository;
+use App\Repositories\Site\Bank\BankRepository;
 use DB;
+use Illuminate\Contracts\View\View;
 
 class RequisitesInfoPageController extends BaseBankController
 {
-    public function index($bankAlias)
+    public function index($bankAlias) : View
     {
         return $this->render($bankAlias, 'page');
     }
 
-    public function amp($bankAlias)
+    public function amp($bankAlias) : View
     {
         return $this->render($bankAlias, 'page-amp');
     }
 
-
-    private function render($bankAlias, $template)
+    private function render($bankAlias, $template) : View
     {
         $bankAlias = clear_data($bankAlias);
-
-        $bank = Bank::where(['alias' =>$bankAlias, 'status' => 1])->first();
-
+        $bank = (new BankRepository)->getBankByAlias($bankAlias);
         if ($bank == null) {
             abort(404);
         }
 
-        $page = BankInfoPage::where(['bank_id' =>$bank->id,'type_id' => 5, 'status' => 1])->first();
-
+        $page = (new BankInfoPageRepository)->getBankByAlias($bank->id, 5);
         if ($page == null) {
             abort(404);
         }
@@ -42,11 +40,7 @@ class RequisitesInfoPageController extends BaseBankController
         $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => 'Реквизиты'];
 
-
-        $template = 'site.v3.templates.banks.info-pages.' . $template;
-
-        $editLink =null;
-
+        $editLink = null;
 
         $reviews = DB::table('bank_reviews')
             ->select('*')
@@ -55,7 +49,7 @@ class RequisitesInfoPageController extends BaseBankController
             ->orderBy('id','desc')
             ->get();
 
-
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
         return view($template, compact('page','bank','breadcrumbs', 'editLink', 'reviews'));
     }
 }

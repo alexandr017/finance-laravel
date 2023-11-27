@@ -8,8 +8,6 @@ class CardsRko extends Model
 {
     protected $table = 'cards_2_rko';
 
-
-
     public static function go($request, $id,$action){
 
     	if($action == 'create'){

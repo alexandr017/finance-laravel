@@ -103,16 +103,7 @@ class CardsBoot
             $card->ratingCount = null;
         }
 
-        $cards[] = $card;
-
         return $card;
-    }
-
-
-
-    private static function checkSharesByCardID($cardID)
-    {
-
     }
 
 

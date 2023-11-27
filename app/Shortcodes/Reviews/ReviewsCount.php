@@ -1,5 +1,6 @@
 <?php
 namespace App\Shortcodes\Reviews;
+
 use App\Shortcodes\BaseShortcode;
 use DB;
 use App\Repositories\Frontend\Companies\CompaniesReviewRepository;

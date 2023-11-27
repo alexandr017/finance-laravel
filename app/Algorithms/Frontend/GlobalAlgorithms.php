@@ -2,12 +2,8 @@
 
 namespace App\Algorithms\Frontend;
 
-class GlobalAlgorithms {
-
-    /**
-     * @param $str
-     * @return mixed|null
-     */
+class GlobalAlgorithms
+{
     public static function getMaxNumberWithPercentFromStr($str)
     {
         if (is_numeric($str)) {
@@ -40,8 +36,6 @@ class GlobalAlgorithms {
             }
 
         }
-
-        //dd($max_number);
 
         return $max_number;
     }

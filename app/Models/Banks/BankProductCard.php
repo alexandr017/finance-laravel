@@ -3,8 +3,13 @@
 namespace App\Models\Banks;
 
 use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
-
+/**
+ * Post
+ *
+ * @mixin Eloquent
+ */
 class BankProductCard extends Model
 {
 

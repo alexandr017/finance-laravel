@@ -87,10 +87,7 @@
 
     <link rel="icon" type="image/png" href="/old_theme/img/logo.svg" />
     <link rel="alternate" hreflang="ru" href="{{Request::url()}}">
-
-
 @yield('additional-styles')
-@yield('additional-styles2')
 </head>
 <body>
 <header class="second_header">
@@ -100,116 +97,10 @@
         @include('site.v3.modules.includes.header-pc')
     @endif
 </header>
-<div class="search-form-js">
-    <div class="container search-wrap-form">
-        <div class="wrapper">
-            <form action="/search" method="POST">
-                <input type="hidden" name="_token" id="key" value="{{ csrf_token() }}">
-                <input id="searchInputBySiteJs" type="text" name="s" placeholder="Введите запрос, например Тинькофф" value="" autocomplete="off">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <ul id="search-hint"></ul>
-    </div>
-</div>
-
-@yield('cities-first-section')
 
 @yield('content')
 
-<footer class="container">
-
-    @if(!is_mobile_device())
-    @if(Request::url() != 'https://finance.ru/contacts' && Request::url() != 'https://finance.ru/loans')
-    <div class="row contacts-l-wrap contacts-content">
-        <div class="col-sm-12">
-            <span class="clw-title">Служба поддержки</span>
-            <p>Есть вопрос по выбору микрозайма, займа под залог или другого финансового продукта? Наши консультанты окажут быструю и квалифицированную помощь по удобному для вас способу связи.</p>
-            <div class="row">
-                <div class="col-sm-6">
-                    <span class="fcg">Способы связи:</span>
-                    <p class="itcs"><i class="fa fa-clock-o"></i><button data-toggle="modal" data-target="#callMe">Заказать обратный звонок</button></p>
-                    <p class="itcs"><i class="fa fa-envelope-o"></i><a rel="nofollow" href="mailto:vzo@vsezaimyonline.ru">vzo@vsezaimyonline.ru</a></p>
-                    <p class="itcs"><i class="fa fa-telegram"></i> <a href="https://t.me/vsezaimyonline" target="_blank" rel="nofollow">@vsezaimyonline</a></p>
-                    <p class="itcs"><i class="fa fa-whatsapp"></i> <a href="https://wa.me/79951016228" target="_blank" rel="nofollow">8 (995) 101-62-28</a></p>
-                </div>
-                <div class="col-sm-6">
-                    <span  class="fcg">Горячая линия</span>
-                    <p>Бесплатный номер телефона по России:</p>
-                    <p class="phone"><i class="fa fa-phone"></i> <a href="tel:88007073397">8 (800) 707-33-97</a></p>
-                </div>
-            </div>
-        </div>
-        <?php /*
-        <div class="col-sm-4">
-            <div class="img-wrap">
-                <img loading="lazy" src="/images/natalja-potemkina.png" alt="Специалист службы поддержки ВЗО">
-                <span class="wcx5">Наталья<br>специалист службы поддержки</span>
-            </div>
-        </div>
-        */ ?>
-    </div>
-    @endif
-
-
-        @include('site.v3.modules.includes.menu.pc-footer-group-menu')
-    @endif
-
-    <div class="contacts-content">
-        <div class="footer-flex-block fbl row">
-
-            <div class="social-media-icon">
-                <label class="footer-social-media-label">Соцсети:</label>
-                <div class="icons">
-                    <a href="https://vk.com/vsezaimyonline" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/vk.png" alt="VK"></a>
-                    <a href="https://www.facebook.com/vsezaimyonline/" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/fb.png" alt="FB"></a>
-                    <a href="https://ok.ru/vsezaimyonline" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/ok.png" alt="OK"></a>
-                    <a href="https://t.me/vzoru" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/telegram.png" alt="telegram"></a>
-                    <a href="https://twitter.com/vsezaimyonline" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/twitter.png" alt="twitter"></a>
-                    <a href="https://www.pinterest.ru/vsezaimyonline" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/pinterest.png" alt="pinterest"></a>
-                    <a href="https://zen.yandex.ru/vsezaimyonline" rel="nofollow" target="_blank"><img class="new-footer-sm-img" loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/new-zen.png" alt="yandex zen"></a>
-                    <a href="https://www.youtube.com/channel/UCaEfgVCVioDGWdbmLnKC3Qg" rel="nofollow" target="_blank"><img class="new-footer-sm-img" loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/youtube.png" alt="youtube"></a>
-                </div>
-            </div>
-
-            <div class="new-footer-form-unisender">
-                <p class="new-footer-unisender-text">Подпишитесь на нашу рассылку и вы бесплатно получите 8 лайфхаков о кредитах и займах от нашего эксперта. Как выбирать, как отказаться от навязываемых услуг и другая полезная информация!</p>
-                <form id="subscription_form" class="text-center align-items-center" method="POST" action="#">
-                    <div class="form-line form-group">
-                        <span class="relative"><input name="subscription_email" id="subscription_email" type="email" placeholder="Email" required></span> <button id="ajax_form_btn" type="submit" class="form-btn1">Подписаться</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="last-menu">
-        <div class="row">
-            <div class="col-md-12 d-md-block">
-                @include('site.v3.modules.includes.menu.footer-last')
-            </div>
-        </div>
-    </div>
-
-
-
-
-    @if(!is_mobile_device())
-    <div class="copyright">
-        <p>Предложение не является офертой. Конечные условия уточняйте при прямом общении с кредиторами.
-            Содержание информационных статей основано на субъективном мнении редакции нашего сайта.
-            Мы не несем ответственность за полноту и достоверность содержащейся в них информации.
-            Сайт не принадлежит финансовой организации и на нем не оказываются финансовые услуги.
-            Финансовые услуги будут оказываться непосредственно организациями,
-            имеющими разрешение Центрального Банка Российской Федерации.<br>
-            Сайт является составным произведением и представляет собой в том числе каталог товарных знаков
-            (знаков обслуживания), опубликованных в открытых реестрах ФИПС (Роспатент).
-            Исключительное право на товарные знаки (знаки обслуживания) принадлежат их правообладателям.
-        </p>
-    </div>
-    @endif
-
-</footer>
+@include('site.v3.modules.includes.footer')
 
 <img loading="lazy" width="40" height="40" src="/old_theme/img/button-top.png" id="toTop" alt="Вверх">
 <script src="/old_theme/js/modules/slider/js-slider.min.js"></script>
@@ -237,20 +128,7 @@
 <script src="/old_theme/js/modules/menu/menuJs.js" defer></script>
 <script src="/old_theme/js/modules/search/search.js?v=1" defer></script>
 
-<?php /*
-@if(isset($GLOBALS['shortCodeSlider']))
-    @include('short_codes.slick_slider.js')
-@endif
- */ ?>
-
-<?php /*
-<script src="/old_theme/js/slick.js" defer></script>
- */
-?>
 <script src="/old_theme/js/card-beta.js?v=5"></script>
-
-
-
 
 
 <script type="application/ld+json">
@@ -370,14 +248,6 @@
         ]
 }
 </script>
-@endif
-
-
-
-@if(Auth::id() != null)
-    <script>
-        window.isAuth = true;
-    </script>
 @endif
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\Actions\CardFilter;
+namespace App\Http\Controllers\Site\V3\Actions\CardFilter;
 
 interface CardFilterInterface
 {

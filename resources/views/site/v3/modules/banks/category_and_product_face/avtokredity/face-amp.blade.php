@@ -30,16 +30,6 @@
         @if(isset($cards[0]))
             <div class="col-md-4 mob-mar">
                 <amp-img width="250" height="120" layout="fixed" src="{{$cards[0]->logo}}" alt="{{$cards[0]->logo}}"></amp-img>
-                <?php
-                $tmpRatingK5M = isset($page->product_name)
-                    ? str_replace('.0','',$cards[0]->km5)
-                    : App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankCategoryID($page->id);
-                ?>
-                @if($tmpRatingK5M != null)
-                <div class="bor">
-                    <div class="tt">К5М = {{$tmpRatingK5M}}/10</div>
-                </div>
-                @endif
 
                 <p>{!! str_replace(['<p>','</p>'], '', Shortcode::compile(System::nofollow($page->lead))) !!}</p>
 

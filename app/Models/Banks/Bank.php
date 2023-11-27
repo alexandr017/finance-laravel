@@ -2,12 +2,17 @@
 
 namespace App\Models\Banks;
 
-use App\Models\Urls\Url;
 use Illuminate\Database\Eloquent\Model;
-use Config;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Eloquent;
 
+/**
+ * Post
+ *
+ * @mixin Eloquent
+ * @property mixed $id
+ * @property mixed $h1
+ */
 class Bank extends Model
 {
     use SoftDeletes;
@@ -58,14 +63,4 @@ class Bank extends Model
         'status',
     ];
 
-    /*
-    public function urls()
-    {
-        $section_type = Config::get('urls-types.banks');
-
-        return $this->hasOne(Url::class, 'section_id','id')
-            ->where('section_type', $section_type);
-    }
-
-    */
 }

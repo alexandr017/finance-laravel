@@ -11,8 +11,8 @@
     <div class="row">
         <div class="col-lg-9 col-md-12">
 
-            <h1 class="p2-h1">{{$page->h1}}</h1>
             @include('site.v3.modules.companies.company_menu')
+            <h1 class="p2-h1">{{$page->h1}}</h1>
 
             <?php echo Shortcode::compile(System::nofollow($page->content)); ?>
 
@@ -26,7 +26,7 @@
                 <div class="rating-line micro text-center">
                     <?php $ratingValue = \App\Algorithms\Frontend\Banks\BankReviews::getRatingByReviews($reviews); ?>
 
-                    {!! App\Models\System::rating($ratingValue) !!}
+                    {!! App\Algorithms\System::rating($ratingValue) !!}
                     <div class="text-rating">
                         @if(!$company->reviews_page)
                             <a rel="nofollow" href="#review"><span>{{$countReviews}}</span> {{System::endWords($countReviews, ['оценка', 'оценки', 'оценок'])}}</a>

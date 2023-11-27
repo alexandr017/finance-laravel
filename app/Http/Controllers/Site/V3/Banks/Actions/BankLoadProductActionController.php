@@ -4,12 +4,8 @@ namespace App\Http\Controllers\Site\V3\Banks\Actions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Banks\BankReview;
-use Auth;
 use App\Algorithms\Frontend\Cards\CardsBoot;
 use DB;
-use App\Models\Companies\Companies;
-
 
 class BankLoadProductActionController extends Controller
 {

@@ -3,7 +3,6 @@
 namespace App\Algorithms\Frontend\Banks;
 
 use App\Models\Banks\BankReview;
-use DB;
 
 class BankReviews {
 

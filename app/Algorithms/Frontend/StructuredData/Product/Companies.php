@@ -2,14 +2,12 @@
 
 namespace App\Algorithms\Frontend\StructuredData\Product;
 
-use App\Models\Companies\CompaniesUrl;
-
 class Companies
 {
-    public static function render($cards, $page)
+    public static function render($cards, $page) : string
     {
 
-        if (!count($cards)) return;
+        if (!count($cards)) return '';
 
         if($page->img == null) {
             $page->img = 'https://finance.ru/old_theme/img/logo_vzo.png';
@@ -24,7 +22,7 @@ class Companies
 
 
         if (!isset($cards[0]->category_id)) {
-            return;
+            return '';
         }
 
 
@@ -32,22 +30,20 @@ class Companies
         foreach ($cards as $card) {
 
             switch ($card->category_id) {
+                case 3:
+                case 4:
+                case 8:
+                case 7:
                 case 1: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
+                case 6:
                 case 2: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 0; break;
-                case 3: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-                case 4: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
                 case 5: $field_high_price = 'limit_max';  $field_low_price = 'limit_max'; $field_price_range = 0; break;
-                case 6: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 0; break;
-                case 7: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-                case 8: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-                //case 9: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 1; break;
-                default: return;
+                default: return '';
             }
 
 
             if ($card->$field_low_price < $low_price_value) {
                 $low_price_value = $card->$field_low_price;
-                $logo = $card->logo;
             }
             if ($card->$field_high_price > $high_price_value) {
                 $high_price_value = $card->$field_high_price;

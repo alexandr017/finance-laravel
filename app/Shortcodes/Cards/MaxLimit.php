@@ -4,11 +4,14 @@ namespace App\Shortcodes\Cards;
 use App\Shortcodes\BaseShortcode;
 
 class MaxLimit extends BaseShortcode{
-    public function register($shortcode, $content, $compiler, $name, $viewData=false){
+    public function register($shortcode, $content, $compiler, $name, $viewData=false)
+    {
+        global $c;
+
 		if(isset($GLOBALS['max_limit'])){
         	return $GLOBALS['max_limit'];
 	    } else {
-	    	global $c;
+
 	    	if(isset($c[0]->category_id)){
 
 	    		switch ($c[0]->category_id) {

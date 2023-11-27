@@ -17,7 +17,6 @@
 
     <div class="refresh-item text-center">
         <span>Обновлено</span> <span>{{fake_update_offer($bank->created_at)}}</span>
-        <?php $tmpRatingK5M = App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankID($bank->id); ?>
     </div>
 
     <table class="company-face-table">

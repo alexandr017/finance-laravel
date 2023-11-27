@@ -3,37 +3,32 @@
 namespace App\Http\Controllers\Site\V3\Banks\InfoPages;
 
 use App\Http\Controllers\Site\V3\Banks\BaseBankController;
-
-use App\Models\Banks\BankInfoPage;
-use App\Models\Banks\Bank;
 use DB;
+use Illuminate\Contracts\View\View;
+use App\Repositories\Site\Bank\BankRepository;
+use App\Repositories\Site\Bank\BankInfoPageRepository;
 
 class HotLineInfoPageController extends BaseBankController
 {
-    public function index($bankAlias)
+    public function index($bankAlias) : View
     {
         return $this->render($bankAlias, 'page');
     }
 
-    public function amp($bankAlias)
+    public function amp($bankAlias) : View
     {
         return $this->render($bankAlias, 'page-amp');
     }
 
-
-    private function render($bankAlias, $template)
+    private function render($bankAlias, $template) : View
     {
         $bankAlias = clear_data($bankAlias);
-
-        $bank = Bank::where(['alias' =>$bankAlias, 'status' => 1])->first();
-
+        $bank = (new BankRepository)->getBankByAlias($bankAlias);
         if ($bank == null) {
             abort(404);
         }
 
-        $page = BankInfoPage::where(['bank_id' =>$bank->id, 'type_id' => 1, 'status' => 1])->first();
-
-
+        $page = (new BankInfoPageRepository)->getBankByAlias($bank->id, 1);
         if ($page == null) {
             abort(404);
         }
@@ -43,24 +38,7 @@ class HotLineInfoPageController extends BaseBankController
         $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->name, 'link' => '/banki/'.$bank->alias];
         $breadcrumbs[] = ['h1' => 'Служба поддержки'];
 
-
-        $template = 'site.v3.templates.banks.info-pages.' . $template;
-
         $editLink = null;
-        $bankTopCard = DB::table('bank_product_cards')
-            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-            ->leftJoin('bank_category_pages','bank_category_pages.id','bank_products.bank_category_id')
-            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-            ->select('cards.id','cards.link_type','cards.link_1','cards.link_2','cards.title')
-            ->where(['cards.status' => 1, 'banks.id' => $bank->id])
-            ->whereNull('bank_products.deleted_at')
-            ->whereNull('bank_category_pages.deleted_at')
-            ->orderBy("cards.flow", 'asc')
-            ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
-            ->first();
-
 
         $reviews = DB::table('bank_reviews')
             ->select('*')
@@ -69,6 +47,7 @@ class HotLineInfoPageController extends BaseBankController
             ->orderBy('id','desc')
             ->get();
 
-        return view($template, compact('page','bank','breadcrumbs', 'editLink','bankTopCard','reviews'));
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
+        return view($template, compact('page','bank','breadcrumbs', 'editLink','reviews'));
     }
 }

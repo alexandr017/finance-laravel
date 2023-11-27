@@ -4,20 +4,21 @@ namespace App\Http\Controllers\Site\V3\Blog;
 
 use DB;
 use App\Models\StaticPages\StaticPage;
+use Illuminate\Contracts\View\View;
 
 class IndexBlogController extends BaseBlogController
 {
-    public function news()
+    public function news() : View
     {
         return $this->render('news');
     }
 
-    public function articles()
+    public function articles() : View
     {
         return $this->render('articles');
     }
 
-    private function render(string $alias)
+    private function render(string $alias) : View
     {
         $postsCategory = StaticPage::where(['alias' => $alias])->first();
 
@@ -30,7 +31,7 @@ class IndexBlogController extends BaseBlogController
         $blogCategories = DB::table('posts_categories')
             ->select('id', 'h1', 'alias_category', 'short_name')
             ->where(['sidebar_menu' => $queryType])
-            ->orderBy('sidebar_order', 'asc')
+            ->orderBy('sidebar_order')
             ->get();
 
         $posts = [];
@@ -54,13 +55,9 @@ class IndexBlogController extends BaseBlogController
         $breadcrumbs = [];
         $breadcrumbs [] =  ['h1' => $postsCategory->breadcrumb ?? $postsCategory->h1];
 
-        return view('site.v3.templates.blog.index',[
-            'postsCategory' => $postsCategory,
-            'blogCategories' => $blogCategories,
-            'posts' => $posts,
-            'breadcrumbs' => $breadcrumbs,
-            'editLink' => '/'
-        ]);
+        $editLink = null;
 
+        return view('site.v3.templates.blog.index', compact('postsCategory',
+            'blogCategories', 'posts', 'breadcrumbs', 'editLink'));
     }
 }

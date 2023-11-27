@@ -34,14 +34,6 @@ use App\Shortcodes\Rat\RatCons;
 use App\Shortcodes\Comparison\Comparison;
 use App\Shortcodes\Comparison\ComparisonInner;
 
-use App\Shortcodes\Forms\CompanyAdd;
-use App\Shortcodes\Forms\WidgetInstall;
-//use App\Shortcodes\Forms\Support;
-use App\Shortcodes\Forms\CreditRating;
-use App\Shortcodes\Forms\CreditHistory;
-use App\Shortcodes\Forms\AuthForm;
-use App\Shortcodes\Forms\FormAdvertising;
-
 use App\Shortcodes\GoogleTrends\GoogleTrends;
 
 use App\Shortcodes\VerticalTab\VerticalTabsWrap;
@@ -78,12 +70,10 @@ use App\Shortcodes\GoToAccount\GoToAccount;
 
 use App\Shortcodes\Reviews\ReviewsCount;
 
-use App\Shortcodes\RelatedPosts\RelatedPosts;
 
 use App\Shortcodes\ReadMore\ReadMore;
 
 
-use App\Shortcodes\Authors\AuthorsCode;
 use App\Shortcodes\RKOCalc\RKOCalc;
 
 use App\Shortcodes\OverpaymentTable\OverpaymentTable;
@@ -101,11 +91,6 @@ use App\Shortcodes\Quote\Quote;
 use App\Shortcodes\StructuredDataVideo\SDV;
 use App\Shortcodes\StructuredFAQ\SFAQ;
 
-use App\Shortcodes\Expert\Expert;
-use App\Shortcodes\Expert\OurExperts;
-
-use App\Shortcodes\SlickSlider\SlickSliderWrap;
-use App\Shortcodes\SlickSlider\SlickSlideItem;
 
 use App\Shortcodes\Emoji\Emoji;
 
@@ -183,15 +168,6 @@ class ShortcodesServiceProvider extends ServiceProvider
         
 
 
-        Shortcode::register('form_company_add', CompanyAdd::class);
-        Shortcode::register('form_widget_install', WidgetInstall::class);
-        //Shortcode::register('form_support', Support::class);
-        Shortcode::register('form_credit_rating', CreditRating::class);
-        Shortcode::register('form_credit_history', CreditHistory::class);
-        Shortcode::register('form_auth', AuthForm::class);
-        Shortcode::register('form_advertising', FormAdvertising::class);
-
-
         Shortcode::register('google_trends', GoogleTrends::class);
 
 
@@ -227,14 +203,12 @@ class ShortcodesServiceProvider extends ServiceProvider
         Shortcode::register('reviews_count', ReviewsCount::class); // Кол-во отзывов
 
 
-        Shortcode::register('related', RelatedPosts::class); // Блок читайте так же (в теле записи)
 
 
 
         Shortcode::register('read_more', ReadMore::class); // Читать далее
 
 
-        Shortcode::register('author', AuthorsCode::class); // Вставки другого автора
 
 
         Shortcode::register('rko_calc_ooo_and_ip', RKOCalc::class); // Калькулятор в РКО для ИП и ООО
@@ -259,11 +233,6 @@ class ShortcodesServiceProvider extends ServiceProvider
         Shortcode::register('timeline_item', TimeLineInner::class);
 
 
-        Shortcode::register('expert', Expert::class); // эксперты
-        Shortcode::register('our_experts', OurExperts::class); // эксперты
-
-        Shortcode::register('slider_wrap', SlickSliderWrap::class); // слайдер
-        Shortcode::register('slide_item', SlickSlideItem::class); // слайдер
 
         Shortcode::register('em', Emoji::class); //эмодзи
 

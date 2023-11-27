@@ -6,24 +6,21 @@ use App\Models\Posts\Posts;
 use App\Models\Posts\PostsCategories;
 use App\Models\StaticPages\StaticPage;
 use DB;
-use Auth;
-use App\Models\Users\UsersMeta;
-use Cache;
-use App\Models\Posts\Authors;
+use Illuminate\Contracts\View\View;
 
 class PostController extends BaseBlogController
 {
-    public function news(string $categoryAlias, string $postCategory)
+    public function news(string $categoryAlias, string $postCategory) : View
     {
         return $this->post( $categoryAlias, $postCategory, 'news');
     }
 
-    public function articles(string $categoryAlias, string $postCategory)
+    public function articles(string $categoryAlias, string $postCategory) : View
     {
         return $this->post( $categoryAlias, $postCategory, 'articles');
     }
 
-    private function post(string $categoryAlias, string $postAlias, string $alias)
+    private function post(string $categoryAlias, string $postAlias, string $alias) : View
     {
         $postGlobalCategory = StaticPage::where(['alias' => $alias])->first();
 
@@ -62,6 +59,7 @@ class PostController extends BaseBlogController
         $editLink = '/';
 
         $blade = !is_amp_page() ? 'site.v3.templates.blog.post' : 'site.v3.templates.blog.post-amp';
+
         return view($blade, compact('post', 'postCategory', 'breadcrumbs',
             'postsComments', 'relatedPosts', 'editLink', 'table_of_contents', 'showContentMenu'));
     }

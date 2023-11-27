@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Site\Import;
 use App\Models\Banks\Bank;
 use App\Models\Banks\BankCategoryPage;
 use App\Models\Banks\BankInfoPage;
+use App\Models\Banks\BankProduct;
+use App\Models\Banks\BankReview;
 use DB;
 
 trait BanksTrait
@@ -142,8 +144,53 @@ trait BanksTrait
                 $page->h1 = $row[4];
                 $page->lead = $row[5];
                 $page->content = $row[6];
+                $page->breadcrumb = $row[7];
                 $page->status = 1;
                 $page->save();
+
+            }
+        });
+
+        echo 'Все ок';
+    }
+
+    public function bankProducts()
+    {
+        DB::update('update bank_category_pages set status = 0');
+
+        $id = '15kK8WIyWEUA2X412axFgMvABGBWbfmDBnausAICeO9g';
+        $gid = '0';
+
+        $csv = file_get_contents('https://docs.google.com/spreadsheets/d/' . $id . '/export?format=csv&gid=' . $gid);
+        $csv = explode("\r\n", $csv);
+        $data = array_map('str_getcsv', $csv);
+
+        $isFirstLine = true;
+
+
+        DB::transaction(function() use($data, $isFirstLine) {
+            foreach ($data as $row) {
+
+                if ($isFirstLine) {
+                    $isFirstLine = false;
+                    continue;
+                }
+
+                $page = BankProduct::find($row[0]);
+                if ($page == null) {
+                    dd('Не найден элемент для ID ' .  $row[1]);
+                }
+
+                $page->title = $row[2];
+                $page->meta_description = $row[3];
+                $page->h1 = $row[4];
+                $page->lead = $row[5];
+                $page->content = $row[6];
+                $page->breadcrumb = $row[7];
+                $page->status = 1;
+                $page->save();
+
+                // cards todo
 
             }
         });
@@ -154,7 +201,57 @@ trait BanksTrait
 
     public function bankReviews()
     {
+//        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+//        DB::delete('delete from bank_reviews');
 
+        $id = '1O4gqxPgV94q-15TvJnOjPibSA-4ufKvLutITnFnurRU';
+        $gid = '0';
+
+        $csv = file_get_contents('https://docs.google.com/spreadsheets/d/' . $id . '/export?format=csv&gid=' . $gid);
+        $csv = explode("\r\n", $csv);
+        $data = array_map('str_getcsv', $csv);
+
+        $isFirstLine = true;
+
+        DB::transaction(function () use ($data, $isFirstLine) {
+            foreach ($data as $row) {
+
+                if ($isFirstLine) {
+                    $isFirstLine = false;
+                    continue;
+                }
+
+                $dataForInsert = [
+                    'bank_id' => $row[0],
+                    'bank_category_id' => $row[1] ?? null,
+                    'product_id' => $row[2] ?? null,
+                    'author' => $row[3],
+                    'rating' => $row[4],
+                    'review' => $row[5],
+                    'pros' => $row[6] ?? null, // ?
+                    'minuses' => $row[7] ?? null, // ?
+                    'status' => 1
+                ];
+                $review = new BankReview($dataForInsert);
+                $review->save();
+            }
+        });
+
+//        $cards = Cards::select('id')->where(['category_id' => 1])->get();
+//        foreach ($cards as $_card) {
+//            if (Cache::has('card' . $_card->id)) {
+//                Cache::forget('card' . $_card->id);
+//            }
+//        }
+//
+//        $companies = Companies::select('id')->get();
+//
+//        foreach ($companies as $_company) {
+//            if (Cache::has('company_reviews_avg' . $_company->id)) {
+//                Cache::forget('company_reviews_avg' . $_company->id);
+//            }
+//        }
+
+        echo 'Все ок';
     }
-
 }

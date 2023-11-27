@@ -23,7 +23,7 @@
         <td class="display_none">{{$card->ratingCount}}</td>
         <td>
             <div class="rating-line micro">
-                {!! App\Models\System::rating($card->ratingValue) !!}<br>
+                {!! App\Algorithms\System::rating($card->ratingValue) !!}<br>
                 <div class="text-rating">
                     <span>{{$card->ratingCount}}</span> {{System::endWords($card->ratingCount, ['отзыв', 'отзыва', 'отзывов'])}}
                 (<span>{{$card->ratingValue}}</span> из <span>5</span>)

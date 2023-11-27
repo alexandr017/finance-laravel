@@ -6,16 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Companies\Companies;
 use App\Algorithms\Frontend\Cards\OldCardsBoot;
 use DB;
-use Auth;
-use App\Models\Companies\CompaniesChildrenPages;
-use App\Models\Users\UsersMeta;
 use App\Algorithms\SimilarCompanies;
 use App\Algorithms\Frontend\Companies\Reviews\ReviewsCount;
-use App\Models\Posts\Authors;
+use Illuminate\Contracts\View\View;
 
 class CompanyController extends Controller
 {
-    public function index($companyAlias)
+    public function index($companyAlias) : View
     {
         $company = Companies::where(['alias'=>$companyAlias, 'status'=>1])->first();
 
@@ -27,68 +24,32 @@ class CompanyController extends Controller
         $cards = array_values($cards);
 
 
-
-        $reviews = DB::table('companies_reviews')
+        $reviewsRaw = DB::table('companies_reviews')
             ->select('companies_reviews.*')
-            ->where(['companies_reviews.company_id'=>$company->id,'companies_reviews.status' => 1])
+            ->where(['companies_reviews.company_id'=> $company->id,'companies_reviews.status' => 1])
             ->orderBy('companies_reviews.id', 'desc')
             ->get();
-
-        $reviewsObj = new ReviewsCount($reviews);
-        $complaintAllCount = $reviewsObj->getComplaintAllCount();
-        $complaintAnswerCount = $reviewsObj->complaintAnswerCount();
-        $countReviews = $reviewsObj->getAllReviewsAndComplaints();
+        $reviewsObj = new ReviewsCount($reviewsRaw);
         $reviews = $reviewsObj->getAllHierarchyReviews();
-
-
-        $companiesChildrenPages = CompaniesChildrenPages::where(['company_id'=>$company->id])->get();
 
         $breadcrumbs = [
             ['link'=>'/mfo','h1'=> 'МФО'],
             ['h1' => ($company->breadcrumb == null) ? $company->h1 : $company->breadcrumb]
         ];
 
-
-        $uid = Auth::id();
-        $uidName = '';
-        if($uid != null){
-            $userMeta = UsersMeta::where(['user_id'=>$uid])->first();
-            if($userMeta == null){
-                $uidName = 'Гость';
-            } else {
-                $uidName = $userMeta->last_name . ' ' . $userMeta->first_name . ' ' . $userMeta->middle_name;
-            }
+        $similar_companies = [];
+        if (isset($cards[0])) {
+            $similar_companies = SimilarCompanies::getSimilarCards($cards[0]);
         }
 
-
-        $similar_companies = SimilarCompanies::getSimilarCompanies($company);
-
-
-
-        $icons = [];
-
         $showContentMenu = true;
+        $editLink = null;
 
-        $blade = (!is_amp_page()) ? 'site.v3.templates.companies.company.company' : 'site.v3.templates.companies.company.company-amp';
+        $blade = 'site.v3.templates.companies.company.company';
 
-        return view($blade,[
-            'companiesChildrenPages' => $companiesChildrenPages,
-            'company' => $company,
-            'breadcrumbs' => $breadcrumbs,
-            'cards' => $cards,
-            'reviews' => $reviews,
-            'countReviews' => $countReviews,
-            'complaintAllCount' => $complaintAllCount,
-            'complaintAnswerCount' => $complaintAnswerCount,
-            'section_type' => 5,
-            'uid' => $uid,
-            'uidName' => $uidName,
-            'editLink' => null,
-            'similar_companies' => $similar_companies,
-            'amp' => is_amp_page(),
-            'icons' => $icons,
-            'showContentMenu' => $showContentMenu
-        ]);
+        return view($blade, compact('company', 'breadcrumbs', 'cards',
+            'reviews', 'editLink', 'similar_companies', 'showContentMenu'));
+
     }
 
 }

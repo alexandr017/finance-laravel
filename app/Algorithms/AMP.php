@@ -2,7 +2,6 @@
 
 namespace App\Algorithms;
 
-
 class AMP
 {
     public static function render($html){

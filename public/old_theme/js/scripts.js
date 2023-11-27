@@ -820,38 +820,6 @@ $('.info-offer i.fa-close').on('click',function(){
 
 
 
-
-
-
-// подписка юнисендер
-
-var yourForm=document.getElementById('subscription_form');
-
-yourForm.addEventListener('submit',function(e){
-    "use strict";
-    e.preventDefault();
-    var email = $('#subscription_email').val();
-
-    if (email== ''){
-        alert('Укажите email');
-        return false;
-    }
-
-    var token = $('meta[name="csrf-token"]').attr('content');
-    $.ajax({
-        type: "POST",
-        url: "/actions/unisender",
-        data: {
-            '_token': token,
-            'email': email,
-        }
-    });
-    var html = '<div class="text-center"><i class="fa fa-check-circle"></i><br><p>Спасибо за подписку';
-    html += '<br>Письмо с подтверждением отправлено вам на почту.</p></div>';
-    $('#subscription_form').html(html);
-    return false;
-});
-
 // калькулятор микрозаймов
 $('.calc-block button').on('click',function(){
     var sum = $('#mc_summ').val();

@@ -27,7 +27,7 @@
                 <div class="rating-line">
                     <?php $showEntityReviewsLink = $card->link_to_reviews_page != null && str_replace('https://finance.ru', '', $card->link_to_reviews_page) != '/' . $card->link_to_reviews_page; ?>
                     @if ($showEntityReviewsLink)
-                        {!! App\Models\System::rating($card->ratingValue) !!}
+                        {!! App\Algorithms\System::rating($card->ratingValue) !!}
                         <div class="text-rating">
                             <a target="_blank"
                                href="{{$card->link_to_reviews_page}}">{{$card->ratingCount}} {{System::endWords($card->ratingCount, ['отзыв', 'отзыва', 'отзывов'])}}</a>

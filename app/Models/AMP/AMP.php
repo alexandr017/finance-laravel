@@ -2,7 +2,6 @@
 
 namespace App\Models\AMP;
 
-
 class AMP
 {
     public static function render($html){

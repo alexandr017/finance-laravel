@@ -4,10 +4,10 @@ namespace App\Algorithms\Frontend\StructuredData\Product;
 
 class Listings
 {
-    public static function render($cards, $page)
+    public static function render($cards, $page) : string
     {
 
-        if (!count($cards)) return;
+        if (!count($cards)) return '';
 
 
         $low_price_value = 10000000;
@@ -33,17 +33,16 @@ class Listings
         }
 
         switch ($switch_id) {
+            case 3:
+            case 4:
+            case 7:
+            case 8:
+            case 10:
             case 1: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
+            case 6:
             case 2: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 0; break;
-            case 3: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-            case 4: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
             case 5: $field_high_price = 'limit_max';  $field_low_price = 'limit_max'; $field_price_range = 0; break;
-            case 6: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 0; break;
-            case 7: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-            case 8: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-            case 10: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-            //case 9: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 1; break;
-            default: return;
+            default: return '';
         }
 
         $counter = 1;
@@ -119,7 +118,7 @@ class Listings
     }
 
 
-    public static function renderNoPrams($page)
+    public static function renderNoPrams($page) : string
     {
         return '<script type="application/ld+json">{
             "@context": "http://schema.org",

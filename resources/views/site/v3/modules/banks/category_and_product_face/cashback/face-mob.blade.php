@@ -4,11 +4,6 @@
     </p>
     @if(isset($cards[0]))
         <img loading="lazy" src="{{$cards[0]->logo}}" alt="{{$cards[0]->title}}" class="logo-company">
-    <?php
-    $tmpRatingK5M = isset($page->product_name)
-        ? str_replace('.0','',$cards[0]->km5)
-        : App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankCategoryID($page->id);
-    ?>
 
     <img loading="lazy" src="{{$bank->logo}}" alt="{{$bank->name}}" class="logo-company">
 
@@ -26,7 +21,7 @@
         }
         ?>
         @if(isset($linkToReviewsPage))
-            {!! App\Models\System::rating($ratingValue) !!}
+            {!! App\Algorithms\System::rating($ratingValue) !!}
             <div class="text-rating">
                 <a rel="nofollow" href="{{$linkToReviewsPage}}">{{count($reviews)}} {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
             </div>

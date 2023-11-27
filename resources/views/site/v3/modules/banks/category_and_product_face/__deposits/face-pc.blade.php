@@ -29,7 +29,7 @@
                 $ratingValue = 0;
                 $reviews = [];
                 ?>
-                {!! App\Models\System::rating($ratingValue) !!}
+                {!! App\Algorithms\System::rating($ratingValue) !!}
                 <div class="text-rating">
                     <a rel="nofollow" href="<?= str_replace('https://'.$_SERVER['SERVER_NAME'], '', URL::current()) ?>/reviews"><span itemprop="ratingCount">{{count($reviews)}}</span> {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
                 </div>

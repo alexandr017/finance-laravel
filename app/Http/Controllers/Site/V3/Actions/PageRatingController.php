@@ -43,6 +43,7 @@ namespace App\Http\Controllers\Site\V3\Actions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Cache;
 
 class PageRatingController extends Controller
 {

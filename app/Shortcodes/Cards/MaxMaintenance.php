@@ -5,11 +5,14 @@ use App\Shortcodes\BaseShortcode;
 
 class MaxMaintenance extends BaseShortcode{
 
-    public function register($shortcode, $content, $compiler, $name, $viewData=false){
+    public function register($shortcode, $content, $compiler, $name, $viewData=false)
+    {
+        global $c;
+
     	if(isset($GLOBALS['max_maintenance'])){
         	return $GLOBALS['max_maintenance'];
 	    } else {
-	    	global $c;
+
 	    	if(isset($c[0]->category_id)){
 
 	    		switch ($c[0]->category_id) {

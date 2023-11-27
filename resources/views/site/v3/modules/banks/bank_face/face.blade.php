@@ -3,7 +3,6 @@
         <div class="col-sm-3 v-flex">
             <div class="left b-wrap">
                 <img loading="lazy" src="{{$bank->logo}}" alt="{{$bank->name}}" class="logo-company">
-                <?php $tmpRatingK5M = App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankID($bank->id); ?>
             </div>
         </div>
         <div class="col-sm-9">
@@ -28,7 +27,7 @@
                     $ratingValue = 0;
                 }
                 ?>
-                {!! App\Models\System::rating($ratingValue) !!}
+                {!! App\Algorithms\System::rating($ratingValue) !!}
                 <div class="text-rating">
                         <a rel="nofollow" href="/banks/{{$bank->alias}}/reviews"><span>{{count($reviews)}}</span> {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
                 </div>

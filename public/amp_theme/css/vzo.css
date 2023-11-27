@@ -186,7 +186,7 @@ header{padding: 10px 0;}
 
 
 /**************************** breadcrumbs ********************************/
-.breadcrumbs a{text-decoration: none;border-bottom: 1px dotted #1098c7;display: inline-block;}
+.breadcrumbs a{text-decoration: none;border-bottom: 1px dotted #009fe3;display: inline-block;}
 .breadcrumbs .sep{margin: 0 5px;}
 .breadcrumbs span{line-height: 24px;}
 /**************************** breadcrumbs ********************************/
@@ -239,7 +239,7 @@ tr:nth-child(odd) {
 }
 article.single a {
     text-decoration: none;
-    border-bottom: 1px dotted #1098c7;
+    border-bottom: 1px dotted #009fe3;
 }
 
 
@@ -392,9 +392,9 @@ article.single a {
 .starline{display: inline-block;}
 .text-rating{display: inline-block;color: #337ab7;text-decoration: none;}
 .three-block i{margin-right: 10px;color: #00b6f7;}
-.text-rating a{border-bottom: 1px dashed #1098c7;}
+.text-rating a{border-bottom: 1px dashed #009fe3;}
 .text-rating a:hover{text-decoration: none}
-.val-rating{text-decoration: none; color: #1098c7;display: inline-block;}
+.val-rating{text-decoration: none; color: #009fe3;display: inline-block;}
 .three-block{margin-top: 15px;margin-bottom: 15px;}
 
 .accordion-p {margin-top: 15px;background: #f8f8f8;padding: 15px 35px;}

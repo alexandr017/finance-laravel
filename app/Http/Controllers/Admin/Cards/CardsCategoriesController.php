@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Cards;
 
 use Illuminate\Http\Request;
 use App\Models\Cards\CardsCategories;
-use App\Models\System;
+use App\Algorithms\System;
 use Validator;
 use Cache;
 use Auth;

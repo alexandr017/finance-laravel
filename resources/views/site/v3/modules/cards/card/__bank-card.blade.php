@@ -58,7 +58,7 @@
                     ?></div>
                 @if(isset($card->linkToEntityReviews))
                 <div class="rating-line">
-                        {!! App\Models\System::rating($card->ratingValue) !!}
+                        {!! App\Algorithms\System::rating($card->ratingValue) !!}
                         <div class="text-rating">
                             <a target="_blank" href="{{$card->linkToEntityReviews}}">{{$card->ratingCount}}  {{System::endWords($card->ratingCount, ['отзыв', 'отзыва', 'отзывов'])}}</a>
                             <span class="val-rating">({{$card->ratingValue}} из 5)</span>

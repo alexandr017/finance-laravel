@@ -9,52 +9,50 @@ use App\Models\Companies\CompaniesChildrenPages;
 use App\Models\Companies\Companies;
 use App\Models\Cards\Cards;
 use App\Algorithms\Frontend\Cards\OldCardsBoot;
-use App\Models\Users\UsersMeta;
 use App\Algorithms\Frontend\Companies\Reviews\ReviewsCount;
+use Illuminate\Contracts\View\View;
 
 class CompanyPageController extends Controller
 {
-    public function gorjachajaLinija($companyAlias)
+    public function gorjachajaLinija($companyAlias) : View
     {
         $pageType = 1;
         return $this->render($companyAlias, $pageType);
     }
 
-    public function lichnyjKabinet($companyAlias)
+    public function lichnyjKabinet($companyAlias) : View
     {
         $pageType = 2;
         return $this->render($companyAlias, $pageType);
     }
 
-    public function otzyvy($companyAlias)
+    public function otzyvy($companyAlias) : View
     {
         $pageType = 4;
         return $this->render($companyAlias, $pageType);
     }
 
 
-    public function render($companyAlias, $pageType)
+    public function render($companyAlias, $pageType) : View
     {
-        $amp = is_amp_page();
-
         $company = Companies::where(['alias'=> $companyAlias, 'status'=>1])->first();
         if ($company == null) {
             abort(404);
-        };
+        }
 
 
         $page = CompaniesChildrenPages::where(['company_id' => $company->id, 'type_id' => $pageType, 'status' => 1])->first();
         if ($page == null) {
             abort(404);
-        };
+        }
 
-        $companiesChildrenPages = CompaniesChildrenPages::where(['company_id'=>$company->id])->get();
+        $companiesChildrenPages = CompaniesChildrenPages::where(['company_id' => $company->id])->get();
 
 
         $editLink = null;
 
         $card = Cards::where(['company_id' => $company->id])
-            ->select('id','category_id','logo','title','link_1','link_2','link_type','status')
+            ->select(['id','category_id','logo','title','link_1','link_2','link_type','status'])
             ->orderBy('km5','desc')
             ->first();
 
@@ -84,21 +82,19 @@ class CompanyPageController extends Controller
 
 
         if($page->type_id != 4){
-            $blade = (!is_amp_page()) ? 'site.v3.templates.companies.children.children' : 'site.v3.templates.companies.children.children-amp';
+            $blade = 'site.v3.templates.companies.children.children';
 
             return view($blade, compact('company','breadcrumbs', 'showSidebarConversionBlock',
-                'page','editLink','card','amp', 'cards', 'reviews', 'companiesChildrenPages', 'showContentMenu'));
+                'page','editLink','card', 'cards', 'reviews', 'companiesChildrenPages', 'showContentMenu'));
 
         } else {
-
             $uid = Auth::id();
             $uidName = '';
-
-            $blade = (!is_amp_page()) ? 'site.v3.templates.companies.reviews.reviews' : 'site.v3.templates.companies.reviews.reviews-amp';
+            $blade = 'site.v3.templates.companies.reviews.reviews';
 
             return view($blade, compact('company','breadcrumbs','reviews', 'complaintAllCount',
                 'showSidebarConversionBlock', 'complaintAnswerCount',
-                'page','uid','uidName','editLink','countReviews','card','cards','amp', 'companiesChildrenPages'));
+                'page','uid','uidName','editLink','countReviews','card','cards', 'companiesChildrenPages'));
         }
     }
 

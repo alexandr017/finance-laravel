@@ -162,7 +162,7 @@ header ul ul{
 header ul ul li{text-align: left;display: inline-block;float: none;position: relative;border: none;z-index: 11111;height: unset;
     width: 49.6%;margin: 0;vertical-align: text-top;}
 header ul ul li a{color: #292929;text-decoration: none;line-height: 25px;display: block;padding: 5px 15px;}
-header ul ul li a:hover{color: #1098c7;background: #fafafa;}
+header ul ul li a:hover{color: #009fe3;background: #fafafa;}
 header ul li:last-child, footer ul li:last-child{margin-right: 0px;}
 header ul li a, footer ul li a{color: #292929;}
 header ul li a:hover, footer ul li a:hover{color: #292929;}

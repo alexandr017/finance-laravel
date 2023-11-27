@@ -8,7 +8,6 @@ use App\Models\Banks\BankReview;
 use Auth;
 use App\Models\GoogleCaptcha\GoogleCaptcha;
 
-
 class BankReviewActionsController extends Controller
 {
 

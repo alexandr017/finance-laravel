@@ -8,8 +8,6 @@ class CardsCreditsCards extends Model
 {
     protected $table = 'cards_5_credit_cards';
 
-
-
     public static function go($request, $id,$action){
 
     	if($action == 'create'){

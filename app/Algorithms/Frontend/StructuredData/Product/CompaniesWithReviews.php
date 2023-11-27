@@ -2,14 +2,12 @@
 
 namespace App\Algorithms\Frontend\StructuredData\Product;
 
-use App\Models\Companies\CompaniesUrl;
-
 class CompaniesWithReviews
 {
-    public static function render($cards, $page, $reviews)
+    public static function render($cards, $page, $reviews) : string
     {
 
-        if (!count($cards)) return null;
+        if (!count($cards)) return '';
 
         $offers_code = '';
 
@@ -20,7 +18,7 @@ class CompaniesWithReviews
         foreach ($cards as $card) {
 
             if (!isset($card->category_id)) {
-                return null;
+                return '';
             }
 
 

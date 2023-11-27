@@ -6,21 +6,18 @@ use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Models\Cards\Cards;
 use App\Repositories\Repository;
 use App\Models\Companies\CompaniesCategories;
-use App\Models\Cards\CardsCategories as Model;
 use Cache;
 use DB;
-use Auth;
 
 class CompaniesCategoryRepository extends Repository
 {
-    private $CASH_BACK_CATEGORY = 9;
 
     public function getAllCategoryFromCacheById($category_id){
         $companies_categories = Cache::rememberForever('companies_categories', function(){
             return CompaniesCategories::all();
         });
 
-        foreach ($companies_categories as $key => $value) {
+        foreach ($companies_categories as $value) {
             if($value->id == $category_id){
                 return $value;
             }

@@ -237,57 +237,7 @@ $(function() {
         var arrow = '<i class="fa fa-chevron-down" aria-hidden="true"></i>';
         $('.loans-quiz-multiselect-value').html('<span>Выбрать</span>'+arrow);
     })
-    // $("#loans-landing-search").bind("change paste keyup", function () {
-    //     var search_term = $(this).val().toLowerCase();
-    //     if ($(this).val().length >= 2) {
-    //         $('.offers-list .one-offer').each(function (val) {
-    //             var title = $(this).find('.beta-card-name');
-    //             var lower_case_title = title[0].innerHTML.toLowerCase();
-    //             if (lower_case_title.indexOf(search_term) == -1) {
-    //                 $(this).css('display', 'none');
-    //             } else {
-    //                 $(this).css('display', 'block');
-    //             }
-    //         })
-    //     } else {
-    //         $('.offers-list .one-offer').css('display', 'block');
-    //     }
-    //     if($('#quiz_load_more').length == 1) {
-    //         if($('.offers-list .one-offer:visible').length == 0) {
-    //             $('#quiz_load_more').css('display','none');
-    //         } else {
-    //             $('#quiz_load_more').css('display','inline-block');
-    //         }
-    //     }
-    // });
-// подписка юнисендер
 
-    // var yourForm=document.getElementById('subscription_form');
-    //
-    // yourForm.addEventListener('submit',function(e){
-    //     "use strict";
-    //     e.preventDefault();
-    //     var email = $('#subscription_email').val();
-    //
-    //     if (email== ''){
-    //         alert('Укажите email');
-    //         return false;
-    //     }
-    //
-    //     var token = $('meta[name="csrf-token"]').attr('content');
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/actions/unisender",
-    //         data: {
-    //             '_token': token,
-    //             'email': email,
-    //         }
-    //     });
-    //     var html = '<div class="text-center"><i class="fa fa-check-circle"></i><br><p>Спасибо за подписку';
-    //     html += '<br>Письмо с подтверждением отправлено вам на почту.</p></div>';
-    //     $('#subscription_form').html(html);
-    //     return false;
-    // });
     $('.def_bg[data-src]').each(function(){
         $(this).css('background','url('+$(this).attr('data-src')+')').removeAttr('data-src');
     })

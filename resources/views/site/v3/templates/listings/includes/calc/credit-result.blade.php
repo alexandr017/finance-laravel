@@ -45,11 +45,6 @@ function getMonthCount($time_){
 			</div>
 			<div class="right">
 				<div class="name-line"><?php echo $value->title; ?></div>
-				<div class="refresh-item">
-	                    <i class="fa fa-refresh"></i> <span>Обновлено</span><br><span><?php echo \App\Algorithms\Frontend\Cards\CardDate::setUpdateDate($value->updated_at); ?></span>
-				</div>
-
-
 				<div class="line line-50">
 					<div class="i1">
 					<label for="">Сумма:</label><br>

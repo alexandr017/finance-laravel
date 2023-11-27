@@ -3,8 +3,6 @@
 namespace App\Repositories\Site\Companies;
 
 use App\Repositories\Repository;
-use App\Models\Companies\CompaniesCategories;
-
 use Cache;
 use DB;
 

@@ -17,7 +17,7 @@
         </p>
         @endif @endif
         @if(isset($card->none_percent_period)) @if($card->none_percent_period !== null)
-                <p class="border-left border-right bg-grey"><b class="label">Беспроцентный период:</b> {{$card->none_percent_period}} {{App\Models\System::endWords($card->none_percent_period,['день','дня','дней'])}}</p>
+                <p class="border-left border-right bg-grey"><b class="label">Беспроцентный период:</b> {{$card->none_percent_period}} {{App\Algorithms\System::endWords($card->none_percent_period,['день','дня','дней'])}}</p>
         @endif @endif
         @if(isset($card->opened)) @if($card->opened !== null)
                 <p class="border-left border-right bg-grey"><b class="label">Открытие:</b> {{$card->opened}} ₽</p>

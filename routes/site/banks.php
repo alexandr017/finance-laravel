@@ -1,8 +1,8 @@
 <?php
-Route::get('banki', 'App\Http\Controllers\Site\V3\Banks\IndexPageBanksController@index')->name('banks.index-page');
-Route::get('banki/amp', 'App\Http\Controllers\Site\V3\Banks\IndexPageBanksController@amp')->name('banks.index-page.amp');
-Route::get('banki/{bankAlias}', 'App\Http\Controllers\Site\V3\Banks\BankController@index')->name('banks.index');
-Route::get('banki/{bankAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\BankController@amp')->name('banks.index.amp');
+Route::get('banki', 'App\Http\Controllers\Site\V3\Banks\IndexPageBanksController@render')->name('banks.index-page');
+Route::get('banki/amp', 'App\Http\Controllers\Site\V3\Banks\IndexPageBanksController@render')->name('banks.index-page.amp');
+Route::get('banki/{bankAlias}', 'App\Http\Controllers\Site\V3\Banks\BankController@render')->name('banks.index');
+Route::get('banki/{bankAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\BankController@render')->name('banks.index.amp');
 
 
 Route::get('banki/{bankAlias}/lichnyj-kabinet', 'App\Http\Controllers\Site\V3\Banks\InfoPages\LoginInfoPageController@index')->name('banks.info_pages.login.index');

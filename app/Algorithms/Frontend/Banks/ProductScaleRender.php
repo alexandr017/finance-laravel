@@ -35,7 +35,7 @@ class ProductScaleRender extends Model
     ];
 
 
-    public static function getScales ($scaleNames, $products)
+    public static function getScales($scaleNames, $products) : array
     {
         $scales = self::BASE_SCALES;
 

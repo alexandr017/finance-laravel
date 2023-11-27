@@ -1,986 +1,1186 @@
 
-INFO: PossiblyUndefinedVariable
-/kursi/app/Exceptions/Handler.php:39:13
-Possibly undefined variable $details, first seen on line 39 (see https://psalm.dev/018)
-            [30;47m$details[0m['message'] = $e->getMessage();
-
-
-INFO: InvalidNullableReturnType
-/kursi/app/Helpers/helpers.php:5:52
-The declared return type 'array<array-key, mixed>|string' for emptyDataToNull is not nullable, but 'array<array-key, mixed|null>|null|string' contains null (see https://psalm.dev/144)
-    function emptyDataToNull(string|array $data) : [30;47mstring|array[0m
-
-
-INFO: RedundantCondition
-/kursi/app/Helpers/helpers.php:14:19
-Type string for $data is always string (see https://psalm.dev/122)
-        } elseif ([30;47mgettype($data) == 'string'[0m) {
-
-
-INFO: NullableReturnStatement
-/kursi/app/Helpers/helpers.php:20:16
-The declared return type 'array<array-key, mixed>|string' for emptyDataToNull is not nullable, but the function returns 'array<array-key, mixed|null>|non-empty-string|null' (see https://psalm.dev/139)
-        return [30;47m$data[0m;
-
-
-INFO: InvalidReturnType
-/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:47:56
-Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::store end in a return statement, return type Illuminate\Http\RedirectResponse expected (see https://psalm.dev/011)
-    public function store(CourseTagRequest $request) : [30;47mRedirectResponse[0m
-
-
-INFO: InvalidReturnType
-/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:56:40
-Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::edit end in a return statement, return type Illuminate\Contracts\View\View expected (see https://psalm.dev/011)
-    public function edit(string $id) : [30;47mView[0m
-
-
-INFO: InvalidReturnType
-/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:64:69
-Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::update end in a return statement, return type Illuminate\Http\RedirectResponse expected (see https://psalm.dev/011)
-    public function update(CourseTagRequest $request, string $id) : [30;47mRedirectResponse[0m
-
-
-INFO: InvalidReturnType
-/kursi/app/Http/Controllers/Admin/Courses/CoursesController.php:72:43
-Not all code paths of App\Http\Controllers\Admin\Courses\CoursesController::destroy end in a return statement, return type Illuminate\Http\RedirectResponse expected (see https://psalm.dev/011)
-    public function destroy(string $id) : [30;47mRedirectResponse[0m
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:13:21
-Method App\Http\Controllers\Admin\Users\UsersController::index does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47mindex[0m()
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:21:21
-Method App\Http\Controllers\Admin\Users\UsersController::create does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47mcreate[0m()
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:29:21
-Method App\Http\Controllers\Admin\Users\UsersController::store does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47mstore[0m(Request $request)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:37:21
-Method App\Http\Controllers\Admin\Users\UsersController::show does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47mshow[0m(string $id)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:45:21
-Method App\Http\Controllers\Admin\Users\UsersController::edit does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47medit[0m(string $id)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:53:21
-Method App\Http\Controllers\Admin\Users\UsersController::update does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47mupdate[0m(Request $request, string $id)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Admin/Users/UsersController.php:61:21
-Method App\Http\Controllers\Admin\Users\UsersController::destroy does not have a return type, expecting void (see https://psalm.dev/050)
-    public function [30;47mdestroy[0m(string $id)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/About/AboutPageIndexController.php:15:21
-Method App\Http\Controllers\Site\V3\About\AboutPageIndexController::index does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mindex[0m()
-
-
-INFO: TooManyArguments
-/kursi/app/Http/Controllers/Site/V3/About/AboutPageIndexController.php:44:15
-Too many arguments for method Illuminate\Database\Query\Builder::select - saw 2 (see https://psalm.dev/026)
-            ->[30;47mselect[0m('employees.*', 'urls.url')
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/BlogIndexPage/BlogIndexPageController.php:9:21
-Method App\Http\Controllers\Site\V3\BlogIndexPage\BlogIndexPageController::index does not have a return type, expecting never (see https://psalm.dev/050)
-    public function [30;47mindex[0m()
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/CompanyReviews/CompanyReviewController.php:16:21
-Method App\Http\Controllers\Site\V3\CompanyReviews\CompanyReviewController::index does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mindex[0m(
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/CompanyReviews/CompanyReviewController.php:25:21
-Method App\Http\Controllers\Site\V3\CompanyReviews\CompanyReviewController::create does not have a return type, expecting Illuminate\Http\JsonResponse (see https://psalm.dev/050)
-    public function [30;47mcreate[0m(
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/Courses/CoursesController.php:12:21
-Method App\Http\Controllers\Site\V3\Courses\CoursesController::index does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mindex[0m(
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:21
-Method App\Http\Controllers\Site\V3\DynamicPages\CompanyController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/CompanyController.php:12:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:21
-Method App\Http\Controllers\Site\V3\DynamicPages\DynamicPagesInterface::render does not have a return type (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1);
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1);
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1);
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/DynamicPagesInterface.php:7:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1);
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:21
-Method App\Http\Controllers\Site\V3\DynamicPages\EmployeeController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:13:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
-
-
-INFO: InvalidArgument
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/EmployeeController.php:20:19
-Argument 1 of abort expects Illuminate\Contracts\Support\Responsable|Symfony\Component\HttpFoundation\Response|int, but '404' provided (see https://psalm.dev/004)
-            abort([30;47m'404'[0m);
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:21
-Method App\Http\Controllers\Site\V3\DynamicPages\ListingController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/ListingController.php:14:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:21
-Method App\Http\Controllers\Site\V3\DynamicPages\PagesController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PagesController.php:12:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:21
-Method App\Http\Controllers\Site\V3\DynamicPages\PostCategoriesController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:14:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
-
-
-INFO: TooManyArguments
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostCategoriesController.php:27:15
-Too many arguments for method Illuminate\Database\Query\Builder::select - saw 2 (see https://psalm.dev/026)
-            ->[30;47mselect[0m('posts.*', 'urls.url') // todo тут скорее всего вместо posts.* можно несколько полей взять
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:21
-Method App\Http\Controllers\Site\V3\DynamicPages\PostsController::render does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mrender[0m($sectionID, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:28
-Parameter $sectionID has no provided type (see https://psalm.dev/154)
-    public function render([30;47m$sectionID[0m, $isAmp = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:40
-Parameter $isAmp has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, [30;47m$isAmp[0m = false, $paginatePage = 1)
-
-
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:12:56
-Parameter $paginatePage has no provided type (see https://psalm.dev/154)
-    public function render($sectionID, $isAmp = false, [30;47m$paginatePage[0m = 1)
-
-
-INFO: MissingClosureParamType
-/kursi/app/Http/Controllers/Site/V3/DynamicPages/PostsController.php:16:44
-Parameter $query has no provided type (see https://psalm.dev/153)
-            ->with(['comments' => function([30;47m$query[0m) {
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:9:21
-Method App\Http\Controllers\Site\V3\DynamicSiteController::render does not have a return type (see https://psalm.dev/050)
-    public function [30;47mrender[0m()
-
-
-INFO: InvalidStringClass
-/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:19:21
-String cannot be used as a class (see https://psalm.dev/160)
-            return ([30;47mnew $class()[0m)->render($resource->section_id);
-
-
-INFO: InvalidStringClass
-/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:36:29
-String cannot be used as a class (see https://psalm.dev/160)
-                    return ([30;47mnew $class()[0m)->render($resource->section_id, true, $page);
-
-
-INFO: InvalidStringClass
-/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:52:29
-String cannot be used as a class (see https://psalm.dev/160)
-                    return ([30;47mnew $class()[0m)->render($resource->section_id, false);
-
-
-INFO: InvalidStringClass
-/kursi/app/Http/Controllers/Site/V3/DynamicSiteController.php:66:29
-String cannot be used as a class (see https://psalm.dev/160)
-                    return ([30;47mnew $class()[0m)->render($resource->section_id, false, $page);
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/IndexPage/IndexPageController.php:10:21
-Method App\Http\Controllers\Site\V3\IndexPage\IndexPageController::index does not have a return type, expecting never (see https://psalm.dev/050)
-    public function [30;47mindex[0m()
-
-
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/ListingRating/ListingRatingController.php:12:21
-Method App\Http\Controllers\Site\V3\ListingRating\ListingRatingController::create does not have a return type, expecting Illuminate\Contracts\View\View (see https://psalm.dev/050)
-    public function [30;47mcreate[0m(
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/Frontend/Banks/K5MBank.php:11:16
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $row = [97;41mDB[0m::table('bank_products')
 
 
 [0;31mERROR[0m: UndefinedClass
-/kursi/app/Http/Controllers/Site/V3/SItemap/HTML/HTMLSitemapController.php:15:27
-Class, interface or enum named App\Http\Controllers\Site\V3\SItemap\HTML\DB does not exist (see https://psalm.dev/019)
-        $postCategories = [97;41mDB[0m::table('post_categories')
+at /Users/admin/projects/finance-laravel/app/Algorithms/Frontend/Banks/K5MBank.php:32:16
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $row = [97;41mDB[0m::table('bank_products')
 
 
-INFO: MissingReturnType
-/kursi/app/Http/Controllers/Site/V3/SItemap/HTML/HTMLSitemapController.php:25:21
-Method App\Http\Controllers\Site\V3\SItemap\HTML\HTMLSitemapController::coursesCategories does not have a return type, expecting never (see https://psalm.dev/050)
-    public function [30;47mcoursesCategories[0m($alias)
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/Frontend/Cards/CardsBoot.php:17:21
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+            $card = [97;41mCache[0m::rememberForever('card'.$card_row->id, function() use($card_row){
 
 
-INFO: MissingParamType
-/kursi/app/Http/Controllers/Site/V3/SItemap/HTML/HTMLSitemapController.php:25:39
-Parameter $alias has no provided type (see https://psalm.dev/154)
-    public function coursesCategories([30;47m$alias[0m)
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/Frontend/Cards/CardsBoot.php:54:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $entityRow = [97;41mDB[0m::table('bank_product_cards')
 
 
-INFO: InvalidReturnType
-/kursi/app/Http/Requests/Admin/Companies/CompanyReviewRequest.php:24:16
-The declared return type 'array<string, Illuminate\Contracts\Validation\ValidationRule|array<array-key, mixed>|string>' for App\Http\Requests\Admin\Companies\CompanyReviewRequest::rules is incorrect, got 'array{0: 'character_code', 1: 'sort', 2: 'code', author_name: list{'nullable'}, content: list{'required'}, minuses: list{'nullable'}, pluses: list{'nullable'}, rating: list{'required', 'numeric'}, school_id: list{'required'}, status: list{'required', 'numeric'}, title: list{'required'}}' (see https://psalm.dev/011)
-     * @return [30;47marray<string, ValidationRule|array|string>[0m
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/Frontend/Cards/OldCardsBoot.php:18:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $cards = [97;41mDB[0m::select("select id, category_id, status, company_id, company_id2 from cards where company_id=$company_id or company_id2 like '%$company_id%'order by category_id asc, km5 desc");
 
 
-INFO: InvalidReturnStatement
-/kursi/app/Http/Requests/Admin/Companies/CompanyReviewRequest.php:28:16
-The inferred type 'array{0: 'character_code', 1: 'sort', 2: 'code', author_name: list{'nullable'}, content: list{'required'}, minuses: list{'nullable'}, pluses: list{'nullable'}, rating: list{'required', 'numeric'}, school_id: list{'required'}, status: list{'required', 'numeric'}, title: list{'required'}}' does not match the declared return type 'array<string, Illuminate\Contracts\Validation\ValidationRule|array<array-key, mixed>|string>' for App\Http\Requests\Admin\Companies\CompanyReviewRequest::rules (see https://psalm.dev/128)
-        return [30;47m[
-            "school_id" => ["required"],
-            "title" => ["required"],
-            "pluses" => ["nullable"],
-            "minuses" => ["nullable"],
-            "content" => ["required"],
-            "rating" => ["required", "numeric"],
-            "author_name" => ["nullable"],
-            "status" => ["required", "numeric"],
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/Frontend/StructuredData/Product/IndexPage.php:13:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $cards = [97;41mDB[0m::table('cards')
 
-            "character_code", // todo наверно эти поля не надо
-            "sort",
-            "code"
-        ][0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/General/Cards/CardCategory.php:36:16
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        return [97;41mDB[0m::table('cards_categories')->get()->pluck('breadcrumb', 'id');
 
-INFO: InvalidReturnType
-/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:44:34
-The declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
-    public function getPostId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Algorithms/SimilarCompanies.php:11:21
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $cardsRow = [97;41mDB[0m::table('cards')
 
-INFO: InvalidNullableReturnType
-/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:44:34
-The declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
-    public function getPostId(): [30;47mint[0m
 
+[0;31mERROR[0m: DuplicateFunction
+at /Users/admin/projects/finance-laravel/app/Helpers/Global/AdminLogHelper.php:11:5
+Method adminlog has already been defined as a core function (see https://psalm.dev/180)
+    /**
+     * @param $entity string
+     * @param $entityID int
+     * @param $actionType string
+     * @param $details string | null
+     * @return null
+     */
+    [97;41mfunction adminLog($entity, $entityID, $actionType, $details = null)[0m
 
-INFO: InvalidReturnStatement
-/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:46:16
-The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId (see https://psalm.dev/128)
-        return [30;47m$this->route(self::POST_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Helpers/Global/AdminLogHelper.php:13:19
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        $userID = [97;41m\Auth[0m::id();
 
-INFO: NullableReturnStatement
-/kursi/app/Http/Requests/Comment/CreateCommentRequest.php:46:16
-The declared return type 'int' for App\Http\Requests\Comment\CreateCommentRequest::getPostId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
-        return [30;47m$this->route(self::POST_ID)[0m;
 
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Helpers/helpers.php:9:15
+Docblock-defined class, interface or enum named date does not exist (see https://psalm.dev/200)
+     * @param [97;41mdate[0m $date
 
-INFO: InvalidReturnType
-/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:37:37
-The declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
-    public function getCompanyId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Helpers/helpers.php:313:20
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        $userIds = [97;41m\Cache[0m::rememberForever('id_user_companies', function(){
 
-INFO: InvalidNullableReturnType
-/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:37:37
-The declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
-    public function getCompanyId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Helpers/helpers.php:338:15
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+    $userID = [97;41m\Auth[0m::id();
 
-INFO: InvalidReturnStatement
-/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:39:16
-The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId (see https://psalm.dev/128)
-        return [30;47m$this->route(self::COMPANY_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsCategoriesController.php:99:55
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        Log::info("Администратор c ID ". [97;41mAuth[0m::id() . " создал новую категорию карточек '$cardsCategories->h1'");
 
-INFO: NullableReturnStatement
-/kursi/app/Http/Requests/CompanyReview/CompanyReviewRequest.php:39:16
-The declared return type 'int' for App\Http\Requests\CompanyReview\CompanyReviewRequest::getCompanyId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
-        return [30;47m$this->route(self::COMPANY_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsCategoriesController.php:189:55
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        Log::info("Администратор c ID ". [97;41mAuth[0m::id() . " изменил категорию карточек '$cardsCategories->h1'");
 
-INFO: InvalidReturnType
-/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:43:37
-The declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
-    public function getCompanyId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsCategoriesController.php:219:9
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        [97;41mDB[0m::delete("delete from cards_categories where id=?",[$id]);
 
-INFO: InvalidNullableReturnType
-/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:43:37
-The declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
-    public function getCompanyId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsCategoriesController.php:265:55
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        Log::info("Администратор c ID ". [97;41mAuth[0m::id() . " изменил фильтры для категории карточек '$cardsCategories->h1'");
 
-INFO: InvalidReturnStatement
-/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:45:16
-The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId (see https://psalm.dev/128)
-        return [30;47m$this->route(self::COMPANY_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsCategoriesController.php:310:55
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        Log::info("Администратор c ID ". [97;41mAuth[0m::id() . " изменил опции для категории карточек '$cardsCategories->h1'");
 
-INFO: NullableReturnStatement
-/kursi/app/Http/Requests/CompanyReview/CreateCompanyReviewRequest.php:45:16
-The declared return type 'int' for App\Http\Requests\CompanyReview\CreateCompanyReviewRequest::getCompanyId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
-        return [30;47m$this->route(self::COMPANY_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:45:15
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+    	$cards = [97;41mDB[0m::table('cards')
 
-INFO: InvalidReturnType
-/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:42:37
-The declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
-    public function getListingId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:72:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $banks = [97;41mDB[0m::table('banks')->select('id', 'h1')->whereNull('deleted_at')->get();
 
-INFO: InvalidNullableReturnType
-/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:42:37
-The declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
-    public function getListingId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:184:17
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+                [97;41mDB[0m::insert("insert into cards_filters (card_id, filter) values (?, ?)", [$card->id, $value]);
 
-INFO: InvalidReturnStatement
-/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:44:16
-The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId (see https://psalm.dev/128)
-        return [30;47m$this->route(self::LISTING_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:195:47
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+                        $cardsChildrenPages = [97;41mDB[0m::select("select id,city_id from cards_children_pages where cards_category_id = 1 and city_id <> 0");
 
-INFO: NullableReturnStatement
-/kursi/app/Http/Requests/Courses/IndexCoursesRequest.php:44:16
-The declared return type 'int' for App\Http\Requests\Courses\IndexCoursesRequest::getListingId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
-        return [30;47m$this->route(self::LISTING_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:197:29
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+                            [97;41mDB[0m::insert("insert into cards_childrens (card_id, children_id) values (?, ?)", [$card->id, $v->id]);
 
-INFO: InvalidReturnType
-/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:23:37
-The declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId is incorrect, got 'null|object|string' (see https://psalm.dev/011)
-    public function getListingId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:204:21
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+                    [97;41mDB[0m::insert("insert into cards_childrens (card_id, children_id) values (?, ?)", [$card->id, $value]);
 
-INFO: InvalidNullableReturnType
-/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:23:37
-The declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId is not nullable, but 'null|object|string' contains null (see https://psalm.dev/144)
-    public function getListingId(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:226:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $banks = [97;41mDB[0m::table('banks')->select('id', 'h1')->whereNull('deleted_at')->get();
 
-INFO: InvalidReturnStatement
-/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:25:16
-The inferred type 'null|object|string' does not match the declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId (see https://psalm.dev/128)
-        return [30;47m$this->route(self::LISTING_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:345:25
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $card_filters = [97;41mDB[0m::select("select * from cards_filters where card_id=?",[$id]);
 
-INFO: NullableReturnStatement
-/kursi/app/Http/Requests/ListingRating/CreateListingRatingRequest.php:25:16
-The declared return type 'int' for App\Http\Requests\ListingRating\CreateListingRatingRequest::getListingId is not nullable, but the function returns 'null|object|string' (see https://psalm.dev/139)
-        return [30;47m$this->route(self::LISTING_ID)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:481:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41m\Auth[0m::id() == 12467 || \Auth::id() == 122935 || \Auth::id() == '128767' || \Auth::id() == '133366' || \Auth::id() == '30154') {
 
-INFO: InvalidReturnType
-/kursi/app/Models/Companies/Company.php:40:28
-The declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Companies\Company::url is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
-    public function url(): [30;47mHasOne[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:673:13
+Class, interface or enum named App\Algorithms\UpdateDBVersion does not exist (see https://psalm.dev/019)
+            [97;41mUpdateDBVersion[0m::incVersion();
 
-INFO: InvalidReturnStatement
-/kursi/app/Models/Companies/Company.php:42:16
-The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Companies\Company::url (see https://psalm.dev/128)
-        return [30;47m$this->hasOne(Url::class, 'section_id')->where('section_type', self::SECTION_TYPE)[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:1020:29
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $listingsUrls = [97;41mDB[0m::table('urls')
 
-INFO: MissingReturnType
-/kursi/app/Models/Companies/Company.php:46:21
-Method App\Models\Companies\Company::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
-    public function [30;47murls[0m()
 
+[0;31mERROR[0m: UndefinedConstant
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:1022:51
+Constant App\Http\Controllers\Admin\Cards\CardsController::NEW_LISTING_URL_SECTION_TYPE is not defined (see https://psalm.dev/020)
+                    $query->where('section_type', [97;41mself::NEW_LISTING_URL_SECTION_TYPE[0m)
 
-INFO: UnsafeInstantiation
-/kursi/app/Models/Companies/SchoolReview.php:49:16
-Cannot safely instantiate class App\Models\Companies\SchoolReview with "new static" as its constructor might change in child classes (see https://psalm.dev/229)
-        $new = [30;47mnew static()[0m;
 
+[0;31mERROR[0m: UndefinedConstant
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:1023:51
+Constant App\Http\Controllers\Admin\Cards\CardsController::OLD_LISTING_URL_SECTION_TYPE is not defined (see https://psalm.dev/020)
+                        ->orWhere('section_type', [97;41mself::OLD_LISTING_URL_SECTION_TYPE[0m);
 
-INFO: InvalidReturnType
-/kursi/app/Models/Listing/Listing.php:67:31
-The declared return type 'Illuminate\Database\Eloquent\Relations\BelongsTo' for App\Models\Listing\Listing::parent is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\BelongsTo as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
-    public function parent(): [30;47mBelongsTo[0m
 
+[0;31mERROR[0m: UndefinedConstant
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:1028:67
+Constant App\Http\Controllers\Admin\Cards\CardsController::NEW_LISTING_URL_SECTION_TYPE is not defined (see https://psalm.dev/020)
+            $listingsCards = $listingsUrls->where('section_type', [97;41mself::NEW_LISTING_URL_SECTION_TYPE[0m)
 
-INFO: InvalidReturnStatement
-/kursi/app/Models/Listing/Listing.php:69:16
-The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\BelongsTo as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\BelongsTo' for App\Models\Listing\Listing::parent (see https://psalm.dev/128)
-        return [30;47m$this->belongsTo(self::class, 'parent_id', 'id')->with('parent')[0m;
 
+[0;31mERROR[0m: UndefinedConstant
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:1037:67
+Constant App\Http\Controllers\Admin\Cards\CardsController::OLD_LISTING_URL_SECTION_TYPE is not defined (see https://psalm.dev/020)
+            $cardsChildren = $listingsUrls->where('section_type', [97;41mself::OLD_LISTING_URL_SECTION_TYPE[0m)
 
-INFO: InvalidReturnType
-/kursi/app/Models/Listing/Listing.php:72:28
-The declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Listing\Listing::url is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
-    public function url(): [30;47mHasOne[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/CardsController.php:1058:25
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $listingsUrls = [97;41mDB[0m::table('urls')
 
-INFO: InvalidReturnStatement
-/kursi/app/Models/Listing/Listing.php:74:16
-The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasOne' for App\Models\Listing\Listing::url (see https://psalm.dev/128)
-        return [30;47m$this->hasOne(Url::class, 'section_id', 'id')->where('section_type', self::SECTION_TYPE)[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/ListingsController.php:112:17
+Function App\Http\Controllers\Admin\Cards\empty_str_to_null does not exist (see https://psalm.dev/021)
+        $data = [97;41mempty_str_to_null($data)[0m;
 
-INFO: MissingReturnType
-/kursi/app/Models/Listing/Listing.php:78:21
-Method App\Models\Listing\Listing::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
-    public function [30;47murls[0m()
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/ListingsController.php:120:13
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        if ([97;41mCache[0m::has('listings_for_html_sitemap' . $item->category_id)) {
 
-INFO: InvalidReturnType
-/kursi/app/Models/Listing/Listing.php:89:38
-The declared return type 'int' for App\Models\Listing\Listing::getRatingsSum is incorrect, got 'float' (see https://psalm.dev/011)
-    public function getRatingsSum(): [30;47mint[0m
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/ListingsController.php:169:17
+Function App\Http\Controllers\Admin\Cards\empty_str_to_null does not exist (see https://psalm.dev/021)
+        $data = [97;41mempty_str_to_null($data)[0m;
 
-INFO: InvalidReturnStatement
-/kursi/app/Models/Listing/Listing.php:91:16
-The inferred type 'float' does not match the declared return type 'int' for App\Models\Listing\Listing::getRatingsSum (see https://psalm.dev/128)
-        return [30;47m$this->rating_sum[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/ListingsController.php:178:17
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+            if ([97;41mCache[0m::has('listings_for_html_sitemap' . $item->category_id)) {
 
-INFO: MissingReturnType
-/kursi/app/Models/Pages/Page.php:27:21
-Method App\Models\Pages\Page::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
-    public function [30;47murls[0m()
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Admin/Cards/ListingsController.php:204:13
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        if ([97;41mCache[0m::has('listings_for_html_sitemap' . $item->category_id)) {
 
-INFO: UnsafeInstantiation
-/kursi/app/Models/PostComments/PostComment.php:41:20
-Cannot safely instantiate class App\Models\PostComments\PostComment with "new static" as its constructor might change in child classes (see https://psalm.dev/229)
-        $comment = [30;47mnew static()[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/ActionsController.php:33:12
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if([97;41mAuth[0m::id() == null){
 
-INFO: InvalidReturnType
-/kursi/app/Models/PostComments/PostComment.php:88:32
-The declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\PostComments\PostComment::childes is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
-    public function childes(): [30;47mHasMany[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/ActionsController.php:154:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $cardIDs = [97;41mDB[0m::select("select id, category_id from cards where company_id=$company_id or company_id2=$company_id");
 
-INFO: InvalidReturnStatement
-/kursi/app/Models/PostComments/PostComment.php:90:16
-The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\PostComments\PostComment::childes (see https://psalm.dev/128)
-        return [30;47m$this->hasMany(self::class, 'parent_id', 'id' )->with('childes')[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/ActionsController.php:191:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $posts = [97;41mDB[0m::table('posts')
 
-INFO: MissingReturnType
-/kursi/app/Models/Posts/Post.php:40:21
-Method App\Models\Posts\Post::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
-    public function [30;47murls[0m()
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/ActionsController.php:239:12
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if([97;41mAuth[0m::id() == null){
 
-INFO: MissingReturnType
-/kursi/app/Models/Posts/PostCategory.php:27:21
-Method App\Models\Posts\PostCategory::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
-    public function [30;47murls[0m()
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/BankLoadProductActionController.php:20:17
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $page = [97;41mDB[0m::table('bank_category_pages')
 
-INFO: InvalidReturnType
-/kursi/app/Models/Posts/PostComment.php:33:32
-The declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\Posts\PostComment::childes is incorrect, got 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' (see https://psalm.dev/011)
-    public function childes(): [30;47mHasMany[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/BankLoadProductActionController.php:80:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $cardIDs = [97;41mDB[0m::table('bank_product_cards')
 
-INFO: InvalidReturnStatement
-/kursi/app/Models/Posts/PostComment.php:35:16
-The inferred type 'Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasMany as Illuminate\Database\Eloquent\Model>' does not match the declared return type 'Illuminate\Database\Eloquent\Relations\HasMany' for App\Models\Posts\PostComment::childes (see https://psalm.dev/128)
-        return [30;47m$this->hasMany(self::class, 'parent_id', 'id' )->with('childes')[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/BankReviewActionsController.php:42:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41mAuth[0m::id() == null) {
 
-INFO: MissingReturnType
-/kursi/app/Models/Team/Employee.php:27:21
-Method App\Models\Team\Employee::urls does not have a return type, expecting Illuminate\Database\Eloquent\Builder<TRelatedModel:Illuminate\Database\Eloquent\Relations\HasOne as Illuminate\Database\Eloquent\Model> (see https://psalm.dev/050)
-    public function [30;47murls[0m()
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardFilter/Classes/FilterForCategory1.php:37:31
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $cardsToFilters = [97;41mDB[0m::table('cards_filters')
 
-INFO: NonInvariantDocblockPropertyType
-/kursi/app/Models/User.php:20:15
-Property App\Models\User::$fillable has type array<int, string>, not invariant with Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$fillable of type array<array-key, string> (see https://psalm.dev/267)
-    protected [30;47m$fillable[0m = [
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardFilter/Classes/FilterForCategory10.php:29:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41m\Auth[0m::id() == config('client-design.test-user-id') || config('client-design.mode') == 'production') {
 
-INFO: NonInvariantDocblockPropertyType
-/kursi/app/Models/User.php:31:15
-Property App\Models\User::$hidden has type array<int, string>, not invariant with Illuminate\Database\Eloquent\Concerns\HidesAttributes::$hidden of type array<array-key, string> (see https://psalm.dev/267)
-    protected [30;47m$hidden[0m = [
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardFilter/Classes/FilterForCategory11.php:12:12
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+       if ([97;41m\Auth[0m::id() == config('client-design.test-user-id') || config('client-design.mode') == 'production') {
 
-INFO: NonInvariantDocblockPropertyType
-/kursi/app/Models/User.php:41:15
-Property App\Models\User::$casts has type array<string, string>, not invariant with Illuminate\Database\Eloquent\Concerns\HasAttributes::$casts of type array<array-key, mixed> (see https://psalm.dev/267)
-    protected [30;47m$casts[0m = [
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardFilter/Classes/FilterForCategory4.php:23:31
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $cardsToFilters = [97;41mDB[0m::table('cards_filters')
 
-INFO: NonInvariantDocblockPropertyType
-/kursi/app/Providers/EventServiceProvider.php:17:15
-Property App\Providers\EventServiceProvider::$listen has type array<class-string, array<int, class-string>>, not invariant with Illuminate\Foundation\Support\Providers\EventServiceProvider::$listen of type array<string, array<int, string>> (see https://psalm.dev/267)
-    protected [30;47m$listen[0m = [
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardFilter/Classes/FilterForCategory5.php:25:31
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $cardsToFilters = [97;41mDB[0m::table('cards_filters')
 
-INFO: MoreSpecificReturnType
-/kursi/app/Repositories/Company/CompanyRepository.php:26:42
-The declared return type 'App\Models\Companies\Company' for App\Repositories\Company\CompanyRepository::getCompany is more specific than the inferred return type 'Illuminate\Database\Eloquent\Model' (see https://psalm.dev/070)
-    public function getCompany(int $id): [30;47mCompany[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardFilter/Classes/FilterForCategory8.php:25:31
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $cardsToFilters = [97;41mDB[0m::table('cards_filters')
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Company/CompanyRepository.php:34:39
-Parameter $query has no provided type (see https://psalm.dev/153)
-                'reviews' => function([30;47m$query[0m) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardsLoaderController.php:47:23
+Class, interface or enum named App\Repositories\Frontend\Companies\CompaniesCategoryRepository does not exist (see https://psalm.dev/019)
+        $cards = (new [97;41mCompaniesCategoryRepository[0m)->getSortedCardsForHabPages($category_id, $sort_field, $sort_type);
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Company/CompanyRepository.php:38:39
-Parameter $query has no provided type (see https://psalm.dev/153)
-                'courses' => function([30;47m$query[0m) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardsLoaderController.php:53:53
+Class, interface or enum named App\Http\Controllers\Site\V3\Actions\GlobalAlgorithms does not exist (see https://psalm.dev/019)
+                $cards[$key]->_cache_back = (float) [97;41mGlobalAlgorithms[0m::getMaxNumberWithPercentFromStr($value->cache_back);
 
-INFO: LessSpecificReturnStatement
-/kursi/app/Repositories/Company/CompanyRepository.php:49:16
-The type 'Illuminate\Database\Eloquent\Model' is more general than the declared return type 'App\Models\Companies\Company' for App\Repositories\Company\CompanyRepository::getCompany (see https://psalm.dev/129)
-        return [30;47m$company[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardsLoaderController.php:69:18
+Function App\Http\Controllers\Site\V3\Actions\paginate does not exist (see https://psalm.dev/021)
+        $cards = [97;41mpaginate($cards, 10, $page)[0m;
 
-INFO: PossiblyNullArgument
-/kursi/app/Repositories/Company/CompanyRepository.php:58:44
-Argument 2 of Illuminate\Database\Query\Builder::orderBy cannot be null, possibly null value provided (see https://psalm.dev/078)
-            $query->orderBy($dto->sortKey, [30;47m$dto->sortValue[0m);
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardsLoaderController.php:107:32
+Class, interface or enum named App\Repositories\Frontend\Card\CardRepository does not exist (see https://psalm.dev/019)
+        $card_repository = app([97;41mCardRepository[0m::class);
 
-INFO: MoreSpecificReturnType
-/kursi/app/Repositories/Courses/CoursesRepository.php:17:50
-The declared return type 'Illuminate\Pagination\LengthAwarePaginator' for App\Repositories\Courses\CoursesRepository::index is more specific than the inferred return type 'Illuminate\Contracts\Pagination\LengthAwarePaginator' (see https://psalm.dev/070)
-    public function index(IndexCoursesDto $dto): [30;47mLengthAwarePaginator[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardsLoaderController.php:127:26
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $optionsDB = [97;41mDB[0m::select("select * from cards_filters where filter='$optionsStr");
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Courses/CoursesRepository.php:20:46
-Parameter $query has no provided type (see https://psalm.dev/153)
-            ->whereHas('listings', function ([30;47m$query[0m) use ($dto) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/CardsLoaderController.php:185:27
+Class, interface or enum named App\Http\Controllers\Site\V3\Actions\Paginator does not exist (see https://psalm.dev/019)
+        $page = $page ?: ([97;41mPaginator[0m::resolveCurrentPage() ?: 1);
 
-INFO: PossiblyNullArgument
-/kursi/app/Repositories/Courses/CoursesRepository.php:31:44
-Argument 2 of Illuminate\Database\Query\Builder::orderBy cannot be null, possibly null value provided (see https://psalm.dev/078)
-            $query->orderBy($dto->sortKey, [30;47m$dto->sortValue[0m);
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/PageRatingController.php:122:31
+Class, interface or enum named App\Http\Controllers\Site\V3\Actions\Cache does not exist (see https://psalm.dev/019)
+        if ($cache != null && [97;41mCache[0m::has($cache)) {
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Courses/CoursesRepository.php:33:50
-Parameter $q has no provided type (see https://psalm.dev/153)
-            $query->with(['listings' => function([30;47m$q[0m) use ($dto) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Actions/ReviewsController.php:20:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mDB[0m::table('companies_reviews')
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Courses/CoursesRepository.php:39:44
-Parameter $query has no provided type (see https://psalm.dev/153)
-        $query->when($dto->tags, function ([30;47m$query[0m) use ($dto) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/Actions/BankLoadProductActionController.php:20:17
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $page = [97;41mDB[0m::table('bank_category_pages')
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Courses/CoursesRepository.php:40:48
-Parameter $q has no provided type (see https://psalm.dev/153)
-            $query->whereHas('tags', function ([30;47m$q[0m) use ($dto) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/Actions/BankLoadProductActionController.php:101:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $cardIDs = [97;41mDB[0m::table('bank_product_cards')
 
-INFO: LessSpecificReturnStatement
-/kursi/app/Repositories/Courses/CoursesRepository.php:45:16
-The type 'Illuminate\Contracts\Pagination\LengthAwarePaginator' is more general than the declared return type 'Illuminate\Pagination\LengthAwarePaginator' for App\Repositories\Courses\CoursesRepository::index (see https://psalm.dev/129)
-        return [30;47m$query->paginate(
-            $dto->perPage,
-            ['*'],
-            'page',
-            $dto->page
-        )[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/Actions/BankReviewActionsController.php:42:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41mAuth[0m::id() == null) {
 
-INFO: MoreSpecificReturnType
-/kursi/app/Repositories/Listing/ListingRepository.php:18:42
-The declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getListing is more specific than the inferred return type 'Illuminate\Database\Eloquent\Model' (see https://psalm.dev/070)
-    public function getListing(int $id): [30;47mListing[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/BankController.php:32:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mDB[0m::table('bank_reviews')
 
-INFO: MissingClosureParamType
-/kursi/app/Repositories/Listing/ListingRepository.php:22:44
-Parameter $q has no provided type (see https://psalm.dev/153)
-            ->with(['courses' => function ([30;47m$q[0m) {
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/BankController.php:158:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mDB[0m::table('bank_reviews')
 
-INFO: LessSpecificReturnStatement
-/kursi/app/Repositories/Listing/ListingRepository.php:39:16
-The type 'Illuminate\Database\Eloquent\Model' is more general than the declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getListing (see https://psalm.dev/129)
-        return [30;47m$listing[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/CategoryController.php:47:17
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $page = [97;41mDB[0m::table('bank_category_pages')
 
-INFO: MoreSpecificReturnType
-/kursi/app/Repositories/Listing/ListingRepository.php:42:46
-The declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getById is more specific than the inferred return type 'Illuminate\Database\Eloquent\Model' (see https://psalm.dev/070)
-    public function getById(int $listingId): [30;47mListing[0m
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/IndexPageBanksController.php:46:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $banks = [97;41mDB[0m::table('banks')->where(['status' => 1])->whereNull('deleted_at')->get();
 
-INFO: LessSpecificReturnStatement
-/kursi/app/Repositories/Listing/ListingRepository.php:52:16
-The type 'Illuminate\Database\Eloquent\Model' is more general than the declared return type 'App\Models\Listing\Listing' for App\Repositories\Listing\ListingRepository::getById (see https://psalm.dev/129)
-        return [30;47m$listing[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/InfoPages/HotLineInfoPageController.php:50:24
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $bankTopCard = [97;41mDB[0m::table('bank_product_cards')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Comments/Dto/CreateCommentDto.php:11:19
-Property App\Services\Comments\Dto\CreateCommentDto::$name is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public string [30;47m$name[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/InfoPages/LoginInfoPageController.php:49:24
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $bankTopCard = [97;41mDB[0m::table('bank_product_cards')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Comments/Dto/CreateCommentDto.php:12:19
-Property App\Services\Comments\Dto\CreateCommentDto::$email is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public string [30;47m$email[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/InfoPages/NewsController.php:65:17
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $news = [97;41mDB[0m::table('posts')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Comments/Dto/CreateCommentDto.php:13:16
-Property App\Services\Comments\Dto\CreateCommentDto::$postId is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$postId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/InfoPages/RequisitesInfoPageController.php:51:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mDB[0m::table('bank_reviews')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Comments/Dto/CreateCommentDto.php:14:19
-Property App\Services\Comments\Dto\CreateCommentDto::$content is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public string [30;47m$content[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/InfoPages/ReviewsPageController.php:59:27
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviewsForGet =  [97;41mDB[0m::table('bank_reviews')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Comments/Dto/CreateCommentDto.php:15:17
-Property App\Services\Comments\Dto\CreateCommentDto::$parentId is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?int [30;47m$parentId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/ProductsController.php:47:25
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $bankCategory = [97;41mDB[0m::table('bank_category_pages')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Comments/Dto/CreateCommentDto.php:16:17
-Property App\Services\Comments\Dto\CreateCommentDto::$userId is not defined in constructor of App\Services\Comments\Dto\CreateCommentDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?int [30;47m$userId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/ReviewsCategoryController.php:48:21
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $category = [97;41mDB[0m::table('bank_category_pages')
 
-INFO: MissingReturnType
-/kursi/app/Services/Company/Action/GetCompanyAction.php:13:21
-Method App\Services\Company\Action\GetCompanyAction::run does not have a return type, expecting App\Models\Companies\Company (see https://psalm.dev/050)
-    public function [30;47mrun[0m(int $sectionId)
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Banks/ReviewsProductController.php:49:21
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $category = [97;41mDB[0m::table('bank_category_pages')
 
-INFO: MissingReturnType
-/kursi/app/Services/CompanyReview/Action/IndexCompanyReviewsAction.php:13:21
-Method App\Services\CompanyReview\Action\IndexCompanyReviewsAction::run does not have a return type, expecting Illuminate\Contracts\Pagination\LengthAwarePaginator (see https://psalm.dev/050)
-    public function [30;47mrun[0m(IndexCompanyReviewsDto $dto)
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Blog/CategoryController.php:45:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $posts = [97;41mDB[0m::table('posts')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:10:18
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$rate is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public float [30;47m$rate[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Blog/IndexBlogController.php:30:27
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $blogCategories = [97;41mDB[0m::table('posts_categories')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:11:17
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$userId is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?int [30;47m$userId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Blog/PostController.php:71:26
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $postsComments = [97;41mDB[0m::table('posts_comments')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:12:16
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$companyId is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$companyId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Blog/PostController.php:97:16
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        return [97;41mDB[0m::table('posts')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:13:19
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$name is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public string [30;47m$name[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Companies/CompanyController.php:31:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mDB[0m::table('companies_reviews')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:14:20
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$pluses is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$pluses[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Companies/CompanyPageController.php:63:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mDB[0m::table('companies_reviews')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:15:20
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$minuses is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$minuses[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Listings/ListingController.php:126:27
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        $cards_category = [97;41mCache[0m::rememberForever('cards_categories'.$category_id, function() use($category_id){
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/CreateCompanyReviewDto.php:16:20
-Property App\Services\CompanyReview\Dto\CreateCompanyReviewDto::$content is not defined in constructor of App\Services\CompanyReview\Dto\CreateCompanyReviewDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$content[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/Listings/ListingController.php:206:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $alias = [97;41m\DB[0m::table('urls')->where(['section_type' => 15, 'section_id' => $listing->id])->first()->url;
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:10:16
-Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$companyId is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$companyId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/PartnerLinksController.php:8:38
+Class, interface or enum named App\Http\Controllers\Site\V3\Controller does not exist (see https://psalm.dev/019)
+class PartnerLinksController extends [97;41mController[0m
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:11:20
-Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$sortKey is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$sortKey[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/Site/V3/StaticPages/StaticPagesController.php:24:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $loans = [97;41mDB[0m::table('cards')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:12:20
-Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$sortValue is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$sortValue[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/SitemapController.php:28:36
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $items = Companies::select([97;41mDB[0m::raw('concat("mfo/", alias) as url'))->where(['status' => 1])->get();
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:13:16
-Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$page is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$page[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/SitemapController.php:47:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            ->select([97;41mDB[0m::raw('concat("banki/", alias) as url'))
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/CompanyReview/Dto/IndexCompanyReviewsDto.php:14:16
-Property App\Services\CompanyReview\Dto\IndexCompanyReviewsDto::$perPage is not defined in constructor of App\Services\CompanyReview\Dto\IndexCompanyReviewsDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$perPage[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Http/Controllers/SitemapController.php:106:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $posts = [97;41mDB[0m::table('posts')
 
-INFO: MissingReturnType
-/kursi/app/Services/Courses/Actions/IndexCoursesAction.php:13:21
-Method App\Services\Courses\Actions\IndexCoursesAction::run does not have a return type, expecting Illuminate\Pagination\LengthAwarePaginator (see https://psalm.dev/050)
-    public function [30;47mrun[0m(IndexCoursesDto $dto)
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Access/User/Traits/Attribute/UserAttribute.php:69:16
+Function App\Models\Access\User\Traits\Attribute\gravatar does not exist (see https://psalm.dev/021)
+        return [97;41mgravatar()[0m->get($this->email, ['size' => $size]);
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:10:16
-Property App\Services\Courses\Dto\IndexCoursesDto::$listingId is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$listingId[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Access/User/Traits/Attribute/UserAttribute.php:133:26
+Function App\Models\Access\User\Traits\Attribute\access does not exist (see https://psalm.dev/021)
+        if ($this->id != [97;41maccess()[0m->id()) {
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:11:20
-Property App\Services\Courses\Dto\IndexCoursesDto::$sortKey is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$sortKey[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Access/User/Traits/Attribute/UserAttribute.php:175:26
+Function App\Models\Access\User\Traits\Attribute\access does not exist (see https://psalm.dev/021)
+        if ($this->id != [97;41maccess()[0m->id()) {
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:12:20
-Property App\Services\Courses\Dto\IndexCoursesDto::$sortValue is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?string [30;47m$sortValue[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Access/User/Traits/Attribute/UserAttribute.php:213:30
+Function App\Models\Access\User\Traits\Attribute\access does not exist (see https://psalm.dev/021)
+            if ($this->id != [97;41maccess()[0m->id()) {
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:13:19
-Property App\Services\Courses\Dto\IndexCoursesDto::$tags is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?array [30;47m$tags[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/Access/User/Traits/UserSendPasswordReset.php:21:27
+Class, interface or enum named App\Notifications\Frontend\Auth\UserNeedsPasswordReset does not exist (see https://psalm.dev/019)
+        $this->notify(new [97;41mUserNeedsPasswordReset[0m($token));
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:14:16
-Property App\Services\Courses\Dto\IndexCoursesDto::$page is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$page[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Cards/Card10.php:61:29
+Function App\Models\Cards\empty_str_to_null does not exist (see https://psalm.dev/021)
+            $card->$field = [97;41mempty_str_to_null($request[$field])[0m;
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/Courses/Dto/IndexCoursesDto.php:15:16
-Property App\Services\Courses\Dto\IndexCoursesDto::$perPage is not defined in constructor of App\Services\Courses\Dto\IndexCoursesDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$perPage[0m;
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Cards/Card11.php:49:29
+Function App\Models\Cards\empty_str_to_null does not exist (see https://psalm.dev/021)
+            $card->$field = [97;41mempty_str_to_null($request[$field])[0m;
 
-INFO: MissingReturnType
-/kursi/app/Services/Listing/Actions/GetListingAction.php:16:21
-Method App\Services\Listing\Actions\GetListingAction::run does not have a return type, expecting App\Models\Listing\Listing (see https://psalm.dev/050)
-    public function [30;47mrun[0m(int $sectionId)
 
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Models/Cards/Card12.php:51:29
+Function App\Models\Cards\empty_str_to_null does not exist (see https://psalm.dev/021)
+            $card->$field = [97;41mempty_str_to_null($request[$field])[0m;
 
-INFO: UndefinedMagicPropertyAssignment
-/kursi/app/Services/Listing/Actions/GetListingAction.php:20:8
-Magic instance property App\Models\Listing\Listing::$parent is not defined (see https://psalm.dev/217)
-       [30;47m$listing->parent[0m = $this->getParent($listing);
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/Cards/Cards.php:16:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+	    $cardsRow = [97;41mDB[0m::select("select * from cards where id=$where");
 
-INFO: UndefinedMagicPropertyAssignment
-/kursi/app/Services/Listing/Actions/GetListingAction.php:21:8
-Magic instance property App\Models\Listing\Listing::$tags is not defined (see https://psalm.dev/217)
-       [30;47m$listing->tags[0m = $this->tagRepository->getAll();
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/Cards/CardsZaimy.php:164:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $companies = [97;41mDB[0m::table("companies")
 
-INFO: MissingReturnType
-/kursi/app/Services/Listing/Actions/GetListingAction.php:26:22
-Method App\Services\Listing\Actions\GetListingAction::getParent does not have a return type (see https://psalm.dev/050)
-    private function [30;47mgetParent[0m(Listing $listing)
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/Cards/Listing.php:46:30
+Class, interface or enum named App\Models\Urls\Url does not exist (see https://psalm.dev/019)
+        return $this->hasOne([97;41mUrl[0m::class, 'section_id','id')
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/ListingRating/Dto/CreateListingRatingDto.php:10:16
-Property App\Services\ListingRating\Dto\CreateListingRatingDto::$listingId is not defined in constructor of App\Services\ListingRating\Dto\CreateListingRatingDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public int [30;47m$listingId[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/Posts/PostsUpdates.php:19:25
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        $row->user_id = [97;41mAuth[0m::id();
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/ListingRating/Dto/CreateListingRatingDto.php:11:18
-Property App\Services\ListingRating\Dto\CreateListingRatingDto::$rate is not defined in constructor of App\Services\ListingRating\Dto\CreateListingRatingDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public float [30;47m$rate[0m;
 
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/Posts/PostsUpdates.php:27:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $items = [97;41mDB[0m::table($model->table)
 
-INFO: PropertyNotSetInConstructor
-/kursi/app/Services/ListingRating/Dto/CreateListingRatingDto.php:12:17
-Property App\Services\ListingRating\Dto\CreateListingRatingDto::$userId is not defined in constructor of App\Services\ListingRating\Dto\CreateListingRatingDto or in any methods called in the constructor (see https://psalm.dev/074)
-    public ?int [30;47m$userId[0m;
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/System.php:112:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41mAuth[0m::id() == 12467  ||  Auth::id() == 30154) {
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/System.php:206:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41mAuth[0m::id() == 12467  ||  Auth::id() == 30154) {
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Models/System.php:260:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+        if ([97;41mAuth[0m::id() == 12467  ||  Auth::id() == 30154) {
+
+
+[0;31mERROR[0m: UndefinedVariable
+at /Users/admin/projects/finance-laravel/app/Models/System.php:301:12
+Cannot find referenced variable $f1 (see https://psalm.dev/024)
+        if([97;41m$f1[0m->$field_name < $f2->$field_name) return -1;
+
+
+[0;31mERROR[0m: UndefinedVariable
+at /Users/admin/projects/finance-laravel/app/Models/System.php:301:31
+Cannot find referenced variable $f2 (see https://psalm.dev/024)
+        if($f1->$field_name < [97;41m$f2[0m->$field_name) return -1;
+
+
+[0;31mERROR[0m: UndefinedVariable
+at /Users/admin/projects/finance-laravel/app/Models/System.php:302:16
+Cannot find referenced variable $f1 (see https://psalm.dev/024)
+        elseif([97;41m$f1[0m->$field_name > $f2->$field_name) return 1;
+
+
+[0;31mERROR[0m: UndefinedVariable
+at /Users/admin/projects/finance-laravel/app/Models/System.php:302:35
+Cannot find referenced variable $f2 (see https://psalm.dev/024)
+        elseif($f1->$field_name > [97;41m$f2[0m->$field_name) return 1;
+
+
+[0;31mERROR[0m: NoValue
+at /Users/admin/projects/finance-laravel/app/Models/Traits/Status.php:15:9
+All possible types for this return were invalidated - This may be dead code (see https://psalm.dev/179)
+        [97;41mreturn abort(404);[0m
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:66:17
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+            if ([97;41mCache[0m::has('lighthouse')) {
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:92:24
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+            $allRows = [97;41mCache[0m::rememberForever('sidebar', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:119:28
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+                $userIds = [97;41mCache[0m::rememberForever('id_user_companies', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:139:24
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+            $sidebar = [97;41mCache[0m::rememberForever('sidebar', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:166:23
+Class, interface or enum named App\Models\Project\ProjectRating does not exist (see https://psalm.dev/019)
+            $rating = [97;41mProjectRating[0m::find(1);
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:417:40
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $logoOptions['logo_src'] = [97;41mDB[0m::table('options')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FrontEndServiceProvider.php:438:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $pages = [97;41mDB[0m::table('listings')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:59:16
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+	    	$items = [97;41mCache[0m::rememberForever('form_widget_install', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:73:16
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+	    	$items = [97;41mCache[0m::rememberForever('form_company_add', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:87:16
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+	    	$items = [97;41mCache[0m::rememberForever('form_support', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:101:16
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+	    	$items = [97;41mCache[0m::rememberForever('form_advertising', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:115:16
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+	    	$items = [97;41mCache[0m::rememberForever('form_zalogi', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:130:16
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+	    	$items = [97;41mCache[0m::rememberForever('form_rko', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:145:13
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+	    	$id = [97;41mAuth[0m::id();
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:172:15
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+			$allRows = [97;41mCache[0m::rememberForever('options', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:212:24
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+            $SideBar = [97;41mCache[0m::rememberForever('sidebar_k5m', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:220:15
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+			$allRows = [97;41mCache[0m::rememberForever('through_reviews', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:239:15
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+			$allRows = [97;41mCache[0m::rememberForever('through_partners', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:246:15
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+			$allRows = [97;41mCache[0m::rememberForever('through_media_about_us', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:253:15
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+			$allRows = [97;41mCache[0m::rememberForever('through_we_compare', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/FunctionServiceProvider.php:323:15
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+			$allRows = [97;41mCache[0m::rememberForever('menu', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:29:13
+Class, interface or enum named App\Repositories\Comments\CommentRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mCommentRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:30:13
+Class, interface or enum named App\Repositories\Comments\CommentRepository does not exist (see https://psalm.dev/019)
+            [97;41mCommentRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:33:13
+Class, interface or enum named App\Repositories\Courses\CoursesRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mCoursesRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:34:13
+Class, interface or enum named App\Repositories\Courses\CoursesRepository does not exist (see https://psalm.dev/019)
+            [97;41mCoursesRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:37:13
+Class, interface or enum named App\Repositories\Listing\ListingRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mListingRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:38:13
+Class, interface or enum named App\Repositories\Listing\ListingRepository does not exist (see https://psalm.dev/019)
+            [97;41mListingRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:41:13
+Class, interface or enum named App\Repositories\Tags\TagRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mTagRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:42:13
+Class, interface or enum named App\Repositories\Tags\TagRepository does not exist (see https://psalm.dev/019)
+            [97;41mTagRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:45:13
+Class, interface or enum named App\Repositories\Company\CompanyRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mCompanyRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:46:13
+Class, interface or enum named App\Repositories\Company\CompanyRepository does not exist (see https://psalm.dev/019)
+            [97;41mCompanyRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:49:13
+Class, interface or enum named App\Repositories\Posts\PostRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mPostRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:50:13
+Class, interface or enum named App\Repositories\Posts\PostRepository does not exist (see https://psalm.dev/019)
+            [97;41mPostRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:53:13
+Class, interface or enum named App\Repositories\PostCategory\PostCategoryRepositoryInterface does not exist (see https://psalm.dev/019)
+            [97;41mPostCategoryRepositoryInterface[0m::class,
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Providers/RepositoryServiceProvider.php:54:13
+Class, interface or enum named App\Repositories\PostCategory\PostCategoryRepository does not exist (see https://psalm.dev/019)
+            [97;41mPostCategoryRepository[0m::class
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Admin/Cards/CardsRepository.php:31:21
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $category = [97;41mDB[0m::table('cards_categories')->where(['id' => $listing->category_id])->first();
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Admin/Cards/ListingRepository.php:24:23
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $result = [97;41mDB[0m::table('listings')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Admin/Cards/ListingRepository.php:46:17
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        return  [97;41mDB[0m::table('listings')
+
+
+[0;31mERROR[0m: UndefinedConstant
+at /Users/admin/projects/finance-laravel/app/Repositories/BaseRepository.php:98:31
+Constant App\Repositories\BaseRepository::MODEL is not defined (see https://psalm.dev/020)
+        return call_user_func([97;41mstatic::MODEL[0m.'::query');
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:26:13
+Docblock-defined class, interface or enum named App\Repositories\Backend\Access\Role\RoleRepository does not exist (see https://psalm.dev/200)
+     * @var [97;41mRoleRepository[0m
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:31:15
+Class, interface or enum named App\Repositories\Backend\Access\Role\RoleRepository does not exist (see https://psalm.dev/019)
+     * @param [97;41mRoleRepository[0m $role
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:51:16
+Docblock-defined class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/200)
+     * @throws [97;41mGeneralException[0m
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:63:16
+Docblock-defined class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/200)
+     * @throws [97;41mGeneralException[0m
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:72:19
+Class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/019)
+        throw new [97;41mGeneralException[0m(trans('auth.unknown'));
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:97:35
+Docblock-defined class, interface or enum named App\Repositories\Backend\Access\Role\RoleRepository does not exist (see https://psalm.dev/200)
+                $user->attachRole([97;41m$this->role[0m->getDefaultUserRole());
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:108:31
+Class, interface or enum named App\Notifications\Frontend\Auth\UserNeedsConfirmation does not exist (see https://psalm.dev/019)
+            $user->notify(new [97;41mUserNeedsConfirmation[0m($user->confirmation_code));
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:179:16
+Docblock-defined class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/200)
+     * @throws [97;41mGeneralException[0m
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:188:23
+Class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/019)
+            throw new [97;41mGeneralException[0m(trans('exceptions.frontend.auth.confirmation.already_confirmed'));
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:194:23
+Class, interface or enum named App\Events\Frontend\Auth\UserConfirmed does not exist (see https://psalm.dev/019)
+            event(new [97;41mUserConfirmed[0m($user));
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:199:19
+Class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/019)
+        throw new [97;41mGeneralException[0m(trans('exceptions.frontend.auth.confirmation.mismatch'));
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:206:16
+Docblock-defined class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/200)
+     * @throws [97;41mGeneralException[0m
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:220:31
+Class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/019)
+                    throw new [97;41mGeneralException[0m(trans('exceptions.frontend.auth.email_taken'));
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:233:16
+Docblock-defined class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/200)
+     * @throws [97;41mGeneralException[0m
+
+
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:239:30
+Function App\Repositories\Site\Access\User\access does not exist (see https://psalm.dev/021)
+        $user = parent::find([97;41maccess()[0m->id());
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Access/User/UserRepository.php:247:19
+Class, interface or enum named App\Exceptions\GeneralException does not exist (see https://psalm.dev/019)
+        throw new [97;41mGeneralException[0m(trans('exceptions.frontend.auth.password.change_mismatch'));
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Card/CardRepository.php:34:54
+Class, interface or enum named GlobalAlgorithms does not exist (see https://psalm.dev/019)
+                $cards1[$key]->_cache_back = (float) [97;41mGlobalAlgorithms[0m::getMaxNumberWithPercentFromStr($value->cache_back);
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Card/CardRepository.php:37:54
+Class, interface or enum named GlobalAlgorithms does not exist (see https://psalm.dev/019)
+                $cards2[$key]->_cache_back = (float) [97;41mGlobalAlgorithms[0m::getMaxNumberWithPercentFromStr($value->cache_back);
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Card/CardRepository.php:40:54
+Class, interface or enum named GlobalAlgorithms does not exist (see https://psalm.dev/019)
+                $cards3[$key]->_cache_back = (float) [97;41mGlobalAlgorithms[0m::getMaxNumberWithPercentFromStr($value->cache_back);
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Card/CardRepository.php:67:22
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $items = [97;41mDB[0m::table('cards')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Card/CardRepository.php:108:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $items = [97;41mDB[0m::table('cards')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Card/CardRepository.php:133:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $items = [97;41mDB[0m::table('cards')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Companies/CompaniesCategoryRepository.php:19:33
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        $companies_categories = [97;41mCache[0m::rememberForever('companies_categories', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Companies/CompaniesCategoryRepository.php:35:18
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $cards = [97;41mDB[0m::table('cards')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Companies/CompaniesReviewRepository.php:25:20
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        $reviews = [97;41mCache[0m::rememberForever('company_reviews_avg'.$companyID, function() use($companyID){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Repositories/Site/Relinking/RelinkingRepository.php:11:16
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        return [97;41mDB[0m::table('relinking')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Authors/AuthorsCode.php:17:20
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        $authors = [97;41mCache[0m::rememberForever('authors', function(){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/AuthorsCode/AuthorsCode.php:17:20
+Class, interface or enum named Cache does not exist (see https://psalm.dev/019)
+        $authors = [97;41mCache[0m::rememberForever('authors', function(){
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/MaxDay.php:12:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/MaxLimit.php:11:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/MaxMaintenance.php:12:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/MaxSum.php:12:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/MinMaintenance.php:12:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/MinPercent.php:12:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: InvalidGlobal
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Cards/OstatokOnPercent.php:12:7
+Cannot use global scope here (unless this file is included from a non-global scope) (see https://psalm.dev/046)
+	    	[97;41mglobal $c;[0m
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Expert/Expert.php:16:19
+Class, interface or enum named App\Models\Expert\Expert does not exist (see https://psalm.dev/019)
+        $expert = [97;41mModel[0m::find($expert_id);
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Expert/OurExperts.php:11:20
+Class, interface or enum named App\Models\Expert\Expert does not exist (see https://psalm.dev/019)
+        $experts = [97;41mModel[0m::all();
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Forms/AuthForm.php:11:9
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+    	if([97;41mAuth[0m::id() == null){
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Forms/CreditRating.php:25:9
+Class, interface or enum named Auth does not exist (see https://psalm.dev/019)
+    	if([97;41mAuth[0m::id() != null) return '';
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/OurTeam/OurTeam.php:16:21
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $authors =  [97;41mDB[0m::table('authors')
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/RelatedPosts/RelatedPosts.php:14:20
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+        $postsDB = [97;41mDB[0m::select("select * from posts where id=$posts");
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Reviews/ReviewsCount.php:24:28
+Class, interface or enum named App\Repositories\Frontend\Companies\CompaniesReviewRepository does not exist (see https://psalm.dev/019)
+            $rating = (new [97;41mCompaniesReviewRepository[0m)->getAvgAndCountReviewsByCompanyID($id);
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Reviews/ReviewsCount.php:29:28
+Class, interface or enum named App\Repositories\Frontend\Companies\CompaniesReviewRepository does not exist (see https://psalm.dev/019)
+            $rating = (new [97;41mCompaniesReviewRepository[0m)->getAvgAndCountReviewsByCompanyID($company_id);;
+
+
+[0;31mERROR[0m: UndefinedClass
+at /Users/admin/projects/finance-laravel/app/Shortcodes/Reviews/ReviewsCount.php:37:24
+Class, interface or enum named DB does not exist (see https://psalm.dev/019)
+            $reviews = [97;41mDB[0m::table('bank_reviews')
+
+
+[0;31mERROR[0m: UndefinedFunction
+at /Users/admin/projects/finance-laravel/app/Shortcodes/SlickSlider/SlickSliderWrap.php:13:21
+Function App\Shortcodes\SlickSlider\str_random does not exist (see https://psalm.dev/021)
+        $sliderId = [97;41mstr_random(10)[0m;
+
+
+[0;31mERROR[0m: UndefinedDocblockClass
+at /Users/admin/projects/finance-laravel/database/factories/UserFactory.php:11:7
+Docblock-defined class, interface or enum named App\Models\User does not exist (see https://psalm.dev/200)
+class [97;41mUserFactory[0m extends Factory
 
 
 ------------------------------
-[0;31m1 errors[0m found
+[0;31m194 errors[0m found
 ------------------------------
-158 other issues found.
+1642 other issues found.
+You can display them with [30;48;5;195m--show-info=true[0m
 ------------------------------
-Psalm can automatically fix 49 issues.
-Run Psalm again with
-[30;48;5;195m--alter --issues=MissingReturnType,InvalidReturnType,InvalidNullableReturnType --dry-run[0m
+Psalm can automatically fix 202 of these issues.
+Run Psalm again with 
+[30;48;5;195m--alter --issues=MissingReturnType,InvalidReturnType,InvalidNullableReturnType,MissingParamType --dry-run[0m
 to see what it can fix.
 ------------------------------
 
-Checks took 6.41 seconds and used 511.574MB of memory
-Psalm was able to infer types for 81.5221% of the codebase
+Checks took 9.23 seconds and used 522.581MB of memory
+Psalm was able to infer types for 68.2879% of the codebase

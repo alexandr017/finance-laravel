@@ -3,36 +3,30 @@
 namespace App\Http\Controllers\Site\V3\Banks;
 
 use App\Models\Banks\Bank;
-//use App\Models\Banks\BankCategoryPage;
-use App\Models\Banks\BankATMCity;
-use App\Models\Banks\BankATM;
-use App\Models\Cards\CardsCategories;
 use DB;
 use App\Algorithms\Frontend\Cards\CardsBoot;
-
 use App\Algorithms\General\Banks\ProductScaleNames;
 use App\Algorithms\Frontend\Banks\ProductScaleRender;
-
 use Config;
 use App\Models\Banks\BankCategoryReviewsPage;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class CategoryController extends BaseBankController
 {
-    public function index($bankAlias)
+    public function index($bankAlias) : View
     {
         $categoryAlias = request()->segment(count(request()->segments()));
         return $this->render($bankAlias, $categoryAlias);
     }
 
-    public function amp($bankAlias)
+    public function amp($bankAlias) : View
     {
         $categoryAlias = request()->segment(count(request()->segments()) - 1);
         return $this->render($bankAlias, $categoryAlias, true);
     }
 
 
-    private function render($bankAlias, $categoryAlias, $isAMP = false )
+    private function render($bankAlias, $categoryAlias, $isAMP = false) : View
     {
         $bankAlias = clear_data($bankAlias);
         $bank = Bank::where(['alias' => $bankAlias,'status' => 1])

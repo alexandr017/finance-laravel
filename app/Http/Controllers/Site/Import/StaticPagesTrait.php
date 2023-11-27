@@ -18,7 +18,6 @@ trait StaticPagesTrait
 
         $isFirstLine = true;
 
-
         DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
 

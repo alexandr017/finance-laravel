@@ -2,14 +2,11 @@
 
 namespace App\Algorithms\Frontend\StructuredData\Product;
 
-use App\Models\Companies\CompaniesUrl;
-
 class BankFullProduct
 {
-    public static function render($cards, $page)
+    public static function render($cards, $page) : string
     {
-
-        if (!count($cards)) return;
+        if (!count($cards)) return '';
 
 
         $low_price_value = 10000000;
@@ -19,7 +16,7 @@ class BankFullProduct
         $offers_code = '';
 
         if (!isset($cards[0]->category_id)) {
-            return;
+            return '';
         }
 
 
@@ -27,16 +24,14 @@ class BankFullProduct
         foreach ($cards as $card) {
 
             switch ($card->category_id) {
+                case 4:
+                case 7:
+                case 8:
                 case 1: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
+                case 6:
                 case 2: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 0; break;
-                case 3: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-                case 4: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
                 case 5: $field_high_price = 'limit_max';  $field_low_price = 'limit_max'; $field_price_range = 0; break;
-                case 6: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 0; break;
-                case 7: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-                case 8: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; $field_price_range = 1; break;
-                //case 9: $field_high_price = 'opened';  $field_low_price = 'opened'; $field_price_range = 1; break;
-                default: return;
+                default: return '';
             }
 
 

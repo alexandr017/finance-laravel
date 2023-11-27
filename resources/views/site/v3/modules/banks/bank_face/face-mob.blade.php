@@ -4,7 +4,6 @@
     </p>
 
     <img loading="lazy" src="{{$bank->logo}}" alt="{{$bank->name}}}" class="logo-company">
-    <?php $tmpRatingK5M = App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankID($bank->id); ?>
     <div class="rating-line micro">
         <?php
         $realCount = 0; $ratingValue = 0; $ratingValueTmp = 0;
@@ -22,7 +21,7 @@
             $ratingValue = 0;
         }
         ?>
-        {!! App\Models\System::rating($ratingValue) !!}
+        {!! App\Algorithms\System::rating($ratingValue) !!}
         <div class="text-rating">
             <a rel="nofollow" href="/banks/{{$bank->alias}}/review"><span>{{count($reviews)}}</span> {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
         </div>

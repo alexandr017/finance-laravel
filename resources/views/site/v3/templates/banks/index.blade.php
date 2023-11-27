@@ -73,7 +73,7 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
                         @foreach($reviews as $value)
                             <div class="itm {{RatingParser::getCssClassForBackground($value->rating)}}">
                                 <div class="iname">{{$value->author}}</div>
-                                {!! App\Models\System::rating($value->rating) !!}
+                                {!! App\Algorithms\System::rating($value->rating) !!}
                                 <div class="text-center" style="font-weight: bold">«{{$value->bankName}}»</div>
 
                                 <div class="itext"><p>{!! reviewsShortLenghtRender($value->review) !!}</p></div>

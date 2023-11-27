@@ -8,8 +8,6 @@ class CardsCredits extends Model
 {
     protected $table = 'cards_4_credits';
 
-
-
     public static function go($request, $id,$action){
 
     	if($action == 'create'){
@@ -130,8 +128,5 @@ class CardsCredits extends Model
         return $code;
     }
     
-
-
-
 
 }

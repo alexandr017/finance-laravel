@@ -45,7 +45,7 @@
                     ?>
 
 
-                    {!! App\Models\System::rating($ratingValue) !!}
+                    {!! App\Algorithms\System::rating($ratingValue) !!}
                     <div class="val-rating">{{$countReviews}} {{System::endWords($countReviews, ['оценка', 'оценки', 'оценок'])}} ({{$ratingValue}} из 5)</div>
                 </div>
                 <?php /*
@@ -139,7 +139,7 @@
                         <div class="title-line {{RatingParser::getCssClassForBackground($comment->rating)}}">
                             <span class="title-review-name @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-name @endif"><?php if($comment->author!=null) echo trim($comment->author); else echo trim($comment->last_name . ' ' . $comment->first_name . ' ' . $comment->middle_name); ?></span>
                             @if($comment->rating!=null)
-                            <div class="rating-line rev">{!! App\Models\System::rating($comment->rating) !!}</div>
+                            <div class="rating-line rev">{!! App\Algorithms\System::rating($comment->rating) !!}</div>
                             @endif
 {{--                            @if($comment->rating <= 2)--}}
 {{--                            @if(isset($comment->complain_result))--}}

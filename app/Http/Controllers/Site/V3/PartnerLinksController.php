@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Site\V3;
 
 use App\Models\HideLinks\HideLinks;
-
+use App\Http\Controllers\Controller;
+use Cache;
 
 class PartnerLinksController extends Controller
 {
@@ -17,9 +18,6 @@ class PartnerLinksController extends Controller
             $hideLink = hideLinks::find($hideLink->id);
             $hideLink->increment('clicks');
             if(Cache::has('hide_links')) Cache::forget('hide_links');
-            $hideLinkTime = new HideLinkTimes();
-            $hideLinkTime->hlid = $hideLink->id;
-            $hideLinkTime->save();
 
 
             // добавление адреса страницы с которой был клик

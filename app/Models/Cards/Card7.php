@@ -3,9 +3,6 @@
 namespace App\Models\Cards;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SideBar\SidebarRating;
-use DB;
-use Cache;
 
 class Card7 extends Model
 {
@@ -162,54 +159,4 @@ class Card7 extends Model
         return $code;
     }
 
-    /*
-    public static function ratingUpdate(){
-        $sidebarRating = SidebarRating::all();
-        $companies = DB::table("companies")
-            ->leftJoin("urls","urls.section_id","companies.id")
-            ->leftJoin("cards","cards.company_id","companies.id")
-            ->leftJoin("cards_1_zaimy","cards_1_zaimy.card_id","cards.id")
-            ->select("companies.*","urls.url",'cards_1_zaimy.approval_indicator','cards_1_zaimy.informer_scale','cards.km5','cards.link_1','cards.link_2','cards.link_type','cards.yandex_event')
-            ->where(['companies.group_id'=>1,'urls.section_type'=>5,'companies.status'=>1,'cards.use_in_sidebar' => 1])
-            ->orderBy('cards.km5','desc')
-            ->orderBy('cards.id','asc')
-            ->limit(5)
-            ->get();
-
-
-        $companiesArr = [];
-        foreach ($companies as $key => $company) {
-            $companiesArr[] =  $company->alias;
-        }
-        $sideArr = [];
-        foreach ($sidebarRating as $key => $side){
-            $sideArr [] = $side->alias;
-        }
-
-
-        $update = false;
-        foreach ($sideArr as $key => $value){
-            if($sideArr[$key] != $companiesArr[$key]) $update = true;
-        }
-
-        if($update){
-
-            for($i=1; $i<6; $i++){
-                $curentBDItem = SidebarRating::where(['id'=>$i])->first();
-                $currentCompany = $companies[$i-1];
-                $curentBDItem->alias = $currentCompany->alias;
-                $curentBDItem->company_name = $currentCompany->h1;
-                $last_pos = null;
-                foreach ($sidebarRating as $key => $value){
-                    if($value->company_name == $currentCompany->h1) $last_pos = $value->id;
-                }
-                $curentBDItem->last_pos = $last_pos;
-                $curentBDItem->save();
-                if(Cache::has('sidebar_k5m')) Cache::forget('sidebar_k5m');
-            }
-        }
-
-
-    }
-    */
 }

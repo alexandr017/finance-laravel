@@ -21,7 +21,7 @@
     </div>
 
     <div class="lpt listing-lead">
-        <span class="pup-inner">Обновлено в <span class="lowercase">{{\App\Models\System::getCurrentMonth(false)}}</span> <?= date('Y') ?></span>
+        <span class="pup-inner">Обновлено в <span class="lowercase">{{\App\Algorithms\System::getCurrentMonth(false)}}</span> <?= date('Y') ?></span>
         @if($page->cards_category_id != 1)
             <span class="pupcount"> {{Shortcode::compile("[carts_count]")}} шт.</span>
         @endif
@@ -70,17 +70,6 @@
             </div>
             @endif
 
-            @if(count($others_cards) > 0)
-            <div class="other_cards">
-                <div class="fdsb listing-h2 text-center">Смотрите также</div>
-                <div>
-                    @foreach($others_cards as $card)
-                    <?php /* $ratingValue = $card */ ?>
-                    @include('site.v3.modules.cards.card.card')
-                    @endforeach
-                </div>
-            </div>
-            @endif
 
             @if(isset($category_id))
                 @if(file_exists( base_path().'/resources/views/site/v3/modules/listings/includes/total_cards_table/'.$category_id.'.blade.php'))
@@ -98,10 +87,10 @@
             @endif
 
 
-            @if($popular_banks != null)
+            @if($popularBanks != null)
             <div class="popular_banks">
-                <h2 class="listing-h2 text-center">{{$popular_banks->h2}}</h2>
-                <?php $popular_banks_json = json_decode($popular_banks->json); ?>
+                <h2 class="listing-h2 text-center">{{$popularBanks->h2}}</h2>
+                <?php $popular_banks_json = json_decode($popularBanks->json); ?>
                 @if($popular_banks_json != null)
                 <div id="popular_banks_slider">
                     @foreach($popular_banks_json as $json_item)
@@ -124,7 +113,7 @@
 
 
             <div class="bordered-rating star-rating light-border">
-                <div class="post-ratings" data-type="listing" data-id="{{$prefixType}}{{$page->id}}">
+                <div class="post-ratings" data-type="listing" data-id="{{$page->id}}">
                     {!! RatingParser::printIRatingByValue($page->average_rating) !!}
                     (<span class="bold">{{$page->number_of_votes}}</span> оценок, среднее: <span class="bold">{{$page->average_rating}}</span> из 5)<br />
                 </div>
@@ -152,8 +141,7 @@
 
 <script>
     window.number_page = 1;
-    window.listing_id = @if($section_type==2)-@endif{{$page->id}};
-    window.category_id = @if($section_type==2) {{$page->id}} @else {{$page->category_id}}  @endif;
+    window.category_id = {{$page->category_id}};
     window.count_on_page = 10;
     window.cards_count = {{count($cards)}};
     window.field = 'km5';

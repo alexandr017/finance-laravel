@@ -23,7 +23,7 @@
                 $ratingValue = 0;
             }
             ?>
-            {!! App\Models\System::rating($ratingValue) !!}
+            {!! App\Algorithms\System::rating($ratingValue) !!}
             <div class="text-rating">
                 @if(!$company->reviews_page)
                     <a rel="nofollow" href="#reviews"><span>{{count($reviews)}}</span> {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>

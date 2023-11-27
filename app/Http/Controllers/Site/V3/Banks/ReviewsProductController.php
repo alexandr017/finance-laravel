@@ -5,27 +5,21 @@ namespace App\Http\Controllers\Site\V3\Banks;
 use App\Models\Banks\Bank;
 use App\Models\Banks\BankProductReviewsPage;
 use DB;
-use App\Algorithms\Frontend\Cards\CardsBoot;
-
-use App\Algorithms\General\Banks\ProductScaleNames;
-use App\Algorithms\Frontend\Banks\ProductScaleRender;
-
-use Config;
-
 use App\Algorithms\Frontend\Companies\Reviews\ReviewsCount;
 use Auth;
 use App\Models\Users\UsersMeta;
+use Illuminate\Contracts\View\View;
 
 class ReviewsProductController extends BaseBankController
 {
-    public function index($bankAlias, $productAlias)
+    public function index($bankAlias, $productAlias) : View
     {
         $categoryAlias = request()->segment(count(request()->segments()) - 2);
 
         return $this->render($bankAlias, $categoryAlias, $productAlias, 'reviews');
     }
 
-    public function amp($bankAlias, $productAlias)
+    public function amp($bankAlias, $productAlias) : View
     {
         $categoryAlias = request()->segment(count(request()->segments()) - 3);
 
@@ -33,7 +27,7 @@ class ReviewsProductController extends BaseBankController
     }
 
 
-    private function render($bankAlias, $categoryAlias, $productAlias, $template)
+    private function render($bankAlias, $categoryAlias, $productAlias, $template) : View
     {
         $bankAlias = clear_data($bankAlias);
         $categoryAlias = clear_data($categoryAlias);
@@ -100,16 +94,6 @@ class ReviewsProductController extends BaseBankController
         $reviews = $reviewsObj->getAllHierarchyReviews();
 
 
-        $uid = Auth::id();
-        $uidName = '';
-        if($uid != null){
-            $userMeta = UsersMeta::where(['user_id'=>$uid])->first();
-            if($userMeta == null){
-                $uidName = 'Гость';
-            } else {
-                $uidName = $userMeta->last_name . ' ' . $userMeta->first_name . ' ' . $userMeta->middle_name;
-            }
-        }
         $bankTopCard = DB::table('bank_product_cards')
             ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
             ->leftJoin('banks','banks.id', 'bank_products.bank_id')
@@ -127,7 +111,7 @@ class ReviewsProductController extends BaseBankController
         $editLink = null;
         $categoryId = $category->id;
         return view($template, compact('categoryId','bankTopCard','page','bank','breadcrumbs','reviews','complaintAllCount', 'complaintAnswerCount',
-            'uid','uidName','countReviews', 'editLink'));
+            'countReviews', 'editLink'));
     }
 
 

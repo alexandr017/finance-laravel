@@ -2,36 +2,16 @@
 
 namespace App\Http\Controllers\Site\V3\Banks;
 
-use App\Models\Options\Options;
 use App\Models\StaticPages\StaticPage;
 use DB;
-
-use App\Models\Banks\BankInfoPage;
-use App\Models\Banks\BankCategoryPage;
-use App\Models\Banks\BankProduct;
-use App\Models\Banks\BankProductCard;
-use App\Models\Banks\BankCategoryReviewsPage;
-
 use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Algorithms\Frontend\Banks\BankReviews;
-use Cache;
-
-use App\Models\Cards\Cards;
+use Illuminate\Contracts\View\View;
+use App\Repositories\Site\Bank\BankRepository;
 
 class IndexPageBanksController extends BaseBankController
 {
-    public function index()
-    {
-        return $this->render();
-    }
-
-
-    public function amp()
-    {
-        return $this->render();
-    }
-
-    private function render()
+    public function render() : View
     {
         $page = StaticPage::findByAlias();
 
@@ -42,7 +22,6 @@ class IndexPageBanksController extends BaseBankController
         $breadcrumbs = [];
         $breadcrumbs [] = ['h1' => $page->breadcrumb ?? $page->h1];
 
-
         $banks = DB::table('banks')->where(['status' => 1])->whereNull('deleted_at')->get();
 
         $banks = BankReviews::reviewsParse($banks);
@@ -51,101 +30,31 @@ class IndexPageBanksController extends BaseBankController
 
         $editLink = null;
 
-        $cardsRKOIDs = DB::table('bank_product_cards')
-            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-            ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
-            ->where(['cards.category_id' => 2])
-            ->whereNull('bank_products.deleted_at')
-            ->orderBy("cards.flow", 'asc')
-            ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
-            ->limit(3)
-            ->get();
+        $bankRepository = new BankRepository;
 
+        $cardsRKOIDs = $bankRepository->getTopProductByCategory(2);
         $cardsRKO = CardsBoot::getCardsForListingByIDs($cardsRKOIDs);
         $cardsRKO = $this->arrMerge($cardsRKO, $cardsRKOIDs);
 
-
-        $cardsCreditsIDs = DB::table('bank_product_cards')
-            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-            ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
-            ->where(['cards.category_id' => 4])
-            ->whereNull('bank_products.deleted_at')
-            ->orderBy("cards.flow", 'asc')
-            ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
-            ->limit(3)
-            ->get();
+        $cardsCreditsIDs = $bankRepository->getTopProductByCategory(4);
         $cardsCredits = CardsBoot::getCardsForListingByIDs($cardsCreditsIDs);
         $cardsCredits = $this->arrMerge($cardsCredits, $cardsCreditsIDs);
 
-        $cardsCreditCardsIDs = DB::table('bank_product_cards')
-            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-            ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
-            ->where(['cards.category_id' => 5])
-            ->whereNull('bank_products.deleted_at')
-            ->orderBy("cards.flow", 'asc')
-            ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
-            ->limit(3)
-            ->get();
+        $cardsCreditCardsIDs = $bankRepository->getTopProductByCategory(5);
         $cardsCreditCards = CardsBoot::getCardsForListingByIDs($cardsCreditCardsIDs);
         $cardsCreditCards = $this->arrMerge($cardsCreditCards, $cardsCreditCardsIDs);
 
-        $cardsDebitCardsIds = DB::table('bank_product_cards')
-            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-            ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
-            ->where(['cards.category_id' => 6])
-            ->whereNull('bank_products.deleted_at')
-            ->orderBy("cards.flow", 'asc')
-            ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
-            ->limit(3)
-            ->get();
+        $cardsDebitCardsIds = $bankRepository->getTopProductByCategory(6);
         $cardsDebitCards = CardsBoot::getCardsForListingByIDs($cardsDebitCardsIds);
         $cardsDebitCards = $this->arrMerge($cardsDebitCards, $cardsDebitCardsIds);
 
-
-        $cardsMortgageIds = DB::table('bank_product_cards')
-            ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-            ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-            ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-            ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
-            ->where(['cards.category_id' => 10])
-            ->whereNull('bank_products.deleted_at')
-            ->orderBy("cards.flow", 'asc')
-            ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
-            ->limit(3)
-            ->get();
+        $cardsMortgageIds = $bankRepository->getTopProductByCategory(10);
         $cardsMortgage = CardsBoot::getCardsForListingByIDs($cardsMortgageIds);
         $cardsMortgage = $this->arrMerge($cardsMortgage, $cardsMortgageIds);
 
-        $cardsDepositIds = Cache::remember('cardsDepositIds', 20, function () {
-            return DB::table('bank_product_cards')
-                ->leftJoin('bank_products','bank_products.id','bank_product_cards.bank_product_id')
-                ->leftJoin('banks','banks.id', 'bank_products.bank_id')
-                ->leftJoin('cards','cards.id','bank_product_cards.card_id')
-                ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias','banks.name as bankName')
-                ->where(['cards.category_id' => 11])
-                ->whereNull('bank_products.deleted_at')
-                ->orderBy("cards.flow", 'asc')
-                ->orderBy("cards.km5", 'desc')
-                ->orderBy("cards.id", 'asc')
-                ->limit(3)
-                ->get();
-        });
+        $cardsDepositIds = $bankRepository->getTopProductByCategory(11);
         $cardsDeposits = CardsBoot::getCardsForListingByIDs($cardsDepositIds);
         $cardsDeposits = $this->arrMerge($cardsDeposits, $cardsDepositIds);
-
 
         $reviews =  DB::table('bank_reviews')
             ->leftjoin('banks','banks.id','bank_reviews.bank_id')
@@ -159,29 +68,10 @@ class IndexPageBanksController extends BaseBankController
             ->get();
 
 
-        $template = ! is_amp_page()
-            ? 'site.v3.templates.banks.index'
-            : 'site.v3.templates.banks.index-amp';
+        $template = 'site.v3.templates.banks.index';
 
-        return view($template,compact('page','breadcrumbs','banks','cardCategories', 'editLink',
+        return view($template, compact('page','breadcrumbs','banks','cardCategories', 'editLink',
             'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage', 'cardsDeposits', 'reviews'
         ));
     }
-
-    private function arrMerge($array1, $array2)
-    {
-        foreach ($array1 as $key => $item) {
-            if (isset($array2[$key])) {
-                $array1[$key]->productAlias = $array2[$key]->productAlias;
-                $array1[$key]->bankAlias = $array2[$key]->bankAlias;
-                $array1[$key]->separate_page = $array2[$key]->separate_page;
-            }
-        }
-
-        return $array1;
-    }
-
-
-
-
 }

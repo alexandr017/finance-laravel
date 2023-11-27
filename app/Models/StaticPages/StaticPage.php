@@ -3,7 +3,13 @@
 namespace App\Models\StaticPages;
 
 use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
+/**
+ * Post
+ *
+ * @mixin Eloquent
+ */
 class StaticPage extends Model
 {
     protected $table = 'static_pages';

@@ -5,11 +5,14 @@ use App\Shortcodes\BaseShortcode;
 
 class MinPercent extends BaseShortcode{
 
-    public function register($shortcode, $content, $compiler, $name, $viewData=false){
+    public function register($shortcode, $content, $compiler, $name, $viewData=false)
+    {
+        global $c;
+
     	if(isset($GLOBALS['min_percent'])){
         	return $GLOBALS['min_percent'];
 	    } else {
-	    	global $c;
+
 	    	if(isset($c[0]->category_id)){
 
 	    		switch ($c[0]->category_id) {

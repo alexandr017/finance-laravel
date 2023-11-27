@@ -7,6 +7,7 @@ use App\Models\Companies\Companies;
 use App\Models\Companies\CompaniesChildrenPages;
 use App\Models\Companies\CompaniesReviews;
 use DB;
+use Cache;
 
 trait CompaniesTrait
 {
@@ -113,8 +114,9 @@ trait CompaniesTrait
 
     public function reviews()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::delete('delete from companies_reviews');
 
-        //DB::delete('delete from companies_reviews');
 
         $id = '1jvmjAwIY9qmpT7NJWnBqPB405B634XdFUJzSqs0ryS0';
         $gid = '0';
@@ -148,6 +150,22 @@ trait CompaniesTrait
             }
         });
 
+        $cards = Cards::select('id')->where(['category_id' => 1])->get();
+        foreach ($cards as $_card) {
+            if (Cache::has('card'.$_card->id)) {
+                Cache::forget('card'.$_card->id);
+            }
+        }
+
+        $companies = Companies::select('id')->get();
+
+        foreach ($companies as $_company) {
+            if (Cache::has('company_reviews_avg'.$_company->id)) {
+                Cache::forget('company_reviews_avg'.$_company->id);
+            }
+        }
+
         echo 'Все ок';
+
     }
 }

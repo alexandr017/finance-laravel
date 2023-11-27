@@ -5,11 +5,13 @@ use App\Shortcodes\BaseShortcode;
 
 class MaxSum extends BaseShortcode{
 
-    public function register($shortcode, $content, $compiler, $name, $viewData=false){
+    public function register($shortcode, $content, $compiler, $name, $viewData=false)
+    {
+        global $c;
+
     	if(isset($GLOBALS['max_sum'])){
         	return $GLOBALS['max_sum'];
 	    } else {
-	    	global $c;
 	    	if(isset($c[0]->category_id)){
 
 	    		switch ($c[0]->category_id) {

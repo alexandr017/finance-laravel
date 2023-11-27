@@ -5,11 +5,14 @@ use App\Shortcodes\BaseShortcode;
 
 class MaxDay extends BaseShortcode{
 
-    public function register($shortcode, $content, $compiler, $name, $viewData=false){
+    public function register($shortcode, $content, $compiler, $name, $viewData=false)
+    {
+        global $c;
+
     	if(isset($GLOBALS['max_day'])){
         	return $GLOBALS['max_day'];
 	    } else {
-	    	global $c;
+
 	    	if(isset($c[0]->category_id)){
 
 	    		switch ($c[0]->category_id) {

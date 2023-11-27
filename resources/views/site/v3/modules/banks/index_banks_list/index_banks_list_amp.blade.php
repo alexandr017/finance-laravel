@@ -7,7 +7,6 @@
                 </div>
                 <a class="h4" href="/banks/{{$bank->alias}}">{{$bank->name}}</a>
             </div>
-            <div><div class="bank-details">Рейтинг К5М</div> {{App\Algorithms\Frontend\Banks\K5MBank::getRatingByBankID($bank->id)}}</div>
             <div><div class="bank-details">Контакты</div> {{$bank->phone}}</div>
             <div>
                 <div class="bank-details">Оценка пользователей</div>

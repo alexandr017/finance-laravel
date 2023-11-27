@@ -19,7 +19,7 @@
             <?php $ratingValue = \App\Algorithms\Frontend\Banks\BankReviews::getRatingByReviews($reviews); ?>
             @if(isset($cards[0]))
             <div class="rating-line micro">
-                {!! App\Models\System::rating($ratingValue) !!}
+                {!! App\Algorithms\System::rating($ratingValue) !!}
                 <div class="text-rating">
                     <a rel="nofollow" href="{{$cards[0]->link_to_reviews_page}}">{{count($reviews)}} {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
                 </div>

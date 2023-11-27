@@ -3,9 +3,6 @@
 namespace App\Models\Cards;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SideBar\SidebarRating;
-use DB;
-use Cache;
 
 class Card10 extends Model
 {

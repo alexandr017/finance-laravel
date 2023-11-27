@@ -3,10 +3,14 @@
 namespace App\Models\Banks;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Eloquent;
 
-
+/**
+ * Post
+ *
+ * @mixin Eloquent
+ */
 class BankReview extends Model
 {
     use SoftDeletes;

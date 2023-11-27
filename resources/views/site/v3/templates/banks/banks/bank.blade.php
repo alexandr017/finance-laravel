@@ -142,7 +142,7 @@
                             @foreach($reviewsForSlider as $value)
                                 <div class="itm <?php /* {{RatingParser::getCssClassForBackground($value->rating)}} */ ?>">
                                     <div class="iname">{{$value->author}}</div>
-                                    {!! App\Models\System::rating($value->rating) !!}
+                                    {!! App\Algorithms\System::rating($value->rating) !!}
                                     <div class="itext"><p>{!! reviewsShortLenghtRender($value->review) !!}</p></div>
                                 </div>
                             @endforeach

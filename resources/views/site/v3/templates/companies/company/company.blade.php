@@ -34,10 +34,10 @@
 
 
 <article class="container main single-page">
-    <h1 class="p2-h1">{{$company->h1}}</h1>
     <div class="row">
         <div class="col-lg-9 col-md-12">
             @include('site.v3.modules.companies.company_menu')
+            <h1 class="p2-h1">{{$company->h1}}</h1>
 
             <?php
             $group_name = 'zaimy';
@@ -242,13 +242,9 @@
                 <div class="row">
                     @foreach($similar_companies as $similar)
                     <div class="col-md-4 col-sm-4">
-                        <a target="_blank" href="">
-                        <img loading="lazy" src="{{$similar->img}}" alt="{{$similar->h1}}"><br>
-                        @if($similar->company_name != null)
-                            {{$similar->company_name}}
-                        @else
-                            {{$similar->h1}}
-                        @endif
+                        <a target="_blank" href="{{$similar->link_to_entity}}">
+                        <img loading="lazy" src="{{$similar->logo}}" alt="{{$similar->title}}"><br>
+                        {{$similar->title}}
                         </a>
                     </div>
                     @endforeach
