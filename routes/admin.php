@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\Banks\BankCategoryPagesController;
+use App\Http\Controllers\Admin\Banks\BankProductsController;
+use App\Http\Controllers\Admin\Banks\BankProductsReviewsPagesController;
+use App\Http\Controllers\Admin\Banks\BankReviewsController;
+use App\Http\Controllers\Admin\Banks\BanksController;
+use App\Http\Controllers\Admin\Banks\BanksInfoPagesController;
 use App\Http\Controllers\Admin\Cards\CardsCategoriesController;
 use App\Http\Controllers\Admin\Cards\CardsController;
 use App\Http\Controllers\Admin\Cards\ListingCardsController;
@@ -51,6 +57,34 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::post('search', [ReviewsController::class, 'search'])->name('search');
             Route::get('change_status/{id}', [ReviewsController::class, 'change_status'])->name('change_status');
         });
+    });
+
+    /****************** BANKS ******************/
+    Route::group(['prefix' => 'banks', 'as' => 'banks.'], function () {
+
+        Route::resource('banks', BanksController::class);
+
+        Route::resource('{bankID}/info-pages', BanksInfoPagesController::class);
+        Route::get('info-pages/all', [BanksInfoPagesController::class, 'all'])->name('info-pages.all');
+
+        Route::resource('{bankID}/categories', BankCategoryPagesController::class);
+        Route::get('categories/all', [BankCategoryPagesController::class, 'all'])->name('categories.all');
+
+        Route::resource('{bankID}/categories/{categoryId}/products', BankProductsController::class);
+        Route::get('products/all', [BankProductsController::class, 'all'])->name('products.all');
+
+        Route::resource('{bankID}/categories/{categoryId}/reviews', BankReviewsController::class);
+        Route::get('reviews/all', [BankReviewsController::class, 'all'])->name('reviews.all');
+        Route::get('reviews/load', [BankReviewsController::class, 'load'])->name('reviews.load');
+
+        // TODO:
+        Route::get('{bankID}/categories/{categoryId}/page-reviews', 'BankCategoryReviewsPagesController@show')->name('categories.reviews.show');
+        Route::post('{bankID}/categories/{categoryId}/page-reviews', 'BankCategoryReviewsPagesController@update')->name('categories.reviews.update');
+        Route::delete('{bankID}/categories/{categoryId}/page-reviews/{id}', 'BankCategoryReviewsPagesController@destroy')->name('categories.reviews.delete');
+
+        Route::get('{bankID}/categories/{categoryId}/products/{productId}/page-reviews', [BankProductsReviewsPagesController::class, 'show'])->name('products.reviews.show');
+        Route::post('{bankID}/categories/{categoryId}/products/{productId}/page-reviews', [BankProductsReviewsPagesController::class, 'update'])->name('products.reviews.update');
+        Route::delete('{bankID}/categories/{categoryId}/products/{productId}/page-reviews/{id}', [BankProductsReviewsPagesController::class, 'destroy'])->name('products.reviews.delete');
     });
 
 });
