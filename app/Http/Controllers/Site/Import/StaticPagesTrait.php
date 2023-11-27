@@ -41,6 +41,8 @@ trait StaticPagesTrait
                 $page->content = $row[6];
                 $page->alias = $row[7];
                 $page->breadcrumb = $row[8];
+                $page->average_rating = 4 + (rand(1, 10) / 10);
+                $page->number_of_votes = rand(20, 50);
                 $page->save();
 
             }
