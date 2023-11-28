@@ -16,10 +16,9 @@
         <div class="row">
             <div class="col-lg-9 col-md-12">
                 <h1 class="p-h1">{{$page->h1}}</h1>
-
                 {!! $page->lead !!}
 
-{{--                <input id="search-company" type="text" placeholder="Поиск компании по названию...">--}}
+                <input id="search-company" type="text" placeholder="Поиск компании по названию...">
 
                     <div class="sorting-line habs_items">
                         <ul>
@@ -268,8 +267,8 @@
                 var search_term = $(this).val().toLowerCase();
 
                 if($(this).val().length>=2){
-                    $('.companies-flex-item').each(function(val){
-                        var title = $(this).find('.company_title');
+                    $('.one-offer').each(function(val){
+                        var title = $(this).find('.card-mn-name');
                         var lower_case_title = title[0].innerHTML.toLowerCase();
                         if(lower_case_title.indexOf(search_term) == -1){
                             $(this).css('display','none');
@@ -278,7 +277,7 @@
                         }
                     })
                 }else{
-                    $('.companies-flex-item').css('display','block');
+                    $('.one-offer').css('display','block');
                 }
             });
 

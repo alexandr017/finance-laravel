@@ -30,13 +30,33 @@ let indexLinks = [
         ["Без отказа", "/kreditnye-karty/bez-otkaza"],
         ["С плохой кредитной историей", "/kreditnye-karty/s-plohoj-kreditnoj-istoriej"],
         ["Без проверок", "/kreditnye-karty/bez-proverok"],
-        ["Кредитные карты для пенсионеров", "/kreditnye-karty/pensioneram"],
-        ["Кредитные карты с просрочками", "/kreditnye-karty/s-prosrochkami"],
-        ["Кредитные карты 120 дней", "/kreditnye-karty/120-dnej"],
-        ["Кредитные карты 200 дней", "/kreditnye-karty/200-dnej"],
-        ["Лучшие кредитные карты", "/kreditnye-karty/luchshie"],
-        ["Виртуальные кредитные карты", "/kreditnye-karty/virtualnye"],
-        ["Моментальные кредитные карты", "/kreditnye-karty/momentalnye"]
+        ["Для пенсионеров", "/kreditnye-karty/pensioneram"],
+        ["С просрочками", "/kreditnye-karty/s-prosrochkami"],
+        ["120 дней", "/kreditnye-karty/120-dnej"],
+        ["200 дней", "/kreditnye-karty/200-dnej"],
+        ["Лучшие", "/kreditnye-karty/luchshie"],
+        ["Виртуальные", "/kreditnye-karty/virtualnye"],
+        ["Моментальные", "/kreditnye-karty/momentalnye"]
+    ],
+    [
+        ["Без комиссии", "/debetovye-karty/bez-komissii"],
+        ["С бесплатным обслуживанием", "/debetovye-karty/besplatnoe-obsluzhivanie"],
+        ["Зарплатная карта", "/debetovye-karty/zarplatnaya"],
+        ["С процентом на остаток", "/debetovye-karty/s-protsentom-na-ostatok"],
+        ["Именная", "/debetovye-karty/imennaya"],
+    ],
+    [
+        ["Льготная", "/ipoteka/lgotnaya"],
+        ["С господдержкой", "/ipoteka/s-gospodderzhkoj"],
+        ["Онлайн", "/ipoteka/onlajn"],
+        ["На вторичное жилье", "/ipoteka/na-vtorichnoe-zhile"],
+        ["На строительство", "/ipoteka/na-stroitelstvo"],
+        ["Ипотека", "/ipoteka/voennaya"],
+        ["Без первоначального взноса", "/ipoteka/bez-pervonachalnogo-vznosa"],
+        ["Для молодых семей", "/ipoteka/dlya-molodyh-semej"],
+        ["С материнским капиталом", "/ipoteka/s-materinskim-kapitalom"],
+        ["Рефинансирование", "/ipoteka/refinansirovanie"],
+        ["На новостройки", "/ipoteka/na-novostrojki"]
     ],
     [
         ["Для физических лиц", "/vklady/fizicheskim-litsam"],
@@ -46,22 +66,9 @@ let indexLinks = [
         ["Для пенсионеров", "/vklady/dlya-pensionerov"],
         ["Срочные", "/vklady/srochnye"],
         ["Для юридических лиц", "/vklady/dlya-yuridicheskih-lits"],
-        ["Вклады в юанях", "/vklady/v-yuanyah"],
-        ["Вклады на 1 месяц", "/vklady/na-1-mesyats"],
-        ["Вклады на 2 месяца", "/vklady/na-2-mesyatsa"]
-    ],
-    [
-        ["Льготная ипотека", "/ipoteka/lgotnaya"],
-        ["Ипотека с господдержкой", "/ipoteka/s-gospodderzhkoj"],
-        ["Ипотека онлайн", "/ipoteka/onlajn"],
-        ["Ипотека на вторичное жилье", "/ipoteka/na-vtorichnoe-zhile"],
-        ["Ипотека на строительство", "/ipoteka/na-stroitelstvo"],
-        ["Военная ипотека", "/ipoteka/voennaya"],
-        ["Ипотека без первоначального взноса", "/ipoteka/bez-pervonachalnogo-vznosa"],
-        ["Ипотека для молодых семей", "/ipoteka/dlya-molodyh-semej"],
-        ["Ипотека с материнским капиталом", "/ipoteka/s-materinskim-kapitalom"],
-        ["Рефинансирование ипотеки", "/ipoteka/refinansirovanie"],
-        ["Ипотека на новостройки", "/ipoteka/na-novostrojki"]
+        ["В юанях", "/vklady/v-yuanyah"],
+        ["На 1 месяц", "/vklady/na-1-mesyats"],
+        ["На 2 месяца", "/vklady/na-2-mesyatsa"]
     ],
     [
         ["Для ИП", "/rko/ip"],

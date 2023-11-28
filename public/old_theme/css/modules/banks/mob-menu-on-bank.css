@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 46%;
-    height: 95px;
+    height: 70px;
     justify-content: center;
     margin: 1% 2% 1% 2%;
     float: left;
@@ -15,7 +15,7 @@
     text-align: center;
 }
 .bank-cat i{
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 .bank-cat-block {
     display: flex;

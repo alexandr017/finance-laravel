@@ -41,3 +41,6 @@ Route::get('/import/relink', [ImportController::class, 'relink']);
 
 // cards
 Route::get('/import/update-cards', [ImportController::class, 'updateCards']);
+
+// links
+Route::get('/import/links', [ImportController::class, 'links']);

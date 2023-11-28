@@ -87,9 +87,7 @@ class StaticPagesController extends Controller
             ->get();
         $cards = CardsBoot::getCardsForListingByIDs($cards);
 
-        $blade = (!is_amp_page())
-            ? 'site.v3.templates.companies.hub.mfo'
-            : 'site.v3.templates.companies.companies.hub-amp';
+        $blade = 'site.v3.templates.companies.hub.mfo';
 
         return view($blade, compact('categoryID','breadcrumbs', 'cards', 'relinkData', 'page'));
     }

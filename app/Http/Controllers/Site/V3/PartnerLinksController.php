@@ -4,48 +4,38 @@ namespace App\Http\Controllers\Site\V3;
 
 use App\Models\HideLinks\HideLinks;
 use App\Http\Controllers\Controller;
-use Cache;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\RedirectResponse;
 
 class PartnerLinksController extends Controller
 {
-    public function findLink()
+    public function mfo(string $alias) : ?RedirectResponse
     {
-        $resUrl = 'test';
+        $alias = clear_data($alias);
+        $link = 'd/mfo/' . $alias;
 
-        $hideLink = HideLinks::where(['in'=>$resUrl])->first();
+        return $this->findLink($link);
+    }
+
+    public function banks(string $bankAlias, string $categoryAlias, string $productAlias) : ?RedirectResponse
+    {
+        $bankAlias = clear_data($bankAlias);
+        $categoryAlias = clear_data($categoryAlias);
+        $productAlias = clear_data($productAlias);
+        $link = "c/banki/$bankAlias/$categoryAlias/$productAlias";
+
+        return $this->findLink($link);
+    }
+
+    public function findLink(string $link) : ?RedirectResponse
+    {
+        $hideLink = HideLinks::where(['in' => $link])->first();
 
         if($hideLink != null){
-            $hideLink = hideLinks::find($hideLink->id);
-            $hideLink->increment('clicks');
-            if(Cache::has('hide_links')) Cache::forget('hide_links');
-
-
-            // добавление адреса страницы с которой был клик
-            // и доменного имени с которого пришел клиент
-            if (strstr($hideLink->out, 'vsezaimyonline.click')) {
-                $prevLink = URL::previous();
-                $vzoReferrer = str_replace('https://finance.ru/', '' , $prevLink);
-                $vzoReferrer = str_replace('/', '+' , $vzoReferrer);
-                $hideLink->out = (strstr($hideLink->out, '?'))
-                    ? $hideLink->out . '&page=' . $vzoReferrer
-                    : $hideLink->out . '?page=' . $vzoReferrer;
-
-                global $REDEFINED_REFERRER_DOMAIN;
-                if ($REDEFINED_REFERRER_DOMAIN!= null) {
-                    $hideLink->out = $hideLink->out . '&ref=' . clear_data($REDEFINED_REFERRER_DOMAIN);
-                } elseif (isset($_COOKIE['REFERRER_DOMAIN'])) {
-                    $hideLink->out = $hideLink->out . '&ref=' . clear_data($_COOKIE['REFERRER_DOMAIN']);
-                }
-
-                return redirect($hideLink->out, $hideLink->redirect_type);
-
-            }
-
-            //ddd('обычная 2', $hideLink->out);
-            return redirect($hideLink->out, $hideLink->redirect_type);
+            return Redirect::to($hideLink->out, $hideLink->redirect_type);
         }
 
-        return abort(404);
+        abort(404);
     }
 
 }

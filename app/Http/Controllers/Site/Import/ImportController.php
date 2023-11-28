@@ -19,4 +19,5 @@ class ImportController extends Controller
     use ListingsTrait;
     use BlogTrait;
     use CardsTrait;
+    use LinksTrait;
 }

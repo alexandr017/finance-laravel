@@ -14,6 +14,8 @@
             @include('site.v3.modules.companies.company_menu')
             <h1 class="p2-h1">{{$page->h1}}</h1>
 
+            <img loading="lazy" src="{{$company->img}}" alt="{{$company->h1}}" class="company-child-logo">
+
             <?php echo Shortcode::compile(System::nofollow($page->content)); ?>
 
             <div class="reviews-wrap comments-add-form">

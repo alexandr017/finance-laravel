@@ -11,10 +11,10 @@
                             <span class="line active" data-val="0">Займы</span>
                             <span class="line" data-val="1">Кредиты</span>
                             <span class="line" data-val="2">Кредитные карты</span>
+                            <span class="line" data-val="3">Дебетовые карты</span>
                             <span class="line" data-val="4">Ипотеки</span>
-                            <span class="line" data-val="5">Автокредиты</span>
-                            <span class="line" data-val="6">Вклады</span>
-                            <span class="line" data-val="7">РКО</span>
+                            <span class="line" data-val="5">Вклады</span>
+                            <span class="line" data-val="6">РКО</span>
                         </div>
                         <i></i>
                     </div>

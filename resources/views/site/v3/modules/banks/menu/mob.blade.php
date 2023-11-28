@@ -5,8 +5,15 @@
 
 <?php
     $bank_menu_items = [];
-    $sideBarItems = ['kredity','debetovye-karty','avtokredity','kreditnye-karty','vklady','ipoteki','refinancing','rko'];
+
     $bank_menu_items[''] = ['О банке','bank'];
+    $bank_menu_items['gorjachaja-linija'] = ['Служба поддержки','life-bouy'];
+    $bank_menu_items['lichnyj-kabinet'] = ['Личный кабинет','user'];
+    $bank_menu_items['otzyvy'] = ['Отзывы','comments-o'];
+    $bank_menu_items['rekvizity'] = ['Реквизиты','file-text-o'];
+
+    $sideBarItems = ['kredity','debetovye-karty','avtokredity','kreditnye-karty','vklady','ipoteki','refinancing','rko'];
+
     if($bank->show_credits){
         $bank_menu_items['kredity'] = ['Кредиты','bank'];
     }
@@ -32,17 +39,7 @@
         $bank_menu_items['rko'] = ['РКО','id-card'];
     }
 
-    $bank_menu_items['gorjachaja-linija'] = ['Служба поддержки','life-bouy'];
-    $bank_menu_items['lichnyj-kabinet'] = ['Личный кабинет','user'];
-    $bank_menu_items['otzyvy'] = ['Отзывы','comments-o'];
-    $bank_menu_items['rekvizity'] = ['Реквизиты','file-text-o'];
-    $news = DB::table('posts')
-        ->leftJoin('posts_categories', 'posts.pcid','posts_categories.id')
-        ->select('posts.*', 'posts_categories.alias_category as alias_category')
-        ->whereIn('posts.pcid',[13,28])
-        ->where(['bank_id' => $bank->id, 'status' => 1])
-        ->orderBy('posts.date','desc')
-        ->get();
+
     $url= explode('/',$_SERVER['REQUEST_URI']);
     $section = '';
     $active_item = '';
