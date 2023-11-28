@@ -88,7 +88,7 @@ class ListingController extends Controller
     {
         $page = Listing::where(['alias' => $tagAlias, 'category_id' => $categoryID])->first();
 
-        $relinkData = (new (RelinkingRepository::class))->getRelinkByCategory($categoryID);
+        $relinkData = (new RelinkingRepository)->getRelinkByCategory($categoryID);
 
         if ($page == null) {
             abort(404);

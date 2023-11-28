@@ -11,9 +11,6 @@
     <div class="row">
         <div class="col-lg-9 col-md-12">
             <h1 class="p2-h1">{{$page->h1}}</h1>
-            @if($bankTopCard != null)
-                @include('site.v3.modules.banks.head_fixed_block.pc_and_mob')
-            @endif
 
             @if(is_mobile_device())
                 @include('site.v3.modules.banks.menu.mob')
@@ -216,18 +213,13 @@
                         </div>
                         <div class="form-line form-group">
                             <label>Имя:</label>
-                            @if($uid != null)
-                            <input id="reviewUserName" class="width-100" name="name" required="true" readonly="true" value="{{$uidName}}">
-                            <input type="hidden" id="reviewUserId" name="id" value="{{$uid}}">
-                            @else
-                            <input id="reviewUserName" class="width-100" name="name" required="true">
+                            <input id="reviewUserName" class="width-100" name="name" required>
                             <input type="hidden" id="reviewUserId" name="id" value="null">
-                            @endif
                         </div>
                         @if(isset($bank_categories))
                         <div class="form-line form-group">
                             <label>Категория банка:</label>
-                            <select  id="bank-category-id" required="true" class="width-100 new-select">
+                            <select  id="bank-category-id" required class="width-100 new-select">
                             <option value="">Выберите категорию</option>
                             @foreach($bank_categories as $cat)
                                 <option value="{{$cat->id}}">{{$cat->h1}}</option>
@@ -271,7 +263,7 @@
 
         </div><?php /* end col-md-9 */ ?>
         <div class="col-lg-3 d-lg-block d-xs-none d-none">
-            @include('site.v3.modules.includes.sidebar.bank')
+            @include('site.v3.modules.banks.sidebar')
         </div><?php /* md-3 */ ?>
     </div><?php /*row */ ?>
 

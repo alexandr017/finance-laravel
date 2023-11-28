@@ -26,49 +26,46 @@
             <div class="col-lg-9 col-md-12">
                 <h1 class="p-h1">{{$page->h1}}</h1>
 
-            @if(is_mobile_device())
-                @include('site.v3.modules.banks.menu.mob')
-                <?php
-                $bank_categories = [];
-                if($page->show_credits){
-                    $bank_categories['credits'] = ['Кредиты','bank'];
-                }
-                if($page->show_debit_cards){
-                    $bank_categories['debit-cards'] = ['Дебетовые карты','credit-card-alt'];
-                }
-                if($page->show_auto_credits){
-                    $bank_categories['autocredit'] = ['Автокредиты','automobile'];
-                }
-                if($page->show_credit_cards){
-                    $bank_categories['credit-cards'] = ['Кредитные карты','credit-card'];
-                }
-                if($page->show_deposits){
-                    $bank_categories['deposits'] = ['Вклады','gift'];
-                }
-                if($page->show_mortgage){
-                    $bank_categories['mortgage'] = ['Ипотеки','life-buoy'];
-                }
-                if($page->show_refinancing){
-                    $bank_categories['refinancing'] = ['Рефинансирование','id-card'];
-                }
-                if($page->show_rko){
-                    $bank_categories['rko'] = ['РКО','id-card'];
-                }
-                ?>
-                <div class="bank-cat-block">
-                @foreach($bank_categories as $key => $cat)
+                @if(is_mobile_device())
+                    @include('site.v3.modules.banks.menu.mob')
                     <?php
-                    $bank_cat_name = $cat[0];
-                    $bank_cat_logo = $cat[1];
+                    $bank_categories = [];
+                    if($page->show_credits){
+                        $bank_categories['kredity'] = ['Кредиты','bank'];
+                    }
+                    if($page->show_debit_cards){
+                        $bank_categories['debetovye-karty'] = ['Дебетовые карты','credit-card-alt'];
+                    }
+                    if($page->show_auto_credits){
+                        $bank_categories['avtokredity'] = ['Автокредиты','automobile'];
+                    }
+                    if($page->show_credit_cards){
+                        $bank_categories['kreditnye-karty'] = ['Кредитные карты','credit-card'];
+                    }
+                    if($page->show_deposits){
+                        $bank_categories['vklady'] = ['Вклады','gift'];
+                    }
+                    if($page->show_mortgage){
+                        $bank_categories['ipoteka'] = ['Ипотеки','life-buoy'];
+                    }
+                    if($page->show_rko){
+                        $bank_categories['rko'] = ['РКО','id-card'];
+                    }
                     ?>
-                    <a href="/banki/{{ $page->alias }}/{{$key}}" class="bank-cat"><i class="fa-icon fa-{{$bank_cat_logo}}"></i><span>{{$bank_cat_name}}</span></a>
-                @endforeach
-                </div>
-                @include('site.v3.modules.banks.bank_face.face-mob')
-            @else
-                @include('site.v3.modules.banks.menu.pc')
-                @include('site.v3.modules.banks.bank_face.face')
-            @endif
+                    <div class="bank-cat-block">
+                    @foreach($bank_categories as $key => $cat)
+                        <?php
+                        $bank_cat_name = $cat[0];
+                        $bank_cat_logo = $cat[1];
+                        ?>
+                        <a href="/banki/{{ $page->alias }}/{{$key}}" class="bank-cat"><i class="fa-icon fa-{{$bank_cat_logo}}"></i><span>{{$bank_cat_name}}</span></a>
+                    @endforeach
+                    </div>
+                    @include('site.v3.modules.banks.bank_face.face-mob')
+                @else
+                    @include('site.v3.modules.banks.menu.pc')
+                    @include('site.v3.modules.banks.bank_face.face')
+                @endif
 
                 <?php /*
                 <div class="bank-product-categories-slider">
@@ -160,7 +157,7 @@
 
             </div><?php /* end col-md-9 */ ?>
             <div class="col-lg-3 d-lg-block d-xs-none d-none">
-                @include('site.v3.modules.includes.sidebar.bank')
+                @include('site.v3.modules.banks.sidebar')
             </div><?php /* md-3 */ ?>
         </div><?php /*row */ ?>
     </section>

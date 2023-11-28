@@ -50,7 +50,7 @@
 
             </div><?php /* end col-md-9 */ ?>
             <div class="col-lg-3 d-lg-block d-xs-none d-none">
-                @include('site.v3.modules.includes.sidebar.bank')
+                @include('site.v3.modules.banks.sidebar')
             </div><?php /* md-3 */ ?>
         </div><?php /*row */ ?>
     </section>

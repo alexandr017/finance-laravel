@@ -10,6 +10,8 @@ use Eloquent;
  * Post
  *
  * @mixin Eloquent
+ * @property mixed $id
+ * @property mixed $h1
  */
 class Listing extends Model
 {

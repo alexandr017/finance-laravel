@@ -1,6 +1,5 @@
 <?php if(!is_mobile_device()){ ?>
 <aside class="sidebar">
-
 @if(Request::path() != 'banki')
 <?php
     $showBankMenu = $bank->show_credits
@@ -47,33 +46,7 @@
 
 
 
-@if(Request::path() == 'banki')
-    @if(isset($cardCategories))
-
-        @foreach($cardCategories as $cardCategory)
-                <?php if (in_array($cardCategory->id, [1,3,7,9,10,11])) continue; ?>
-                <div class="side-block-dart">
-                    <div class="side-title"><i class="fa fa-angle-up"></i> {{$cardCategory->breadcrumb}}</div>
-                    <div class="side-box links-list display_none">
-
-            <?php $filters = json_decode($cardCategory->filters_json);?>
-            @if($filters!=null)
-                @foreach($filters as $filter)
-                        <?php $tmp_arr = explode('=',$filter->group_name); ?>
-                        <div class="bold text-center">@if(isset($tmp_arr[1])) <span class="fa {{$tmp_arr[1]}}"></span> @endif {{$tmp_arr[0]}}</div>
-                        @foreach($filter->values as $link)
-                            <a class="sidebar" href="<?= str_replace('https://finance.ru', '', $link[0]->link) ?>">{{$link[0]->label}}</a>
-                        @endforeach
-                        <br>
-                        <br>
-                @endforeach
-            @endif
-                    </div>
-                </div>
-
-        @endforeach
-    @endif
-@endif
+@include('site.v3.modules.banks.bank-relink')
 
 
 

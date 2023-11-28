@@ -3,7 +3,6 @@
 @section ('h1', $page->h1)
 @section ('meta_description', $page->meta_description)
 
-
 @section('compress-styles')
 @parent
 <?php
@@ -14,9 +13,7 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
 
 
 @section('content')
-
     @include('site.v3.modules.includes.breadcrumbs')
-
     <section class="container main single-page">
         <div class="row">
             <div class="col-lg-9 col-md-12">
@@ -26,37 +23,10 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
                     {!! TagsParser::compile(Shortcode::compile($page->lead)) !!}
                 </div>
 
-
-
                 @if(is_mobile_device())
                 <button class="show_all_filtres form-btn1">Подобрать <i class="fa fa-angle-down"></i></button>
-
                 <div class="all_filttres_wrap">
-                    @if(isset($cardCategories))
-
-                        @foreach($cardCategories as $cardCategory)
-                            <?php if (in_array($cardCategory->id, [1,3,7,8,9,10,11])) continue; ?>
-                            <div class="side-block-dart">
-                                <div class="side-title"><i class="fa fa-angle-up"></i> {{$cardCategory->breadcrumb}}</div>
-                                <div class="side-box links-list display_none">
-
-                                    <?php $filters = json_decode($cardCategory->filters_json);?>
-                                    @if($filters!=null)
-                                        @foreach($filters as $filter)
-                                            <?php $tmp_arr = explode('=',$filter->group_name); ?>
-                                            <div class="bold text-center">@if(isset($tmp_arr[1])) <span class="fa {{$tmp_arr[1]}}"></span> @endif {{$tmp_arr[0]}}</div>
-                                            @foreach($filter->values as $link)
-                                                <a class="sidebar" href="<?= str_replace('https://finance.ru', '', $link[0]->link) ?>{{$link[0]->label}}">{{$link[0]->label}}</a>
-                                            @endforeach
-                                            <br>
-                                            <br>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
-                        @endforeach
-                    @endif
+                    @include('site.v3.modules.banks.bank-relink')
                 </div>
                 <br>
                 <br>
@@ -78,16 +48,13 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
 
                                 <div class="itext"><p>{!! reviewsShortLenghtRender($value->review) !!}</p></div>
                                 <br>
-                                <a href="/banks/{{$value->bankAlias}}/reviews">Все отзывы банка</a>
+                                <a href="/banks/{{$value->bankAlias}}/otzyvy">Все отзывы банка</a>
                             </div>
                         @endforeach
                     </div>
                 </div>
 
-
-
                 {!! TagsParser::compile(Shortcode::compile($page->content)) !!}
-
 
                 <div class="bordered-rating star-rating light-border">
                     <div class="post-ratings" data-type="bank_index">
@@ -96,10 +63,9 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
                     </div>
                 </div>
 
-
             </div><?php /* end col-md-9 */ ?>
             <div class="col-lg-3 d-lg-block d-xs-none d-none">
-                @include('site.v3.modules.includes.sidebar.bank')
+                @include('site.v3.modules.banks.sidebar')
             </div><?php /* md-3 */ ?>
         </div><?php /*row */ ?>
     </section>

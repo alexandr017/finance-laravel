@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\V3\Banks;
 
 use App\Models\StaticPages\StaticPage;
+use App\Repositories\Site\Relinking\RelinkingRepository;
 use DB;
 use App\Algorithms\Frontend\Cards\CardsBoot;
 use App\Algorithms\Frontend\Banks\BankReviews;
@@ -23,10 +24,7 @@ class IndexPageBanksController extends BaseBankController
         $breadcrumbs [] = ['h1' => $page->breadcrumb ?? $page->h1];
 
         $banks = DB::table('banks')->where(['status' => 1])->whereNull('deleted_at')->get();
-
         $banks = BankReviews::reviewsParse($banks);
-
-        $cardCategories = DB::table('cards_categories')->get();
 
         $editLink = null;
 
@@ -67,10 +65,12 @@ class IndexPageBanksController extends BaseBankController
             ->limit(10)
             ->get();
 
+        $relinkData = (new RelinkingRepository)->getRelinkForBanks();
+
 
         $template = 'site.v3.templates.banks.index';
 
-        return view($template, compact('page','breadcrumbs','banks','cardCategories', 'editLink',
+        return view($template, compact('page','breadcrumbs','banks','relinkData', 'editLink',
             'cardsRKO', 'cardsCredits', 'cardsCreditCards', 'cardsDebitCards', 'cardsMortgage', 'cardsDeposits', 'reviews'
         ));
     }

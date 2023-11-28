@@ -4,11 +4,13 @@ namespace App\Models\StaticPages;
 
 use Illuminate\Database\Eloquent\Model;
 use Eloquent;
+use Request;
 
 /**
  * Post
  *
  * @mixin Eloquent
+ * @property mixed $h1
  */
 class StaticPage extends Model
 {
@@ -18,9 +20,9 @@ class StaticPage extends Model
 
     public $timestamps = false;
 
-    public static function findByAlias()
+    public static function findByAlias() : ?StaticPage
     {
-        $alias = clear_data(\Request::path());
+        $alias = clear_data(Request::path());
 
         return StaticPage::where(['alias' => $alias])->first();
     }

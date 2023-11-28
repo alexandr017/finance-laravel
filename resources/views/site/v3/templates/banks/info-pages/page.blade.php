@@ -17,13 +17,7 @@
         <div class="row">
             <div class="col-lg-9 col-md-12">
                 <h1 class="p-h1">{{$page->h1}}</h1>
-                <?php /* только горячии линии и личные кабинеты */ ?>
-                @if($page->type_id == 1 || $page->type_id == 2)
-                    @if($bankTopCard != null)
-                        @include('site.v3.modules.banks.head_fixed_block.pc_and_mob')
-                    @endif
-                @endif
-                
+
                 @if(is_mobile_device())
                     @include('site.v3.modules.banks.menu.mob')
                 @else
@@ -62,7 +56,7 @@
 
                 </div><?php /* end col-md-9 */ ?>
             <div class="col-lg-3 d-lg-block d-xs-none d-none">
-                @include('site.v3.modules.includes.sidebar.bank')
+                @include('site.v3.modules.banks.sidebar')
             </div><?php /* md-3 */ ?>
         </div><?php /*row */ ?>
 
