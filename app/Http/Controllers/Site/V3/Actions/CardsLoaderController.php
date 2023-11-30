@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use DB;
-use App\Repositories\Frontend\Card\CardRepository;
+use App\Repositories\Site\Card\CardRepository;
 use App\Http\Controllers\Site\V3\Actions\CardFilter\CardFilter;
 
 class CardsLoaderController extends Controller
@@ -23,11 +23,9 @@ class CardsLoaderController extends Controller
 
 
         if (($listing_id == 0) || ($count_on_page == 0)) {
-            return;
+            return '';
         }
 
-
-        dd(33333);
         $card_repository = app(CardRepository::class);
         $cards = $card_repository->getSortedCards($listing_id, $field, $sort_type);
 

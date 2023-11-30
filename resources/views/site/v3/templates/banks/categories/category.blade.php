@@ -1,3 +1,10 @@
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$page->average_rating = $ratingValue;
+$page->number_of_votes = $ratingCount;
+$page->img = 'https://finance.ru' . str_replace('https://finance.ru','',$bank->logo) . $bank->logo;
+?>
 @extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
@@ -74,11 +81,9 @@
             });
         });
     </script>
-    <?php
-        $page->img = $bank->logo
-    ?>
-    {!! App\Algorithms\Frontend\StructuredData\Product\BankFullProduct::render($cards, $page) !!}
-    <script>
-        //window.category_id = 5;
-    </script>
+@endsection
+
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductBank', compact('page'))
 @endsection

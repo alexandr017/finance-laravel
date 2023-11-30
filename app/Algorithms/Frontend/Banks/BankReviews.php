@@ -3,6 +3,7 @@
 namespace App\Algorithms\Frontend\Banks;
 
 use App\Models\Banks\BankReview;
+use App\Algorithms\Frontend\Companies\Reviews\ReviewsCount;
 
 class BankReviews {
 
@@ -55,6 +56,46 @@ class BankReviews {
         $realReviewsCount = 0;
         $ratingReviewsValue = 0;
         return 0;
+    }
+
+
+    public static function getReviewsRating($reviews)
+    {
+        $realCount = 0; $ratingValue = 0; $ratingValueTmp = 0;
+
+        foreach ($reviews as  $review) {
+            if($review->rating != null && $review->parent_id == null && $review->off_answer == null){
+                $ratingValueTmp += $review->rating;
+                $realCount++;
+            }
+        }
+
+        if($realCount != 0){
+            $ratingValue = round($ratingValueTmp / $realCount,2);
+        }
+
+        $reviewsObj = new ReviewsCount($reviews);
+        $realCount = $reviewsObj->getAllReviewsAndComplaints();
+
+        return [$ratingValue, $realCount];
+    }
+
+    public static function getReviewsCompanies($reviews)
+    {
+        $realCount = 0; $ratingValue = 0; $ratingValueTmp = 0;
+
+        foreach ($reviews as  $review) {
+            if($review->rating != null && $review->parent_id == null && $review->off_answer == null){
+                $ratingValueTmp += $review->rating;
+                $realCount++;
+            }
+        }
+
+        if($realCount != 0){
+            $ratingValue = round($ratingValueTmp / $realCount,2);
+        }
+
+        return [$ratingValue, count($reviews)];
     }
 
 }

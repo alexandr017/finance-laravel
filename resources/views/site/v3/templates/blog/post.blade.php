@@ -144,3 +144,8 @@
 <script async src="/old_theme/js/scripts/8_posts/posts.js?v=2"></script>
 <script>window.post_id = "{{$post->id}}"</script>
 @endsection
+
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductPost', compact('post'))
+@endsection

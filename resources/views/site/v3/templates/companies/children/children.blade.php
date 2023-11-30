@@ -1,3 +1,9 @@
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$company->number_of_votes = $ratingCount;
+$company->average_rating = $ratingValue;
+?>
 @extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
@@ -62,28 +68,9 @@
     @endif
 
 </article>
-
 @endsection
 
-@section('additional-scripts')
-    <?php
-    $realCount = 0; $ratingValue = 0; $ratingValueTmp = 0;
-    foreach ($reviews as  $review) {
-        if($review->rating != null){
-            $ratingValueTmp += $review->rating;
-            $realCount++;
-        }
-    }
-    if($realCount != 0){
-        $ratingValue = round($ratingValueTmp / $realCount,2);
-    } else {
-        $ratingValue = 0;
-    }
-    $company->number_of_votes = $realCount;
-    $company->average_rating = $ratingValue;
-    $company->title = $page->title;
-    $company->h1 = $page->h1;
-    $company->meta_description = $page->meta_description;
-    ?>
-    {!! App\Algorithms\Frontend\StructuredData\Product\Companies::render($cards, $company) !!}
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductCompany', compact('cards', 'company', 'page'))
 @endsection

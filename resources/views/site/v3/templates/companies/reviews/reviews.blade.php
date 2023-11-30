@@ -1,3 +1,9 @@
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$company->number_of_votes = $ratingCount;
+$company->average_rating = $ratingValue;
+?>
 @extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
@@ -129,10 +135,6 @@
         </div><?php /* md-3 */ ?>
     </div><?php /*row */ ?>
 
-    @if(isset($card))
-
-    @endif
-
     @if($card != null && $card != [])
         <div class="fixed-company">
             <div class="container">
@@ -168,16 +170,9 @@
 
 @section('additional-scripts')
     <script src="/old_theme/js/scripts/5Company/reviews.js?id=7" defer></script>
-<?php
-global $realReviewsCount;
-global $ratingReviewsValue;
-$company->number_of_votes = $realReviewsCount;
-$company->average_rating = $ratingReviewsValue;
+@endsection
 
-$company->title = $page->title;
-$company->h1 = $page->h1;
-$company->meta_description = $page->meta_description;
-?>
-{!! App\Algorithms\Frontend\StructuredData\Product\CompaniesWithReviews::render($cards, $company, $reviews) !!}
-
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductCompany', compact('cards', 'company', 'page'))
 @endsection

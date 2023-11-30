@@ -1,4 +1,11 @@
-@extends('frontend.layouts.app')
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$page->average_rating = $ratingValue;
+$page->number_of_votes = $ratingCount;
+$page->img = 'https://finance.ru' . str_replace('https://finance.ru','',$bank->logo) . $bank->logo;
+?>
+@extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
 @section ('meta_description', $page->meta_description)
@@ -53,7 +60,7 @@
 
             </div><?php /* end col-md-9 */ ?>
             <div class="col-lg-3 d-lg-block d-xs-none d-none">
-                @include('site.v3.modules.includes.sidebar.bank')
+                @include('site.v3.modules.banks.sidebar')
             </div><?php /* md-3 */ ?>
         </div><?php /*row */ ?>
     </section>
@@ -76,11 +83,9 @@
             });
         });
     </script>
+@endsection
 
-    <?php
-        if(isset($cards[0])) {
-            $page->img = $cards[0]->logo;
-        }
-    ?>
-    {!! App\Algorithms\Frontend\StructuredData\Product\BankFullProduct::render($cards, $page) !!}
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductBank', compact('page'))
 @endsection

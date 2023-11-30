@@ -1,6 +1,7 @@
 <?php global $c; $c = $cards; ?>
+
 @extends('site.v3.layouts.app')
-@section ('title', Shortcode::compile($page->title,$cards))
+@section ('title', Shortcode::compile($page->title))
 @section ('h1', $page->h1)
 @section ('meta_description', Shortcode::compile($page->meta_description))
 
@@ -26,10 +27,6 @@
             <span class="pupcount"> {{Shortcode::compile("[carts_count]")}} шт.</span>
         @endif
 
-        @if($page->expert_anchor != null)
-        <a href="{{$page->expert_anchor}}" class="verified_by_expert"><i class="fa fa-check-square-o"></i> Проверено экспертом</a>
-        @endif
-
         @if(! strstr( $page->lead, '<p>'))
             <p>{!! $page->lead !!}</p>
         @else
@@ -47,8 +44,6 @@
         <div class="col-lg-9 col-md-12">
             @if(isset($page->category_id))
             @include("site.v3.templates.listings.includes.sorting_fields.".$page->category_id)
-            @else
-            @include("site.v3.templates.listings.includes.sorting_fields.".$page->id)
             @endif
             <div class="offers-list">
                 <?php $i=0; ?>
@@ -71,16 +66,16 @@
             @endif
 
 
-            @if(isset($category_id))
-                @if(file_exists( base_path().'/resources/views/site/v3/modules/listings/includes/total_cards_table/'.$category_id.'.blade.php'))
-                    @include("site.v3.modules.listings.includes.total_cards_table.$category_id")
+            @if(isset($page->category_id))
+                @if(file_exists( base_path().'/resources/views/site/v3/modules/listings/includes/total_cards_table/'.$page->category_id.'.blade.php'))
+                    @include("site.v3.modules.listings.includes.total_cards_table.$page->category_id")
                 @endif
             @endif
 
 
             @if(is_mobile_device())
             <div class="blue-block">
-                @if(($category_id == 1 || $category_id == 7))
+                @if(($page->category_id == 1))
                     @include('site.v3.modules.includes.zaimy.calc')
                 @endif
             </div>
@@ -142,6 +137,7 @@
 <script>
     window.number_page = 1;
     window.category_id = {{$page->category_id}};
+    window.listing_id = {{$page->id}};
     window.count_on_page = 10;
     window.cards_count = {{count($cards)}};
     window.field = 'km5';
@@ -178,7 +174,9 @@
         @endif
     });
 </script>
+@endsection
 
-{!! App\Algorithms\Frontend\StructuredData\Product\Listings::render($cards, $page) !!}
-
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductListing', compact('cards', 'page'))
 @endsection

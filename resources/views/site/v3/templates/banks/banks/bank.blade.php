@@ -1,3 +1,10 @@
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$page->average_rating = $ratingValue;
+$page->number_of_votes = $ratingCount;
+$page->img = 'https://finance.ru' . str_replace('https://finance.ru','',$bank->logo) . $bank->logo;
+?>
 @extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
@@ -168,86 +175,11 @@
 @section('additional-scripts')
     @parent
     <script src="/old_theme/js/modal.js" defer></script>
-    <?php /*
-    <style>
 
-        .bank-product-categories-slider{
-            margin: 60px 0;
-        }
-        .bank-product-categories-slider-item{
-            color: #292929;
-        }
-
-        .bank-product-categories-slider-item:hover i.fa{
-            text-decoration: none;
-        }
-
-        .bank-product-categories-slider i.fa{
-            display: block;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            color: #a5ca38;
-        }
-    </style>
-    */ ?>
 
     <script>
 
         $(function(){
-            /*
-            $('.post-slider').slick({
-                dots: false,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-            */
-
-
-            /*
-        $('.bank-product-categories-slider').slick({
-            dots: false,
-            infinite: false,
-            speed: 300,
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
-        */
-
 /*
             $('.reviews').slick({
                 dots: false,
@@ -291,30 +223,9 @@
             /* special offers */
         });
     </script>
+@endsection
 
-    <script type="application/ld+json">{
-         "@context": "http://schema.org",
-         "@type": "Product",
-         "aggregateRating": {
-         "@type": "AggregateRating",
-           "bestRating": "5",
-           "ratingCount": "{{$page->number_of_votes}}",
-           "ratingValue": "{{$page->average_rating}}"
-         },
-         <?php /*
-         "review": {
-         "@type": "Review",
-         "name": "{{$page->h1}}" ,
-         "author": "{{$author->name}}"
-         },
-         */ ?>
-        "image": "https://finance.ru/old_theme/img/logo_vzo.png",
-        "name": "{{$page->h1}}",
-         "description" : "{{$page->meta_description}}",
-         "sku": "{{$page->id}}",
-         "slogan": "ФинансыРу",
-         "url": "https://finance.ru/banks",
-         "brand": "ВсеЗаймыОнлайн"
-        }
-    </script>
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductBank', compact('page'))
 @endsection

@@ -20,14 +20,7 @@
 
                 <input id="search-company" type="text" placeholder="Поиск компании по названию...">
 
-                    <div class="sorting-line habs_items">
-                        <ul>
-                            <li class="first-item">Сортировать:</li>
-                            <li class="sort-item" data-field="ratingValue"><i></i> <span>Оценка пользователей</span></li>
-                            <li class="sort-item" data-field="ratingCount"><i></i> <span>Больше всего отзывов</span></li>
-                            <li class="sort-item" data-field="sum_max"><i></i> <span>Максимальная сумма</span></li>
-                        </ul>
-                    </div>
+                @include("site.v3.templates.listings.includes.sorting_fields.1")
 
 
                 <div class="companies_blocks zajm_block offers-list">
@@ -287,7 +280,9 @@
             });
 
         </script>
+@endsection
 
-
-
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductListing', compact('cards', 'page'))
 @endsection

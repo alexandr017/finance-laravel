@@ -152,29 +152,9 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
             //$(this).switchClass( "oldClass", "bvc-read-pc-left", 1000, "easeInOutQuad" );
         });
     </script>
-    <script type="application/ld+json">{
-         "@context": "http://schema.org",
-         "@type": "Product",
-         "aggregateRating": {
-         "@type": "AggregateRating",
-           "bestRating": "5",
-           "ratingCount": "{{$page->number_of_votes}}",
-           "ratingValue": "{{$page->average_rating}}"
-         },
-         <?php /*
-         "review": {
-         "@type": "Review",
-         "name": "{{$page->h1}}" ,
-         "author": "{{$author->name}}"
-         },
-         */ ?>
-         "image": "https://finance.ru/old_theme/img/logo_vzo.png",
-         "name": "{{$page->h1}}",
-         "description" : "{{$page->meta_description}}",
-         "sku": "4155",
-         "slogan": "ФинансыРу",
-         "url": "https://finance.ru/banks",
-         "brand": "ФинансыРу"
-        }
-    </script>
+@endsection
+
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductBank', compact('page'))
 @endsection

@@ -130,126 +130,7 @@
 
 <script src="/old_theme/js/card-beta.js?v=5"></script>
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "url": "https://finance.ru",
-  "logo": "https://finance.ru/old_theme/img/old_logo.png",
-  "name": "ФинансРу",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+8-800-707-33-97",
-    "contactType": "customer service"
-  }]
-  @if( !isset($GLOBALS['issetStructuredProduct']))
-  ,"aggregateRating": {
-    "@type": "AggregateRating",
-    "bestRating" : 5,
-    "ratingValue": "1",
-    "reviewCount": "1"
-  }
-  @endif
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "#ФинансыРу",
-  "url": "https://finance.ru",
-  "sameAs": [
-    "https://vk.com/vsezaimyonline",
-    "https://ok.ru/vsezaimyonline",
-    "https://www.youtube.com/channel/UCaEfgVCVioDGWdbmLnKC3Qg",
-    "https://zen.yandex.ru/vsezaimyonline"
-  ]
-}
-</script>
-@if(Request::is('/'))
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "VideoObject",
-"name": "Что такое микрозайм?",
-"description": "В этом обучающем видео мы рассмотрим вопрос в целом, поговорим о том, как правильно говорить - 'займ' или 'заем', рассмотрим статистику целей микрокредитов и другие вопросы.",
-"thumbnailUrl": [
-"https://i.ytimg.com/vi/2RK3vQZPwoI/hqdefault.jpg"
-],
-"uploadDate": "2017-03-15T08:23:10.000Z",
-"duration": "PT5M12S",
-"contentUrl": "https://youtube.googleapis.com/v/2RK3vQZPwoI",
-"embedUrl": "https://youtube.googleapis.com/v/2RK3vQZPwoI",
-"interactionCount": "2729"
-}
-</script>
-@endif
-
-
-@if(isset($breadcrumbs))
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-    <?php $breadcrumbCounter = 1; ?>
-        @foreach($breadcrumbs as $key => $breadcrumb)
-        @if($breadcrumbCounter != 1)
-        @if (count($breadcrumbs)-1),@endif
-        @endif
-        {
-            "@type": "ListItem",
-            "position": {{$breadcrumbCounter}},
-            "name": @if(isset($breadcrumb['h1'])) "{{$breadcrumb['h1']}}" @else "" @endif,
-            @if ($key != (count($breadcrumbs)-1))
-                "item": @if(isset($breadcrumb['link'])) "https://finance.ru{{$breadcrumb['link']}}" @else "" @endif
-            @else
-                "item": "{{Request::url()}}"
-            @endif
-        }
-        <?php $breadcrumbCounter++; ?>
-        @endforeach
-    ]
-}
-</script>
-@endif
-
-
-<?php $FAQPageCounter = 1; ?>
-@if(isset($GLOBALS['FAQPage']))
-<script type="application/ld+json">
-{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-        @foreach($GLOBALS['FAQPage'] as $FAQPageItem)
-            <?php
-                $FAQcontent = str_replace('<p>','',$FAQPageItem['text']);
-                $FAQcontent = str_replace('</p>','',$FAQcontent);
-                $FAQcontent = str_replace('<ul>','',$FAQcontent);
-                $FAQcontent = str_replace('</ul>','',$FAQcontent);
-                $FAQcontent = str_replace('<li>','',$FAQcontent);
-                $FAQcontent = str_replace('</li>','. ',$FAQcontent);
-                $FAQcontent = str_replace(["\r\n", "\r", "\n"],'',$FAQcontent);
-                $FAQcontent = trim($FAQcontent);
-            ?>
-        {
-            "@type": "Question",
-            "name": "{{str_replace('?','',$FAQPageItem['name'])}}",
-           "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "{{$FAQcontent}}"
-           }
-        }
-        @if($FAQPageCounter!= count($GLOBALS['FAQPage'])) , @endif
-            <?php $FAQPageCounter++; ?>
-        @endforeach
-        ]
-}
-</script>
-@endif
-
+@include('site.structured-data.index')
 
 <script>
     function dynamicallyLoadScript(url) {
@@ -259,8 +140,6 @@
         document.head.appendChild(script);
     }
 </script>
-
-
 
 </body>
 </html>

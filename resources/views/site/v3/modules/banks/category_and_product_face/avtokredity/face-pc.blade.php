@@ -43,7 +43,7 @@
             <div class="vzo_icons_wrap">
                 @foreach ($icons as $current_item_icon)
                     @if (isset($all_vzo_icons[$current_item_icon]))
-                        <span class="sprite vzo_icons def_bg" data-src="/images/ic/icon-{{$current_item_icon}}.png" data-title="{{$all_vzo_icons[$current_item_icon]['title']}}"></span>
+                        <span class="sprite vzo_icons" style="background: url('/images/ic/icon-{{$current_item_icon}}.png')" data-title="{{$all_vzo_icons[$current_item_icon]['title']}}"></span>
                     @endif
                 @endforeach
             </div>

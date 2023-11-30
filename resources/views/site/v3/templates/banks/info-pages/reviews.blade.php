@@ -1,3 +1,10 @@
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$page->average_rating = $ratingValue;
+$page->number_of_votes = $ratingCount;
+$page->img = 'https://finance.ru' . str_replace('https://finance.ru','',$bank->logo) . $bank->logo;
+?>
 @extends('site.v3.layouts.app')
 @section ('title', $page->title)
 @section ('h1', $page->h1)
@@ -138,13 +145,6 @@
                             @if($comment->rating!=null)
                             <div class="rating-line rev">{!! App\Algorithms\System::rating($comment->rating) !!}</div>
                             @endif
-{{--                            @if($comment->rating <= 2)--}}
-{{--                            @if(isset($comment->complain_result))--}}
-{{--                            <span class="label_of_complain_success">Решено</span>--}}
-{{--                            @else--}}
-{{--                            <span class="label_of_complain_warning">Рассматривается</span>--}}
-{{--                            @endif--}}
-{{--                            @endif--}}
                         </div>
                         <div class="text-rew @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-body @endif">
                             {!!$comment->review!!}
@@ -174,10 +174,6 @@
                         </div>
                         @endforeach
                         @endif
-                        <?php /*
-                        <button class="filter-review">Кредиты</button>
-*/ ?>
-
 
                         <div class="reply @if($comment->rating <= 2 && isset($comment->complain_result)) hidden-review-body @endif" data-id="{{$comment->id}}">
                             <a rel="nofollow" class="review-reply-link" href="#">Ответить</a>
@@ -267,75 +263,15 @@
         </div><?php /* md-3 */ ?>
     </div><?php /*row */ ?>
 
-
-    <?php /*
-    @if($card != null && $card != [])
-    <div class="fixed-company">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <?php $product_title = ($card->category_id == 1)
-                        ? (($bank->company_name) ? $bank->company_name : $bank->h1)
-                        : $card->title;
-                    ?>
-                    <img loading="lazy" width="150" src="{{$card->logo}}" alt="{{$product_title}}">
-                    <span class="zaym-name">{{$product_title}}</span>
-                </div>
-                <div class="col-sm-3">
-                    <?php if($card->status) {
-                        $company_link = ($card->link_type == 1) ? $card->link_1 : $card->link_2;
-                    } else {
-                        $company_link = $card->link_2;
-                    }
-
-                    $goal = ($card->category_id == 1) ? 'zaim-reviews' : 'orgbut';
-                    ?>
-                    <a data-id="{{$card->id}}" class="hdl form-btn1" href="{{$company_link}}" target="_blank"> Оформить</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
-    */ ?>
-
-
 </article>
 
 @endsection
 
 @section('additional-scripts')
 <script src="/old_theme/js/scripts/5Company/reviews.js?id=7" defer></script>
-<?php
-/*
-$bank->number_of_votes = $realCount;
-$bank->average_rating = $ratingValue;
-?>
-{!! App\Algorithms\Frontend\StructuredData\Product\CompaniesWithReviews::render($cards, $bank, $reviews) !!}
-*/ ?>
+@endsection
 
-<script type="application/ld+json">{
-         "@context": "http://schema.org",
-         "@type": "Product",
-         "aggregateRating": {
-         "@type": "AggregateRating",
-           "bestRating": "5",
-           "ratingCount": "{{$page->number_of_votes}}",
-           "ratingValue": "{{$page->average_rating}}"
-         },
-         <?php /*
-         "review": {
-         "@type": "Review",
-         "name": "{{$page->h1}}" ,
-         "author": "{{$author->name}}"
-         },
-         */ ?>
-    "image": "https://finance.ru/old_theme/img/logo_vzo.png",
-    "name": "{{$page->h1}}",
-         "description" : "{{$page->meta_description}}",
-         "sku": "{{$page->id}}",
-         "slogan": "ВсеЗаймыОнлайн",
-         "url": "https://finance.ru/banks",
-         "brand": "ВсеЗаймыОнлайн"
-        }
-</script>
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductBank', compact('page'))
 @endsection

@@ -1,4 +1,11 @@
 <?php global $c; $c = $cards; ?>
+<?php
+[$ratingValue, $ratingCount] = \App\Algorithms\Frontend\Banks\BankReviews::getReviewsRating($reviews);
+
+$company->number_of_votes = $ratingCount;
+$company->average_rating = $ratingValue;
+?>
+
 @extends('site.v3.layouts.app')
 @section ('title', $company->title)
 @section ('h1', $company->h1)
@@ -281,50 +288,9 @@
     window.company_id = {{$company->id}}
 </script>
 
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org/",
-    "@id": "{{Request::url()}}",
-    "datePublished": ">{{ str_replace(' ','T',$company->updated_at).'+04:00'}}",
-    "dateModified": ">{{ str_replace(' ','T',$company->created_at).'+04:00'}}",
-    "headline": "{{$company->h1}}",
-    "author":{
-        "@type": "Person",
-        "name": "Анатолий Гарин"
-    },
-    "mainEntityOfPage":{
-        "@type": "WebPage",
-        "@id": "{{Request::url()}}"
-    },
-    "publisher":{
-        "@type": "Organization",
-        "name": "Анатолий Гарин",
-        "logo":{
-            "@type":"ImageObject",
-            "url":"https://finance.ru/old_theme/img/logo_vzo.png"
-        }
-    },
-    "image":{
-        "@type": "ImageObject",
-        "url": "{{$company->img}}",
-        "width":"250",
-        "height":"120"
-    }
-}
-</script>
+@endsection
 
-<?php
-global $realReviewsCount;
-global $ratingReviewsValue;
-$company->number_of_votes = $realReviewsCount;
-$company->average_rating = $ratingReviewsValue;
-?>
-
-@if($company->reviews_page)
-    {!! App\Algorithms\Frontend\StructuredData\Product\Companies::render($cards, $company) !!}
-@else
-    {!! App\Algorithms\Frontend\StructuredData\Product\CompaniesWithReviews::render($cards, $company, $reviews) !!}
-@endif
-
-
+@section('structured-data')
+    @parent
+    @include('site.structured-data.ProductCompany', compact('cards', 'company'))
 @endsection

@@ -16,20 +16,7 @@ class ProductsController extends BaseBankController
     {
         $categoryAlias = request()->segment(count(request()->segments()) - 1);
         $productAlias = request()->segment(count(request()->segments()));
-        return $this->render($bankAlias, $categoryAlias, $productAlias);
-    }
 
-    public function amp($bankAlias) : View
-    {
-        $categoryAlias = request()->segment(count(request()->segments()) - 2);
-        $productAlias = request()->segment(count(request()->segments()) - 1);
-
-        return $this->render($bankAlias, $categoryAlias, $productAlias, true);
-    }
-
-
-    private function render($bankAlias, $categoryAlias, $productAlias, $isAMP = false) : View
-    {
         $bankAlias = clear_data($bankAlias);
         $bank = Bank::where(['alias' => $bankAlias,'status' => 1])
             ->whereNull('deleted_at')
@@ -55,7 +42,7 @@ class ProductsController extends BaseBankController
 
         $productAlias = clear_data($productAlias);
 
-            $page = DB::table('bank_products')
+        $page = DB::table('bank_products')
             ->where(['status' => 1, 'alias' => $productAlias, 'bank_category_id' => $bankCategory->id])
             ->whereNull('deleted_at')
             ->first();
@@ -68,7 +55,7 @@ class ProductsController extends BaseBankController
         $breadcrumbs = [];
         $breadcrumbs[] = ['h1' => 'Банки', 'link' => '/banki'];
         $breadcrumbs[] = ['h1' => $bank->breadcrumb ?? $bank->h1, 'link' => '/banki/'.$bank->alias];
-        $breadcrumbs[] = ['h1' => $bankCategory->breadcrumb ?? $bankCategory->h1, 'link' => '/banks/'.$bank->alias.'/'.$categoryAlias];
+        $breadcrumbs[] = ['h1' => $bankCategory->breadcrumb ?? $bankCategory->h1, 'link' => '/banki/'.$bank->alias.'/'.$categoryAlias];
         $breadcrumbs[] = ['h1' => $page->breadcrumb ?? $page->h1];
 
 
@@ -122,17 +109,13 @@ class ProductsController extends BaseBankController
             ->where(['cards.status' => 1, 'banks.id' => $bank->id, 'bank_product_cards.bank_product_id' => $page->id])
             ->whereNull('bank_products.deleted_at')
             ->whereNull('bank_category_pages.deleted_at')
-            ->orderBy("cards.flow", 'asc')
+            ->orderBy("cards.flow")
             ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
+            ->orderBy("cards.id")
             ->first();
 
-
-        $template = $isAMP === false
-            ? 'frontend.banks.products.product'
-            : 'frontend.banks.products.product-amp';
-
-        return view($template, compact('breadcrumbs','page','bank','cards','section_type','scales', 'categoryAlias','all_vzo_icons','icons','reviews','editLink', 'bankTopCard'));
+        return view('site.v3.templates.banks.products.product', compact('breadcrumbs','page','bank','cards','section_type','scales', 'categoryAlias','all_vzo_icons','icons','reviews','editLink', 'bankTopCard'));
     }
+
 
 }
