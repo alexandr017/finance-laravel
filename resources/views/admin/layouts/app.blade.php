@@ -30,9 +30,7 @@
                 <section class="content-header">
                     <h1>@yield('h1')</h1>
                 </section>
-                @if (\Auth::id() == 12467 || \Auth::id() == '128767')
-                    @include('admin.includes.partials.breadcrumbs-vzo')
-                @endif
+                @include('admin.includes.partials.breadcrumbs-vzo')
                 <!-- Main content -->
                 <section class="content">
                     @include('admin.includes.partials.messages')

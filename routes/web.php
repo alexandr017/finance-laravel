@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 include 'site.php';
 
+include 'auth.php';
+
 include 'admin.php';

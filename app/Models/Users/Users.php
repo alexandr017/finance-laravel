@@ -2,27 +2,21 @@
 
 namespace App\Models\Users;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Users extends Model
+class Users extends Authenticatable
 {
+    use SoftDeletes;
+
     protected $table = 'users';
 
-    //protected $fillable = ['title','name'];
-/*
-    public $rules = array(
-        'email' => 'required|unique|max:255',
-        'name' => 'required',
-        'password' => 'required'
-	);
-	*/
+    protected $fillable = ['name', 'email', 'password', 'status', 'confirmation_code', 'confirmed'];
 
+    protected $hidden = ['password', 'remember_token'];
 
-public function messages()
-{
-    return [
-        'email.required' => 'A title is required',
-        'email.unique'  => '11',
-    ];
-}
+    public function isAdmin()
+    {
+        return in_array($this->email, config('admins'));
+    }
 }

@@ -13,7 +13,6 @@ use App\Http\Requests\Admin\Banks\BankProductRequest;
 use App\Algorithms\General\Banks\ProductScaleNames;
 use DB;
 use App\Models\Cards\Cards;
-use App\Models\System;
 use App\Algorithms\General\Cards\CardCategory;
 
 class BankProductsController extends BaseBankController
@@ -92,7 +91,7 @@ class BankProductsController extends BaseBankController
                 $scalesName = ProductScaleNames::getScalesByCategoryID($cardsCategories[$card->category_id]);
             }
         }
-        $cards = System::convertToArray($cardsList,'title');
+        $cards = $cardsList->pluck('title', 'id');
 
         $scalesName = [];
         $bankCategoryPage = BankCategoryPage::find($categoryID);
@@ -177,7 +176,8 @@ class BankProductsController extends BaseBankController
                 $cardsList[$k]->title .= ' (' . $cardsCategories[$card->category_id] . ')';
             }
         }
-        $cards = System::convertToArray($cardsList,'title');
+
+        $cards = $cardsList->pluck('title', 'id');
 
         $current_cards = BankProductCard::where(['bank_product_id' => $id])
             ->get()

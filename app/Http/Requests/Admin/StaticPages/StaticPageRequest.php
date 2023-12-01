@@ -31,8 +31,8 @@ class StaticPageRequest extends FormRequest
             'breadcrumbs' => ['nullable', 'max:255'],
             'lead' => ['nullable'],
             'content' => ['nullable'],
-            'rating_value' => ['nullable', 'numeric'],
-            'rating_count' => ['nullable', 'numeric'],
+            'average_rating' => ['nullable', 'numeric'],
+            'number_of_votes' => ['nullable', 'numeric'],
         ];
     }
 
@@ -50,8 +50,8 @@ class StaticPageRequest extends FormRequest
             'breadcrumbs' => 'Хлебные крошки',
             'lead' => 'Лид',
             'content' => 'Контент',
-            'rating_value' => 'Значение рейтинга',
-            'rating_count' => 'Количество голосов',
+            'average_rating' => 'Значение рейтинга',
+            'number_of_votes' => 'Количество голосов',
         ];
     }
 }

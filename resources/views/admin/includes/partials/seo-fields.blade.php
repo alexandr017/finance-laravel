@@ -48,7 +48,7 @@
 {{--</div>--}}
 
 
-<div class="form-group">
+<div class="form-group breadcrumb-block">
     <label for="breadcrumb">Хлебные крошки <span class="input_counter"></span></label>
     <?php
     $breadcrumb = old('breadcrumb')

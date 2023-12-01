@@ -12,7 +12,7 @@
     @if($reviewsPage == null)
         <a href="{{route('admin.banks.categories.reviews.show', [$bankID,$item->id])}}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Добавить страницу отзывов категорийной страницы банка</a>
     @else
-        <a target="_blank" href="/banks/{{ $bankAlias }}/{{ $categoryAlias }}/reviews" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> Просмотреть страницу отзывов категорийной страницы банка</a>
+        <a target="_blank" href="/banki/{{ $bankAlias }}/{{ $categoryAlias }}/otzyvy" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> Просмотреть страницу отзывов категорийной страницы банка</a>
         <a href="{{route('admin.banks.categories.reviews.show', [$bankID,$item->id, $reviewsPage->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Изменить страницу отзывов категорийной страницы банка</a>
         <form action="{{route('admin.banks.categories.reviews.delete', [$bankID,$item->id, $reviewsPage->id]) }}" method="post" class="inline">
             {{ method_field('DELETE') }}

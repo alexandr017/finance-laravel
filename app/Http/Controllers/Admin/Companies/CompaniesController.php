@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Companies;
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Models\System;
+use App\Algorithms\System;
 use App\Models\Companies\Companies;
 use App\Http\Requests\Admin\Companies\CompanyRequest;
 use App\Repositories\Admin\Companies\CompaniesRepository;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Banks\BankCategoryPagesController;
+use App\Http\Controllers\Admin\Banks\BankCategoryReviewsPagesController;
 use App\Http\Controllers\Admin\Banks\BankProductsController;
 use App\Http\Controllers\Admin\Banks\BankProductsReviewsPagesController;
 use App\Http\Controllers\Admin\Banks\BankReviewsController;
@@ -14,10 +15,18 @@ use App\Http\Controllers\Admin\Companies\ChildrenPagesController;
 use App\Http\Controllers\Admin\Companies\CompaniesController;
 use App\Http\Controllers\Admin\Companies\ReviewsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Posts\AuthorsController;
+use App\Http\Controllers\Admin\Posts\PostsCategoriesController;
+use App\Http\Controllers\Admin\Posts\PostsCommentsController;
+use App\Http\Controllers\Admin\Posts\PostsController;
+use App\Http\Controllers\Admin\Posts\PostTagsController;
+use App\Http\Controllers\Admin\StaticPages\StaticPagesController;
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth.admin'] ,'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+    Route::resource('static-pages', StaticPagesController::class)->except(['show']);
 
     Route::group(['prefix' => 'cards', 'as' => 'cards.'], function () {
         Route::get('cards', [CardsController::class, 'index'])->name('cards.index');
@@ -77,14 +86,46 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('reviews/all', [BankReviewsController::class, 'all'])->name('reviews.all');
         Route::get('reviews/load', [BankReviewsController::class, 'load'])->name('reviews.load');
 
-        // TODO:
-        Route::get('{bankID}/categories/{categoryId}/page-reviews', 'BankCategoryReviewsPagesController@show')->name('categories.reviews.show');
-        Route::post('{bankID}/categories/{categoryId}/page-reviews', 'BankCategoryReviewsPagesController@update')->name('categories.reviews.update');
-        Route::delete('{bankID}/categories/{categoryId}/page-reviews/{id}', 'BankCategoryReviewsPagesController@destroy')->name('categories.reviews.delete');
+        Route::get('{bankID}/categories/{categoryId}/page-reviews', [BankCategoryReviewsPagesController::class, 'show'])->name('categories.reviews.show');
+        Route::post('{bankID}/categories/{categoryId}/page-reviews', [BankCategoryReviewsPagesController::class, 'update'])->name('categories.reviews.update');
+        Route::delete('{bankID}/categories/{categoryId}/page-reviews/{id}', [BankCategoryReviewsPagesController::class, 'destroy'])->name('categories.reviews.delete');
 
         Route::get('{bankID}/categories/{categoryId}/products/{productId}/page-reviews', [BankProductsReviewsPagesController::class, 'show'])->name('products.reviews.show');
         Route::post('{bankID}/categories/{categoryId}/products/{productId}/page-reviews', [BankProductsReviewsPagesController::class, 'update'])->name('products.reviews.update');
         Route::delete('{bankID}/categories/{categoryId}/products/{productId}/page-reviews/{id}', [BankProductsReviewsPagesController::class, 'destroy'])->name('products.reviews.delete');
+    });
+
+    /****************** POSTS ******************/
+    Route::get('posts/posts', [PostsController::class, 'index'])->name('posts.posts.index');
+    Route::get('posts/posts/create', [PostsController::class, 'create'])->name('posts.posts.create');
+    Route::post('posts/posts/create_save', [PostsController::class, 'create_save'])->name('posts.posts.create_save');
+    Route::get('posts/posts/edit/{id}', [PostsController::class, 'edit'])->name('posts.posts.edit');
+    Route::post('posts/posts/edit_save', [PostsController::class, 'edit_save'])->name('posts.posts.edit_save');
+    Route::get('posts/posts/destroy/{id}', [PostsController::class, 'destroy'])->name('posts.posts.delete');
+    Route::post('posts/posts/search_by_id', [PostsController::class, 'search_by_id'])->name('posts.posts.search_by_id');
+
+    Route::get('posts/categories', [PostsCategoriesController::class, 'index'])->name('posts.categories.index');
+    Route::get('posts/categories/create', [PostsCategoriesController::class, 'create'])->name('posts.categories.create');
+    Route::post('posts/categories/create_save', [PostsCategoriesController::class, 'create_save'])->name('posts.categories.create_save');
+    Route::get('posts/categories/edit/{id}', [PostsCategoriesController::class, 'edit'])->name('posts.categories.edit');
+    Route::get('posts/categories/edit/{id}/posts', [PostsController::class, 'posts_by_category'])->name('posts.categories.edit.posts_by_category');
+    Route::post('posts/categories/edit_save', [PostsCategoriesController::class, 'edit_save'])->name('posts.categories.edit_save');
+    Route::get('posts/categories/destroy/{id}', [PostsCategoriesController::class, 'destroy'])->name('posts.categories.delete');
+
+    Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
+        Route::resource('tags', PostTagsController::class);
+
+//        Route::resource('posts_users_answers', 'PostsUsersAnswersController');
+//        Route::resource('product-overview', 'ProductOverviewController');
+
+        Route::resource('authors', AuthorsController::class)->except(['show']);
+//
+        Route::resource('comments', PostsCommentsController::class)->except(['show']);
+        Route::get('{id}/comments', [PostsCommentsController::class, 'comments_by_post'])->name('comments_by_post');
+        Route::group(['prefix' => 'comments', 'as' => 'comments.'], function () {
+            Route::get('change_status/{id}', [PostsCommentsController::class, 'change_status'])->name('change_status');
+            Route::post('search', [PostsCommentsController::class, 'search'])->name('search');
+        });
     });
 
 });

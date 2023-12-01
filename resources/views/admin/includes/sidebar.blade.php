@@ -113,7 +113,58 @@
                 </ul>
             </li>
 
-        </ul><!-- /.sidebar-menu -->
+            <li class="header">Информационный раздел</li>
+            <li class="@if(Request::routeIs('admin.static-pages.*')) active @endif">
+                <a href="{{ route('admin.static-pages.index') }}" class="active">
+                    <i class="fa fa-file-text-o"></i>
+                    <span>Страницы</span>
+                </a>
+            </li>
+
+            <li class="@if(Request::routeIs('admin.posts')) active @endif treeview">
+                <a href="#">
+                    <i class="fa fa-list"></i>
+                    <span>Записи</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu @if(Request::routeIs('admin.posts.*')) menu-open @endif"
+                    style="display: none; @if(Request::routeIs('admin.posts.*')) display: block; @endif"
+                >
+                    <li class="@if(Request::routeIs('admin.posts.posts.*')) active @endif">
+                        <a href="{{ route('admin.posts.posts.index') }}">
+                            <i class="fa fa-list"></i>
+                            <span>Записи</span>
+                        </a>
+                    </li>
+                    <li class="@if(Request::routeIs('admin.posts.categories.*')) active @endif">
+                        <a href="{{ route('admin.posts.categories.index') }}">
+                            <i class="fa fa-folder-open-o"></i>
+                            <span>Категории</span>
+                        </a>
+                    </li>
+                    <li class="@if(Request::routeIs('admin.posts.tags.*')) active @endif">
+                        <a href="{{ route('admin.posts.tags.index') }}">
+                            <i class="fa fa-tags"></i>
+                            <span>Теги</span>
+                        </a>
+                    </li>
+                    <li class="@if(Request::routeIs('admin.posts.comments.*')) active @endif">
+                        <a href="{{ route('admin.posts.comments.index') }}">
+                            <i class="fa fa-commenting-o"></i>
+                            <span>Комментарии</span>
+                        </a>
+                    </li>
+                    <li class="@if(Request::routeIs('admin.posts.authors.*')) active @endif">
+                        <a href="{{ route('admin.posts.authors.index') }}">
+                            <i class="fa fa-user-circle"></i>
+                            <span>Авторы</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- /.sidebar-menu -->
 
     </section>
 </aside>
