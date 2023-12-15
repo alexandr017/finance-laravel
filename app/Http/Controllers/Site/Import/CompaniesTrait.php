@@ -55,7 +55,7 @@ trait CompaniesTrait
                 $page->status = 1;
                 $page->save();
 
-                $card = Cards::where(['company_id' => $page->id]);
+                $card = Cards::where(['company_id' => $page->id])->get();
                 foreach ($card as $_card){
                     $card = Cards::find($_card->id);
                     if ($card != null) {
