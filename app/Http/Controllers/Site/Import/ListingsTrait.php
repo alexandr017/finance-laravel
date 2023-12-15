@@ -10,24 +10,13 @@ trait ListingsTrait
 {
     public function listings()
     {
-        DB::delete('delete from listing');
+        DB::delete('delete from listings');
+        DB::update("ALTER TABLE listings AUTO_INCREMENT = 1;");
         DB::delete('delete from listing_cards');
-
-        $categoryAlias = clear_data( request()->segment(count(request()->segments())) );
-
-        $gid = match($categoryAlias) {
-            'zaimy' => '0',
-            'kredity' => '1362018890',
-            'kreditnye-karty' => '1845891490',
-            'ipoteki' => '1792920671',
-            'avtokredity' => '155015470',
-            'debetovye-karty' => '1322689392',
-            'vklady' => '935293583',
-            'rko' => '1518609891',
-            default => dd('Не удалось найти лист для указанной категории')
-        };
+        DB::update("ALTER TABLE listing_cards AUTO_INCREMENT = 1;");
 
         $id = '1316Sq78XzT0OC0IjAM36_SyG0k3y0ldLdEKx3igmCZE';
+        $gid = '0';
 
         $csv = file_get_contents('https://docs.google.com/spreadsheets/d/' . $id . '/export?format=csv&gid=' . $gid);
         $csv = explode("\r\n", $csv);
@@ -71,15 +60,19 @@ trait ListingsTrait
                 $listing->save();
                 $listingID = $listing->id;
 
-                $cards = explode(',', $row[8]);
+                if ($row[5] != '/') {
+                    $cards = explode(',', $row[8]);
 
-                foreach ($cards as $cardID) {
-                    $listingCard = new ListingCards([
-                        'listing_id' => $listingID,
-                        'card_id' => trim($cardID),
-                    ]);
-                    $listingCard->save();
+                    foreach ($cards as $cardID) {
+                        $listingCard = new ListingCards([
+                            'listing_id' => $listingID,
+                            'card_id' => trim($cardID),
+                        ]);
+                        $listingCard->save();
+                    }
                 }
+
+
 
             }
         });

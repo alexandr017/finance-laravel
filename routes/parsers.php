@@ -26,14 +26,7 @@ Route::get('/import/bank-reviews', [ImportController::class, 'bankReviews']);
 
 
 // listings
-Route::get('/import/zaimy', [ImportController::class, 'listings']);
-Route::get('/import/kredity', [ImportController::class, 'listings']);
-Route::get('/import/kreditnye-karty', [ImportController::class, 'listings']);
-Route::get('/import/debetovye-karty', [ImportController::class, 'listings']);
-Route::get('/import/ipoteki', [ImportController::class, 'listings']);
-Route::get('/import/avtokredity', [ImportController::class, 'listings']);
-Route::get('/import/vklady', [ImportController::class, 'listings']);
-Route::get('/import/rko', [ImportController::class, 'listings']);
+Route::get('/import/listings', [ImportController::class, 'listings']);
 
 // relink
 Route::get('/import/relink', [ImportController::class, 'relink']);

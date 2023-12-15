@@ -1,5 +1,5 @@
-@if(!response::check_mobile())
-    @include('frontend.cards.card.fields.2desc')
+@if(!is_mobile_device())
+    @include('site.v3.modules.cards.card.fields.2desc')
 @else
-    @include('frontend.cards.card.fields.2mob')
+    @include('site.v3.modules.cards.card.fields.2mob')
 @endif

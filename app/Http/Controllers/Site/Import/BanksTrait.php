@@ -29,8 +29,6 @@ trait BanksTrait
         DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
 
-                //dd($data);
-
                 if ($isFirstLine) {
                     $isFirstLine = false;
                     continue;
@@ -86,11 +84,12 @@ trait BanksTrait
         DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
 
+                //dd($data);
+
                 if ($isFirstLine) {
                     $isFirstLine = false;
                     continue;
                 }
-
 
                 $page = BankInfoPage::where(['bank_id' => $row[0], 'type_id' => $row[1]])->first();
                 if ($page == null) {
@@ -113,6 +112,8 @@ trait BanksTrait
 
     public function bankCategories()
     {
+        //dd(BankCategoryPage::select('*')->orderBy('id','desc')->first());
+        //dd(BankCategoryPage::select('*')->where(['bank_id' => 70, 'category_id' => 2])->get());
         DB::update('update bank_category_pages set status = 0');
 
         $id = '1r5S-Wh4IITHAm4vQSl5G_9TP6v-lrCMvdYf5VZp7epc';
@@ -133,20 +134,41 @@ trait BanksTrait
                     continue;
                 }
 
-
-                $page = BankCategoryPage::where(['bank_id' => $row[0], 'category_id' => $row[1]])->first();
+                $page = BankCategoryPage::where(['bank_id' => $row[0], 'category_id' => $row[1]])
+                    ->whereNull('deleted_at')
+                    ->first();
                 if ($page == null) {
-                    dd('Не найден элемент для ID ' .  $row[0], ' type_id ' . $row[1]);
+                    $data = [
+                        'bank_id'  => $row[0],
+                        'category_id' => $row[1],
+                        'title' => $row[2],
+                        'meta_description' => $row[3],
+                        'h1' => $row[4],
+                        'lead' => $row[5],
+                        'content' => $row[6],
+                        'breadcrumb' => $row[7],
+                        'status' => 1,
+                    ];
+
+                    if ($data['lead'] == '') $data['lead'] = 'test';
+                    if ($data['content'] == '') $data['content'] = 'test';
+
+                    $page = new BankCategoryPage($data);
+                } else {
+                    $page->title = $row[2];
+                    $page->meta_description = $row[3];
+                    $page->h1 = $row[4];
+                    $page->lead = $row[5];
+                    $page->content = $row[6];
+                    $page->breadcrumb = $row[7];
+                    $page->status = 1;
                 }
 
-                $page->title = $row[2];
-                $page->meta_description = $row[3];
-                $page->h1 = $row[4];
-                $page->lead = $row[5];
-                $page->content = $row[6];
-                $page->breadcrumb = $row[7];
-                $page->status = 1;
                 $page->save();
+
+//                if ($row[0] == 70 && $row[1] == 2) {
+//                    dd($page);
+//                }
 
             }
         });
@@ -201,8 +223,8 @@ trait BanksTrait
 
     public function bankReviews()
     {
-//        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-//        DB::delete('delete from bank_reviews');
+        DB::delete('delete from bank_reviews');
+        DB::update("ALTER TABLE bank_reviews AUTO_INCREMENT = 1;");
 
         $id = '1O4gqxPgV94q-15TvJnOjPibSA-4ufKvLutITnFnurRU';
         $gid = '0';
@@ -221,15 +243,20 @@ trait BanksTrait
                     continue;
                 }
 
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $row[0], 'category_id' =>$row[1]])->first();
+                if ($bankCategoryPage == null) {
+                    dd(1, $row);
+                }
+
                 $dataForInsert = [
                     'bank_id' => $row[0],
-                    'bank_category_id' => $row[1] ?? null,
-                    'product_id' => $row[2] ?? null,
+                    'bank_category_id' => $bankCategoryPage->id,
+                    'product_id' => null,
                     'author' => $row[3],
                     'rating' => $row[4],
                     'review' => $row[5],
-                    'pros' => $row[6] ?? null, // ?
-                    'minuses' => $row[7] ?? null, // ?
+                    'pros' => null,
+                    'minuses' => null,
                     'status' => 1
                 ];
                 $review = new BankReview($dataForInsert);

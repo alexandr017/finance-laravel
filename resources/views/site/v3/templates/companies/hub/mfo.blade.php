@@ -71,29 +71,6 @@
 
             $(function(){
 
-
-                $('.sorting-line span').on('click',function() {
-                    if ($(this).parent().hasClass('active')) {
-                        if ($(this).parent().find('i').hasClass('fa-arrow-circle-up')) {
-                            $(this).parent().find('i').removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
-                            var sort_type = 'desc';
-                        } else {
-                            var sort_type = 'asc';
-                            $(this).parent().find('i').addClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
-                        }
-                        window.sort_type = sort_type;
-                        window.default_sorting_counter = 0;
-                    } else {
-                        $('.sorting-line li').each(function () {
-                            $(this).removeClass('active');
-                            $(this).find('i').attr('class', '');
-                        });
-                        $(this).parent().find('i').addClass('fa-arrow-circle-down').addClass('fa');
-                        $(this).parent().addClass('active');
-                    }
-                });
-
-
                 $('.sorting-line span').on('click',function(){
                     $('#load_more').show();
                     var field = $(this).parent().attr('data-field');
@@ -144,13 +121,14 @@
                     var data = {};
                     data['field'] = field;
                     data['page'] = 1;
-                    data['category_id'] = window.category_id;
+                    data['category_id'] = 1;
+                    data['listing_id'] = 1; // не используется
                     data['count_on_page'] = window.count_on_page;
                     data['sort_type'] = sort_type;
 
                     $.ajax({
                         type: "GET",
-                        url: "/actions/load_cards_for_hubs",
+                        url: "/actions/load_cards_for_listings",
                         data: data,
                         success: function(data){
                             $('.offers-list').html(data['code']);
@@ -200,11 +178,12 @@
                 var data = {};
                 data['field'] =  window.field;
                 data['page'] = window.number_page;
-                data['listing_id'] = window.listing_id;
+                data['listing_id'] = 1; // не используется
                 data['category_id'] = window.category_id;
                 data['count_on_page'] = window.count_on_page;
                 data['options'] = options;
                 data['sort_type'] = window.sort_type;
+                data['category_id'] = 1;
 
 
                 for(var key in window.sidebar_listings) {
@@ -215,7 +194,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: '/actions/load_cards_for_hubs',
+                    url: 'actions/load_cards_for_listings',
                     data: data,
                     success: function(data){
                         $('.offers-list').append(data['code']);

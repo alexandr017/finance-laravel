@@ -77,6 +77,16 @@ Route::get('banki/{bankAlias}/avtokredity/{productAlias}/otzyvy', 'App\Http\Cont
 Route::get('banki/{bankAlias}/avtokredity/{productAlias}/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@amp')->name('banks.category.avtokredity.products.otzyvy.amp');
 
 
+Route::get('banki/{bankAlias}/rko', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.rko.category');
+Route::get('banki/{bankAlias}/rko/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.rko.category.amp');
+Route::get('banki/{bankAlias}/rko/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.rko.otzyvy');
+Route::get('banki/{bankAlias}/rko/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.rko.otzyvy.amp');
+Route::get('banki/{bankAlias}/rko/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.rko.products.index');
+Route::get('banki/{bankAlias}/rko/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.rko.products.amp');
+Route::get('banki/{bankAlias}/rko/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.rko.products.otzyvy.index');
+Route::get('banki/{bankAlias}/rko/{productAlias}/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@amp')->name('banks.category.rko.products.otzyvy.amp');
+
+
 Route::post('actions/banks/add-review', 'App\Http\Controllers\Site\V3\Actions\BankReviewActionsController@addReview')->name('actions.banks.add_review');
 Route::get('actions/load-cards-for-bank-on-category', 'App\Http\Controllers\Site\V3\Actions\BankLoadProductActionController@loadCardsForCategory')->name('actions.banks.load_cards_for_category');
 Route::get('actions/load-cards-for-bank-on-product', 'App\Http\Controllers\Site\V3\Actions\BankLoadProductActionController@loadCardsForProduct')->name('actions.banks.load_cards_for_product');

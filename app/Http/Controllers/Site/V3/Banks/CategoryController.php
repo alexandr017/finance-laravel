@@ -29,6 +29,7 @@ class CategoryController extends BaseBankController
     private function render($bankAlias, $categoryAlias, $isAMP = false) : View
     {
         $bankAlias = clear_data($bankAlias);
+
         $bank = Bank::where(['alias' => $bankAlias,'status' => 1])
             ->whereNull('deleted_at')
             ->first();

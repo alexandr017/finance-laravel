@@ -11,7 +11,9 @@ trait RelinkTrait
     public function relink()
     {
         DB::delete('delete from relinking');
+        DB::update("ALTER TABLE relinking AUTO_INCREMENT = 1;");
         DB::delete('delete from relinking_groups');
+        DB::update("ALTER TABLE relinking_groups AUTO_INCREMENT = 1;");
 
         $id = '1R2TnSVthg6ltEyIdq-8siYzFuRCs2BRMcOHJCLYRTP0';
         $gid = '0';

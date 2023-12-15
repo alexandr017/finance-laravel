@@ -36,7 +36,7 @@
 			<td class="display_none">{{$j}}</td>
 			<td>
 			<?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
-        		<a class="rko" href="{{$link}}" target="_blank" @if(!$amp) onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}'); return true;"@endif>{{$card->title}}</a>
+        		<a class="rko" href="{{$link}}" target="_blank" onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}')"{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->opened}}</td>
 			<td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} ₽</td>

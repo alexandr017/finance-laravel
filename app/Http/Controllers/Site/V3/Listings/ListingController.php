@@ -34,17 +34,22 @@ class ListingController extends Controller
 
     public function indexIpoteki() : View
     {
-        return $this->render(0);
+        return $this->render(10);
     }
 
     public function indexAvtokredity() : View
     {
-        return $this->render(0);
+        return $this->render(8);
     }
 
     public function indexVklady() : View
     {
-        return $this->render(0);
+        return $this->render(11);
+    }
+
+    public function indexRKO() : View
+    {
+        return $this->render(2);
     }
 
 
@@ -70,21 +75,26 @@ class ListingController extends Controller
 
     public function ipoteki($tagAlias) : View
     {
-        return $this->render( 0, $tagAlias);
+        return $this->render( 10, $tagAlias);
     }
 
     public function avtokredity($tagAlias) : View
     {
-        return $this->render( 0, $tagAlias);
+        return $this->render( 8, $tagAlias);
     }
 
     public function vklady($tagAlias) : View
     {
-        return $this->render( 0, $tagAlias);
+        return $this->render( 11, $tagAlias);
+    }
+
+    public function RKO($tagAlias) : View
+    {
+        return $this->render(2, $tagAlias);
     }
 
 
-    private function render($categoryID, $tagAlias = null) : View
+    private function render($categoryID, $tagAlias = '/') : View
     {
         $page = Listing::where(['alias' => $tagAlias, 'category_id' => $categoryID])->first();
 
@@ -94,8 +104,11 @@ class ListingController extends Controller
             abort(404);
         }
 
-        $card_repository = app(CardRepository::class);
-        if ($page->id != 0) {
+        $card_repository = new CardRepository;
+
+        if ($tagAlias == '/') {
+            $cards = $card_repository->getProductForSection($categoryID);
+        } elseif ($page->id != 0) {
             $cards = $card_repository->getSortedCards($page->id);
         } else {
             $cards = [];

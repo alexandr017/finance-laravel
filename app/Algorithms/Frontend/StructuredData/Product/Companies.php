@@ -11,12 +11,29 @@ class Companies
         $offers_code = '';
         $counter = 1;
         foreach ($cards as $card) {
-            if ($card->sum_min < $low_price_value) {
-                $low_price_value = $card->sum_min;
+
+            switch ($card->category_id) {
+                case 11:
+                case 10:
+                case 7:
+                case 8:
+                case 3:
+                case 4:
+                case 1: $field_high_price = 'sum_max';  $field_low_price = 'sum_min'; break;
+                case 6:
+                case 2: $field_high_price = 'opened';  $field_low_price = 'opened'; break;
+                case 5: $field_high_price = 'limit_max';  $field_low_price = 'limit_max'; break;
+                default: ['', '', ''];
             }
-            if ($card->sum_max > $high_price_value) {
-                $high_price_value = $card->sum_max;
+
+
+            if ($card->$field_low_price < $low_price_value) {
+                $low_price_value = $card->$field_low_price;
             }
+            if ($card->$field_high_price > $high_price_value) {
+                $high_price_value = $card->$field_high_price;
+            }
+
             $link = ($card->link_type == 1) ? $card->link_1 : $card->link_2;
 
             $offers_code .= '
@@ -33,7 +50,7 @@ class Companies
        			            "url":"https://finance.ru'. str_replace('https://finance.ru','',$card->logo). '"
        		            }';
 
-            $offers_code .= ',"priceRange": "' . $card->sum_min . ' - ' . $card->sum_max . '"';
+            $offers_code .= ',"priceRange": "' . $card->$field_low_price . ' - ' . $card->$field_high_price . '"';
 
             $offers_code .= '}
                 }';

@@ -10,6 +10,7 @@ trait LinksTrait
     public function links()
     {
         DB::delete('delete from hide_links');
+        DB::update("ALTER TABLE hide_links AUTO_INCREMENT = 1;");
 
         $id = '1En3NVZhlMH0nbyHH_upAa_LyWL3ho2pYwgSlTrHN40g';
         $gid = '0';

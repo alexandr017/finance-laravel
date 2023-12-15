@@ -22,12 +22,20 @@ class CardsLoaderController extends Controller
         $category_id = clear_data($request['category_id']);
 
 
+
         if (($listing_id == 0) || ($count_on_page == 0)) {
             return '';
         }
 
         $card_repository = app(CardRepository::class);
-        $cards = $card_repository->getSortedCards($listing_id, $field, $sort_type);
+
+        if ($this->isParentPage()) {
+            $cards = $card_repository->getProductForSection($category_id, $field, $sort_type);
+        } else {
+            $cards = $card_repository->getSortedCards($listing_id, $field, $sort_type);
+
+        }
+
 
 
 
@@ -62,11 +70,9 @@ class CardsLoaderController extends Controller
         // поиск с форм сайдбара
         $cards = CardFilter::getFilteredCardsByCategory($category_id, $cards, $request);
         $countOnNextPage = count($cards) - 10;
-        // если не главная применяем пагинацию
-        if ($category_id != 1 || $listing_id != -1) {
-            $cards = self::paginate($cards, 10, $page);
-            $cards = $cards->items();
-        }
+
+        $cards = self::paginate($cards, 10, $page);
+        $cards = $cards->items();
 
         $result = '';
 
@@ -104,9 +110,24 @@ class CardsLoaderController extends Controller
 
     private static function paginate($items, $perPage = 15, $page = null, $options = [])
     {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+
+    private function isParentPage() : bool
+    {
+        $parentPages = ['mfo', 'zaimy', 'kredity', 'kreditnye-karty', 'debetovye-karty', 'ipoteki', 'avtokredity', 'vklady', 'rko'];
+
+        foreach ($parentPages as &$page) {
+            $page = \Request::root() . '/' . $page;
+        }
+
+        if (in_array(\Request::server('HTTP_REFERER'),  $parentPages)) {
+            return true;
+        }
+
+        return false;
+
     }
 
 

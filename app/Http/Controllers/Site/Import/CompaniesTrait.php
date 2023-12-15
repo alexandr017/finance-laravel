@@ -55,9 +55,9 @@ trait CompaniesTrait
                 $page->status = 1;
                 $page->save();
 
-                $cardsArr = explode(',', $row[9]);
-                foreach ($cardsArr as $cardId) {
-                    $card = Cards::find($cardId);
+                $card = Cards::where(['company_id' => $page->id]);
+                foreach ($card as $_card){
+                    $card = Cards::find($_card->id);
                     if ($card != null) {
                         $card->status = 1;
                     }
@@ -74,6 +74,9 @@ trait CompaniesTrait
     {
         DB::update('update companies_children_pages set status = 0');
 
+        //dd(CompaniesChildrenPages::where(['company_id' => '487'])->get());
+
+
         $id = '1UJqMbC_ooN46ZnGKcfNKJU3KMOSSh6nnCIoeYXtUfVs';
         $gid = '0';
 
@@ -87,23 +90,37 @@ trait CompaniesTrait
         DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
 
+                //dd($data);
+
                 if ($isFirstLine) {
                     $isFirstLine = false;
                     continue;
                 }
 
-                $page = CompaniesChildrenPages::where(['company_id' => $row[0], 'type_id' => $row[5]])->first();
+                $page = CompaniesChildrenPages::where(['company_id' => $row[0], 'type_id' => $row[6]])->first();
                 if ($page == null) {
-                    dd('Не найден элемент для ID ' .  $row[0], ' type_id ' . $row[5]);
+                    $data = [
+                        'title' => $row[2],
+                        'meta_description' =>$row[3],
+                        'h1' => $row[4],
+                        'content' => $row[7] . $row[5],
+                        'breadcrumb' => $row[8],
+                        'status' => 1,
+                        'type_id' => $row[6]
+                    ];
+                    $page = new CompaniesChildrenPages($data);
+                    //$page->save();
+                    //dd('Не найден элемент для ID ' .  $row[0], ' type_id ' . $row[6], $page);
+                } else {
+                    $page->title = $row[2];
+                    $page->meta_description = $row[3];
+                    $page->h1 = $row[4];
+                    //$page->text_before = $row[6];
+                    $page->content = $row[7] . $row[5];
+                    $page->breadcrumb = $row[8];
+                    $page->status = 1;
                 }
 
-                $page->title = $row[2];
-                $page->meta_description = $row[3];
-                $page->h1 = $row[4];
-                //$page->text_before = $row[6];
-                $page->content = $row[6] . $row[7];
-                $page->breadcrumb = $row[8];
-                $page->status = 1;
                 $page->save();
 
             }
@@ -114,8 +131,8 @@ trait CompaniesTrait
 
     public function reviews()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::delete('delete from companies_reviews');
+        DB::update("ALTER TABLE companies_reviews AUTO_INCREMENT = 1;");
 
 
         $id = '1jvmjAwIY9qmpT7NJWnBqPB405B634XdFUJzSqs0ryS0';

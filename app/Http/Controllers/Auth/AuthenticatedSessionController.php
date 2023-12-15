@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+        //\Auth::loginUsingId(2, true); for test
         return view('auth.login');
     }
 

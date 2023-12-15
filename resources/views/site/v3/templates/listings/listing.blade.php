@@ -143,6 +143,7 @@
     window.field = 'km5';
     window.sort_type = 'desc';
     window.sidebar_listings = {};
+
     if(document.body.clientWidth > 768){
         $(window).scroll(function() {
             if($(this).scrollTop() != 0) {

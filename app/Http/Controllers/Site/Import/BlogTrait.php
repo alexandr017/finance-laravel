@@ -10,8 +10,8 @@ trait BlogTrait
 {
     public function blogCategories()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('posts_categories')->truncate();
+        DB::delete('delete from posts_categories');
+        DB::update("ALTER TABLE posts_categories AUTO_INCREMENT = 1;");
 
         $id = '1NYxyApKlyYX-a450wDcwFyLdmBMwzPXfDuSg6gm41MI';
         $gid = '0';
@@ -52,11 +52,8 @@ trait BlogTrait
 
     public function blogPosts()
     {
-//        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-//        DB::table('posts_comments')->truncate();
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('posts')->truncate();
+        DB::delete('delete from posts');
+        DB::update("ALTER TABLE posts AUTO_INCREMENT = 1;");
 
         $id = '1m5PtO6EEOqIzlUF8D2BHO01KsfsjJS-37WLP1eQ4X4k';
         $gid = '0';

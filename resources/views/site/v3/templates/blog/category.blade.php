@@ -58,12 +58,10 @@ if (isset($page)) {
 
 
 @section('additional-scripts')
-<script async src="/vzo_theme/js/typed.min.js"></script>
-<script async src="/vzo_theme/js/scripts/7PostsCategory/postsCategory.js?id=2"></script>
-<?php /*<script src="/vzo_theme/js/scripts/typed.js"></script> */ ?>
+<script async src="/old_theme/js/scripts/7PostsCategory/postsCategory.js?id=2"></script>
 @endsection
 @section('listings-scripts')
-<script async src="/vzo_theme/js/modal.js"></script>
+<script async src="/old_theme/js/modal.js"></script>
 <script>
 
 </script>

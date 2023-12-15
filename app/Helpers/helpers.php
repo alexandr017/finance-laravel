@@ -459,3 +459,68 @@ if (! function_exists('empty_str_to_null')) {
         return $data;
     }
 }
+
+function getCanonical() : string
+{
+    $url = URL::current();
+
+    $pos = strpos($url, 'page');
+
+    if ($pos) {
+        $url = substr($url, 0, $pos);
+    }
+
+    if (!str_ends_with($url, '/')) {
+        $url .= '/';
+    }
+
+    return $url;
+}
+
+function getCanonicalNext(int $pages) : int|string
+{
+    $url = URL::current();
+    if ($pages == 1) {
+        if (str_contains($url, 'page/1')) {
+            if (str_ends_with($url, '/')) {
+                return $url;
+            }
+            return $url . '/';
+        }
+        return $url . '/page/1/';
+    }
+
+    $url = preg_replace('/\/$/', '', $url);
+    $urlArr = explode('/', $url);
+    $page = (int) $urlArr[count($urlArr)-1];
+    if ($page < $pages) {
+        if($page == 0) {
+            return $url . '/page/2/';
+        } else {
+            return str_replace('/page/'.$page, '/page/'.($page+1) . '/', $url);
+        }
+    }
+
+    if (str_contains($url, 'page')) {
+        if (str_ends_with($url, '/')) {
+            return $url;
+        }
+        return $url . '/';
+    }
+
+    return $url . '/page/1/';
+}
+
+function getCanonicalPrev() : null|int|string
+{
+    $url = URL::current();
+    $url = preg_replace('/\/$/', '', $url);
+    $urlArr = explode('/', $url);
+    $page = (int) $urlArr[count($urlArr)-1];
+    if ($page > 2) {
+        return str_replace('/page/'.$page, '/page/'.($page-1) . '/', $url);
+    } elseif($page == 2){
+        return str_replace('/page/'.$page, '/', $url);
+    }
+    return null;
+}
