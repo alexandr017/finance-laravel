@@ -9,7 +9,7 @@ let indexLinks = [
         ['Круглосуточно', '/zaimy/kruglosutochno'],
         ['На Киви кошелек', '/zaimy/na-kivi-koshelek'],
         ['Без кредитной истории', '/zaimy/bez-kreditnoj-istorii'],
-        ['Без фото', '/zaimy/dlya-yurlitsa'],
+        ['Без фото', '/zaimy/bez-foto'],
         ['На месяц', '/zaimy/na-mesyats']
     ],
     [

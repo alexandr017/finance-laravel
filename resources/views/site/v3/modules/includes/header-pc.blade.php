@@ -23,7 +23,7 @@
                         <li><a href="/zaimy/kruglosutochno">Круглосуточно</a></li>
                         <li><a href="/zaimy/na-kivi-koshelek">На Киви кошелек</a></li>
                         <li><a href="/zaimy/bez-kreditnoj-istorii">Без кредитной истории</a></li>
-                        <li><a href="/zaimy/dlya-yurlitsa">Без фото</a></li>
+                        <li><a href="/zaimy/bez-foto">Без фото</a></li>
                         <li><a href="/zaimy/na-mesyats">На месяц</a></li>
                     </ul>
                 </li>

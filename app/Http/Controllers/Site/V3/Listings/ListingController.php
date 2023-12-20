@@ -114,7 +114,9 @@ class ListingController extends Controller
             $cards = [];
         }
 
+        $parentBreadcrumbs = $this->getParentBreadcrumbsBuCategoryID((int) $page->category_id);
         $breadcrumbs = [
+            [...$parentBreadcrumbs],
             ['h1' => $page->h1]
         ];
 
@@ -125,6 +127,21 @@ class ListingController extends Controller
         $editLink = null;
 
         return view($blade, compact(['page', 'breadcrumbs', 'cards', 'popularBanks', 'relinkData', 'editLink', 'categoryID']));
+    }
+
+    private function getParentBreadcrumbsBuCategoryID(int $categoryID) : array
+    {
+        return match($categoryID){
+            1 => ['link' => '/zaimy', 'h1' => 'Займы'],
+            2 => ['link' => '/rko', 'h1' => 'РКО'],
+            4 => ['link' => '/kredity', 'h1' => 'Кредиты'],
+            5 => ['link' => '/kreditnye-karty', 'h1' => 'Кредитные карты'],
+            6 => ['link' => '/debetovye-karty', 'h1' => 'Дебетовые карты'],
+            8 => ['link' => '/avtokredity', 'h1' => 'Автокредиты'],
+            10 => ['link' => '/ipoteki', 'h1' => 'Ипотеки'],
+            11 => ['link' => '/vklady', 'h1' => 'Вклады'],
+            default => ['link' => '', 'h1' => '']
+        };
     }
 
 }
