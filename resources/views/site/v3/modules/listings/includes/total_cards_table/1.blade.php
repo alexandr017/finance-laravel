@@ -12,17 +12,7 @@
 	<thead>
 		<tr>
 			<th class="display_none"></th>
-			<th>@if(isset($tag_name))
-					Займы
-					@if($tag_name!='')
-						@if($page->city_id != 0)
-							{{mb_convert_case($tag_name, MB_CASE_TITLE)}}
-						@else
-							{{mb_strtolower($tag_name)}}
-						@endif
-					@endif
-				@endif
-			</th>
+			<th>МФО</th>
 			<th>Максимальная сумма</th>
 			<th class="display_none"></th>
 			<th>Максимальный срок</th>

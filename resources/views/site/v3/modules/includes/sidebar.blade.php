@@ -126,8 +126,8 @@
 
 @include('site.v3.modules.blog.categories')
 
-@if(isset($category_id))
-@if(($category_id == 1 || $category_id == 7))
+@if(isset($categoryID))
+@if(($categoryID == 1 || $categoryID == 7))
     @include('site.v3.modules.includes.zaimy.calc')
 @endif
 @endif

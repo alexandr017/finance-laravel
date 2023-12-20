@@ -15,15 +15,16 @@
     @else
         <li><a href="/banki/{{$bank->alias}}/lichnyj-kabinet" class="fa-icon fa-user">Личный кабинет</a></li>
     @endif
-    @if(Request::path() == 'banki/'.$bank->alias.'/otzyvy')
-        <li><span class="fa-icon fa-comments-o">Отзывы</span></li>
-    @else
-        <li><a href="/banki/{{$bank->alias}}/otzyvy" class="fa-icon fa-comments-o">Отзывы</a></li>
-    @endif
     @if(Request::path() == 'banki/'.$bank->alias.'/rekvizity')
         <li><span class="fa-icon fa-file-text-o">Реквизиты</span></li>
     @else
         <li><a href="/banki/{{$bank->alias}}/rekvizity" class="fa-icon fa-file-text-o">Реквизиты</a></li>
     @endif
+    @if(Request::path() == 'banki/'.$bank->alias.'/otzyvy')
+        <li><span class="fa-icon fa-comments-o">Отзывы</span></li>
+    @else
+        <li><a href="/banki/{{$bank->alias}}/otzyvy" class="fa-icon fa-comments-o">Отзывы</a></li>
+    @endif
+
     </ul>
 </nav>

@@ -474,20 +474,23 @@ function getCanonical() : string
         $url .= '/';
     }
 
+    $url = preg_replace('/\/$/', '', $url);
+
     return $url;
 }
 
 function getCanonicalNext(int $pages) : int|string
 {
     $url = URL::current();
+    $url = preg_replace('/\/$/', '', $url);
     if ($pages == 1) {
         if (str_contains($url, 'page/1')) {
             if (str_ends_with($url, '/')) {
                 return $url;
             }
-            return $url . '/';
+            return $url;
         }
-        return $url . '/page/1/';
+        return $url . '/page/1';
     }
 
     $url = preg_replace('/\/$/', '', $url);
@@ -495,7 +498,7 @@ function getCanonicalNext(int $pages) : int|string
     $page = (int) $urlArr[count($urlArr)-1];
     if ($page < $pages) {
         if($page == 0) {
-            return $url . '/page/2/';
+            return $url . '/page/2';
         } else {
             return str_replace('/page/'.$page, '/page/'.($page+1) . '/', $url);
         }
@@ -505,10 +508,10 @@ function getCanonicalNext(int $pages) : int|string
         if (str_ends_with($url, '/')) {
             return $url;
         }
-        return $url . '/';
+        return $url;
     }
 
-    return $url . '/page/1/';
+    return $url . '/page/1';
 }
 
 function getCanonicalPrev() : null|int|string

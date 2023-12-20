@@ -124,7 +124,7 @@ class ListingController extends Controller
 
         $editLink = null;
 
-        return view($blade, compact(['page', 'breadcrumbs', 'cards', 'popularBanks', 'relinkData', 'editLink']));
+        return view($blade, compact(['page', 'breadcrumbs', 'cards', 'popularBanks', 'relinkData', 'editLink', 'categoryID']));
     }
 
 }

@@ -74,11 +74,11 @@
 
 
             @if(is_mobile_device())
-            <div class="blue-block">
                 @if(($page->category_id == 1))
+                    <div class="blue-block">
                     @include('site.v3.modules.includes.zaimy.calc')
+                    </div>
                 @endif
-            </div>
             @endif
 
 

@@ -13,17 +13,17 @@
     @if(isset($pagesCount) && $pagesCount != 1)
         <link rel="next" href="{{getCanonicalNext($pagesCount)}}">
     @endif
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="@yield('h1')" />
-    <meta property="og:description" content="@yield('meta_description')" />
-    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@yield('h1')">
+    <meta property="og:description" content="@yield('meta_description')">
+    <meta property="og:url" content="{{Request::url()}}">
     <meta name="format-detection" content="telephone=no">
-    <meta property="og:image" content="@yield('og_image', 'https://finance.ru/old_theme/img/logo_192x192.png')" />
-    <meta property="og:site_name" content="#FinanceRU" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="@yield('meta_description')" />
-    <meta name="twitter:title" content="@yield('h1')" />
+    <meta property="og:image" content="@yield('og_image', 'https://finance.ru/old_theme/img/logo_192x192.png')">
+    <meta property="og:site_name" content="#FinanceRU">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="@yield('meta_description')">
+    <meta name="twitter:title" content="@yield('h1')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="preload" href="/old_theme/fonts/ProximaNova/ProximaNova-Bold.woff" as="font" crossorigin="anonymous">
     <link rel="preload" href="/old_theme/fonts/FuturaPT/FuturaPT-Medium.woff" as="font" crossorigin="anonymous">
@@ -65,7 +65,7 @@
         @yield('compress-styles')
         <?php ob_end_flush(); ?></style>
 
-    <link rel="icon" type="image/png" href="/old_theme/img/logo.svg" />
+    <link rel="icon" type="image/png" href="/old_theme/img/logo.svg">
     <link rel="alternate" hreflang="ru" href="{{Request::url()}}">
 @yield('additional-styles')
 </head>

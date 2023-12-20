@@ -8,15 +8,12 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <span class="fcg">Способы связи:</span>
-                        <p class="itcs"><i class="fa fa-clock-o"></i><button data-toggle="modal" data-target="#callMe">Заказать обратный звонок</button></p>
-                        <p class="itcs"><i class="fa fa-envelope-o"></i><a rel="nofollow" href="mailto:vzo@vsezaimyonline.ru">vzo@vsezaimyonline.ru</a></p>
-                        <p class="itcs"><i class="fa fa-telegram"></i> <a href="https://t.me/vsezaimyonline" target="_blank" rel="nofollow">@vsezaimyonline</a></p>
-                        <p class="itcs"><i class="fa fa-whatsapp"></i> <a href="https://wa.me/79951016228" target="_blank" rel="nofollow">8 (995) 101-62-28</a></p>
+                        <p class="itcs"><i class="fa fa-envelope-o"></i><a rel="nofollow" href="info@finance.ru">info@finance.ru</a></p>
                     </div>
                     <div class="col-sm-4">
                         <span class="fcg">Горячая линия</span>
                         <div>Бесплатный номер телефона по России:</div>
-                        <div class="phone"><i class="fa fa-phone"></i> <a href="tel:88007073397">8 (800) 707-33-97</a></div>
+                        <div class="phone"><i class="fa fa-phone"></i> <a href="tel:88007001534">8 800 700-15-34</a></div>
                     </div>
                     <div class="col-sm-4">
                         <span class="fcg">Соцсети</span>
@@ -24,10 +21,8 @@
                             <div class="footer-flex-block fbl row">
                                 <div class="social-media-icon">
                                     <div class="icons">
-                                        <a href="https://vk.com/vsezaimyonline" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/vk.png" alt="VK"></a>
-                                        <a href="https://t.me/vzoru" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/telegram.png" alt="telegram"></a>
-                                        <a href="https://zen.yandex.ru/vsezaimyonline" rel="nofollow" target="_blank"><img class="new-footer-sm-img" loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/new-zen.png" alt="yandex zen"></a>
-                                        <a href="https://www.youtube.com/channel/UCaEfgVCVioDGWdbmLnKC3Qg" rel="nofollow" target="_blank"><img class="new-footer-sm-img" loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/youtube.png" alt="youtube"></a>
+                                        <a href="https://vk.com/public203930317" rel="nofollow" target="_blank"><img loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/vk.png" alt="VK"></a>
+                                        <a href="https://www.youtube.com/@finance-ru" rel="nofollow" target="_blank"><img class="new-footer-sm-img" loading="lazy" width="34" height="34" src="/old_theme/img/social_icon/youtube.png" alt="youtube"></a>
                                     </div>
                                 </div>
                             </div>

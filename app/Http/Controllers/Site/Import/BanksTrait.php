@@ -134,6 +134,8 @@ trait BanksTrait
                     continue;
                 }
 
+                //dd($data);
+
                 $page = BankCategoryPage::where(['bank_id' => $row[0], 'category_id' => $row[1]])
                     ->whereNull('deleted_at')
                     ->first();

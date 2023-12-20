@@ -9,8 +9,8 @@
     $bank_menu_items[''] = ['О банке','bank'];
     $bank_menu_items['gorjachaja-linija'] = ['Служба поддержки','life-bouy'];
     $bank_menu_items['lichnyj-kabinet'] = ['Личный кабинет','user'];
-    $bank_menu_items['otzyvy'] = ['Отзывы','comments-o'];
     $bank_menu_items['rekvizity'] = ['Реквизиты','file-text-o'];
+    $bank_menu_items['otzyvy'] = ['Отзывы','comments-o'];
 
     $sideBarItems = ['kredity','debetovye-karty','avtokredity','kreditnye-karty','vklady','ipoteki','refinancing','rko'];
 

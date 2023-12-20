@@ -8,19 +8,7 @@
 	<thead>
 		<tr>
 			<th class="display_none"></th>
-			<th>@if(isset($tag_name))
-
-					@if($tag_name!='') Расчетные счета
-					@if($page->city_id != 0)
-						{{mb_convert_case($tag_name, MB_CASE_TITLE)}}
-					@else
-						{{mb_strtolower($tag_name)}}
-					@endif
-					@else
-						Название
-					@endif
-				@endif
-			</th>
+			<th>Расчетные счета</th>
 			<th>Открытие</th>
 			<th class="display_none"></th>
 			<th>Обслуживание</th>
@@ -36,7 +24,7 @@
 			<td class="display_none">{{$j}}</td>
 			<td>
 			<?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
-        		<a class="rko" href="{{$link}}" target="_blank" onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}')"{{$card->title}}</a>
+        		<a class="rko" href="{{$link}}" target="_blank" onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}')">{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->opened}}</td>
 			<td class="text-center">{{number_format($card->opened, 0, '.', ' ')}} ₽</td>
