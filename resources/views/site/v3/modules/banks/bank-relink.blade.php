@@ -1,7 +1,7 @@
 @if(Request::path() == 'banki' && isset($relinkData))
 @foreach($relinkData as $categoryName => $groups)
 <div class="side-block-dart">
-    <div class="side-title"><i class="fa fa-angle-up"></i> {{$categoryName}}</div>
+    <div class="side-title"><i class="fa fa-angle-down"></i> {{$categoryName}}</div>
     <div class="side-box links-list display_none">
         @foreach($groups as $group)
         <div class="bold text-center">{{$group->group_name}}</div>

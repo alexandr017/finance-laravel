@@ -83,7 +83,7 @@
 @include('site.v3.modules.includes.footer')
 
 <img loading="lazy" style="width: 40px; height: 40px" src="/old_theme/img/button-top.png" id="toTop" alt="Вверх">
-<script src="/old_theme/js/modules/slider/js-slider.min.js"></script>
+<script src="/old_theme/js/modules/slider/js-slider-for-me.js"></script>
 <script src="/old_theme/js/js-for-sliders.js" defer></script>
 <script src="/old_theme/js/jquery-3.2.1.min.js"></script>
 <script defer src="/old_theme/js/scripts.js"></script>

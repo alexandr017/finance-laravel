@@ -75,7 +75,7 @@ $company->average_rating = $ratingValue;
 
                 <div id="AddReviewWrap">
                 <div class="title-comments"><i class="fa fa-commenting"></i> Оставить отзыв или жалобу</div>
-                <form action="" method="post" id="AddReview">
+                <form action="#" method="post" id="AddReview">
                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                     <input type="hidden" name="post" id="reviewCompany" value="{{$company->id}}">
                     <input type="hidden" name="parent" id="reviewParent" value="0">
@@ -93,16 +93,16 @@ $company->average_rating = $ratingValue;
                     <div class="form-line form-group">
                         <label>Имя:</label>
                         @if($uid != null)
-                        <input id="reviewUserName" class="width-100" name="name" required="true" readonly="true" value="{{$uidName}}">
+                        <input id="reviewUserName" class="width-100" name="name" required readonly value="{{$uidName}}">
                         <input type="hidden" id="reviewUserId" name="id" value="{{$uid}}">
                         @else
-                        <input id="reviewUserName" class="width-100" name="name" required="true">
+                        <input id="reviewUserName" class="width-100" name="name" required>
                         <input type="hidden" id="reviewUserId" name="id" value="null">
                         @endif
                     </div>
                     <div class="form-line form-group">
                         <label>Комментарий:</label>
-                        <textarea class="width-100" id="reviewUserComment" name="reviewUserComment" required="true"></textarea>
+                        <textarea class="width-100" id="reviewUserComment" name="reviewUserComment" required></textarea>
                     </div>
                     <div class="form-line">
                         <div class="sub-form-line form-group">

@@ -103,6 +103,7 @@
     .special-banks-offers-tabs>.special-banks-offers-tabs-item {
         width: auto;
         margin-right: 10px;
+        margin-bottom: 16px;
     }
 
     .showed-line {

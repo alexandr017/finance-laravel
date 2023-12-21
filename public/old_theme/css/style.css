@@ -2824,8 +2824,9 @@ input[type=checkbox], input[type=radio]{vertical-align: -4px;width: 20px;height:
     .pay-icons{text-align: center}
     #compare_wrap .fixed-block.f-block{width: 100%;}
     .top-cart + .row{margin-top: 10px;}
-    .contacts-l-wrap{display: none;}
     .jamper .d-flex .text-center{width: 100%;margin: 0 !important;}
+    .contacts-content .col-sm-12 {margin-bottom: 15px}
+    .contacts-content .fbl {text-align: left;margin: 0; padding: 0}
     .jamper .first {font-size: 1.2em;}
     .li-50 li{width: 100%}
     .rgotu .gfbx{height: auto;}
@@ -2985,8 +2986,7 @@ nav.org > ul >li{display: block;border-right: none;margin-bottom: 15px;}
 .slick-arrow {width: 30px;height: 30px;top: 0; bottom: 0;}
 footer .second-b{padding-right: 0;}
 footer .copyright{display: none;}
-.contacts-content {margin-bottom: 0;}
-.contacts-content .fbl p.callMe {font-size: 17px;}
+.contacts-content {margin-bottom: 0;padding-bottom: 0;}
 .search-wrap-form form input[type="text"]{padding: 10px 5px;}
 .mob-block{display: block !important;}
 .itm {width: 49.5%;}
@@ -3117,6 +3117,7 @@ img{height: auto;}
     }
     .social-media-icon {
         width: 100%;
+        margin: 0;
     }
     .extensions-for-browsers a {
         width: 40%;
