@@ -27,10 +27,10 @@
         $bank_menu_items['kreditnye-karty'] = ['Кредитные карты','credit-card-alt'];
     }
     if($bank->show_deposits){
-        $bank_menu_items['vklady'] = ['Вклады','gift'];
+        $bank_menu_items['vklady'] = ['Вклады','money'];
     }
     if($bank->show_mortgage){
-        $bank_menu_items['ipoteki'] = ['Ипотеки','life-buoy'];
+        $bank_menu_items['ipoteki'] = ['Ипотеки','home'];
     }
     if($bank->show_refinancing){
         $bank_menu_items['refinancing'] = ['Рефинансирование','id-card'];

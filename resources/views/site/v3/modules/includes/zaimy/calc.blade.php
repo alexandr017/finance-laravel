@@ -9,7 +9,7 @@
             <div class="form-line"><input class="width-100 text-center" data-category-id="1" pattern="[0-9]*" type="text" name="days" id="mc_term" onkeypress="return isNumberKey(event)"></div>
 
             <div class="desc">Процент в день</div>
-            <div class="form-line"><input class="width-100 text-center" type="number" name="percent" id="mc_percent"></div>
+            <div class="form-line"><input class="width-100 text-center" type="number" name="percent" id="mc_percent" min="0" max="0.8" step="0.1"></div>
 
             <div class="text-center"><button class="form-btn1">Рассчитать</button></div>
         </div>

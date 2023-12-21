@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site\Import;
 use Illuminate\Http\Request;
 use App\Models\Cards\Cards;
 use Cache;
+use DB;
 
 trait CardsTrait
 {
@@ -29,6 +30,7 @@ trait CardsTrait
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
             if (!str_contains($card->account_link, '/mfo')) {
                 $card->account_link = '/mfo' . $card->account_link;
@@ -58,10 +60,28 @@ trait CardsTrait
 
     private function updateCategory2()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 2])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
+
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
 
             if (!str_contains($card->account_link, '/banki')) {
@@ -93,15 +113,35 @@ trait CardsTrait
                 Cache::forget('card'.$_card->id);
             }
         }
+
+        //dd($test);
+        //dd($linksVZO);
     }
 
     private function updateCategory4()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 4])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
             if (!str_contains($card->account_link, '/banki')) {
                 $card->account_link = str_replace('/banks', '/banki', $card->account_link);
@@ -133,15 +173,34 @@ trait CardsTrait
                 Cache::forget('card'.$_card->id);
             }
         }
+
+        //dd($test);
     }
 
     private function updateCategory5()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 5])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
             if (!str_contains($card->account_link, '/banki')) {
                 $card->account_link = str_replace('/banks', '/banki', $card->account_link);
@@ -177,11 +236,28 @@ trait CardsTrait
 
     private function updateCategory6()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 6])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
             if (!str_contains($card->account_link, '/banki')) {
                 $card->account_link = str_replace('/banks', '/banki', $card->account_link);
@@ -217,11 +293,28 @@ trait CardsTrait
 
     private function updateCategory8()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 8])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
             if (!str_contains($card->account_link, '/banki')) {
                 $card->account_link = str_replace('/banks', '/banki', $card->account_link);
@@ -257,11 +350,28 @@ trait CardsTrait
 
     private function updateCategory10()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 10])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
             if (!str_contains($card->account_link, '/banki')) {
                 $card->account_link = str_replace('/banks', '/banki', $card->account_link);
@@ -297,11 +407,28 @@ trait CardsTrait
 
     private function updateCategory11()
     {
+        $linksVZO = DB::table('hide_links_vzo')
+            ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
+            ->get()
+            ->pluck('straight', 'in')
+            ->toArray();
+        $test = [];
+
         $cards = Cards::select('id')->where(['category_id' => 11])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
             $card->logo = str_replace('.svg', '.png', $card->logo);
+            $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
+            $card->link_2 = str_replace('https://vsezaimyonline.ru/', '/' , $card->link_2);
+            if (isset($linksVZO[$card->link_2])) {
+                //$test [$card->id] = true;
+                $card->link_2 = $linksVZO[$card->link_2];
+            } else {
+                //$test [$card->id] = $card->link_2;
+            }
+            $card->link_type = 0;
+            //echo $card->link_2 . '<br>';
 
             if (!str_contains($card->account_link, '/banki')) {
                 $card->account_link = str_replace('/banks', '/banki', $card->account_link);

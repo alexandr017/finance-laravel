@@ -22,8 +22,8 @@ $company->average_rating = $ratingValue;
 <article class="container main single-page children-pages">
     <div class="row">
         <div class="col-lg-9 col-md-12">
-            @include('site.v3.modules.companies.company_menu')
             <h1 class="p-h1">{{$page->h1}}</h1>
+            @include('site.v3.modules.companies.company_menu')
 
             <img loading="lazy" src="{{$company->img}}" alt="{{$company->h1}}" class="company-child-logo">
             {!! TagsParser::compile(Shortcode::compile($page->content)) !!}

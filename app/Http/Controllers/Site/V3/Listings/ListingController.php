@@ -114,11 +114,18 @@ class ListingController extends Controller
             $cards = [];
         }
 
-        $parentBreadcrumbs = $this->getParentBreadcrumbsBuCategoryID((int) $page->category_id);
-        $breadcrumbs = [
-            [...$parentBreadcrumbs],
-            ['h1' => $page->h1]
-        ];
+        if ($tagAlias != '/') {
+            $parentBreadcrumbs = $this->getParentBreadcrumbsBuCategoryID((int) $page->category_id);
+            $breadcrumbs = [
+                [...$parentBreadcrumbs],
+                ['h1' => $page->h1]
+            ];
+        } else {
+            $breadcrumbs = [
+                ['h1' => $page->h1]
+            ];
+        }
+
 
         $popularBanks = Popular::where(['category_id'=> $page->category_id])->first();
 

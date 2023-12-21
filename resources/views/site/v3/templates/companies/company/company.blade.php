@@ -43,8 +43,8 @@ $company->average_rating = $ratingValue;
 <article class="container main single-page">
     <div class="row">
         <div class="col-lg-9 col-md-12">
+            <h1 class="p-h1">{{$company->h1}}</h1>
             @include('site.v3.modules.companies.company_menu')
-            <h1 class="p2-h1">{{$company->h1}}</h1>
 
             <?php
             $group_name = 'zaimy';

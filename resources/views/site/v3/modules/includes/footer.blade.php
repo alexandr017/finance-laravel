@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
                         <span class="fcg">Способы связи:</span>
-                        <p class="itcs"><i class="fa fa-envelope-o"></i><a rel="nofollow" href="info@finance.ru">info@finance.ru</a></p>
+                        <p class="itcs"><i class="fa fa-envelope-o"></i><a rel="nofollow" href="mailto:info@finance.ru">info@finance.ru</a></p>
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <span class="fcg">Горячая линия</span>

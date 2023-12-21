@@ -28,7 +28,7 @@
             <li><a href="/banki/{{$bank->alias}}/avtokredity" class="fa-icon fa-automobile">Автокредиты</a></li>
             @endif
             @if($bank->show_deposits && Request::path() != "banki/$bank->alias/vklady")
-            <li><a href="/banki/{{$bank->alias}}/vklady" class="fa-icon fa-gift">Вклады</a></li>
+            <li><a href="/banki/{{$bank->alias}}/vklady" class="fa-icon fa-money">Вклады</a></li>
             @endif
             @if($bank->show_mortgage && Request::path() != "banki/$bank->alias/ipoteki")
             <li><a href="/banki/{{$bank->alias}}/ipoteki" class="fa-icon fa-home">Ипотеки</a></li>
