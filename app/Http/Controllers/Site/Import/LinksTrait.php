@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Site\Import;
 
 use App\Models\HideLinks\HideLinks;
 use DB;
+use Cache;
+use App\Models\Cards\Cards;
 
 trait LinksTrait
 {
@@ -44,8 +46,24 @@ trait LinksTrait
                     'permission_type' => 0
                 ];
 
-                $relink = new HideLinks($dataForInsert);
-                $relink->save();
+                $link = new HideLinks($dataForInsert);
+                $link->save();
+
+                $cards = explode(',', $row[3]);
+                foreach ($cards as $_card) {
+                    if ((int) $_card > 0) {
+                        $card = Cards::find($_card);
+//                        if ($card == null) {
+//                            dd($row, $_card);
+//                        }
+                        $card->link_1 = '/' . $link->in;
+                        $card->save();
+
+                        if (Cache::has('card'.$card->id)) {
+                            Cache::forget('card'.$card->id);
+                        }
+                    }
+                }
 
             }
         });

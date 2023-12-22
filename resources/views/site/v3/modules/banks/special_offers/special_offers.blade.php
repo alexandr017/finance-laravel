@@ -37,9 +37,9 @@
                         <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                     </div>
                     @if(isset($card->separate_page) && $card->separate_page == 1)
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/kredity/{{$card->productAlias}}">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/kredity/{{$card->productAlias}}">{{$card->title}}</a>
                     @else
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/kredity">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/kredity">{{$card->title}}</a>
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Процентная ставка">
@@ -85,9 +85,9 @@
                         <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                     </div>
                     @if(isset($card->separate_page) && $card->separate_page == 1)
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/kreditnye-karty/{{$card->productAlias}}">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/kreditnye-karty/{{$card->productAlias}}">{{$card->title}}</a>
                     @else
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/kreditnye-karty">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/kreditnye-karty">{{$card->title}}</a>
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Максимальный лимит">
@@ -125,9 +125,9 @@
                         <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                     </div>
                     @if(isset($card->separate_page) && $card->separate_page == 1)
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/debetovye-karty/{{$card->productAlias}}">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/debetovye-karty/{{$card->productAlias}}">{{$card->title}}</a>
                     @else
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/debetovye-karty">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/debetovye-karty">{{$card->title}}</a>
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Открытие">
@@ -164,9 +164,9 @@
                         <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                     </div>
                     @if(isset($card->separate_page) && $card->separate_page == 1)
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/rko/{{$card->productAlias}}">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/rko/{{$card->productAlias}}">{{$card->title}}</a>
                     @else
-                        <a class="company_title" href="/banki{{$card->bankAlias}}/rko">{{$card->title}}</a>
+                        <a class="company_title" href="/banki/{{$card->bankAlias}}/rko">{{$card->title}}</a>
                     @endif
                 </div>
                 <div class="showed-wrapper" data-label="Открытие">
@@ -201,9 +201,9 @@
                             <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                         </div>
                         @if(isset($card->separate_page) && $card->separate_page == 1)
-                            <a class="company_title" href="/banki{{$card->bankAlias}}/ipoteka/{{$card->productAlias}}">{{$card->title}}</a>
+                            <a class="company_title" href="/banki/{{$card->bankAlias}}/ipoteka/{{$card->productAlias}}">{{$card->title}}</a>
                         @else
-                            <a class="company_title" href="/banki{{$card->bankAlias}}/ipoteka">{{$card->title}}</a>
+                            <a class="company_title" href="/banki/{{$card->bankAlias}}/ipoteka">{{$card->title}}</a>
                         @endif
                     </div>
                     <div class="showed-wrapper" data-label="Процентная ставка">
@@ -250,9 +250,9 @@
                             <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                         </div>
                         @if(isset($card->separate_page) && $card->separate_page == 1)
-                            <a class="company_title" href="/banki{{$card->bankAlias}}/vklady/{{$card->productAlias}}">{{$card->title}}</a>
+                            <a class="company_title" href="/banki/{{$card->bankAlias}}/vklady/{{$card->productAlias}}">{{$card->title}}</a>
                         @else
-                            <a class="company_title" href="/banki{{$card->bankAlias}}/vklady">{{$card->title}}</a>
+                            <a class="company_title" href="/banki/{{$card->bankAlias}}/vklady">{{$card->title}}</a>
                         @endif
                     </div>
                     <div class="showed-wrapper" data-label="Процентная ставка">

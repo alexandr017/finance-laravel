@@ -8,6 +8,7 @@ use App\Models\Banks\BankInfoPage;
 use App\Models\Banks\BankProduct;
 use App\Models\Banks\BankReview;
 use DB;
+use Artisan;
 
 trait BanksTrait
 {
@@ -200,9 +201,17 @@ trait BanksTrait
                     continue;
                 }
 
-                $page = BankProduct::find($row[0]);
+                $page = BankProduct::find($row[1]);
                 if ($page == null) {
-                    dd('Не найден элемент для ID ' .  $row[1]);
+                    echo 'Не найден элемент для ID ' .  $row[1] . '<br>';
+                    continue;
+                }
+
+                $separatePage = 0;
+                $status = 0;
+                if ($row[2] != '-') {
+                    $separatePage = 1;
+                    $status = 1;
                 }
 
                 $page->title = $row[2];
@@ -211,10 +220,18 @@ trait BanksTrait
                 $page->lead = $row[5];
                 $page->content = $row[6];
                 $page->breadcrumb = $row[7];
-                $page->status = 1;
+                $page->status = $status;
+                $page->separate_page = $separatePage;
+
                 $page->save();
 
-                // cards todo
+                //dd($page);
+
+                // cards ?
+
+
+                Artisan::call('cache:clear');
+
 
             }
         });
@@ -259,7 +276,7 @@ trait BanksTrait
                     'review' => $row[5],
                     'pros' => null,
                     'minuses' => null,
-                    'status' => 1
+                    'status' => 1,
                 ];
                 $review = new BankReview($dataForInsert);
                 $review->save();
