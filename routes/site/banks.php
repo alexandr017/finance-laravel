@@ -17,8 +17,8 @@ Route::get('banki/{bankAlias}/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\I
 
 Route::get('banki/{bankAlias}/vklady', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.vklady.category');
 Route::get('banki/{bankAlias}/vklady/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.vklady.category.amp');
-Route::get('banki/{bankAlias}/vklady/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.vklady.otzyvy');
-Route::get('banki/{bankAlias}/vklady/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.vklady.otzyvy.amp');
+Route::get('banki/{bankAlias}/vklady/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.vklady.otzyvy');
+Route::get('banki/{bankAlias}/vklady/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.vklady.otzyvy.amp');
 Route::get('banki/{bankAlias}/vklady/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.vklady.products.index');
 Route::get('banki/{bankAlias}/vklady/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.vklady.products.amp');
 Route::get('banki/{bankAlias}/vklady/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.vklady.products.otzyvy.index');
@@ -27,8 +27,8 @@ Route::get('banki/{bankAlias}/vklady/{productAlias}/otzyvy/amp', 'App\Http\Contr
 
 Route::get('banki/{bankAlias}/kredity', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.kredity.category');
 Route::get('banki/{bankAlias}/kredity/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.kredity.category.amp');
-Route::get('banki/{bankAlias}/kredity/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.kredity.otzyvy');
-Route::get('banki/{bankAlias}/kredity/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.kredity.otzyvy.amp');
+Route::get('banki/{bankAlias}/kredity/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.kredity.otzyvy');
+Route::get('banki/{bankAlias}/kredity/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.kredity.otzyvy.amp');
 Route::get('banki/{bankAlias}/kredity/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.kredity.products.index');
 Route::get('banki/{bankAlias}/kredity/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.kredity.products.amp');
 Route::get('banki/{bankAlias}/kredity/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.kredity.products.otzyvy.index');
@@ -37,8 +37,8 @@ Route::get('banki/{bankAlias}/kredity/{productAlias}/otzyvy/amp', 'App\Http\Cont
 
 Route::get('banki/{bankAlias}/ipoteki', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.ipoteki.category');
 Route::get('banki/{bankAlias}/ipoteki/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.ipoteki.category.amp');
-Route::get('banki/{bankAlias}/ipoteki/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.ipoteki.otzyvy');
-Route::get('banki/{bankAlias}/ipoteki/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.ipoteki.otzyvy.amp');
+Route::get('banki/{bankAlias}/ipoteki/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.ipoteki.otzyvy');
+Route::get('banki/{bankAlias}/ipoteki/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.ipoteki.otzyvy.amp');
 Route::get('banki/{bankAlias}/ipoteki/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.ipoteki.products.index');
 Route::get('banki/{bankAlias}/ipoteki/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.ipoteki.products.amp');
 Route::get('banki/{bankAlias}/ipoteki/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.ipoteki.products.otzyvy.index');
@@ -47,8 +47,8 @@ Route::get('banki/{bankAlias}/ipoteki/{productAlias}/otzyvy/amp', 'App\Http\Cont
 
 Route::get('banki/{bankAlias}/kreditnye-karty', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.kreditnye-karty.category');
 Route::get('banki/{bankAlias}/kreditnye-karty/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.kreditnye-karty.category.amp');
-Route::get('banki/{bankAlias}/kreditnye-karty/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.kreditnye-karty.otzyvy');
-Route::get('banki/{bankAlias}/kreditnye-karty/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.kreditnye-karty.otzyvy.amp');
+Route::get('banki/{bankAlias}/kreditnye-karty/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.kreditnye-karty.otzyvy');
+Route::get('banki/{bankAlias}/kreditnye-karty/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.kreditnye-karty.otzyvy.amp');
 Route::get('banki/{bankAlias}/kreditnye-karty/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.kreditnye-karty.products.index');
 Route::get('banki/{bankAlias}/kreditnye-karty/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.kreditnye-karty.products.amp');
 Route::get('banki/{bankAlias}/kreditnye-karty/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.kreditnye-karty.products.otzyvy.index');
@@ -57,8 +57,8 @@ Route::get('banki/{bankAlias}/kreditnye-karty/{productAlias}/otzyvy/amp', 'App\H
 
 Route::get('banki/{bankAlias}/debetovye-karty', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.debetovye-karty.category');
 Route::get('banki/{bankAlias}/debetovye-karty/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.debetovye-karty.category.amp');
-Route::get('banki/{bankAlias}/debetovye-karty/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.debetovye-karty.otzyvy');
-Route::get('banki/{bankAlias}/debetovye-karty/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.debetovye-karty.otzyvy.amp');
+Route::get('banki/{bankAlias}/debetovye-karty/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.debetovye-karty.otzyvy');
+Route::get('banki/{bankAlias}/debetovye-karty/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.debetovye-karty.otzyvy.amp');
 Route::get('banki/{bankAlias}/debetovye-karty/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.debetovye-karty.products.index');
 Route::get('banki/{bankAlias}/debetovye-karty/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.debetovye-karty.products.amp');
 Route::get('banki/{bankAlias}/debetovye-karty/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.debetovye-karty.products.otzyvy.index');
@@ -69,8 +69,8 @@ Route::get('banki/{bankAlias}/debetovye-karty/{productAlias}/otzyvy/amp', 'App\H
 
 Route::get('banki/{bankAlias}/avtokredity', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.avtokredity.category');
 Route::get('banki/{bankAlias}/avtokredity/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.avtokredity.category.amp');
-Route::get('banki/{bankAlias}/avtokredity/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.avtokredity.otzyvy');
-Route::get('banki/{bankAlias}/avtokredity/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.avtokredity.otzyvy.amp');
+Route::get('banki/{bankAlias}/avtokredity/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.avtokredity.otzyvy');
+Route::get('banki/{bankAlias}/avtokredity/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.avtokredity.otzyvy.amp');
 Route::get('banki/{bankAlias}/avtokredity/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.avtokredity.products.index');
 Route::get('banki/{bankAlias}/avtokredity/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.avtokredity.products.amp');
 Route::get('banki/{bankAlias}/avtokredity/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.avtokredity.products.otzyvy.index');
@@ -79,8 +79,8 @@ Route::get('banki/{bankAlias}/avtokredity/{productAlias}/otzyvy/amp', 'App\Http\
 
 Route::get('banki/{bankAlias}/rko', 'App\Http\Controllers\Site\V3\Banks\CategoryController@index')->name('banks.category.rko.category');
 Route::get('banki/{bankAlias}/rko/amp', 'App\Http\Controllers\Site\V3\Banks\CategoryController@amp')->name('banks.category.rko.category.amp');
-Route::get('banki/{bankAlias}/rko/otzyvy', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@index')->name('banks.category.rko.otzyvy');
-Route::get('banki/{bankAlias}/rko/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\otzyvyCategoryController@amp')->name('banks.category.rko.otzyvy.amp');
+Route::get('banki/{bankAlias}/rko/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@index')->name('banks.category.rko.otzyvy');
+Route::get('banki/{bankAlias}/rko/otzyvy/amp', 'App\Http\Controllers\Site\V3\Banks\ReviewsCategoryController@amp')->name('banks.category.rko.otzyvy.amp');
 Route::get('banki/{bankAlias}/rko/{productAlias}', 'App\Http\Controllers\Site\V3\Banks\ProductsController@index')->name('banks.category.rko.products.index');
 Route::get('banki/{bankAlias}/rko/{productAlias}/amp', 'App\Http\Controllers\Site\V3\Banks\ProductsController@amp')->name('banks.category.rko.products.amp');
 Route::get('banki/{bankAlias}/rko/{productAlias}/otzyvy', 'App\Http\Controllers\Site\V3\Banks\ReviewsPageController@index')->name('banks.category.rko.products.otzyvy.index');

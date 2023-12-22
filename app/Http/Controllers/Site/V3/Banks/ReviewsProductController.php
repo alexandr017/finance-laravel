@@ -107,7 +107,7 @@ class ReviewsProductController extends BaseBankController
             ->orderBy("cards.km5", 'desc')
             ->orderBy("cards.id", 'asc')
             ->first();
-        $template = 'frontend.banks.info-pages.' . $template;
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
         $editLink = null;
         $categoryId = $category->id;
         return view($template, compact('categoryId','bankTopCard','page','bank','breadcrumbs','reviews','complaintAllCount', 'complaintAnswerCount',

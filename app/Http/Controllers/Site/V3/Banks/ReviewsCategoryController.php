@@ -71,7 +71,7 @@ class ReviewsCategoryController extends BaseBankController
                 ->select('bank_reviews.*', 'banks.name as bankName', 'banks.logo as bankLogo', 'banks.alias as bankAlias','bank_products.product_name')
                 ->where(['bank_reviews.status' => 1, 'bank_reviews.bank_id' => $bank->id, 'bank_reviews.bank_category_id' => $category->id])
                 ->whereNull('bank_reviews.deleted_at')
-                ->orderBy('bank_reviews.id','desk')
+                ->orderBy('bank_reviews.id','desc')
                 ->get();
         } else {
             $reviewsByCurrentCategory =  DB::table('bank_reviews')
@@ -80,7 +80,7 @@ class ReviewsCategoryController extends BaseBankController
                 ->select('bank_reviews.*', 'banks.name as bankName', 'banks.logo as bankLogo', 'banks.alias as bankAlias','bank_products.product_name')
                 ->where(['bank_reviews.status' => 1, 'bank_reviews.bank_id' => $bank->id, 'bank_reviews.bank_category_id' => $category->id])
                 ->whereNull('bank_reviews.deleted_at')
-                ->orderBy('bank_reviews.id','desk')
+                ->orderBy('bank_reviews.id','desc')
                 ->get();
 
             $reviewsByProducts =  DB::table('bank_reviews')
@@ -89,7 +89,7 @@ class ReviewsCategoryController extends BaseBankController
                 ->select('bank_reviews.*', 'banks.name as bankName', 'banks.logo as bankLogo', 'banks.alias as bankAlias','bank_products.product_name')
                 ->where(['bank_reviews.status' => 1, 'bank_reviews.bank_id' => $bank->id, 'bank_products.is_cashback' => 1])
                 ->whereNull('bank_reviews.deleted_at')
-                ->orderBy('bank_reviews.id','desk')
+                ->orderBy('bank_reviews.id','desc')
                 ->get();
 
             $reviews = $reviewsByCurrentCategory->merge($reviewsByProducts);
@@ -127,7 +127,7 @@ class ReviewsCategoryController extends BaseBankController
             ->orderBy("cards.km5", 'desc')
             ->orderBy("cards.id", 'asc')
             ->first();
-        $template = 'frontend.banks.info-pages.' . $template;
+        $template = 'site.v3.templates.banks.info-pages.' . $template;
         
         $editLink = null;
         $categoryId = $category->id;
