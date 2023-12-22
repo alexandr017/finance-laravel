@@ -1172,14 +1172,11 @@ $(function(){
 
 // скрытие таблицы
 console.log(document.body.clientWidth);
-if(document.body.clientWidth < 768){
-    addTableWrap('#single_content_wrap table');
-    addTableWrap('.single table');
-}
-//addTableWrap('.overpayment-table');
+addTableWrap('.single-page table');
 
 function addTableWrap(selector){
     $(selector).each(function(){
+
         var table = $(this);
         i = 0;
         $(table).find('tr').each(function(){
@@ -1215,36 +1212,6 @@ $(document).on('click','.table-toggle.up',function(){
         }
     })
 });
-
-// скрол на хабах (мб не используется)
-/*
-if((document.body.clientWidth > 1200) && ($('body').find('.ltable').length > 0)){
-    $('.ltable th').each(function(){
-        width = $(this).width();
-       $(this).attr('width',width);
-    });
-    $(document).ready(function($) {
-        var foot = $(".ltable thead").clone().html();
-        $('.ltable').append('<tfoot style="height: 10px;">' + foot + '</tfoot>');
-        $nav = $('.ltable');
-        $window = $(window);
-        $h = $nav.offset().top -30;
-        $window.scroll(function() {
-
-            if ($window.scrollTop() > $h) {
-                $nav.find('thead').addClass('f-block');
-            } else {
-                $nav.find('thead').removeClass('f-block');
-            }
-
-            if($window.scrollTop() > $h + $nav.height()){
-                $nav.find('thead').removeClass('f-block');
-            }
-
-        });
-    });
-}
-*/
 
 $('.show_all_filtres').on('click',function(){
    $(this).hide();
@@ -1286,55 +1253,6 @@ $(document).ready(function () {
 
 });
 
-
-// жалоба
-$(document).on('click','.complaint', function () {
-    window.complaint_card_id = $(this).attr('data-id');
-    $('#CardComplaint').modal();
-});
-
-$('#CardComplaintSelect .line').on('click',function () {
-    if ($(this).attr('data-val') == 9) {
-        $('#CardComplaintText').show();
-    } else {
-        $('#CardComplaintText').hide();
-    }
-});
-
-$('#CardComplaint button.form-btn1').on('click',function() {
-
-    var token = $('meta[name="csrf-token"]').attr('content');
-    var type = $('#CardComplaintSelect .active-element').attr('data-val');
-    var message = $('#CardComplaintText').val();
-
-    if (type == 0) {
-        alert('Вы не выбрали пункт');
-        return false;
-    }
-    if (type == 9 && message == '') {
-        alert('Вы не заполнили поле');
-    }
-
-
-    $.ajax({
-        type: "POST",
-        url: "/actions/add-complaint",
-        data: {
-            '_token': token,
-            'type': type,
-            'message': message,
-            'card_id': window.complaint_card_id,
-            'metrika_id':  window.clientID
-        },
-        success: function(data){
-            alert(data);
-            $('#CardComplaint').modal('toggle');
-        }
-    });
-    return false;
-
-});
-// конец жалоба
 
 $(function (){
     if($(".g-recaptcha").length) {
@@ -1545,29 +1463,10 @@ $(function(){
 
 
 
-if ($(window).width() < 1700) {
-    $('.geo_cities_list').height('55vh');
-}
-
 $(document).on('click', '.modal.show', function(e){
      if ($(e.target).hasClass('modal')) {
          $(this).removeClass('show');
          $('body').css('overflow', 'initial')
      }
     //console.log ($(e.target).attr('class'));
-});
-
-
-$(document).on('click', '#getPromoCode_', function(){
-    $.ajax({
-        type: "GET",
-        url: "/actions/get-card-promocode",
-        data: {
-        },
-        success: function(data){
-            $('#PromoCodeValue').val(data)
-            $('#PromoCodeValue').show();
-        }
-    });
-    return false;
 });

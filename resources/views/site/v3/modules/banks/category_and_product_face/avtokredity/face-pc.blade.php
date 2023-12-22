@@ -17,7 +17,7 @@
                 $page->average_rating = $ratingValue;
                 $page->number_of_votes = count($reviews);
                 if (isset($page->category_id)) {
-                    $linkToReviewsPage = Request::url() . '/reviews';
+                    $linkToReviewsPage = Request::url() . '/otzyvy';
                 } elseif (isset($cards[0]) && $cards[0]->link_to_reviews_page != null) {
                     $linkToReviewsPage = $cards[0]->link_to_reviews_page;
                 }

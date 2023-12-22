@@ -366,7 +366,7 @@ article.single .h3, article.single h3 {margin: 1rem 0;}
 .single-page ul li, .text-wrap ul li{list-style: none; position: relative;}
 .single-page ul li:before, .text-wrap ul li:before {position: absolute;top: 7px;left: -17px;width: 5px;
     height: 5px;content: '';border-radius: 50%;background: #00b5f4; }
-.single-page .one-offer ul li:before{display: none}
+/*.single-page .one-offer ul li:before{display: none}*/
 
 .the_author_answers{
     float: right;
