@@ -187,6 +187,7 @@
                                 @endif
                             </div>
                             @if(isset($card->text)) @if($card->text!=null)<div class="accordion-p">{!!$card->text!!}</div>@endif @endif
+                            <?php /*
                             @if(isset($card->downloads))
                             <?php $downloadsArr = json_decode($card->downloads);?>
                             @if($downloadsArr != null)
@@ -196,9 +197,12 @@
                                 @endforeach
                             </ul>
                             @endif @endif
+                            */ ?>
                             <div class="cl-list d-flex space-around no-print">
+                                <?php /*
                                 <span class="cl-list-bnt print_card"><i class="fa fa-print"></i> Распечатать</span>
                                 <span data-id="{{$card->id}}" class="cl-list-bnt favorite add_to_favorite"><i class="fa fa-star"></i> <span class="fav">В избранное</span></span>
+                                */ ?>
                                 @if(isset($card->support_link)) @if($card->support_link!=null)<a href="{{$card->support_link}}" target="_blank"><i class="fa fa-phone"></i> Служба поддержки</a>@endif @endif
                                 @if(isset($card->account_link)) @if($card->account_link!=null)<a href="{{$card->account_link}}" target="_blank"><i class="fa fa-user"></i> Личный кабинет</a>@endif @endif
                                 @if(isset($card->promocodes)) @if($card->promocodes!=null)<a href="{{$card->promocodes}}" target="_blank"><i class="fa fa-tags"></i> Промокоды</a>@endif @endif

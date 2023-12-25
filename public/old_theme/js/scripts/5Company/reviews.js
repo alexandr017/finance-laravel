@@ -120,17 +120,30 @@ $(document).on('click','.hidden-review-name',function(){
 // сортировка отзывов
 $('.reviews_items li span').on('click', function(){
 
+    let el = $(this);
+
     $('.reviews-list-wrap').html('<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>');
 
+    let sort_type = '';
     if($(this).parent().hasClass('active')){
         if($(this).parent().find('i').hasClass('fa-arrow-circle-up')){
-            var sort_type = 'desc';
+            sort_type = 'desc';
+            $(this).parent().find('i').removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
         } else {
-            var sort_type = 'asc';
+            sort_type = 'asc';
+            $(this).parent().find('i').addClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
         }
     }
-    if (sort_type == undefined) {
+
+    if (sort_type === '') {
         sort_type = 'desc';
+        $(this).parent().parent().find('li').each(function(){
+            $(this).removeClass('active');
+            $(this).find('i').removeClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
+            //console.log(el);
+        });
+        el.parent().addClass('active');
+        el.parent().find('i').addClass('fa-arrow-circle-down').addClass('fa');
     }
 
     var data = {};
@@ -145,7 +158,6 @@ $('.reviews_items li span').on('click', function(){
         success: function(data){
             $('.reviews-list-wrap').html(data);
             $('#loadReviews').attr('data-groups-current', 1);
-            update_img_and_bg_full_version();
         }
     });
 });

@@ -380,10 +380,12 @@ var slideShow = (function () {
                 for(let i=0;i<showReviewsBtns.length;i++){
                     showReviewsBtns[i].addEventListener("click", function (event) {
                         var elem = event.target;
+                        console.log(elem);
                         elem.closest('.jsSlideItem').style.padding = 0;
                         elem.nextSibling.style.display = 'block';
                         elem.previousElementSibling.style.display = 'none';
                         elem.style.display = 'none';
+                        elem.closest(".jsSlideItem").style.height = 'auto';
                         event.stopPropagation();
                     }, false);
                 }

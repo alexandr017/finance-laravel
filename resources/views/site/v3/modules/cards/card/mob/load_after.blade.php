@@ -90,6 +90,7 @@
         @endif
     </div>
     @if(isset($card->text)) @if($card->text!=null)<div class="accordion-p">{!!$card->text!!}</div>@endif @endif
+    <?php /*
     @if(isset($card->downloads))
         <?php $downloadsArr = json_decode($card->downloads);?>
         @if($downloadsArr != null)
@@ -99,6 +100,7 @@
                 @endforeach
             </ul>
         @endif @endif
+    /* ?>
     <div class="cl-list d-flex space-around no-print">
         <a href="#" class="print_card"><i class="fa fa-print"></i> Распечатать</a>
         <span>

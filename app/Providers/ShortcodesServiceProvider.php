@@ -96,6 +96,9 @@ use App\Shortcodes\Emoji\Emoji;
 
 use App\Shortcodes\Banks\BankRequisites;
 
+use App\Shortcodes\Mfo\MfoCount;
+use App\Shortcodes\Banks\BanksCount;
+
 
 class ShortcodesServiceProvider extends ServiceProvider
 {
@@ -238,6 +241,9 @@ class ShortcodesServiceProvider extends ServiceProvider
 
 
         Shortcode::register('bank_requisites', BankRequisites::class); // банковские реквизиты
+
+        Shortcode::register('mfo_count', MfoCount::class); // кол-ао мфо
+        Shortcode::register('banks_count', BanksCount::class); // кол-ао банков
 
 
 

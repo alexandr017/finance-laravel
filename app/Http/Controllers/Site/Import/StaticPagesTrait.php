@@ -29,8 +29,8 @@ trait StaticPagesTrait
 
                 $page = StaticPage::find($row[0]);
                 if ($page == null) {
-                    dd('Не найден элемент для ID ' .  $row[0]);
-                    //continue;
+                    echo 'Не найден элемент для ID ' .  $row[0] . '<br>';
+                    continue;
                 }
 
                 //$page->name = $row[1];

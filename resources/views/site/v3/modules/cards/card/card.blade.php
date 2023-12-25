@@ -142,41 +142,9 @@
 						<span class="cart_more no-print">Подробнее <i class="fa fa-angle-down"></i></span>
                         <div class="panel-cart">
                             <hr class="accordion-hr">
-                            <div class="row spidometrs spd-{{$card->category_id}}">
-                                <?php
-                                    $columsCount = 1;
-                                    if(isset($card->ratingValue)){
-                                        if($card->ratingValue != 0 || $card->ratingValue != null) $columsCount++;
-                                    } elseif(isset($ratingValue)) if($ratingValue != 0 || $ratingValue != null) $columsCount++; 
-                                    if( isset($card->approval_indicator) ) $columsCount++;
-                                    switch ($columsCount) {
-                                        case '1': $class = 12; break;
-                                        case '2': $class = 6; break;
-                                        case '3': $class = 4; break;
-                                        default: $class = 12; break;
-                                    }
 
-                                ?>
-                                @if(isset($card->ratingValue))
-                                    @if($card->ratingValue > 0)
-                                        <div class="col-md-{{$class}} col-sm-{{$class}}">
-                                            <span class="cpt">Отзывы</span>
-                                            <div class="spidometr def_bg" data-src="/old_theme/img/scala.png">
-                                                <span style="transform: rotate(<?=(int)($card->ratingValue*36)?>deg);-webkit-transform:rotate(<?=(int)($card->ratingValue*36)?>deg);-ms-transform: rotate(<?=(int)($card->ratingValue*36)?>deg);" class="arrow-spidometr def_bg" data-src="/old_theme/img/arrow_spidometr.png"></span>
-                                            </div><div class="val-rating">{{$card->ratingValue}}/5</div>
-                                        </div>
-                                    @endif
-                                @endif
-                                @if(isset($card->approval_indicator))
-                                <div class="col-md-{{$class}} col-sm-{{$class}}">
-                                    <span class="cpt">Одобрение</span>
-                                    <div class="spidometr def_bg" data-src="/old_theme/img/scala.png">
-                                        <span style="transform: rotate({{180*$card->approval_indicator/100}}deg);-webkit-transform:rotate({{180*$card->approval_indicator/100}}deg);-ms-transform: rotate({{180*$card->approval_indicator/100}}deg);" class="arrow-spidometr def_bg" data-src="/old_theme/img/arrow_spidometr.png"></span>
-                                    </div><div class="val-rating">{{$card->approval_indicator}}/100%</div>
-                                </div>
-                                @endif
-                            </div>
                             @if(isset($card->text)) @if($card->text!=null)<div class="accordion-p">{!!$card->text!!}</div>@endif @endif
+                            <?php /*
                             @if(isset($card->downloads))
                             <?php $downloadsArr = json_decode($card->downloads);?>
                             @if($downloadsArr != null)
@@ -186,9 +154,12 @@
                                 @endforeach
                             </ul>
                             @endif @endif
+                            */ ?>
                             <div class="cl-list d-flex space-around no-print">
+                                <?php /*
                                 <span class="cl-list-bnt print_card"><i class="fa fa-print"></i> Распечатать</span>
                                 <span data-id="{{$card->id}}" class="cl-list-bnt favorite add_to_favorite"><i class="fa fa-star"></i> <span class="fav">В избранное</span></span>
+                                */ ?>
                                 @if(isset($card->support_link)) @if($card->support_link!=null)<a href="{{$card->support_link}}" target="_blank"><i class="fa fa-phone"></i> Служба поддержки</a>@endif @endif
                                 @if(isset($card->account_link)) @if($card->account_link!=null)<a href="{{$card->account_link}}" target="_blank"><i class="fa fa-user"></i> Личный кабинет</a>@endif @endif
                                 @if(isset($card->promocodes)) @if($card->promocodes!=null)<a href="{{$card->promocodes}}" target="_blank"><i class="fa fa-tags"></i> Промокоды</a>@endif @endif

@@ -65,6 +65,7 @@
         <div class="panel-cart">
             <hr class="accordion-hr">
             @if(isset($card->text) && $card->text != null)<div class="accordion-p">{!!$card->text!!}</div>@endif
+            <?php /*
             @if(isset($card->downloads) && $card->downloads != null)
                 <?php $downloadsArr = json_decode($card->downloads);?>
                     <ul class="docs-list no-print">
@@ -73,6 +74,7 @@
                         @endforeach
                     </ul>
             @endif
+            */ ?>
         </div>
         <div class="cl-list d-flex space-around no-print">
 {{--            <span class="cl-list-bnt print_card"><i class="fa fa-print"></i> Распечатать</span>--}}

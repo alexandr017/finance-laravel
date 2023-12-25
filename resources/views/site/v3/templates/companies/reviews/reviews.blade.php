@@ -21,6 +21,7 @@ $company->average_rating = $ratingValue;
             @include('site.v3.modules.companies.company_menu')
 
             <img loading="lazy" src="{{$company->img}}" alt="{{$company->h1}}" class="company-child-logo">
+            <div class="clearfix"></div>
 
             <?php echo Shortcode::compile(System::nofollow($page->content)); ?>
 
