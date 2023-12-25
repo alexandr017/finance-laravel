@@ -29,7 +29,7 @@
                 ?>
                 {!! App\Algorithms\System::rating($ratingValue) !!}
                 <div class="text-rating">
-                        <a rel="nofollow" href="/banks/{{$bank->alias}}/reviews"><span>{{count($reviews)}}</span> {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
+                        <a rel="nofollow" href="/banks/{{$bank->alias}}/otzyvy"><span>{{count($reviews)}}</span> {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
                 </div>
                 <div class="val-rating">(<span>{{$ratingValue}}</span> из <span>5</span>)</div>
             </div>

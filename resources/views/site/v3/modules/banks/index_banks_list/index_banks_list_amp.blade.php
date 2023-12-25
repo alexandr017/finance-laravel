@@ -12,7 +12,7 @@
                 <div class="bank-details">Оценка пользователей</div>
                 <div class="bank-rate-block">
                     {!! RatingParser::printImgRatingByValueForAMP($bank->ratingValue) !!}
-                    <a href="/banks/{{$bank->alias}}/reviews">{{$bank->number_of_votes}} {{word_by_count($bank->number_of_votes, ['отзыв', 'отзыва', 'отзывов'])}}</a>
+                    <a href="/banks/{{$bank->alias}}/otzyvy">{{$bank->number_of_votes}} {{word_by_count($bank->number_of_votes, ['отзыв', 'отзыва', 'отзывов'])}}</a>
                 </div>
             </div>
         </div>

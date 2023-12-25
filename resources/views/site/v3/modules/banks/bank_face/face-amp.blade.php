@@ -9,7 +9,7 @@
         @if($bank->average_rating!=null)
         {!! RatingParser::printImgRatingByValueForAMP($bank->average_rating) !!}
         <div class="text-rating">
-            <a href="/banks/{{$bank->alias}}/reviews">{{count($reviews)}}  {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
+            <a href="/banks/{{$bank->alias}}/otzyvy">{{count($reviews)}}  {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
             <span class="val-rating">({{$bank->average_rating}} из 5)</span>
         </div>
         @endif
