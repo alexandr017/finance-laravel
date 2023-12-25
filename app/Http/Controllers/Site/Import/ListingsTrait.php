@@ -33,6 +33,10 @@ trait ListingsTrait
                     continue;
                 }
 
+                if (count($row) != 11) {
+                    dd($row);
+                }
+
                 $dataForInsert = [
                     'category_id' => $row[6],
                     'parent_id'  => null,

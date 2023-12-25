@@ -56,7 +56,14 @@ trait LinksTrait
 //                        if ($card == null) {
 //                            dd($row, $_card);
 //                        }
-                        $card->link_1 = '/' . $link->in;
+
+                        $typeLink = explode('/', $row[0]);
+                        if ($typeLink[0] == 'd') {
+                            $card->link_1 = '/' . $link->in;
+                        } else {
+                            $card->link_2 = '/' . $link->in;
+                        }
+
                         $card->save();
 
                         if (Cache::has('card'.$card->id)) {

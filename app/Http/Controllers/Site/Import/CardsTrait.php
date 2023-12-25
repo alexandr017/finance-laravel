@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cards\Cards;
 use Cache;
 use DB;
+use App\Models\Companies\Companies;
 
 trait CardsTrait
 {
@@ -26,6 +27,8 @@ trait CardsTrait
 
     private function updateCategory1()
     {
+        DB::update('update cards set status = 0 where category_id = 1');
+
         $cards = Cards::select('id')->where(['category_id' => 1])->get();
         foreach ($cards as $_card) {
             $card = Cards::find($_card->id);
@@ -35,7 +38,6 @@ trait CardsTrait
             if (!str_contains($card->account_link, '/mfo')) {
                 $card->account_link = '/mfo' . $card->account_link;
                 $card->account_link = str_replace('/login', '/lichnyj-kabinet', $card->account_link);
-
             }
             if (!str_contains($card->support_link, '/mfo')) {
                 $card->support_link = '/mfo' . $card->support_link;
@@ -48,6 +50,19 @@ trait CardsTrait
 
             if (!str_contains($card->link_to_entity, '/mfo')) {
                 $card->link_to_entity = '/mfo' . $card->link_to_entity;
+            }
+
+            /////
+
+            if ($card->id == 33) {
+                $card->logo = '/images/zajm/4slovo.png';
+            }
+
+            ////
+
+            $company = Companies::find($card->company_id);
+            if ($company != null && $company->status == 1) {
+                $card->status = 1;
             }
 
             $card->save();
