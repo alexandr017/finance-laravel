@@ -14,8 +14,8 @@ Route::get('kreditnye-karty/{tagAlias}', [ListingController::class, 'kreditnyeKa
 Route::get('debetovye-karty', [ListingController::class, 'indexDebetovyeKarty']);
 Route::get('debetovye-karty/{tagAlias}', [ListingController::class, 'debetovyeKarty']);
 
-Route::get('ipoteki', [ListingController::class, 'indexIpoteki']);
-Route::get('ipoteki/{tagAlias}', [ListingController::class, 'ipoteki']);
+Route::get('ipoteka', [ListingController::class, 'indexIpoteki']);
+Route::get('ipoteka/{tagAlias}', [ListingController::class, 'ipoteki']);
 
 Route::get('avtokredity', [ListingController::class, 'indexAvtokredity']);
 Route::get('avtokredity/{tagAlias}', [ListingController::class, 'avtokredity']);

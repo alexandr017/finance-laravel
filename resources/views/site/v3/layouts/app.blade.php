@@ -19,7 +19,7 @@
     <meta property="og:description" content="@yield('meta_description')">
     <meta property="og:url" content="{{Request::url()}}">
     <meta name="format-detection" content="telephone=no">
-    <meta property="og:image" content="@yield('og_image', 'https://finance.ru/old_theme/img/logo_192x192.png')">
+    <meta property="og:image" content="@yield('og_image', 'https://finance.ru/old_theme/img/logo.svg')">
     <meta property="og:site_name" content="#FinanceRU">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:description" content="@yield('meta_description')">

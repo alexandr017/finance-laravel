@@ -21,7 +21,7 @@
         "highPrice": "{{$highPrice}}",
         "lowPrice": "{{$lowPrice}}",
         "offerCount": "{{count($cards)}}",
-        "priceCurrency": "Rub",
+        "priceCurrency": "RUB",
         "offers": [
             {!! $offersCode !!}
         ]

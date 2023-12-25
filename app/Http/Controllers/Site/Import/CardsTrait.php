@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Site\Import;
 
+use A\B;
 use Illuminate\Http\Request;
 use App\Models\Cards\Cards;
 use Cache;
 use DB;
 use App\Models\Companies\Companies;
+use App\Models\Banks\Bank;
 
 trait CardsTrait
 {
@@ -75,6 +77,8 @@ trait CardsTrait
 
     private function updateCategory2()
     {
+        DB::update('update cards set status = 0 where category_id = 2');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -122,6 +126,11 @@ trait CardsTrait
                 }
             }
 
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -135,6 +144,8 @@ trait CardsTrait
 
     private function updateCategory4()
     {
+        DB::update('update cards set status = 0 where category_id = 4');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -182,6 +193,11 @@ trait CardsTrait
                 }
             }
 
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -194,6 +210,8 @@ trait CardsTrait
 
     private function updateCategory5()
     {
+        DB::update('update cards set status = 0 where category_id = 5');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -241,6 +259,11 @@ trait CardsTrait
                 }
             }
 
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -251,6 +274,8 @@ trait CardsTrait
 
     private function updateCategory6()
     {
+        DB::update('update cards set status = 0 where category_id = 6');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -298,6 +323,11 @@ trait CardsTrait
                 }
             }
 
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -308,6 +338,8 @@ trait CardsTrait
 
     private function updateCategory8()
     {
+        DB::update('update cards set status = 0 where category_id = 8');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -355,6 +387,11 @@ trait CardsTrait
                 }
             }
 
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -365,6 +402,8 @@ trait CardsTrait
 
     private function updateCategory10()
     {
+        DB::update('update cards set status = 0 where category_id = 10');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -412,6 +451,11 @@ trait CardsTrait
                 }
             }
 
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -422,6 +466,8 @@ trait CardsTrait
 
     private function updateCategory11()
     {
+        DB::update('update cards set status = 0 where category_id = 11');
+
         $linksVZO = DB::table('hide_links_vzo')
             ->select('*', DB::raw("CONCAT('/',`in`) as `in`"))
             ->get()
@@ -467,6 +513,11 @@ trait CardsTrait
                 if (isset($tmpArr[1]) && isset($tmpArr[2]) && isset($tmpArr[3])) {
                     $card->link_to_entity = '/' . $tmpArr[1] . '/' . $tmpArr[2] . '/' . $tmpArr[3];
                 }
+            }
+
+            $bank = Bank::find($card->bank_id);
+            if ($bank != null && $bank->status == 1) {
+                $card->status = 1;
             }
 
             $card->save();

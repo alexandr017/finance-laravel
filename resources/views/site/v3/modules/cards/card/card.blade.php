@@ -100,7 +100,7 @@
                                 </div>
 
 
-                                    @if($card->icons != null)
+                                    @if($card->icons != null && $card->category_id != 11)
                                         <div class="vzo_icons_wrap">
                                             <?php
                                             $all_vzo_icons = \Config::get('icons');
