@@ -22,7 +22,6 @@ let indexLinks = [
         ["Физическим лицам", "/kredity/fizicheskim-litsam"],
         ["С плохой кредитной историей", "/kredity/s-plohoj-kreditnoj-istoriej"],
         ["Пенсионерам", "/kredity/pensioneram"],
-        ["Выгодные", "/kredity/vygodnyj"],
         ["Без первоначального взноса", "/kredity/bez-pervonachalnogo-vznosa"],
         ["Без кредитной истории", "/kredity/bez-kreditnoj-istorii"]
     ],
@@ -48,10 +47,9 @@ let indexLinks = [
     [
         ["Льготная", "/ipoteka/lgotnaya"],
         ["С господдержкой", "/ipoteka/s-gospodderzhkoj"],
-        ["Онлайн", "/ipoteka/onlajn"],
         ["На вторичное жилье", "/ipoteka/na-vtorichnoe-zhile"],
         ["На строительство", "/ipoteka/na-stroitelstvo"],
-        ["Ипотека", "/ipoteka/voennaya"],
+        ["Военная", "/ipoteka/voennosluzhaschim"],
         ["Без первоначального взноса", "/ipoteka/bez-pervonachalnogo-vznosa"],
         ["Для молодых семей", "/ipoteka/dlya-molodyh-semej"],
         ["С материнским капиталом", "/ipoteka/s-materinskim-kapitalom"],
@@ -70,8 +68,8 @@ let indexLinks = [
         ["На 2 месяца", "/vklady/na-2-mesyatsa"]
     ],
     [
-        ["Для ИП", "/rko/ip"],
-        ["Для ООО", "/rko/ooo"],
+        ["Для ИП", "/rko/dlya-ip"],
+        ["Для ООО", "/rko/dlya-ooo"],
         ["Онлайн", "/rko/onlajn"],
         ["Бесплатно", "/rko/besplatnyj"],
         ["За один день", "/rko/za-den"],

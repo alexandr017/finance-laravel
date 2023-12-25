@@ -38,7 +38,6 @@
                         <li><a href="/kredity/fizicheskim-litsam">Физическим лицам</a></li>
                         <li><a href="/kredity/s-plohoj-kreditnoj-istoriej">С плохой кредитной историей</a></li>
                         <li><a href="/kredity/pensioneram">Пенсионерам</a></li>
-                        <li><a href="/kredity/vygodnyj">Выгодные</a></li>
                         <li><a href="/kredity/bez-pervonachalnogo-vznosa">Без первоначального взноса</a></li>
                         <li><a href="/kredity/bez-kreditnoj-istorii">Без кредитной истории</a></li>
                     </ul>
@@ -78,10 +77,9 @@
                         <li><a href="/ipoteka/semejnaya">Семейная</a></li>
                         <li><a href="/ipoteka/lgotnaya">Льготная</a></li>
                         <li><a href="/ipoteka/s-gospodderzhkoj">С господдержкой</a></li>
-                        <li><a href="/ipoteka/onlajn">Онлайн</a></li>
                         <li><a href="/ipoteka/na-vtorichnoe-zhile">На вторичное жилье</a></li>
                         <li><a href="/ipoteka/na-stroitelstvo">На строительство</a></li>
-                        <li><a href="/ipoteka/voennaya">Военная</a></li>
+                        <li><a href="/ipoteka/voennosluzhaschim">Военная</a></li>
                         <li><a href="/ipoteka/bez-pervonachalnogo-vznosa">Без первоначального взноса</a></li>
                         <li><a href="/ipoteka/dlya-molodyh-semej">Для молодых семей</a></li>
                         <li><a href="/ipoteka/s-materinskim-kapitalom">С материнским капиталом</a></li>
@@ -91,8 +89,8 @@
                 </li>
                 <li class="jsMenuLi"><a href="/rko">РКО</a>
                     <ul>
-                        <li><a href="/rko/ip">Для ИП</a></li>
-                        <li><a href="/rko/ooo">Для ООО</a></li>
+                        <li><a href="/rko/dlya-ip">Для ИП</a></li>
+                        <li><a href="/rko/dlya-ooo">Для ООО</a></li>
                         <li><a href="/rko/onlajn">Онлайн</a></li>
                         <li><a href="/rko/besplatnyj">Бесплатно</a></li>
                         <li><a href="/rko/za-den">За один день</a></li>
