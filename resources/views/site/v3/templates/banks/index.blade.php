@@ -48,7 +48,7 @@ include (public_path(). "/old_theme/css/modules/banks/special-offers.css");
 
                                 <div class="itext"><p>{!! reviewsShortLenghtRender($value->review) !!}</p></div>
                                 <br>
-                                <a href="/banks/{{$value->bankAlias}}/otzyvy">Все отзывы банка</a>
+                                <a href="/banki/{{$value->bankAlias}}/otzyvy">Все отзывы банка</a>
                             </div>
                         @endforeach
                     </div>
