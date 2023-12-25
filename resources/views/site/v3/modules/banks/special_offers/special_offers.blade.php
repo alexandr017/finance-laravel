@@ -201,9 +201,9 @@
                             <img loading="lazy" src="{{$card->logo}}" alt="{{$card->title}}">
                         </div>
                         @if(isset($card->separate_page) && $card->separate_page == 1)
-                            <a class="company_title" href="/banki/{{$card->bankAlias}}/ipoteka/{{$card->productAlias}}">{{$card->title}}</a>
+                            <a class="company_title" href="/banki/{{$card->bankAlias}}/ipoteki/{{$card->productAlias}}">{{$card->title}}</a>
                         @else
-                            <a class="company_title" href="/banki/{{$card->bankAlias}}/ipoteka">{{$card->title}}</a>
+                            <a class="company_title" href="/banki/{{$card->bankAlias}}/ipoteki">{{$card->title}}</a>
                         @endif
                     </div>
                     <div class="showed-wrapper" data-label="Процентная ставка">
