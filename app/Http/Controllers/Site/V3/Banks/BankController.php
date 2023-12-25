@@ -35,7 +35,7 @@ class BankController extends BaseBankController
             ->leftJoin('banks','banks.id', 'bank_products.bank_id')
             ->leftJoin('cards','cards.id','bank_product_cards.card_id')
             ->select('cards.id','cards.category_id','bank_products.alias as productAlias','bank_products.separate_page', 'banks.alias as bankAlias')
-            ->where(['cards.category_id' => 2, 'bank_products.bank_id' => $bank->id])
+            ->where(['cards.category_id' => 2, 'bank_products.bank_id' => $bank->id, 'cards.status' => 1])
             ->whereNull('bank_products.deleted_at')
             ->orderBy("cards.flow")
             ->orderBy("cards.km5", 'desc')

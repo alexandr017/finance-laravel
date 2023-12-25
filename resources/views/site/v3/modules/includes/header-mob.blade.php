@@ -89,7 +89,6 @@
                     <li><a href="/vklady">Все вклады</a></li>
                     <li><a href="/vklady/fizicheskim-litsam">Для физических лиц</a></li>
                     <li><a href="/vklady/s-vysokim-protsentom">С высоким процентом</a></li>
-                    <li><a href="/vklady/luchshie">Лучшие</a></li>
                     <li><a href="/vklady/vygodnye">Выгодные</a></li>
                     <li><a href="/vklady/dlya-pensionerov">Для пенсионеров</a></li>
                     <li><a href="/vklady/srochnye">Срочные</a></li>

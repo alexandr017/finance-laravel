@@ -63,13 +63,12 @@ class CategoryController extends BaseBankController
             ->leftJoin('cards','cards.id','bank_product_cards.card_id')
             ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
             ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-            ->where(['bank_products.bank_category_id' => $page->id])
+            ->where(['bank_products.bank_category_id' => $page->id, 'cards.status' => 1])
             ->whereNull('bank_products.deleted_at')
-            ->orderBy("cards.flow", 'asc')
+            ->orderBy("cards.flow")
             ->orderBy("cards.km5", 'desc')
-            ->orderBy("cards.id", 'asc')
+            ->orderBy("cards.id")
             ->get();
-
 
         $cardIDs = $cardIDs->unique('id');
         $cards = CardsBoot::getCardsForListingByIDs($cardIDs);

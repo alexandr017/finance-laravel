@@ -9,6 +9,7 @@ use Cache;
 use DB;
 use App\Models\Companies\Companies;
 use App\Models\Banks\Bank;
+use App\Models\Banks\BankCategoryPage;
 
 trait CardsTrait
 {
@@ -65,6 +66,58 @@ trait CardsTrait
             $company = Companies::find($card->company_id);
             if ($company != null && $company->status == 1) {
                 $card->status = 1;
+            }
+
+
+
+
+            if (in_array($card->id, [30,1062,8293])) {
+                $card->link_to_entity = '/mfo/dobrozaim';
+                $card->link_to_reviews_page = '/mfo/dobrozaim/otzyvy';
+                $card->account_link = '/mfo/dobrozaim/lichnyj-kabinet';
+                $card->support_link = '/mfo/dobrozaim/gorjachaja-linija';
+            }
+
+            if (in_array($card->id, [1088,1574])) {
+                $card->link_to_entity = '/mfo/credit7';
+                $card->link_to_reviews_page = '/mfo/credit7/otzyvy';
+                $card->account_link = '/mfo/credit7/lichnyj-kabinet';
+                $card->support_link = '/mfo/credit7/gorjachaja-linija';
+            }
+
+            if (in_array($card->id, [8118,7082,1580])) {
+                $card->link_to_entity = '/mfo/ekspress-dengi';
+                $card->link_to_reviews_page = '/mfo/ekspress-dengi/otzyvy';
+                $card->account_link = '/mfo/ekspress-dengi/lichnyj-kabinet';
+                $card->support_link = '/mfo/ekspress-dengi/gorjachaja-linija';
+            }
+
+            if (in_array($card->id, [1084])) {
+                $card->link_to_entity = '/mfo/max-credit';
+                $card->link_to_reviews_page = '/mfo/max-credit/otzyvy';
+                $card->account_link = '/mfo/max-credit/lichnyj-kabinet';
+                $card->support_link = '/mfo/max-credit/gorjachaja-linija';
+            }
+
+            if (in_array($card->id, [13])) {
+                $card->link_to_entity = '/mfo/creditter';
+                $card->link_to_reviews_page = '/mfo/creditter/otzyvy';
+                $card->account_link = '/mfo/creditter/lichnyj-kabinet';
+                $card->support_link = '/mfo/creditter/gorjachaja-linija';
+            }
+
+            if (in_array($card->id, [10,1017,1109])) {
+                $card->link_to_entity = '/mfo/joy-money';
+                $card->link_to_reviews_page = '/mfo/joy-money/otzyvy';
+                $card->account_link = '/mfo/joy-money/lichnyj-kabinet';
+                $card->support_link = '/mfo/joy-money/gorjachaja-linija';
+            }
+
+            if (in_array($card->id, [6588,8156,8157])) {
+                $card->link_to_entity = '/mfo/zajmy-rf';
+                $card->link_to_reviews_page = '/mfo/zajmy-rf/otzyvy';
+                $card->account_link = '/mfo/zajmy-rf/lichnyj-kabinet';
+                $card->support_link = '/mfo/zajmy-rf/gorjachaja-linija';
             }
 
             $card->save();
@@ -128,7 +181,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 2, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();
@@ -195,7 +251,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 4, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();
@@ -261,7 +320,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 5, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();
@@ -325,7 +387,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 6, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();
@@ -389,7 +454,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 8, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();
@@ -453,7 +521,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 10, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();
@@ -517,7 +588,10 @@ trait CardsTrait
 
             $bank = Bank::find($card->bank_id);
             if ($bank != null && $bank->status == 1) {
-                $card->status = 1;
+                $bankCategoryPage = BankCategoryPage::where(['bank_id' => $bank->id, 'category_id' => 11, 'status' => 1])->first();
+                if ($bankCategoryPage != null) {
+                    $card->status = 1;
+                }
             }
 
             $card->save();

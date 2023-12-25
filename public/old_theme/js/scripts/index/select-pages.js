@@ -61,7 +61,6 @@ let indexLinks = [
     [
         ["Для физических лиц", "/vklady/fizicheskim-litsam"],
         ["С высоким процентом", "/vklady/s-vysokim-protsentom"],
-        ["Лучшие", "/vklady/luchshie"],
         ["Выгодные", "/vklady/vygodnye"],
         ["Для пенсионеров", "/vklady/dlya-pensionerov"],
         ["Срочные", "/vklady/srochnye"],

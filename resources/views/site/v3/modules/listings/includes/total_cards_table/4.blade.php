@@ -24,7 +24,7 @@
 			<td class="display_none">{{$j}}</td>
 			<td>
 			<?php if($card->link_type == 1) $link = $card->link_1; else $link = $card->link_2; ?>
-        		<a class="creditonline" href="{{$link}}" target="_blank" @if(!$amp) onclick="yaCounter38176370.reachGoal('{{$card->yandex_event}}'); return true;"@endif>{{$card->title}}</a>
+        		<a class="creditonline" href="{{$link}}" target="_blank">{{$card->title}}</a>
         	</td>
 			<td class="display_none">{{$card->header_1}}</td>
 			<td class="text-center">{{number_format($card->header_1, 0, '.', ' ')}} ₽</td>
