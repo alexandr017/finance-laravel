@@ -44,4 +44,20 @@ class ListingRepository extends Repository
             ->paginate(self::COUNT_ON_PAGE);
     }
 
+    public function findByLink(string $link, int $categoryId): object|null
+    {
+        $path = parse_url($link, PHP_URL_PATH);
+        $alias = ltrim($path, '/');
+
+        return $this->findByAlias($alias, $categoryId);
+    }
+
+    public function findByAlias(string $alias, int $categoryId): object|null
+    {
+        return DB::table('listings')
+            ->where('alias', $alias)
+            ->where('category_id', $categoryId)
+            ->first();
+    }
+
 }

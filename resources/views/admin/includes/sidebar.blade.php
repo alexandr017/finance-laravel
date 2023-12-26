@@ -64,8 +64,8 @@
                     <span>Карточки</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu @if(Request::routeIs('admin.cards.*')) menu-open @endif"
-                    style="display: none; @if(Request::routeIs('admin.cards.*')) display: block; @endif"
+                <ul class="treeview-menu @if(Request::routeIs('admin.cards.*', 'admin.relinking.*', 'admin.relinking_groups.*')) menu-open @endif"
+                    style="display: none; @if(Request::routeIs('admin.cards.*', 'admin.relinking.*', 'admin.relinking_groups.*')) display: block; @endif"
                 >
                     <li class="@if(Request::routeIs('admin.cards.categories.*')) active @endif">
                         <a href="{{ route('admin.cards.categories.index') }}">
@@ -83,6 +83,12 @@
                         <a href="{{ route('admin.cards.listings.index') }}">
                             <i class="fa fa-edit"></i>
                             <span>Листинги</span>
+                        </a>
+                    </li>
+                    <li class="@if(Request::routeIs('admin.relinking.*', 'admin.relinking_groups.*')) active @endif">
+                        <a href="{{ route('admin.relinking.index') }}">
+                            <i class="fa fa-tags"></i>
+                            <span>Перелинковка</span>
                         </a>
                     </li>
                 </ul>
@@ -161,6 +167,15 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+
+            <li class="header">Универсальный раздел</li>
+
+            <li class="@if(Request::routeIs('admin.hide_links.*')) active @endif">
+                <a href="{{ route('admin.hide_links.index') }}" class="active">
+                    <i class="fa fa-link"></i>
+                    <span>Скрытые ссылки</span>
+                </a>
             </li>
         </ul>
 
