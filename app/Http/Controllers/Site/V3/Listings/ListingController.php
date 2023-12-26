@@ -146,7 +146,7 @@ class ListingController extends Controller
             5 => ['link' => '/kreditnye-karty', 'h1' => 'Кредитные карты'],
             6 => ['link' => '/debetovye-karty', 'h1' => 'Дебетовые карты'],
             8 => ['link' => '/avtokredity', 'h1' => 'Автокредиты'],
-            10 => ['link' => '/ipoteki', 'h1' => 'Ипотеки'],
+            10 => ['link' => '/ipoteka', 'h1' => 'Ипотеки'],
             11 => ['link' => '/vklady', 'h1' => 'Вклады'],
             default => ['link' => '', 'h1' => '']
         };

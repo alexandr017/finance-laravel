@@ -11,6 +11,7 @@ class BankLoadProductActionController extends Controller
 {
     public function loadCardsForCategory(Request $request)
     {
+        dd(1);
         $pageID = (int) clear_data($request['item_id']);
 
         $page = DB::table('bank_category_pages')
@@ -31,12 +32,14 @@ class BankLoadProductActionController extends Controller
             ->leftJoin('cards','cards.id','bank_product_cards.card_id')
             ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
             ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-            ->where(['bank_products.bank_category_id' => $pageID])
+            ->where(['bank_products.bank_category_id' => $pageID, 'cards.status' => 1])
             ->whereNull('bank_products.deleted_at')
             ->orderBy("cards.flow", 'asc')
             ->orderBy("cards.km5", 'desc')
             ->orderBy("cards.id", 'asc')
             ->get();
+
+
 
         $cardIDs = $cardIDs->unique('id');
 
@@ -79,7 +82,7 @@ class BankLoadProductActionController extends Controller
             ->leftJoin('cards','cards.id','bank_product_cards.card_id')
             ->leftJoin('cards_categories','cards_categories.id','bank_category_pages.category_id')
             ->select('cards.id','cards.category_id','banks.alias as bankAlias' ,'bank_products.alias as productAlias','bank_products.separate_page', 'cards_categories.bank_alias as categoryAlias')
-            ->where(['bank_products.id' => $pageID])
+            ->where(['bank_products.id' => $pageID, 'cards.status' => 1])
             ->whereNull('bank_products.deleted_at')
             ->orderBy("cards.flow", 'asc')
             ->orderBy("cards.km5", 'desc')

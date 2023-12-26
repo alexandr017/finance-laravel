@@ -13,7 +13,13 @@ class PartnerLinksController extends Controller
     {
         $alias = clear_data($alias);
         $link = 'd/mfo-' . $alias;
+        return $this->findLink($link);
+    }
 
+    public function mfoReserve(string $alias) : ?RedirectResponse
+    {
+        $alias = clear_data($alias);
+        $link = 'r/mfo-' . $alias;
         return $this->findLink($link);
     }
 

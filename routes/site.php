@@ -18,6 +18,7 @@ Route::post('actions/rating-add', [PageRatingController::class, 'addVote'])->nam
 Route::post('actions/add-review', [ActionsController::class, 'addReview'])->name('actions.add_review');
 
 Route::get('d/mfo-{alias}', [PartnerLinksController::class, 'mfo']);
+Route::get('r/mfo-{alias}', [PartnerLinksController::class, 'mfoReserve']);
 Route::get('d/banki/{bankAlias}/{categoryAlias}/{productAlias}', [PartnerLinksController::class, 'banks']);
 
 include "site/banks.php";

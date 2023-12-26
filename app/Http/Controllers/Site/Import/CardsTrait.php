@@ -38,20 +38,20 @@ trait CardsTrait
             $card->logo = str_replace('.svg', '.png', $card->logo);
             $card->logo = str_replace('https://vsezaimyonline.ru/', '/', $card->logo);
 
-            if (!str_contains($card->account_link, '/mfo')) {
+            if (!str_contains($card->account_link, '/mfo') && $card->id != 9188 && $card->id != 9292) {
                 $card->account_link = '/mfo' . $card->account_link;
                 $card->account_link = str_replace('/login', '/lichnyj-kabinet', $card->account_link);
             }
-            if (!str_contains($card->support_link, '/mfo')) {
+            if (!str_contains($card->support_link, '/mfo/')) {
                 $card->support_link = '/mfo' . $card->support_link;
             }
 
-            if (!str_contains($card->link_to_reviews_page, '/mfo')) {
+            if (!str_contains($card->link_to_reviews_page, '/mfo/')) {
                 $card->link_to_reviews_page = '/mfo' . $card->link_to_reviews_page;
                 $card->link_to_reviews_page = str_replace('/reviews', '/otzyvy', $card->link_to_reviews_page);
             }
 
-            if (!str_contains($card->link_to_entity, '/mfo')) {
+            if (!str_contains($card->link_to_entity, '/mfo/')) {
                 $card->link_to_entity = '/mfo' . $card->link_to_entity;
             }
 

@@ -13,8 +13,8 @@ trait ListingsTrait
     {
         DB::delete('delete from listings');
         DB::update("ALTER TABLE listings AUTO_INCREMENT = 1;");
-        DB::delete('delete from listing_cards');
-        DB::update("ALTER TABLE listing_cards AUTO_INCREMENT = 1;");
+//        DB::delete('delete from listing_cards');
+//        DB::update("ALTER TABLE listing_cards AUTO_INCREMENT = 1;");
 
         $id = '1316Sq78XzT0OC0IjAM36_SyG0k3y0ldLdEKx3igmCZE';
         $gid = '0';
@@ -24,6 +24,8 @@ trait ListingsTrait
         $data = array_map('str_getcsv', $csv);
 
         $isFirstLine = true;
+
+        $i = 0;
 
 
         //DB::transaction(function() use($data, $isFirstLine) {
@@ -36,6 +38,12 @@ trait ListingsTrait
 
                 if (count($row) != 11) {
                     dd($row);
+                }
+
+                $i++;
+                if ($i > 30) {
+                    //dd($data);
+                    //break;
                 }
 
                 $dataForInsert = [
@@ -65,40 +73,42 @@ trait ListingsTrait
                 $listing->save();
                 $listingID = $listing->id;
 
-                if ($row[5] != '/') {
-                    if ($row[8] == '') {
-                        $allEnableCards = Cards::select('id')->where(['category_id' => $listing->category_id, 'status' => 1])->get();
-                        foreach ($allEnableCards as $card) {
-                            $listingCard = new ListingCards([
-                                'listing_id' => $listing->id,
-                                'card_id' => $card->id
-                            ]);
-                            $listingCard->save();
-                        }
-                    } else {
-                        if ($row[9] == 'o') {
-                            $allListingCards = DB::table('cards_childrens_vzo')->where(['children_id' => $row[8]])->get();
-                            foreach ($allListingCards as $card) {
-                                $listingCard = new ListingCards([
-                                    'listing_id' => $listing->id,
-                                    'card_id' => $card->card_id
-                                ]);
-                                $listingCard->save();
-                            }
-                            //dd($allListingCards, 5);
-                        } else {
-                            $allListingCards = DB::table('listing_cards_vzo')->where(['listing_id' => $row[8]])->get();
-                            foreach ($allListingCards as $card) {
-                                $listingCard = new ListingCards([
-                                    'listing_id' => $listing->id,
-                                    'card_id' => $card->card_id
-                                ]);
-                                $listingCard->save();
-                            }
-                        }
-                    }
 
-                }
+
+//                if ($row[5] != '/') {
+//                    if ($row[8] == '') {
+//                        $allEnableCards = Cards::select('id')->where(['category_id' => $listing->category_id, 'status' => 1])->get();
+//                        foreach ($allEnableCards as $card) {
+//                            $listingCard = new ListingCards([
+//                                'listing_id' => $listing->id,
+//                                'card_id' => $card->id
+//                            ]);
+//                            $listingCard->save();
+//                        }
+//                    } else {
+//                        if ($row[9] == 'o') {
+//                            $allListingCards = DB::table('cards_childrens_vzo')->where(['children_id' => $row[8]])->get();
+//                            foreach ($allListingCards as $card) {
+//                                $listingCard = new ListingCards([
+//                                    'listing_id' => $listing->id,
+//                                    'card_id' => $card->card_id
+//                                ]);
+//                                $listingCard->save();
+//                            }
+//                            dd($allListingCards, 5, );
+//                        } else {
+//                            $allListingCards = DB::table('listing_cards_vzo')->where(['listing_id' => $row[8]])->get();
+//                            foreach ($allListingCards as $card) {
+//                                $listingCard = new ListingCards([
+//                                    'listing_id' => $listing->id,
+//                                    'card_id' => $card->card_id
+//                                ]);
+//                                $listingCard->save();
+//                            }
+//                        }
+//                    }
+//
+//                }
 
 
 

@@ -81,22 +81,6 @@
                 @endif
             @endif
 
-
-            @if($popularBanks != null)
-            <div class="popular_banks">
-                <h2 class="listing-h2 text-center">{{$popularBanks->h2}}</h2>
-                <?php $popular_banks_json = json_decode($popularBanks->json); ?>
-                @if($popular_banks_json != null)
-                <div id="popular_banks_slider">
-                    @foreach($popular_banks_json as $json_item)
-                    <div><a href="{{$json_item->href}}" target="_blank"><img loading="lazy" src="{{$json_item->logo}}" alt="{{$json_item->title}}"><br><span>{{$json_item->title}}</span></a></div>
-                    @endforeach
-                </div>
-                @endif
-            </div>
-            @endif
-
-
             <div class="alc">{!! TagsParser::compile(Shortcode::compile($page->content)) !!}</div>
 
 
