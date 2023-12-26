@@ -710,6 +710,11 @@ trait CardsTrait
             $card->link_to_reviews_page = '/banki/bank-bcs/otzyvy';
         }
 
+        if ($card->id == 8105) {
+            $card->account_link = '/banki/rosbank/lichnyj-kabinet';
+        }
+
+
 
 
 
