@@ -110,6 +110,7 @@ class ListingController extends Controller
             $cards = $card_repository->getProductForSection($categoryID);
         } elseif ($page->id != 0) {
             $cards = $card_repository->getSortedCards($page->id);
+            //dd($cards);
         } else {
             $cards = [];
         }
