@@ -714,6 +714,26 @@ trait CardsTrait
             $card->account_link = '/banki/rosbank/lichnyj-kabinet';
         }
 
+        if ($card->id == 3693) {
+            $card->account_link = '/banki/gazprombank/lichnyj-kabinet';
+        }
+
+        if (in_array($card->id, [8175, 8176, 9124])) {
+            $card->logo = '/images/zajm/celfin.png';
+        }
+
+        if (in_array($card->id, [2172, 9029])) {
+            $card->logo = '/images/zajm/cashtoyou.png';
+        }
+
+        if (in_array($card->id, [1088, 1574])) {
+            $card->logo = '/images/zajm/credit7.png';
+        }
+
+
+
+
+
 
 
 
