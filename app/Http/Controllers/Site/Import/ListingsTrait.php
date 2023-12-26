@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site\Import;
 use App\Models\Cards\Listing;
 use App\Models\Cards\ListingCards;
 use DB;
+use App\Models\Cards\Cards;
 
 trait ListingsTrait
 {
@@ -25,7 +26,7 @@ trait ListingsTrait
         $isFirstLine = true;
 
 
-        DB::transaction(function() use($data, $isFirstLine) {
+        //DB::transaction(function() use($data, $isFirstLine) {
             foreach ($data as $row) {
 
                 if ($isFirstLine) {
@@ -57,7 +58,7 @@ trait ListingsTrait
                     'average_rating' => (self::min_average_rating + (self::max_average_rating - self::min_average_rating) * (mt_rand() / mt_getrandmax())),
                     'number_of_votes' => rand(self::min_number_of_votes, self::max_number_of_votes),
                     'status' => 1,
-                    'alias' => $row[5]
+                    'alias' => trim($row[5])
                 ];
 
                 $listing = new Listing($dataForInsert);
@@ -65,21 +66,44 @@ trait ListingsTrait
                 $listingID = $listing->id;
 
                 if ($row[5] != '/') {
-                    $cards = explode(',', $row[8]);
-
-                    foreach ($cards as $cardID) {
-                        $listingCard = new ListingCards([
-                            'listing_id' => $listingID,
-                            'card_id' => trim($cardID),
-                        ]);
-                        $listingCard->save();
+                    if ($row[8] == '') {
+                        $allEnableCards = Cards::select('id')->where(['category_id' => $listing->category_id, 'status' => 1])->get();
+                        foreach ($allEnableCards as $card) {
+                            $listingCard = new ListingCards([
+                                'listing_id' => $listing->id,
+                                'card_id' => $card->id
+                            ]);
+                            $listingCard->save();
+                        }
+                    } else {
+                        if ($row[9] == 'o') {
+                            $allListingCards = DB::table('cards_childrens_vzo')->where(['children_id' => $row[8]])->get();
+                            foreach ($allListingCards as $card) {
+                                $listingCard = new ListingCards([
+                                    'listing_id' => $listing->id,
+                                    'card_id' => $card->card_id
+                                ]);
+                                $listingCard->save();
+                            }
+                            //dd($allListingCards, 5);
+                        } else {
+                            $allListingCards = DB::table('listing_cards_vzo')->where(['listing_id' => $row[8]])->get();
+                            foreach ($allListingCards as $card) {
+                                $listingCard = new ListingCards([
+                                    'listing_id' => $listing->id,
+                                    'card_id' => $card->card_id
+                                ]);
+                                $listingCard->save();
+                            }
+                        }
                     }
+
                 }
 
 
 
             }
-        });
+        //});
 
         echo 'Все ок';
     }

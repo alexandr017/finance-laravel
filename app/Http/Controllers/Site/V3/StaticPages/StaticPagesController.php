@@ -26,9 +26,9 @@ class StaticPagesController extends Controller
         $cardRepository = new CardRepository;
         $loans = $cardRepository->getProductForIndex(1);
         $rko = $cardRepository->getProductForIndex(2);
-        $credits = $cardRepository->getProductForIndex(3);
-        $creditCards = $cardRepository->getProductForIndex(4);
-        $debitCards = $cardRepository->getProductForIndex(5);
+        $credits = $cardRepository->getProductForIndex(4);
+        $creditCards = $cardRepository->getProductForIndex(5);
+        $debitCards = $cardRepository->getProductForIndex(6);
         $autoCredits = $cardRepository->getProductForIndex(8);
         $mortgage = $cardRepository->getProductForIndex(10);
         $deposits = $cardRepository->getProductForIndex(11);

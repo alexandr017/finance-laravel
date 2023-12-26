@@ -32,14 +32,55 @@ class CardRepository extends Repository
 
     public function getProductForIndex(int $categoryID, int $limit = 3)
     {
-        return DB::table('cards')
-            ->where(['category_id' => $categoryID ,'status' => 1])
-            ->orderBy('flow')
-            ->orderBy('km5','desc')
-            ->orderBy('promo','desc')
-            ->orderBy('id')
-            ->limit($limit)
-            ->get();
+        $IDWithDoubles = [];
+        $cards = [];
+        if ($categoryID == 1) {
+            $cardsRow =  DB::table('cards')
+                ->leftJoin('companies', 'companies.id', 'cards.company_id')
+                ->select('cards.*')
+                ->where(['cards.category_id' => $categoryID ,'cards.status' => 1, 'companies.status' => 1])
+                ->orderBy('cards.flow')
+                ->orderBy('cards.km5','desc')
+                ->orderBy('cards.promo','desc')
+                ->orderBy('cards.id')
+                ->limit($limit * 2)
+                ->get();
+
+            foreach ($cardsRow as $row) {
+                if (!isset($IDWithDoubles[$row->company_id])) {
+                    $cards [] = $row;
+                    $IDWithDoubles [$row->company_id] = 1;
+                    if (count($cards) == $limit) {
+                        break;
+                    }
+                }
+            }
+        } else {
+            $cardsRow =  DB::table('cards')
+                ->leftJoin('banks', 'banks.id', 'cards.bank_id')
+                ->select('cards.*')
+                ->where(['cards.category_id' => $categoryID ,'cards.status' => 1, 'banks.status' => 1])
+                ->whereNull('banks.deleted_at')
+                ->orderBy('cards.flow')
+                ->orderBy('cards.km5','desc')
+                ->orderBy('cards.promo','desc')
+                ->orderBy('cards.id')
+                ->limit($limit * 2)
+                ->get();
+
+            foreach ($cardsRow as $row) {
+                if (!isset($IDWithDoubles[$row->bank_id])) {
+                    $cards [] = $row;
+                    $IDWithDoubles [$row->bank_id] = 1;
+                    if (count($cards) == $limit) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $cards;
+
     }
 
     public function getProductForSection(int $categoryID, $sort_field = 'km5', $sort_type = 'desc')
@@ -87,7 +128,7 @@ class CardRepository extends Repository
         $currentDate = date('d-m-Y');
 
         return DB::table('cards')
-            ->leftJoin('listing_cards','cards.id','listing_cards.card_id')
+            //->leftJoin('listing_cards','cards.id','listing_cards.card_id')
             ->select('cards.id','cards.category_id')
             ->where([
                 'cards.category_id' => $sectionID,

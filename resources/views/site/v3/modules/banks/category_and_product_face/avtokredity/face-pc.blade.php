@@ -25,7 +25,7 @@
                 @if(isset($linkToReviewsPage))
                 {!! App\Algorithms\System::rating($ratingValue) !!}
                 <div class="text-rating">
-                    <a rel="nofollow" href="{{$linkToReviewsPage}}">{{count($reviews)}} {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
+                    <a rel="nofollow" href="/banki/{{$bank->alias}}/otzyvy">{{count($reviews)}} {{System::endWords(count($reviews), ['отзыв', 'отзыва', 'отзывов'])}}</a>
                 </div>
                 <div class="val-rating">(<span>{{$ratingValue}}</span> из <span>5</span>)</div>
                 @endif

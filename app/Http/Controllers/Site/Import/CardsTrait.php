@@ -55,18 +55,26 @@ trait CardsTrait
                 $card->link_to_entity = '/mfo' . $card->link_to_entity;
             }
 
+            $company = Companies::find($card->company_id);
+            if ($company != null && $company->status == 1) {
+                $card->status = 1;
+            }
+
             /////
 
             if ($card->id == 33) {
                 $card->logo = '/images/zajm/4slovo.png';
             }
 
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+
             ////
 
-            $company = Companies::find($card->company_id);
-            if ($company != null && $company->status == 1) {
-                $card->status = 1;
-            }
+
+
+
 
 
 
@@ -187,6 +195,22 @@ trait CardsTrait
                 }
             }
 
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -255,6 +279,22 @@ trait CardsTrait
                 if ($bankCategoryPage != null) {
                     $card->status = 1;
                 }
+            }
+
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
             }
 
             $card->save();
@@ -326,6 +366,22 @@ trait CardsTrait
                 }
             }
 
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -391,6 +447,22 @@ trait CardsTrait
                 if ($bankCategoryPage != null) {
                     $card->status = 1;
                 }
+            }
+
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
             }
 
             $card->save();
@@ -460,6 +532,22 @@ trait CardsTrait
                 }
             }
 
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -527,6 +615,22 @@ trait CardsTrait
                 }
             }
 
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
+            }
+
             $card->save();
 
             if (Cache::has('card'.$_card->id)) {
@@ -592,6 +696,22 @@ trait CardsTrait
                 if ($bankCategoryPage != null) {
                     $card->status = 1;
                 }
+            }
+
+            if (in_array($card->id, [9693, 9682, 9683])) {
+                $card->status = 0;
+            }
+            if ($card->bank_id == 54) {
+                $card->link_to_entity = str_replace('mtsbank', 'mts', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('mtsbank', 'mts', $card->link_to_reviews_page);
+                $card->account_link = str_replace('mtsbank', 'mts', $card->account_link);
+                $card->support_link = str_replace('mtsbank', 'mts', $card->support_link);
+            }
+            if ($card->bank_id == 14) {
+                $card->link_to_entity = str_replace('bcs-bank', 'bank-bcs', $card->link_to_entity);
+                $card->link_to_reviews_page = str_replace('bcs-bank', 'bank-bcs', $card->link_to_reviews_page);
+                $card->account_link = str_replace('bcs-bank', 'bank-bcs', $card->account_link);
+                $card->support_link = str_replace('bcs-bank', 'bank-bcs', $card->support_link);
             }
 
             $card->save();
