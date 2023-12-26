@@ -690,6 +690,29 @@ trait CardsTrait
         if ($link2 == '/crcards/alfabank-100-days-res') $card->link_2 = 'https://alfabank.ru/get-money/credit-cards/100-days/';
         if ($link2 == '/crcards/open-credit-biznes-res') $card->link_2 = 'https://www.open.ru/sme/creditcard';
 
+        if ($card->id == 7593) {
+            $card->account_link = '/banki/rosbank/lichnyj-kabinet';
+        }
+
+        if ($card->id == 3383) {
+            $card->account_link = '/banki/gazprombank/lichnyj-kabinet';
+        }
+
+        if ($card->id == 489) {
+            $card->link_to_reviews_page = '/banki/bank-bcs/otzyvy';
+        }
+
+        if ($card->id == 9026) {
+            $card->link_2 = 'https://www.open.ru/sme/creditcard';
+        }
+
+        if ($card->id == 488) {
+            $card->link_to_reviews_page = '/banki/bank-bcs/otzyvy';
+        }
+
+
+
+
         return $card;
     }
 

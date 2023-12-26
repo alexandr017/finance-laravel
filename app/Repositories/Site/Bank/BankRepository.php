@@ -15,7 +15,7 @@ class BankRepository
 
     public function getTopProductByCategory(int $categoryID, int $bankID = null, $limit = 3) : Collection
     {
-        $where = ['cards.category_id' => $categoryID];
+        $where = ['cards.category_id' => $categoryID, 'banks.status' =>1];
 
         if ($bankID != null) {
             $where ['bank_id'] = $bankID;
