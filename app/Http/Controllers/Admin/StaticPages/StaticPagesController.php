@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin\StaticPages;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Requests\Admin\StaticPages\StaticPageRequest;
 use App\Models\StaticPages\StaticPage;
 use App\Repositories\Admin\StaticPages\StaticPageRepository;
 use Illuminate\Http\Request;
 
-class StaticPagesController extends Controller
+class StaticPagesController extends AdminController
 {
     private const min_average_rating = 4.0;
     private const max_average_rating = 5.0;

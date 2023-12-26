@@ -15,11 +15,14 @@ use App\Http\Controllers\Admin\Companies\ChildrenPagesController;
 use App\Http\Controllers\Admin\Companies\CompaniesController;
 use App\Http\Controllers\Admin\Companies\ReviewsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HideLinks\HideLinksController;
 use App\Http\Controllers\Admin\Posts\AuthorsController;
 use App\Http\Controllers\Admin\Posts\PostsCategoriesController;
 use App\Http\Controllers\Admin\Posts\PostsCommentsController;
 use App\Http\Controllers\Admin\Posts\PostsController;
 use App\Http\Controllers\Admin\Posts\PostTagsController;
+use App\Http\Controllers\Admin\Relinking\RelinkingController;
+use App\Http\Controllers\Admin\Relinking\RelinkingGroupsController;
 use App\Http\Controllers\Admin\StaticPages\StaticPagesController;
 
 Route::group(['middleware' => ['auth.admin'] ,'prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -128,4 +131,10 @@ Route::group(['middleware' => ['auth.admin'] ,'prefix' => 'admin', 'as' => 'admi
         });
     });
 
+    Route::resource('relinking', RelinkingController::class);
+    Route::resource('relinking_groups', RelinkingGroupsController::class);
+    Route::get('get-relinking-groups/{category_id}', [RelinkingController::class, 'getRelinkingGroups']);
+
+    Route::resource('hide_links', HideLinksController::class);
+    Route::get('log-viewer/links', [HideLinksController::class, 'logs'])->name('hide_links.logs');
 });
