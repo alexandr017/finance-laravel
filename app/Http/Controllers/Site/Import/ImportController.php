@@ -20,4 +20,5 @@ class ImportController extends Controller
     use BlogTrait;
     use CardsTrait;
     use LinksTrait;
+    use CardsLevel2Trait;
 }

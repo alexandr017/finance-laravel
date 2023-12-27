@@ -32,3 +32,6 @@ include 'parsers.php';
 //Route::fallback(function(){
 //    return (new App\Http\Controllers\Site\V3\DynamicSiteController())->render();
 //});
+
+
+Route::get('test111', [\App\Http\Controllers\Site\Test::class, 'index']);
