@@ -1,2 +1,71 @@
 User-agent: *
-Disallow:
+
+Disallow: /search
+Disallow: /page/
+Disallow: *.pdf
+
+Disallow: /*_escaped_fragment_=
+Disallow: /*_wpnonce=
+Disallow: /*banner-test-tags=
+Disallow: /*credit_sum=
+Disallow: /*debug=
+Disallow: /*go?url=
+Disallow: /*oprd=
+Disallow: /*p=
+Disallow: /*page_id=
+Disallow: /*paged=
+Disallow: /*rb_clickid=
+Disallow: /*se=
+Disallow: /*sum_min=
+Disallow: /*utm_medium=
+Disallow: /*utm_referrer=
+Disallow: /*utm_source=
+Disallow: /*vkextra=
+Disallow: /*yclid=
+
+Allow: /old_theme/*
+Allow: /old_theme/css/A.s.php
+Allow: /old_theme/css/s.php
+Allow: /old_theme/css/*
+Allow: /old_theme/js/*
+Allow: /images/*
+Allow: *.woff
+Allow: *.woff2
+Allow: *.ttf
+
+User-agent: Yandex
+
+Disallow: /search
+Disallow: /page/
+Disallow: *.pdf
+
+Disallow: /*_escaped_fragment_=
+Disallow: /*_wpnonce=
+Disallow: /*banner-test-tags=
+Disallow: /*credit_sum=
+Disallow: /*debug=
+Disallow: /*go?url=
+Disallow: /*oprd=
+Disallow: /*p=
+Disallow: /*page_id=
+Disallow: /*paged=
+Disallow: /*rb_clickid=
+Disallow: /*se=
+Disallow: /*sum_min=
+Disallow: /*utm_medium=
+Disallow: /*utm_referrer=
+Disallow: /*utm_source=
+Disallow: /*vkextra=
+Disallow: /*yclid=
+
+Allow: /old_theme/*
+Allow: /old_theme/css/A.s.php
+Allow: /old_theme/css/s.php
+Allow: /old_theme/css/*
+Allow: /old_theme/js/*
+Allow: /images/*
+Allow: *.woff
+Allow: *.woff2
+Allow: *.ttf
+
+Sitemap: https://finance.ru/sitemap.xml

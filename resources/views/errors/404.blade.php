@@ -29,18 +29,6 @@
                     </div>
                 </div>
   */ ?>
-                <p>Перейти на интересующий вас раздел:</p>
-
-                <ul class="menu-404">
-                    <li><a href="/zaimy">Займы</a></li>
-                    <li><a href="/kredity">Кредиты</a></li>
-                    <li><a href="/avtokredity">Автокредиты</a></li>
-                    <li><a href="/kreditnye-karty">Кредитные карты</a></li>
-                    <li><a href="/debetovye-karty">Дебетовые карты</a></li>
-                    <li><a href="/vklady">Вклады</a></li>
-                    <li><a href="/ipoteka">Ипотеки</a></li>
-                    <li><a href="/rko">РКО</a></li>
-                </ul>
                 <br class="clearfix">
             </div>
         </div>

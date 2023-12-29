@@ -30,6 +30,7 @@
         </thead>
         <tbody>
         <?php $j = 1; ?>
+
         @foreach($cards as $card)
             <tr>
                 <td class="display_none">{{$j}}</td>
