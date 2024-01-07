@@ -78,13 +78,15 @@ trait BlogTrait
                     'meta_description' => $row[3],
                     'h1' => $row[4],
                     'alias' => $row[5],
-                    'breadcrumbs' => $row[5],
-                    'short_content' => $row[6],
-                    'content' => $row[7],
-                    'date' => $row[8],
-                    'related' => $row[9],
+                    'breadcrumbs' => $row[6],
+                    'short_content' => $row[7],
+                    'content' => $row[8],
+                    'date' => date("Y-m-d H:i:s", strtotime($row[9])),
+                    'related' => $row[10],
                     'status' => 1
                 ];
+
+                //dd($dataForInsert, $data);
 
                 $category = new Posts($dataForInsert);
                 $category->save();

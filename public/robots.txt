@@ -2,7 +2,7 @@ User-agent: *
 
 Disallow: /search
 Disallow: /page/
-Disallow: *.pdf
+Disallow: *.pdf 
 
 Disallow: /*_escaped_fragment_=
 Disallow: /*_wpnonce=
@@ -37,7 +37,8 @@ User-agent: Yandex
 
 Disallow: /search
 Disallow: /page/
-Disallow: *.pdf
+Disallow: *.pdf 
+Disallow: */amp
 
 Disallow: /*_escaped_fragment_=
 Disallow: /*_wpnonce=
